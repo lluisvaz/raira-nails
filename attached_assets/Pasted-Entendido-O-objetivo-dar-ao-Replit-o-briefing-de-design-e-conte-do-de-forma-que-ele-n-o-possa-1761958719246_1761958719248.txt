@@ -1,0 +1,149 @@
+Entendido. O objetivo é dar ao Replit o briefing de *design* e *conteúdo* de forma que ele não possa falhar, mas deixá-lo decidir a *tecnologia* para executar a visão.
+
+Esta é a abordagem correta. Você fornece a estratégia e a visão (o "o quê"), e a IA cuida da implementação técnica (o "como").
+
+Aqui está o prompt refinado, focado 100% na visão e no conteúdo, sem ditar a stack.
+
+---
+
+### 🚀 O Prompt Definitivo para a IA do Replit
+
+**Assunto:** Criação de Landing Page para Curso de Nail Designer (Profissional, Minimalista, Dark Theme)
+
+**Prompt:**
+
+Olá! Por favor, atue como um desenvolvedor front-end sênior, especialista em UI/UX e design minimalista. Sua tarefa é criar uma landing page de altíssima qualidade, elegante e profissional para um curso online de Nail Designer.
+
+**Você tem total liberdade para escolher a melhor e mais moderna stack** (seja HTML/CSS/JS puro, React, Vue, TailwindCSS, etc.) para construir este projeto. O foco é em performance, responsividade e código limpo.
+
+No entanto, as **especificações de design e a estrutura de conteúdo abaixo são mandatórias e devem ser seguidas com precisão absoluta**. O resultado visual final é exato e não-negociável. O design deve ser leve, sofisticado e focado na conversão, **evitando a todo custo** qualquer elemento genérico ou com aparência de template de IA.
+
+---
+
+### 1. Especificações Visuais Mandatórias (O Design)
+
+**a. Configuração Geral e Paleta:**
+* **Fundo Principal (Body):** `#130C0C`
+* **Texto Padrão (Body):** `#FFFFFF` (Branco). Use um tom mais suave como `#E0E0E0` para parágrafos, para reduzir o contraste excessivo.
+* **Fonte Principal:** Importe e use `'Inter'` (via Google Fonts) com pesos 300, 400, 500 e 700.
+* **Antialiasing:** Aplique suavização de fonte (ex: `-webkit-font-smoothing: antialiased`).
+
+**b. Layout e Espaçamento:**
+* **Container:** Crie uma classe de "container" principal com `max-width: 1100px`, `margin: 0 auto` e `padding` lateral (ex: `0 2rem`).
+* **Espaço em Branco (Preto):** O design é minimalista. Use `padding` de seção generoso (ex: `80px 0`) para dar "respiro" ao conteúdo.
+
+**c. Tipografia (Crítico para o Design):**
+* **Texto Gradiente (Destaque):**
+    * Use este gradiente para `h1`, `h2` e qualquer texto de destaque principal.
+    * `background: linear-gradient(90deg, #DBA86F 0%, #FCE9B5 100%)`
+    * (Deve ser aplicado como "text-clip").
+* **H1 (Título Principal):** `font-size: 3.2rem`, `font-weight: 700`, `line-height: 1.3`. Deve usar o **Texto Gradiente**.
+* **H2 (Títulos de Seção):** `font-size: 2.5rem`, `font-weight: 700`, `text-align: center`, `margin-bottom: 40px`. Deve usar o **Texto Gradiente**.
+* **H3 (Subtítulos de Card/Módulo):** `font-size: 1.5rem`, `color: #FCE9B5` (um tom do gradiente).
+* **Parágrafos (`p`):** `font-size: 1.1rem`, `color: #E0E0E0` (branco suave), `max-width: 650px` (para legibilidade).
+* **Subtítulo (classe `.subtitle`):** `font-size: 1.2rem`, `color: #F0F0F0`.
+
+**d. Botão CTA (Call to Action):**
+* **Classe:** `.cta-button`
+* **Texto:** `color: #000000` (Preto).
+* **Fundo (Gradiente):** `background: linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)`
+* **Formato:** `padding: 18px 40px`, `border-radius: 50px` (totalmente arredondado), `border: none`.
+* **Fonte:** `font-size: 1.1rem`, `font-weight: 700`, `text-decoration: none`.
+* **Hover (Interação):** `transform: scale(1.05)` e `box-shadow: 0 4px 20px rgba(239, 213, 167, 0.2)`.
+
+**e. Efeito de Brilho Sutil:**
+* **Classe:** `.glow-section` (para ser aplicada em seções-chave, como Hero e Oferta).
+* **Efeito:** Use um pseudo-elemento (`::before`) posicionado no topo central da seção.
+* **Estilo do Brilho:** `position: absolute`, `top: -150px`, `left: 50%`, `transform: translateX(-50%)`, `width: 500px`, `height: 300px`, `background: radial-gradient(circle, rgba(219, 168, 111, 0.08) 0%, rgba(219, 168, 111, 0) 70%)`, `z-index: 1`, `pointer-events: none`.
+
+**f. Estilo de Cards (Módulos, Depoimentos):**
+* **Fundo:** `#1A1212` (um pouco mais claro que o fundo principal).
+* **Borda:** `1px solid #332A2A` (uma borda sutil).
+* **Formato:** `padding: 30px`, `border-radius: 15px`.
+* **Hover (Interação):** `transform: translateY(-5px)`, `border-color: #DBA86F`.
+
+**g. Responsividade:**
+* O site deve ser 100% responsivo. Em telas menores, as fontes devem ser redimensionadas, e os grids (módulos, depoimentos) devem se tornar de coluna única.
+
+---
+
+### 2. Estrutura de Conteúdo Mandatória (O `HTML` ou Componentes)
+
+**Instrução:** Use o conteúdo exato fornecido abaixo para preencher a estrutura da página, seção por seção.
+
+**1. Seção Hero (`<header>`):**
+* Classes: `hero container glow-section` (centralizado).
+* `h1`: "Fature +R$5.000/Mês como Nail Designer de Sucesso, Dominando as Técnicas que as Clientes Amam!"
+* `p.subtitle`: "A Formação Completa que te leva do Zero Absoluto a uma Profissional Reconhecida e com a Agenda Cheia."
+* **Vídeo de Vendas:** Insira um placeholder de vídeo (`div.video-placeholder`) aqui.
+* `a.cta-button` (link para `#offer`): "QUERO ME TORNAR UMA NAIL DESIGNER DE SUCESSO!"
+
+**2. Seção Problema/Conexão (`<section>`):**
+* Classes: `problem container` (centralizado).
+* `h2`: "Se você se sente presa em um trabalho que não te valoriza..."
+* `p`: "Se você se sente presa em um trabalho que não te valoriza, sonha em ter sua independência financeira ou já é manicure mas não consegue aumentar seu faturamento... eu sei exatamente como você se sente."
+
+**3. Seção Solução (`<section>`):**
+* Classes: `solution container` (centralizado).
+* `h2`: "Mas imagine ter a Profissão que te dá Liberdade"
+* `p`: "Mas imagine ter uma profissão que te permite ganhar bem, ter flexibilidade de horários e ainda trabalhar com a beleza e autoestima das mulheres. Essa é a realidade da Nail Designer de Sucesso, e eu criei o mapa para você chegar lá."
+
+**4. Seção Módulos (`<section>`):**
+* Classes: `modules container glow-section`.
+* `h2`: "A Formação Completa do Zero ao Avançado"
+* **Grid de Módulos:** Crie um grid (`div.modules-grid`) que seja responsivo (ex: `repeat(auto-fit, minmax(300px, 1fr))`).
+* **Cards de Módulo:** Crie um "card" (com o estilo definido acima) para cada um dos 7 módulos:
+    * **Card 1:** `h3`: "Módulo 0: Comece por Aqui" | `p`: "Boas-vindas, mentalidade empreendedora e lista de materiais essenciais..."
+    * **Card 2:** `h3`: "Módulo 1: A Base de Tudo" | `p`: "Anatomia da unha, biossegurança, cutilagem perfeita e preparação correta..."
+    * **Card 3:** `h3`: "Módulo 2: Domínio da Fibra de Vidro" | `p`: "Aprenda a técnica mais lucrativa! Aplicação passo a passo, ponto de tensão, curvatura C..."
+    * **Card 4:** `h3`: "Módulo 3: Versatilidade com Gel" | `p`: "Expanda seu portfólio com Gel Moldado, Gel na Tip, Blindagem e Banho de Gel..."
+    * **Card 5:** `h3`: "Módulo 4: Técnicas Avançadas" | `p`: "Posicione-se como especialista dominando formatos modernos (Almond, Stiletto, Bailarina)..."
+    * **Card 6:** `h3`: "Módulo 5: A Arte de Decorar" | `p`: "Aumente seu valor percebido com as Nail Arts mais pedidas: Francesinha Reversa, Baby Boomer..."
+    * **Card 7:** `h3`: "Módulo 6: O Negócio Nail Designer" | `p`: "Precificação, captação de clientes, marketing para redes sociais (fotos que vendem)..."
+
+**5. Seção Bônus (`<section>`):**
+* Classes: `bonus container` (centralizado).
+* `h2`: "Você ainda recebe Bônus Exclusivos"
+* **Lista de Bônus:** Crie uma lista (`ul.bonus-list`) com os 4 bônus, usando um ícone de "check" (`✓`) na cor `#DBA86F` para cada item.
+    * "BÔNUS 1: Curso de Marketing para Nail Designers (Valor: R$297)"
+    * "BÔNUS 2: Ficha de Anamnese e Modelos de Logo (Valor: R$97)"
+    * "BÔNUS 3: Acesso à Comunidade VIP de Alunas (Valor: Incalculável)"
+    * "BÔNUS 4: Certificado de Conclusão Profissional."
+
+**6. Seção Prova Social (`<section>`):**
+* Classes: `testimonials container`.
+* `h2`: "Elas Começaram do Zero e Hoje Têm Sucesso"
+* **Grid de Depoimentos:** Crie um grid (`div.testimonials-grid`) com 3 colunas (que vire 1 no mobile).
+* **Cards de Depoimento:** (Use o mesmo estilo de card dos módulos).
+    * **Card 1:** `p`: "[Depoimento 1 - Ex: 'O curso é muito didático...']" | `span`: "- Aluna Juliana S."
+    * **Card 2:** `p`: "[Depoimento 2 - Ex: 'Meu faturamento dobrou...']" | `span`: "- Aluna Maria P."
+    * **Card 3:** `p`: "[Depoimento 3 - Ex: 'Aprendi a cobrar o preço justo...']" | `span`: "- Aluna Carla F."
+
+**7. Seção Oferta e Garantia (`<section>`):**
+* Classes: `offer container glow-section` (centralizado).
+* **Estilo Específico:** Dê a esta seção um fundo `#1A1212` e `border-radius: 20px` para destacá-la.
+* `h2`: "Tenha Acesso Imediato à Formação Completa"
+* **Preço:**
+    * `p.price-anchor`: "Tudo isso valeria facilmente R$997"
+    * `div.price-main`: "12x de R$ XX,XX" (use uma fonte grande aqui)
+    * `p`: "ou R$ XXX à vista"
+* `a.cta-button` (link de checkout): "QUERO GARANTIR MINHA VAGA COM DESCONTO!"
+* **Garantia:** Crie uma `div.guarantee` com um "Selo de 7 Dias" e o texto: "Seu risco é zero. Se por qualquer motivo não gostar do curso, devolvemos 100% do seu dinheiro."
+
+**8. Seção FAQ (`<section>`):**
+* Classes: `faq container`.
+* `h2`: "Perguntas Frequentes"
+* **Acordeão:** Crie um acordeão (usando `<details>` e `<summary>` ou outra técnica) para as perguntas:
+    * "Como vou acessar o curso?"
+    * "O acesso é vitalício?"
+    * "Preciso ter os materiais para começar?"
+    * "Vou receber certificado?"
+    * "Como funciona o suporte?"
+* **Estilo do Acordeão:** O `<summary>` (pergunta) deve usar a cor `#FCE9B5`. A resposta deve ser `#CFCFCF`. Use um `+` (cor `#DBA86F`) que anima para um `-` na abertura.
+
+**9. Rodapé (`<footer>`):**
+* Classes: `container` (centralizado).
+* `p`: "© 2025 [Seu Nome ou Nome do Curso]. Todos os direitos reservados."
+* **Estilo:** `font-size: 0.9rem`, `color: #888`, `border-top: 1px solid #221A2A`.
+
+---
