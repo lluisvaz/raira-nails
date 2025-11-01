@@ -84,9 +84,9 @@ export default function Home() {
   ];
 
   return (
-    <div style={{ background: '#130C0C', color: '#FFFFFF', minHeight: '100vh' }}>
+    <div style={{ background: '#130C0C', color: '#FFFFFF', minHeight: '100vh', maxWidth: '100vw', overflowX: 'hidden' }}>
       {/* Hero Section */}
-      <header className="glow-section py-20 px-8 text-center relative z-10">
+      <header className="glow-section py-12 md:py-20 px-4 md:px-8 text-center relative z-10">
         <div className="container mx-auto max-w-5xl">
           <h1 
             className="gradient-text nail-h1 mb-6"
@@ -101,10 +101,10 @@ export default function Home() {
             A Formação Completa que te leva do Zero Absoluto a uma Profissional Reconhecida e com a Agenda Cheia.
           </p>
           
-          <div className="flex justify-center mb-10">
+          <div className="flex justify-center mb-10 w-full">
             <div className="video-placeholder" data-testid="video-placeholder">
-              <PlayCircle size={64} strokeWidth={1.5} />
-              <span className="ml-4">Assista ao Vídeo de Apresentação</span>
+              <PlayCircle className="flex-shrink-0" size={48} strokeWidth={1.5} />
+              <span>Assista ao Vídeo de Apresentação</span>
             </div>
           </div>
 
@@ -119,7 +119,7 @@ export default function Home() {
       </header>
 
       {/* Problem Section */}
-      <section className="py-20 px-8 text-center">
+      <section className="py-12 md:py-20 px-4 md:px-8 text-center">
         <div className="container mx-auto max-w-3xl">
           <h2 
             className="gradient-text nail-h2"
@@ -137,7 +137,7 @@ export default function Home() {
       </section>
 
       {/* Solution Section */}
-      <section className="py-20 px-8 text-center">
+      <section className="py-12 md:py-20 px-4 md:px-8 text-center">
         <div className="container mx-auto max-w-3xl">
           <h2 
             className="gradient-text nail-h2"
@@ -155,7 +155,7 @@ export default function Home() {
       </section>
 
       {/* Modules Section */}
-      <section className="glow-section py-20 px-8 relative z-10">
+      <section className="glow-section py-12 md:py-20 px-4 md:px-8 relative z-10">
         <div className="container mx-auto max-w-6xl">
           <h2 
             className="gradient-text nail-h2"
@@ -189,7 +189,7 @@ export default function Home() {
       </section>
 
       {/* Bonus Section */}
-      <section className="py-20 px-8 text-center">
+      <section className="py-12 md:py-20 px-4 md:px-8 text-center">
         <div className="container mx-auto max-w-4xl">
           <h2 
             className="gradient-text nail-h2"
@@ -213,7 +213,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-8">
+      <section className="py-12 md:py-20 px-4 md:px-8">
         <div className="container mx-auto max-w-6xl">
           <h2 
             className="gradient-text nail-h2"
@@ -248,9 +248,9 @@ export default function Home() {
       </section>
 
       {/* Offer Section */}
-      <section id="offer" className="glow-section py-20 px-8 relative z-10">
+      <section id="offer" className="glow-section py-12 md:py-20 px-4 md:px-8 relative z-10">
         <div 
-          className="container mx-auto max-w-4xl p-12 text-center"
+          className="container mx-auto max-w-4xl p-6 md:p-12 text-center"
           style={{ background: '#1A1212', borderRadius: '20px' }}
         >
           <h2 
@@ -295,7 +295,7 @@ export default function Home() {
           </a>
 
           <div 
-            className="mt-12 p-8 rounded-2xl"
+            className="mt-8 md:mt-12 p-6 md:p-8 rounded-2xl"
             style={{ background: '#130C0C', border: '2px solid #DBA86F' }}
           >
             <ShieldCheck 
@@ -322,7 +322,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-8">
+      <section className="py-12 md:py-20 px-4 md:px-8">
         <div className="container mx-auto max-w-4xl">
           <h2 
             className="gradient-text nail-h2"
@@ -358,7 +358,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer 
-        className="py-8 px-8 text-center"
+        className="py-8 px-4 md:px-8 text-center"
         style={{ borderTop: '1px solid #221A2A' }}
       >
         <div className="container mx-auto">
