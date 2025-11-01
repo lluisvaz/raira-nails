@@ -92,13 +92,13 @@ export default function Home() {
             className="gradient-text nail-h1 mb-6"
             data-testid="text-hero-title"
           >
-            Fature +R$5.000/Mês como Nail Designer de Sucesso, Dominando as Técnicas que as Clientes Amam!
+            Conquiste sua Independência Financeira como Nail Designer de Sucesso.
           </h1>
           <p 
             className="nail-subtitle mb-8"
             data-testid="text-hero-subtitle"
           >
-            A Formação Completa que te leva do Zero Absoluto a uma Profissional Reconhecida e com a Agenda Cheia.
+            Fature +R$5.000/Mês como Nail Designer de Sucesso, Dominando as Técnicas que as Clientes Amam!
           </p>
           
           <div className="flex justify-center mb-10 w-full">
