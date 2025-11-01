@@ -76,8 +76,8 @@
   --chart-4: 20 75% 55%;
   --chart-5: 15 68% 48%;
 
-  --font-sans: 'Inter', 'Open Sans', sans-serif;
-  --font-display: 'Apple Garamond', Georgia, serif;
+  --font-sans: 'Neue Haas Grotesk Text Pro', 'Inter', 'Open Sans', sans-serif;
+  --font-display: 'Revenika', 'Neue Haas Grotesk Text Pro', sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
   --radius: .5rem; /* 8px */
