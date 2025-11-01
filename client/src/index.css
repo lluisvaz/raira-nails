@@ -374,6 +374,9 @@
     margin-bottom: 40px;
     line-height: 1.2;
     letter-spacing: -0.02em;
+  }
+  
+  .nail-h2-highlight {
     font-family: var(--font-display);
   }
 

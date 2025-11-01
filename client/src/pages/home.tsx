@@ -89,10 +89,10 @@ export default function Home() {
       <header className="glow-section py-12 md:py-20 px-4 md:px-8 text-center relative z-10">
         <div className="container mx-auto max-w-5xl">
           <h1 
-            className="gradient-text nail-h1 mb-6"
+            className="nail-h1 mb-6"
             data-testid="text-hero-title"
           >
-            Conquiste sua Independência Financeira como Nail Designer de Sucesso.
+            Conquiste sua <span className="gradient-text">Independência Financeira</span> como Nail Designer de Sucesso.
           </h1>
           <p 
             className="nail-subtitle mb-8"
@@ -122,10 +122,10 @@ export default function Home() {
       <section className="py-12 md:py-20 px-4 md:px-8 text-center">
         <div className="container mx-auto max-w-3xl">
           <h2 
-            className="gradient-text nail-h2"
+            className="nail-h2"
             data-testid="text-problem-title"
           >
-            Se você se sente presa em um trabalho que não te valoriza...
+            Se você se sente <span className="gradient-text nail-h2-highlight">presa</span> em um trabalho que não te valoriza...
           </h2>
           <p 
             className="nail-body leading-relaxed mx-auto"
@@ -140,10 +140,10 @@ export default function Home() {
       <section className="py-12 md:py-20 px-4 md:px-8 text-center">
         <div className="container mx-auto max-w-3xl">
           <h2 
-            className="gradient-text nail-h2"
+            className="nail-h2"
             data-testid="text-solution-title"
           >
-            Mas imagine ter a Profissão que te dá Liberdade
+            Mas imagine ter a Profissão que te dá <span className="gradient-text nail-h2-highlight">Liberdade</span>
           </h2>
           <p 
             className="nail-body leading-relaxed mx-auto"
@@ -158,10 +158,10 @@ export default function Home() {
       <section className="glow-section py-12 md:py-20 px-4 md:px-8 relative z-10">
         <div className="container mx-auto max-w-6xl">
           <h2 
-            className="gradient-text nail-h2"
+            className="nail-h2"
             data-testid="text-modules-title"
           >
-            A Formação Completa do Zero ao Avançado
+            A Formação <span className="gradient-text nail-h2-highlight">Completa</span> do Zero ao Avançado
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {modules.map((module, index) => (
@@ -192,10 +192,10 @@ export default function Home() {
       <section className="py-12 md:py-20 px-4 md:px-8 text-center">
         <div className="container mx-auto max-w-4xl">
           <h2 
-            className="gradient-text nail-h2"
+            className="nail-h2"
             data-testid="text-bonus-title"
           >
-            Você ainda recebe Bônus Exclusivos
+            Você ainda recebe <span className="gradient-text nail-h2-highlight">Bônus Exclusivos</span>
           </h2>
           <ul className="text-left space-y-5 max-w-2xl mx-auto">
             {bonuses.map((bonus, index) => (
@@ -216,10 +216,10 @@ export default function Home() {
       <section className="py-12 md:py-20 px-4 md:px-8">
         <div className="container mx-auto max-w-6xl">
           <h2 
-            className="gradient-text nail-h2"
+            className="nail-h2"
             data-testid="text-testimonials-title"
           >
-            Elas Começaram do Zero e Hoje Têm Sucesso
+            Elas Começaram do Zero e Hoje Têm <span className="gradient-text nail-h2-highlight">Sucesso</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (
@@ -254,10 +254,10 @@ export default function Home() {
           style={{ background: '#1A1212', borderRadius: '20px' }}
         >
           <h2 
-            className="gradient-text nail-h2"
+            className="nail-h2"
             data-testid="text-offer-title"
           >
-            Tenha Acesso Imediato à Formação Completa
+            Tenha <span className="gradient-text nail-h2-highlight">Acesso Imediato</span> à Formação Completa
           </h2>
           
           <p 
@@ -325,7 +325,7 @@ export default function Home() {
       <section className="py-12 md:py-20 px-4 md:px-8">
         <div className="container mx-auto max-w-4xl">
           <h2 
-            className="gradient-text nail-h2"
+            className="nail-h2"
             data-testid="text-faq-title"
           >
             Perguntas Frequentes
