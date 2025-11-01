@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Fonts */
+@font-face {
+  font-family: 'Titulos Custom';
+  src: url('@assets/titulos_1761961485171.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Destaques Custom';
+  src: url('@assets/destaques_1761961511848.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* LIGHT MODE */
 :root {
   --button-outline: rgba(0,0,0, .10);
@@ -76,8 +93,9 @@
   --chart-4: 20 75% 55%;
   --chart-5: 15 68% 48%;
 
-  --font-sans: 'Neue Haas Grotesk Text Pro', 'Inter', 'Open Sans', sans-serif;
-  --font-display: 'Revenika', 'Neue Haas Grotesk Text Pro', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', 'Open Sans', sans-serif;
+  --font-titulos: 'Titulos Custom', 'Plus Jakarta Sans', sans-serif;
+  --font-destaques: 'Destaques Custom', 'Plus Jakarta Sans', sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
   --radius: .5rem; /* 8px */
@@ -355,7 +373,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-family: var(--font-display);
+    font-family: var(--font-destaques);
   }
 
   /* Exact typography sizes as specified */
@@ -364,7 +382,7 @@
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    font-family: var(--font-display);
+    font-family: var(--font-titulos);
   }
 
   .nail-h2 {
@@ -374,10 +392,11 @@
     margin-bottom: 40px;
     line-height: 1.2;
     letter-spacing: -0.02em;
+    font-family: var(--font-titulos);
   }
   
   .nail-h2-highlight {
-    font-family: var(--font-display);
+    font-family: var(--font-destaques);
   }
 
   .nail-h3 {
@@ -385,7 +404,7 @@
     color: #FCE9B5;
     line-height: 1.25;
     letter-spacing: -0.01em;
-    font-family: var(--font-display);
+    font-family: var(--font-titulos);
   }
 
   .nail-subtitle {
