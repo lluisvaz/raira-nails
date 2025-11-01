@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { CornerRightUpIcon } from "@/components/ui/CornerRightUpIcon";
+import { MoveRightIcon } from "@/components/ui/MoveRightIcon";
 import { BorderBeam } from "@/components/ui/border-beam";
 
 export default function Home() {
@@ -133,12 +133,12 @@ export default function Home() {
 
           <div className="inline-block relative group" style={{ padding: '6px' }}>
             <a href="#offer" className="cta-button" data-testid="button-cta-hero">
-              QUERO ME TORNAR UMA NAIL DESIGNER DE SUCESSO
-              <CornerRightUpIcon size={24} className="text-black flex-shrink-0" />
+              Quero me Tornar uma Nail Designer de Sucesso
+              <MoveRightIcon size={24} className="text-black flex-shrink-0" />
             </a>
             <BorderBeam 
               size={100}
-              duration={8}
+              duration={3}
               colorFrom="#D19756"
               colorTo="#F1EEE1"
               borderThickness={2}
@@ -316,13 +316,24 @@ export default function Home() {
             ou R$ 497 à vista
           </p>
 
-          <a
-            href="#checkout"
-            className="cta-button mb-12"
-            data-testid="button-cta-offer"
-          >
-            QUERO GARANTIR MINHA VAGA COM DESCONTO!
-          </a>
+          <div className="inline-block relative group mb-12" style={{ padding: '6px' }}>
+            <a
+              href="#checkout"
+              className="cta-button"
+              data-testid="button-cta-offer"
+            >
+              Quero Garantir Minha Vaga com Desconto!
+              <MoveRightIcon size={24} className="text-black flex-shrink-0" />
+            </a>
+            <BorderBeam 
+              size={100}
+              duration={3}
+              colorFrom="#D19756"
+              colorTo="#F1EEE1"
+              borderThickness={2}
+              beamBorderRadius={12}
+            />
+          </div>
 
           <div
             className="mt-8 md:mt-12 p-6 md:p-8 rounded-2xl"
