@@ -150,14 +150,14 @@ export default function Home() {
             style={{
               background: "#1A1212",
               color: "#FF4444",
-              fontSize: "15px",
+              fontSize: "14px",
               fontWeight: 700,
-              padding: "4px 10px",
+              padding: "3px 8px",
               borderRadius: "4px",
-              letterSpacing: "0.05em",
+              letterSpacing: "0.03em",
               fontFamily: "monospace",
-              boxShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
-              border: "2px solid #FF4444",
+              boxShadow: "0 2px 6px rgba(0, 0, 0, 0.25)",
+              border: "1.5px solid #FF4444",
             }}
             data-testid="text-offer-timer"
           >
