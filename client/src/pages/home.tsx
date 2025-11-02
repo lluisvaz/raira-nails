@@ -35,16 +35,6 @@ export default function Home() {
       description:
         "Posicione-se como especialista dominando formatos modernos (Almond, Stiletto, Bailarina) e alongamentos diferenciados.",
     },
-    {
-      title: "Módulo 5: A Arte de Decorar",
-      description:
-        "Aumente seu valor percebido com as Nail Arts mais pedidas: Francesinha Reversa, Baby Boomer, Encapsuladas e muito mais.",
-    },
-    {
-      title: "Módulo 6: O Negócio Nail Designer",
-      description:
-        "Precificação estratégica, captação de clientes, marketing para redes sociais e fotos que vendem. Transforme técnica em lucro.",
-    },
   ];
 
   const bonuses = [
@@ -194,11 +184,11 @@ export default function Home() {
             <span className="gradient-text nail-h2-highlight">Completa</span> do
             Zero ao Avançado
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="modules-grid">
             {modules.map((module, index) => (
               <div
                 key={index}
-                className="nail-card"
+                className={`nail-card module-card-${index + 1}`}
                 data-testid={`card-module-${index}`}
               >
                 <h3
