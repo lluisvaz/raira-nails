@@ -116,7 +116,7 @@ export default function Home() {
                 <span className="gradient-text">Independência Financeira</span> como
                 Nail Designer de Sucesso.
               </h1>
-              <p className="nail-subtitle mb-10 md:mb-8 mt-4" data-testid="text-hero-subtitle">
+              <p className="nail-subtitle mb-10 md:mb-8 mt-10 md:mt-8" data-testid="text-hero-subtitle">
                 Fature +R$5.000/Mês como Nail Designer de Sucesso, Dominando as
                 Técnicas que as Clientes Amam!
               </p>
