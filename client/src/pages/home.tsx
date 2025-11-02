@@ -99,13 +99,14 @@ export default function Home() {
       }}
     >
       {/* Hero Section */}
-      <header className="glow-section text-center relative z-10">
+      <header className="glow-section text-center lg:text-left relative z-10">
         <div className="container mx-auto max-w-7xl">
-          <div className="relative w-full">
+          {/* Mobile/Tablet Layout (até md) */}
+          <div className="relative w-full lg:hidden">
             <img
               src={heroImage}
               alt="Nail Designer de Sucesso"
-              className="w-full h-[500px] md:h-[800px] lg:h-[1000px] object-cover object-top"
+              className="w-full h-[500px] md:h-[800px] object-cover object-top"
               data-testid="img-hero"
             />
             <div
@@ -129,7 +130,70 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="px-4 md:px-8 pt-64 md:pt-32">
+
+          {/* Desktop Layout (lg+) */}
+          <div className="hidden lg:block relative w-full min-h-[900px]">
+            {/* Imagem alinhada à direita */}
+            <div className="absolute inset-0 flex justify-end">
+              <img
+                src={heroImage}
+                alt="Nail Designer de Sucesso"
+                className="w-[65%] h-[900px] object-contain object-right"
+                data-testid="img-hero-desktop"
+                style={{ background: "#130C0C" }}
+              />
+            </div>
+
+            {/* Textos sobrepostos à esquerda */}
+            <div className="relative z-20 flex items-center min-h-[900px]">
+              <div className="max-w-[520px] px-8">
+                <div
+                  className="p-8 rounded-3xl"
+                  style={{
+                    background:
+                      "linear-gradient(to right, rgba(19, 12, 12, 0.95) 0%, rgba(19, 12, 12, 0.85) 70%, transparent 100%)",
+                  }}
+                >
+                  <h1 className="nail-hero-title mb-8" data-testid="text-hero-title-desktop">
+                    Conquiste sua{" "}
+                    <span className="gradient-text">Independência Financeira</span>{" "}
+                    como Nail Designer de Sucesso.
+                  </h1>
+                  <p
+                    className="nail-subtitle mb-12"
+                    data-testid="text-hero-subtitle-desktop"
+                  >
+                    Fature +R$5.000/Mês como Nail Designer, Dominando as Técnicas
+                    que as Clientes Amam!
+                  </p>
+                  <div
+                    className="inline-block relative group"
+                    style={{ padding: "6px" }}
+                  >
+                    <a
+                      href="#offer"
+                      className="cta-button"
+                      data-testid="button-cta-hero-desktop"
+                    >
+                      Quero me Tornar uma Nail Designer de Sucesso
+                      <MoveRightIcon size={24} className="text-black flex-shrink-0" />
+                    </a>
+                    <BorderBeam
+                      size={100}
+                      duration={3}
+                      colorFrom="#D19756"
+                      colorTo="#F1EEE1"
+                      borderThickness={2}
+                      beamBorderRadius={12}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Botão Mobile/Tablet */}
+          <div className="lg:hidden px-4 md:px-8 pt-64 md:pt-32">
             <div
               className="inline-block relative group"
               style={{ padding: "6px" }}
