@@ -118,7 +118,7 @@ export default function Home() {
               </h1>
             </div>
           </div>
-          <div className="px-4 md:px-8 pt-48 md:pt-6">
+          <div className="px-4 md:px-8 pt-48 md:pt-2">
           <p className="nail-subtitle mb-10 md:mb-8" data-testid="text-hero-subtitle">
             Fature +R$5.000/Mês como Nail Designer de Sucesso, Dominando as
             Técnicas que as Clientes Amam!
