@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import { MoveRightIcon } from "@/components/ui/MoveRightIcon";
 import { BorderBeam } from "@/components/ui/border-beam";
+import heroImage from "@assets/raira-home_1762102354966.png";
 
 export default function Home() {
   const modules = [
@@ -100,6 +101,14 @@ export default function Home() {
       {/* Hero Section */}
       <header className="glow-section py-12 md:py-20 px-4 md:px-8 text-center relative z-10">
         <div className="container mx-auto max-w-5xl">
+          <div className="flex justify-center mb-8">
+            <img 
+              src={heroImage} 
+              alt="Nail Designer de Sucesso" 
+              className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full"
+              data-testid="img-hero"
+            />
+          </div>
           <h1 className="nail-h1 mb-6" data-testid="text-hero-title">
             Conquiste sua{" "}
             <span className="gradient-text">Independência Financeira</span> como
