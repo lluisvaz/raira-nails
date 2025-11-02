@@ -592,14 +592,14 @@
 
   .modules-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 8px;
   }
   
   .module-card-1,
   .module-card-2,
   .module-card-3 {
-    grid-column: span 1;
+    grid-column: span 2;
     min-height: 380px;
     display: flex;
     flex-direction: column;
@@ -623,7 +623,6 @@
   
   .module-card-4,
   .module-card-5 {
-    grid-column: span 1;
     min-height: 280px;
     display: flex;
     flex-direction: column;
@@ -631,11 +630,11 @@
   }
 
   .module-card-4 {
-    grid-column: 1 / 2;
+    grid-column: span 2;
   }
 
   .module-card-5 {
-    grid-column: 2 / 4;
+    grid-column: span 4;
   }
 
   .module-card-4 .nail-h3,
