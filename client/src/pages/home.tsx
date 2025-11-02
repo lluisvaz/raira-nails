@@ -105,7 +105,7 @@ export default function Home() {
             <img
               src={heroImage}
               alt="Nail Designer de Sucesso"
-              className="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-top"
+              className="w-full h-[500px] md:h-[800px] lg:h-[1000px] object-cover object-top"
               data-testid="img-hero"
             />
             <div
