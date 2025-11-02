@@ -115,7 +115,7 @@ export default function Home() {
                   "linear-gradient(to top, rgba(19, 12, 12, 0.98) 0%, rgba(19, 12, 12, 0.85) 50%, rgba(19, 12, 12, 0.4) 80%, transparent 100%)",
               }}
             >
-              <h1 className="nail-h1 mb-0" data-testid="text-hero-title">
+              <h1 className="nail-hero-title mb-0" data-testid="text-hero-title">
                 Conquiste sua{" "}
                 <span className="gradient-text">Independência Financeira</span>{" "}
                 como Nail Designer de Sucesso.
