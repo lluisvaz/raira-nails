@@ -593,24 +593,25 @@
   .modules-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 8px;
   }
   
   .module-card-1,
   .module-card-2,
   .module-card-3 {
     grid-column: span 1;
-    min-height: 350px;
+    min-height: 380px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .module-card-1 .nail-h3,
   .module-card-2 .nail-h3,
   .module-card-3 .nail-h3 {
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .module-card-1 .nail-body,
@@ -624,6 +625,9 @@
   .module-card-5 {
     grid-column: span 1;
     min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   .module-card-4 {
@@ -637,7 +641,7 @@
   .module-card-4 .nail-h3,
   .module-card-5 .nail-h3 {
     text-align: left;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .module-card-4 .nail-body,
@@ -655,6 +659,7 @@
     .module-card-2,
     .module-card-3 {
       min-height: auto;
+      align-items: stretch;
     }
 
     .module-card-4,
