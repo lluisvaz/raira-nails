@@ -5,7 +5,7 @@
 /* Custom Fonts */
 @font-face {
   font-family: 'Titulos Custom';
-  src: url('@assets/titulos_1761961485171.woff2') format('woff2');
+  src: url('/fonts/titulos.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -13,7 +13,7 @@
 
 @font-face {
   font-family: 'Destaques Custom';
-  src: url('@assets/destaques_1761961511848.woff2') format('woff2');
+  src: url('/fonts/destaques.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

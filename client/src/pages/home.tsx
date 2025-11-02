@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import { MoveRightIcon } from "@/components/ui/MoveRightIcon";
 import { BorderBeam } from "@/components/ui/border-beam";
-import heroImage from "@assets/raira-home_1762102354966.png";
+const heroImage = "/images/raira-home.png";
 
 export default function Home() {
   const modules = [
