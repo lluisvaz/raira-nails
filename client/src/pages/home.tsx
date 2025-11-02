@@ -99,21 +99,26 @@ export default function Home() {
       }}
     >
       {/* Hero Section */}
-      <header className="glow-section py-12 md:py-20 px-4 md:px-8 text-center relative z-10">
-        <div className="container mx-auto max-w-5xl">
-          <div className="flex justify-center mb-8">
+      <header className="glow-section text-center relative z-10">
+        <div className="container mx-auto max-w-7xl">
+          <div className="relative w-full">
             <img 
               src={heroImage} 
               alt="Nail Designer de Sucesso" 
-              className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full"
+              className="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-top"
               data-testid="img-hero"
             />
+            <div className="absolute bottom-0 left-0 right-0 pb-8 md:pb-12 px-4 md:px-8" style={{
+              background: 'linear-gradient(to top, rgba(19, 12, 12, 0.95) 0%, rgba(19, 12, 12, 0.7) 70%, transparent 100%)'
+            }}>
+              <h1 className="nail-h1 mb-0" data-testid="text-hero-title">
+                Conquiste sua{" "}
+                <span className="gradient-text">Independência Financeira</span> como
+                Nail Designer de Sucesso.
+              </h1>
+            </div>
           </div>
-          <h1 className="nail-h1 mb-6" data-testid="text-hero-title">
-            Conquiste sua{" "}
-            <span className="gradient-text">Independência Financeira</span> como
-            Nail Designer de Sucesso.
-          </h1>
+          <div className="px-4 md:px-8 pt-6">
           <p className="nail-subtitle mb-8" data-testid="text-hero-subtitle">
             Fature +R$5.000/Mês como Nail Designer de Sucesso, Dominando as
             Técnicas que as Clientes Amam!
@@ -143,6 +148,7 @@ export default function Home() {
               borderThickness={2}
               beamBorderRadius={12}
             />
+          </div>
           </div>
         </div>
       </header>
