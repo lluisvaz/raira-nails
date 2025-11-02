@@ -102,41 +102,55 @@ export default function Home() {
       <header className="glow-section text-center relative z-10">
         <div className="container mx-auto max-w-7xl">
           <div className="relative w-full">
-            <img 
-              src={heroImage} 
-              alt="Nail Designer de Sucesso" 
+            <img
+              src={heroImage}
+              alt="Nail Designer de Sucesso"
               className="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-top"
               data-testid="img-hero"
             />
-            <div className="absolute bottom-[-280px] md:bottom-[-140px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8" style={{
-              background: 'linear-gradient(to top, rgba(19, 12, 12, 0.98) 0%, rgba(19, 12, 12, 0.85) 50%, rgba(19, 12, 12, 0.4) 80%, transparent 100%)'
-            }}>
+            <div
+              className="absolute bottom-[-280px] md:bottom-[-140px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8"
+              style={{
+                background:
+                  "linear-gradient(to top, rgba(19, 12, 12, 0.98) 0%, rgba(19, 12, 12, 0.85) 50%, rgba(19, 12, 12, 0.4) 80%, transparent 100%)",
+              }}
+            >
               <h1 className="nail-h1 mb-0" data-testid="text-hero-title">
                 Conquiste sua{" "}
-                <span className="gradient-text">Independência Financeira</span> como
-                Nail Designer de Sucesso.
+                <span className="gradient-text">Independência Financeira</span>{" "}
+                como Nail Designer de Sucesso.
               </h1>
-              <p className="nail-subtitle mb-10 md:mb-8 mt-10 md:mt-8" data-testid="text-hero-subtitle">
-                Fature +R$5.000/Mês como Nail Designer de Sucesso, Dominando as
-                Técnicas que as Clientes Amam!
+              <p
+                className="nail-subtitle mb-10 md:mb-8 mt-10 md:mt-8"
+                data-testid="text-hero-subtitle"
+              >
+                Fature +R$5.000/Mês como Nail Designer, Dominando as Técnicas
+                que as Clientes Amam!
               </p>
             </div>
           </div>
           <div className="px-4 md:px-8 pt-64 md:pt-32">
-          <div className="inline-block relative group" style={{ padding: '6px' }}>
-            <a href="#offer" className="cta-button" data-testid="button-cta-hero">
-              Quero me Tornar uma Nail Designer de Sucesso
-              <MoveRightIcon size={24} className="text-black flex-shrink-0" />
-            </a>
-            <BorderBeam 
-              size={100}
-              duration={3}
-              colorFrom="#D19756"
-              colorTo="#F1EEE1"
-              borderThickness={2}
-              beamBorderRadius={12}
-            />
-          </div>
+            <div
+              className="inline-block relative group"
+              style={{ padding: "6px" }}
+            >
+              <a
+                href="#offer"
+                className="cta-button"
+                data-testid="button-cta-hero"
+              >
+                Quero me Tornar uma Nail Designer de Sucesso
+                <MoveRightIcon size={24} className="text-black flex-shrink-0" />
+              </a>
+              <BorderBeam
+                size={100}
+                duration={3}
+                colorFrom="#D19756"
+                colorTo="#F1EEE1"
+                borderThickness={2}
+                beamBorderRadius={12}
+              />
+            </div>
           </div>
         </div>
       </header>
@@ -309,7 +323,10 @@ export default function Home() {
             ou R$ 497 à vista
           </p>
 
-          <div className="inline-block relative group mb-12" style={{ padding: '6px' }}>
+          <div
+            className="inline-block relative group mb-12"
+            style={{ padding: "6px" }}
+          >
             <a
               href="#checkout"
               className="cta-button"
@@ -318,7 +335,7 @@ export default function Home() {
               Quero Garantir Minha Vaga com Desconto!
               <MoveRightIcon size={24} className="text-black flex-shrink-0" />
             </a>
-            <BorderBeam 
+            <BorderBeam
               size={100}
               duration={3}
               colorFrom="#D19756"
