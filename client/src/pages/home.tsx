@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { MoveRightIcon } from "@/components/ui/MoveRightIcon";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { ZapIcon } from "@/components/ui/ZapIcon";
 const heroImage = "/images/raira-home.png";
 
 export default function Home() {
@@ -142,9 +143,12 @@ export default function Home() {
               fontSize: "15px",
               fontWeight: 600,
               letterSpacing: "-0.01em",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
             }}
           >
-            ⚡ OFERTA ESPECIAL EXPIRA EM:
+            <ZapIcon size={18} className="text-[#1A1212]" /> OFERTA ESPECIAL EXPIRA EM:
           </span>
           <span
             style={{
@@ -257,6 +261,18 @@ export default function Home() {
                       beamBorderRadius={12}
                     />
                   </div>
+                  <p
+                    className="text-white uppercase mt-6 text-center"
+                    style={{
+                      fontSize: "11px",
+                      fontWeight: 600,
+                      letterSpacing: "0.1em",
+                      opacity: 0.7,
+                    }}
+                    data-testid="text-hero-badge-desktop"
+                  >
+                    INSCRIÇÕES ABERTAS POR TEMPO LIMITADO
+                  </p>
                 </div>
               </div>
             </div>
@@ -285,6 +301,18 @@ export default function Home() {
                 beamBorderRadius={12}
               />
             </div>
+            <p
+              className="text-white uppercase mt-6 text-center"
+              style={{
+                fontSize: "11px",
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                opacity: 0.7,
+              }}
+              data-testid="text-hero-badge"
+            >
+              INSCRIÇÕES ABERTAS POR TEMPO LIMITADO
+            </p>
           </div>
         </div>
       </header>
