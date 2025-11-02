@@ -147,7 +147,7 @@ export default function Home() {
             </div>
 
             {/* Textos sobrepostos à esquerda - LARGURA AUMENTADA */}
-            <div className="relative z-20 flex items-center min-h-[1000px]">
+            <div className="relative z-10 flex items-center min-h-[1000px]">
               <div className="max-w-[700px] px-8">
                 <div
                   className="p-8 rounded-3xl"
@@ -169,7 +169,7 @@ export default function Home() {
                     que as Clientes Amam!
                   </p>
                   <div
-                    className="inline-block relative group"
+                    className="inline-block relative group z-20"
                     style={{ padding: "6px" }}
                   >
                     <a
