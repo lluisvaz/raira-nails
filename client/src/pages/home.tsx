@@ -108,7 +108,7 @@ export default function Home() {
               className="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-top"
               data-testid="img-hero"
             />
-            <div className="absolute bottom-[-100px] md:bottom-0 left-0 right-0 pb-8 md:pb-8 px-4 md:px-8" style={{
+            <div className="absolute bottom-[-140px] md:bottom-0 left-0 right-0 pb-8 md:pb-8 px-4 md:px-8" style={{
               background: 'linear-gradient(to top, rgba(19, 12, 12, 0.98) 0%, rgba(19, 12, 12, 0.85) 50%, rgba(19, 12, 12, 0.4) 80%, transparent 100%)'
             }}>
               <h1 className="nail-h1 mb-0" data-testid="text-hero-title">
@@ -118,7 +118,7 @@ export default function Home() {
               </h1>
             </div>
           </div>
-          <div className="px-4 md:px-8 pt-32 md:pt-6">
+          <div className="px-4 md:px-8 pt-20 md:pt-6">
           <p className="nail-subtitle mb-10 md:mb-8" data-testid="text-hero-subtitle">
             Fature +R$5.000/Mês como Nail Designer de Sucesso, Dominando as
             Técnicas que as Clientes Amam!
