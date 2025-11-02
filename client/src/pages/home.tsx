@@ -99,109 +99,56 @@ export default function Home() {
       }}
     >
       {/* Hero Section */}
-      <header className="glow-section relative z-10 py-8 md:py-16">
-        <div className="container mx-auto max-w-7xl px-4 md:px-8">
-          {/* Mobile Layout */}
-          <div className="md:hidden">
-            <div className="relative w-full">
-              <img
-                src={heroImage}
-                alt="Nail Designer de Sucesso"
-                className="w-full h-[500px] object-cover object-top rounded-lg"
-                data-testid="img-hero"
-              />
-              <div
-                className="absolute bottom-[-280px] left-0 right-0 pb-8 px-4"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(19, 12, 12, 0.98) 0%, rgba(19, 12, 12, 0.85) 50%, rgba(19, 12, 12, 0.4) 80%, transparent 100%)",
-                }}
-              >
-                <h1 className="nail-hero-title mb-0 text-center" data-testid="text-hero-title">
-                  Conquiste sua{" "}
-                  <span className="gradient-text">Independência Financeira</span>{" "}
-                  como Nail Designer de Sucesso.
-                </h1>
-                <p
-                  className="nail-subtitle mb-10 mt-10 text-center"
-                  data-testid="text-hero-subtitle"
-                >
-                  Fature +R$5.000/Mês como Nail Designer, Dominando as Técnicas
-                  que as Clientes Amam!
-                </p>
-              </div>
-            </div>
-            <div className="pt-64 text-center">
-              <div
-                className="inline-block relative group"
-                style={{ padding: "6px" }}
-              >
-                <a
-                  href="#offer"
-                  className="cta-button"
-                  data-testid="button-cta-hero"
-                >
-                  Quero me Tornar uma Nail Designer de Sucesso
-                  <MoveRightIcon size={24} className="text-black flex-shrink-0" />
-                </a>
-                <BorderBeam
-                  size={100}
-                  duration={3}
-                  colorFrom="#D19756"
-                  colorTo="#F1EEE1"
-                  borderThickness={2}
-                  beamBorderRadius={12}
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Desktop Layout - Side by Side */}
-          <div className="hidden md:flex md:items-center md:gap-8 lg:gap-12">
-            {/* Left Side - Content */}
-            <div className="flex-1 max-w-xl text-left">
+      <header className="glow-section text-center relative z-10">
+        <div className="container mx-auto max-w-7xl">
+          <div className="relative w-full">
+            <img
+              src={heroImage}
+              alt="Nail Designer de Sucesso"
+              className="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-top"
+              data-testid="img-hero"
+            />
+            <div
+              className="absolute bottom-[-280px] md:bottom-[-140px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8"
+              style={{
+                background:
+                  "linear-gradient(to top, rgba(19, 12, 12, 0.98) 0%, rgba(19, 12, 12, 0.85) 50%, rgba(19, 12, 12, 0.4) 80%, transparent 100%)",
+              }}
+            >
               <h1 className="nail-hero-title mb-0" data-testid="text-hero-title">
                 Conquiste sua{" "}
                 <span className="gradient-text">Independência Financeira</span>{" "}
                 como Nail Designer de Sucesso.
               </h1>
               <p
-                className="nail-subtitle mt-8 mb-10"
+                className="nail-subtitle mb-10 md:mb-8 mt-10 md:mt-8"
                 data-testid="text-hero-subtitle"
               >
                 Fature +R$5.000/Mês como Nail Designer, Dominando as Técnicas
                 que as Clientes Amam!
               </p>
-              <div
-                className="inline-block relative group"
-                style={{ padding: "6px" }}
-              >
-                <a
-                  href="#offer"
-                  className="cta-button"
-                  data-testid="button-cta-hero"
-                >
-                  Quero me Tornar uma Nail Designer de Sucesso
-                  <MoveRightIcon size={24} className="text-black flex-shrink-0" />
-                </a>
-                <BorderBeam
-                  size={100}
-                  duration={3}
-                  colorFrom="#D19756"
-                  colorTo="#F1EEE1"
-                  borderThickness={2}
-                  beamBorderRadius={12}
-                />
-              </div>
             </div>
-
-            {/* Right Side - Image */}
-            <div className="flex-1">
-              <img
-                src={heroImage}
-                alt="Nail Designer de Sucesso"
-                className="w-full h-[600px] lg:h-[700px] object-cover object-top rounded-lg"
-                data-testid="img-hero"
+          </div>
+          <div className="px-4 md:px-8 pt-64 md:pt-32">
+            <div
+              className="inline-block relative group"
+              style={{ padding: "6px" }}
+            >
+              <a
+                href="#offer"
+                className="cta-button"
+                data-testid="button-cta-hero"
+              >
+                Quero me Tornar uma Nail Designer de Sucesso
+                <MoveRightIcon size={24} className="text-black flex-shrink-0" />
+              </a>
+              <BorderBeam
+                size={100}
+                duration={3}
+                colorFrom="#D19756"
+                colorTo="#F1EEE1"
+                borderThickness={2}
+                beamBorderRadius={12}
               />
             </div>
           </div>
