@@ -132,21 +132,23 @@ export default function Home() {
           </div>
 
           {/* Desktop Layout (lg+) */}
-          <div className="hidden lg:block relative w-full min-h-[900px]">
-            {/* Imagem alinhada à direita */}
-            <div className="absolute inset-0 flex justify-end">
-              <img
-                src={heroImage}
-                alt="Nail Designer de Sucesso"
-                className="w-[65%] h-[900px] object-contain object-right"
-                data-testid="img-hero-desktop"
-                style={{ background: "#130C0C" }}
-              />
+          <div className="hidden lg:block relative w-full min-h-[1000px]">
+            {/* Imagem alinhada à direita - MUITO MAIOR */}
+            <div className="absolute inset-0 flex justify-end items-center">
+              <div className="relative" style={{ width: "85%", marginRight: "-10%" }}>
+                <img
+                  src={heroImage}
+                  alt="Nail Designer de Sucesso"
+                  className="w-full h-[1100px] object-contain object-right"
+                  data-testid="img-hero-desktop"
+                  style={{ background: "#130C0C" }}
+                />
+              </div>
             </div>
 
-            {/* Textos sobrepostos à esquerda */}
-            <div className="relative z-20 flex items-center min-h-[900px]">
-              <div className="max-w-[520px] px-8">
+            {/* Textos sobrepostos à esquerda - LARGURA AUMENTADA */}
+            <div className="relative z-20 flex items-center min-h-[1000px]">
+              <div className="max-w-[700px] px-8">
                 <div
                   className="p-8 rounded-3xl"
                   style={{
