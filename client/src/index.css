@@ -380,7 +380,7 @@
 
   /* Exact typography sizes as specified */
   .nail-h1 {
-    font-size: 42px;
+    font-size: 48px;
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: -0.02em;
@@ -388,7 +388,7 @@
   }
 
   .nail-h2 {
-    font-size: 42px;
+    font-size: 48px;
     font-weight: 700;
     text-align: center;
     margin-bottom: 40px;
@@ -402,7 +402,7 @@
   }
 
   .nail-h3 {
-    font-size: 42px;
+    font-size: 48px;
     color: #FCE9B5;
     line-height: 1.25;
     letter-spacing: -0.01em;
@@ -416,6 +416,24 @@
     letter-spacing: -0.03em;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
+  }
+
+  @media (min-width: 768px) {
+    .nail-h1 {
+      font-size: 80px;
+    }
+
+    .nail-h2 {
+      font-size: 80px;
+    }
+
+    .nail-h3 {
+      font-size: 80px;
+    }
+
+    .nail-subtitle {
+      font-size: 20px;
+    }
   }
 
   .nail-body {
