@@ -108,7 +108,7 @@ export default function Home() {
               className="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-top"
               data-testid="img-hero"
             />
-            <div className="absolute bottom-[-140px] md:bottom-0 left-0 right-0 pb-8 md:pb-8 px-4 md:px-8" style={{
+            <div className="absolute bottom-[-190px] md:bottom-0 left-0 right-0 pb-8 md:pb-8 px-4 md:px-8" style={{
               background: 'linear-gradient(to top, rgba(19, 12, 12, 0.98) 0%, rgba(19, 12, 12, 0.85) 50%, rgba(19, 12, 12, 0.4) 80%, transparent 100%)'
             }}>
               <h1 className="nail-h1 mb-0" data-testid="text-hero-title">
@@ -116,14 +116,13 @@ export default function Home() {
                 <span className="gradient-text">Independência Financeira</span> como
                 Nail Designer de Sucesso.
               </h1>
+              <p className="nail-subtitle mb-10 md:mb-8 mt-4" data-testid="text-hero-subtitle">
+                Fature +R$5.000/Mês como Nail Designer de Sucesso, Dominando as
+                Técnicas que as Clientes Amam!
+              </p>
             </div>
           </div>
           <div className="px-4 md:px-8 pt-48 md:pt-0">
-          <p className="nail-subtitle mb-10 md:mb-8 mt-2" data-testid="text-hero-subtitle">
-            Fature +R$5.000/Mês como Nail Designer de Sucesso, Dominando as
-            Técnicas que as Clientes Amam!
-          </p>
-
           <div className="inline-block relative group" style={{ padding: '6px' }}>
             <a href="#offer" className="cta-button" data-testid="button-cta-hero">
               Quero me Tornar uma Nail Designer de Sucesso
