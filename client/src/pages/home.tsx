@@ -108,7 +108,7 @@ export default function Home() {
               className="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover object-top"
               data-testid="img-hero"
             />
-            <div className="absolute bottom-[-190px] md:bottom-[-140px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8" style={{
+            <div className="absolute bottom-[-280px] md:bottom-[-140px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8" style={{
               background: 'linear-gradient(to top, rgba(19, 12, 12, 0.98) 0%, rgba(19, 12, 12, 0.85) 50%, rgba(19, 12, 12, 0.4) 80%, transparent 100%)'
             }}>
               <h1 className="nail-h1 mb-0" data-testid="text-hero-title">
@@ -122,7 +122,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="px-4 md:px-8 pt-48 md:pt-24">
+          <div className="px-4 md:px-8 pt-72 md:pt-24">
           <div className="inline-block relative group" style={{ padding: '6px' }}>
             <a href="#offer" className="cta-button" data-testid="button-cta-hero">
               Quero me Tornar uma Nail Designer de Sucesso
