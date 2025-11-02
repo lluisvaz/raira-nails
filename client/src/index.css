@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,14 +8,6 @@
 @font-face {
   font-family: 'Titulos Custom';
   src: url('/fonts/titulos.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Destaques Custom';
-  src: url('/fonts/destaques.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -95,7 +89,7 @@
 
   --font-sans: 'Plus Jakarta Sans', 'Inter', 'Open Sans', sans-serif;
   --font-titulos: 'Titulos Custom', 'Plus Jakarta Sans', sans-serif;
-  --font-destaques: 'Destaques Custom', 'Plus Jakarta Sans', sans-serif;
+  --font-destaques: 'Poppins', 'Plus Jakarta Sans', sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
   --radius: .5rem; /* 8px */
