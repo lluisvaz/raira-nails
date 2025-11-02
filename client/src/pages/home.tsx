@@ -122,7 +122,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="px-4 md:px-8 pt-72 md:pt-24">
+          <div className="px-4 md:px-8 pt-64 md:pt-32">
           <div className="inline-block relative group" style={{ padding: '6px' }}>
             <a href="#offer" className="cta-button" data-testid="button-cta-hero">
               Quero me Tornar uma Nail Designer de Sucesso
