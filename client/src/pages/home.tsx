@@ -135,11 +135,11 @@ export default function Home() {
           <div className="hidden lg:block relative w-full min-h-[1000px]">
             {/* Imagem alinhada à direita - MUITO MAIOR */}
             <div className="absolute inset-0 flex justify-end items-center">
-              <div className="relative" style={{ width: "85%", marginRight: "-10%" }}>
+              <div className="relative" style={{ width: "95%", marginRight: "-15%" }}>
                 <img
                   src={heroImage}
                   alt="Nail Designer de Sucesso"
-                  className="w-full h-[1100px] object-contain object-right"
+                  className="w-full h-[1200px] object-contain object-right"
                   data-testid="img-hero-desktop"
                   style={{ background: "#130C0C" }}
                 />
