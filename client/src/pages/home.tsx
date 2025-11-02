@@ -1,4 +1,4 @@
-import { PlayCircle, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -123,17 +123,6 @@ export default function Home() {
             Fature +R$5.000/Mês como Nail Designer de Sucesso, Dominando as
             Técnicas que as Clientes Amam!
           </p>
-
-          <div className="flex justify-center mb-10 w-full">
-            <div className="video-placeholder" data-testid="video-placeholder">
-              <PlayCircle
-                className="flex-shrink-0"
-                size={48}
-                strokeWidth={1.5}
-              />
-              <span>Assista ao Vídeo de Apresentação</span>
-            </div>
-          </div>
 
           <div className="inline-block relative group" style={{ padding: '6px' }}>
             <a href="#offer" className="cta-button" data-testid="button-cta-hero">
