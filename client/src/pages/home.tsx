@@ -121,23 +121,49 @@ export default function Home() {
         style={{
           background: "#AAA994",
           width: "100%",
-          padding: "12px 16px",
+          padding: "14px 16px",
           textAlign: "center",
         }}
         data-testid="offer-bar"
       >
-        <p
+        <div
           style={{
-            margin: 0,
-            color: "#000000",
-            fontSize: "16px",
-            fontWeight: 600,
-            letterSpacing: "-0.02em",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "12px",
+            flexWrap: "wrap",
+            justifyContent: "center",
           }}
-          data-testid="text-offer-timer"
         >
-          Aproveite a Oferta: {formatTime(timeLeft)}
-        </p>
+          <span
+            style={{
+              margin: 0,
+              color: "#1A1212",
+              fontSize: "15px",
+              fontWeight: 600,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            ⚡ OFERTA ESPECIAL EXPIRA EM:
+          </span>
+          <span
+            style={{
+              background: "#1A1212",
+              color: "#FF4444",
+              fontSize: "20px",
+              fontWeight: 700,
+              padding: "6px 16px",
+              borderRadius: "6px",
+              letterSpacing: "0.05em",
+              fontFamily: "monospace",
+              boxShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
+              border: "2px solid #FF4444",
+            }}
+            data-testid="text-offer-timer"
+          >
+            {formatTime(timeLeft)}
+          </span>
+        </div>
       </div>
 
       {/* Hero Section */}
