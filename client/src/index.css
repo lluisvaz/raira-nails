@@ -476,16 +476,30 @@
     overflow: hidden;
   }
 
+  /* Mobile version - centralizado e menor */
   .glow-section::before {
     content: "";
     position: absolute;
-    top: -100px;
-    left: -100px;
-    width: min(900px, 100vw);
-    height: 600px;
-    background: radial-gradient(circle, rgba(219, 168, 111, 0.12) 0%, rgba(219, 168, 111, 0.06) 40%, rgba(219, 168, 111, 0) 70%);
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(500px, 100vw);
+    height: 300px;
+    background: radial-gradient(circle, rgba(219, 168, 111, 0.08) 0%, rgba(219, 168, 111, 0) 70%);
     z-index: 15;
     pointer-events: none;
+  }
+
+  /* Desktop version - canto superior esquerdo com abrangência moderada */
+  @media (min-width: 1024px) {
+    .glow-section::before {
+      top: -100px;
+      left: -100px;
+      transform: none;
+      width: 700px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(219, 168, 111, 0.12) 0%, rgba(219, 168, 111, 0.06) 40%, rgba(219, 168, 111, 0) 70%);
+    }
   }
 
   .nail-card {
