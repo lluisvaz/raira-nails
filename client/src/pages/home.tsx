@@ -150,10 +150,10 @@ export default function Home() {
             style={{
               background: "#1A1212",
               color: "#FF4444",
-              fontSize: "17px",
+              fontSize: "15px",
               fontWeight: 700,
-              padding: "6px 14px",
-              borderRadius: "6px",
+              padding: "4px 10px",
+              borderRadius: "4px",
               letterSpacing: "0.05em",
               fontFamily: "monospace",
               boxShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
