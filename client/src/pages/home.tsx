@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { ShieldCheck } from "lucide-react";
 import {
   Accordion,
@@ -10,6 +11,23 @@ import { BorderBeam } from "@/components/ui/border-beam";
 const heroImage = "/images/raira-home.png";
 
 export default function Home() {
+  const [timeLeft, setTimeLeft] = useState(13 * 60 + 37);
+
+  useEffect(() => {
+    if (timeLeft <= 0) return;
+
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [timeLeft]);
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+  };
   const modules = [
     {
       title: "Módulo 0: Comece por Aqui",
@@ -98,6 +116,30 @@ export default function Home() {
         overflowX: "hidden",
       }}
     >
+      {/* Barra de Oferta com Cronômetro */}
+      <div
+        style={{
+          background: "#AAA994",
+          width: "100%",
+          padding: "12px 16px",
+          textAlign: "center",
+        }}
+        data-testid="offer-bar"
+      >
+        <p
+          style={{
+            margin: 0,
+            color: "#000000",
+            fontSize: "16px",
+            fontWeight: 600,
+            letterSpacing: "-0.02em",
+          }}
+          data-testid="text-offer-timer"
+        >
+          Aproveite a Oferta: {formatTime(timeLeft)}
+        </p>
+      </div>
+
       {/* Hero Section */}
       <header className="glow-section text-center lg:text-left relative z-10">
         <div className="container mx-auto max-w-7xl">
