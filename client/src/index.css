@@ -496,9 +496,9 @@
       top: -100px;
       left: -100px;
       transform: none;
-      width: 700px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(219, 168, 111, 0.12) 0%, rgba(219, 168, 111, 0.06) 40%, rgba(219, 168, 111, 0) 70%);
+      width: 900px;
+      height: 700px;
+      background: radial-gradient(circle at center, rgba(219, 168, 111, 0.12) 0%, rgba(219, 168, 111, 0.06) 25%, rgba(219, 168, 111, 0.03) 45%, rgba(219, 168, 111, 0) 60%);
     }
   }
 
