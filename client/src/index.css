@@ -490,26 +490,26 @@
     pointer-events: none;
   }
 
-  /* Desktop version - colado nas paredes com maior expansão e menor opacidade */
+  /* Desktop version - colado nas paredes com maior expansão e opacidade aumentada */
   @media (min-width: 1024px) {
     .glow-section::before {
-      top: -200px;
+      top: -300px;
       left: 0;
       transform: none;
       width: 1400px;
-      height: 1000px;
-      background: radial-gradient(circle at left, rgba(219, 168, 111, 0.06) 0%, rgba(219, 168, 111, 0.03) 25%, rgba(219, 168, 111, 0.015) 45%, rgba(219, 168, 111, 0) 65%);
+      height: 1600px;
+      background: radial-gradient(circle at left, rgba(219, 168, 111, 0.12) 0%, rgba(219, 168, 111, 0.06) 25%, rgba(219, 168, 111, 0.03) 45%, rgba(219, 168, 111, 0) 65%);
     }
     
     /* Brilho na lateral direita para desktop */
     .glow-section::after {
       content: "";
       position: absolute;
-      top: -200px;
+      top: -300px;
       right: 0;
       width: 1400px;
-      height: 1000px;
-      background: radial-gradient(circle at right, rgba(219, 168, 111, 0.06) 0%, rgba(219, 168, 111, 0.03) 25%, rgba(219, 168, 111, 0.015) 45%, rgba(219, 168, 111, 0) 65%);
+      height: 1600px;
+      background: radial-gradient(circle at right, rgba(219, 168, 111, 0.12) 0%, rgba(219, 168, 111, 0.06) 25%, rgba(219, 168, 111, 0.03) 45%, rgba(219, 168, 111, 0) 65%);
       z-index: 15;
       pointer-events: none;
     }
