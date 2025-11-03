@@ -332,7 +332,8 @@ export default function Home() {
       </header>
 
       {/* Problem Section */}
-      <section className="py-20 px-4 md:px-8 text-center">
+      <section className="px-4 md:px-8 text-center">
+        <div className="pt-20"></div>
         <div className="container mx-auto max-w-6xl">
           <div
             className="inline-flex items-center gap-3 px-6 py-3 mb-6 rounded-full"
@@ -539,6 +540,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div className="pb-20"></div>
         {/* Divisória com degradê */}
         <div className="w-full px-4 md:px-8 lg:px-16">
           <div
