@@ -349,13 +349,13 @@ export default function Home() {
               PARA QUEM É?
             </p>
           </div>
-          <h2 className="nail-h2 mb-4 mx-auto max-w-5xl" data-testid="text-problem-title">
+          <h2 className="nail-h2 mb-4 mx-auto lg:max-w-3xl" data-testid="text-problem-title">
             Cansada de trabalhar muito{" "}
             <span
               className="gradient-text"
               style={{
                 fontFamily: "var(--font-titulos)",
-                fontWeight: "normal",
+                fontWeight: 700,
               }}
             >
               e sentir que não sai do lugar?
@@ -365,13 +365,14 @@ export default function Home() {
             className="nail-body leading-relaxed mx-auto max-w-xl mb-16"
             data-testid="text-problem-subtitle"
           >
-            Esta formação é o seu plano de fuga, desenhada para você que:
+            Esta formação é o seu plano de fuga,{" "}
+            <span style={{ fontWeight: 700 }}>desenhada para você que:</span>
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 max-w-6xl mx-auto mb-12">
             <div
               className="nail-card text-left md:col-span-3"
-              style={{ minHeight: "180px" }}
+              style={{ minHeight: "180px", display: "flex", flexDirection: "column", justifyContent: "center" }}
               data-testid="card-target-audience-0"
             >
               <h3
@@ -392,7 +393,7 @@ export default function Home() {
 
             <div
               className="nail-card text-left md:col-span-4"
-              style={{ minHeight: "200px" }}
+              style={{ minHeight: "200px", display: "flex", flexDirection: "column", justifyContent: "center" }}
               data-testid="card-target-audience-1"
             >
               <h3
@@ -413,7 +414,7 @@ export default function Home() {
 
             <div
               className="nail-card text-left md:col-span-5"
-              style={{ minHeight: "190px" }}
+              style={{ minHeight: "190px", display: "flex", flexDirection: "column", justifyContent: "center" }}
               data-testid="card-target-audience-2"
             >
               <h3
@@ -434,7 +435,7 @@ export default function Home() {
 
             <div
               className="nail-card text-left md:col-span-5"
-              style={{ minHeight: "195px" }}
+              style={{ minHeight: "195px", display: "flex", flexDirection: "column", justifyContent: "center" }}
               data-testid="card-target-audience-3"
             >
               <h3
@@ -455,7 +456,7 @@ export default function Home() {
 
             <div
               className="nail-card text-left md:col-span-4"
-              style={{ minHeight: "185px" }}
+              style={{ minHeight: "185px", display: "flex", flexDirection: "column", justifyContent: "center" }}
               data-testid="card-target-audience-4"
             >
               <h3
@@ -476,7 +477,7 @@ export default function Home() {
 
             <div
               className="nail-card text-left md:col-span-3"
-              style={{ minHeight: "205px" }}
+              style={{ minHeight: "205px", display: "flex", flexDirection: "column", justifyContent: "center" }}
               data-testid="card-target-audience-5"
             >
               <h3
