@@ -324,20 +324,42 @@ export default function Home() {
       {/* Problem Section */}
       <section className="py-20 px-4 md:px-8 text-center">
         <div className="container mx-auto max-w-6xl">
-          <p
-            className="text-white uppercase mb-6"
+          <div
+            className="inline-flex items-center gap-3 px-6 py-3 mb-6 rounded-full"
             style={{
-              fontSize: "11px",
-              fontWeight: 600,
-              letterSpacing: "0.1em",
-              opacity: 0.7,
+              background: "linear-gradient(90deg, #130C0C 0%, #382607 100%)",
             }}
-            data-testid="text-problem-badge"
           >
-            PARA QUEM É?
-          </p>
+            <img
+              src="/images/logo-icon.png"
+              alt="Logo"
+              className="w-4 h-4"
+              data-testid="img-logo-icon"
+            />
+            <p
+              className="text-white uppercase m-0"
+              style={{
+                fontSize: "11px",
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                opacity: 0.7,
+              }}
+              data-testid="text-problem-badge"
+            >
+              PARA QUEM É?
+            </p>
+          </div>
           <h2 className="nail-h2 mb-4" data-testid="text-problem-title">
-            Cansada de trabalhar muito e sentir que não sai do lugar?
+            Cansada de trabalhar muito{" "}
+            <span
+              className="gradient-text"
+              style={{
+                fontFamily: "var(--font-destaques)",
+                fontWeight: "normal",
+              }}
+            >
+              e sentir que não sai do lugar?
+            </span>
           </h2>
           <p
             className="nail-body leading-relaxed mx-auto max-w-3xl mb-16"
@@ -346,9 +368,10 @@ export default function Home() {
             Esta formação é o seu plano de fuga, desenhada para você que:
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto mb-12">
             <div
               className="nail-card text-left"
+              style={{ minHeight: "180px" }}
               data-testid="card-target-audience-0"
             >
               <h3
@@ -369,6 +392,7 @@ export default function Home() {
 
             <div
               className="nail-card text-left"
+              style={{ minHeight: "200px" }}
               data-testid="card-target-audience-1"
             >
               <h3
@@ -389,6 +413,7 @@ export default function Home() {
 
             <div
               className="nail-card text-left"
+              style={{ minHeight: "190px" }}
               data-testid="card-target-audience-2"
             >
               <h3
@@ -409,6 +434,7 @@ export default function Home() {
 
             <div
               className="nail-card text-left"
+              style={{ minHeight: "195px" }}
               data-testid="card-target-audience-3"
             >
               <h3
@@ -429,6 +455,7 @@ export default function Home() {
 
             <div
               className="nail-card text-left"
+              style={{ minHeight: "185px" }}
               data-testid="card-target-audience-4"
             >
               <h3
@@ -449,6 +476,7 @@ export default function Home() {
 
             <div
               className="nail-card text-left"
+              style={{ minHeight: "205px" }}
               data-testid="card-target-audience-5"
             >
               <h3
@@ -468,34 +496,36 @@ export default function Home() {
             </div>
           </div>
 
-          <p
-            className="nail-body leading-relaxed mx-auto max-w-3xl mb-10"
-            style={{ fontWeight: 500 }}
-            data-testid="text-problem-conclusion"
-          >
-            Se você está decidida a construir uma nova realidade financeira para você e sua família... Esta formação é para você.
-          </p>
-
-          <div
-            className="inline-block relative group"
-            style={{ padding: "6px" }}
-          >
-            <a
-              href="#offer"
-              className="cta-button"
-              data-testid="button-cta-target-audience"
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 max-w-6xl mx-auto">
+            <p
+              className="nail-body leading-relaxed text-left flex-1"
+              style={{ fontWeight: 500 }}
+              data-testid="text-problem-conclusion"
             >
-              QUERO ME TORNAR ALUNA
-              <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
-            </a>
-            <BorderBeam
-              size={100}
-              duration={3}
-              colorFrom="#D19756"
-              colorTo="#F1EEE1"
-              borderThickness={2}
-              beamBorderRadius={12}
-            />
+              Se você está decidida a construir uma nova realidade financeira para você e sua família... Esta formação é para você.
+            </p>
+
+            <div
+              className="relative group flex-shrink-0"
+              style={{ padding: "6px" }}
+            >
+              <a
+                href="#offer"
+                className="cta-button"
+                data-testid="button-cta-target-audience"
+              >
+                QUERO ME TORNAR ALUNA
+                <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+              </a>
+              <BorderBeam
+                size={100}
+                duration={3}
+                colorFrom="#D19756"
+                colorTo="#F1EEE1"
+                borderThickness={2}
+                beamBorderRadius={12}
+              />
+            </div>
           </div>
         </div>
       </section>
