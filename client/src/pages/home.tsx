@@ -279,7 +279,7 @@ export default function Home() {
           </div>
 
           {/* Botão Mobile/Tablet */}
-          <div className="lg:hidden px-4 md:px-8 pt-64 md:pt-32 pb-12 md:pb-20">
+          <div className="lg:hidden px-4 md:px-8 pt-64 md:pt-32 pb-20">
             <div
               className="inline-block relative group"
               style={{ padding: "6px" }}
@@ -318,7 +318,7 @@ export default function Home() {
       </header>
 
       {/* Problem Section */}
-      <section className="py-12 md:py-20 px-4 md:px-8 text-center">
+      <section className="py-20 px-4 md:px-8 text-center">
         <div className="container mx-auto max-w-3xl">
           <h2 className="nail-h2" data-testid="text-problem-title">
             Se você se sente{" "}
@@ -337,7 +337,7 @@ export default function Home() {
       </section>
 
       {/* Solution Section */}
-      <section className="py-12 md:py-20 px-4 md:px-8 text-center">
+      <section className="py-20 px-4 md:px-8 text-center">
         <div className="container mx-auto max-w-3xl">
           <h2 className="nail-h2" data-testid="text-solution-title">
             Mas imagine ter a Profissão que te dá{" "}
@@ -356,7 +356,7 @@ export default function Home() {
       </section>
 
       {/* Modules Section */}
-      <section className="glow-section py-12 md:py-20 px-4 md:px-8 relative z-10">
+      <section className="glow-section py-20 px-4 md:px-8 relative z-10">
         <div className="container mx-auto max-w-6xl">
           <h2 className="nail-h2" data-testid="text-modules-title">
             A Formação{" "}
@@ -389,7 +389,7 @@ export default function Home() {
       </section>
 
       {/* Bonus Section */}
-      <section className="py-12 md:py-20 px-4 md:px-8 text-center">
+      <section className="py-20 px-4 md:px-8 text-center">
         <div className="container mx-auto max-w-4xl">
           <h2 className="nail-h2" data-testid="text-bonus-title">
             Você ainda recebe{" "}
@@ -413,7 +413,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-12 md:py-20 px-4 md:px-8">
+      <section className="py-20 px-4 md:px-8">
         <div className="container mx-auto max-w-6xl">
           <h2 className="nail-h2" data-testid="text-testimonials-title">
             Elas Começaram do Zero e Hoje Têm{" "}
@@ -448,7 +448,7 @@ export default function Home() {
       {/* Offer Section */}
       <section
         id="offer"
-        className="glow-section py-12 md:py-20 px-4 md:px-8 relative z-10"
+        className="glow-section py-20 px-4 md:px-8 relative z-10"
       >
         <div
           className="container mx-auto max-w-4xl p-6 md:p-12 text-center"
@@ -536,7 +536,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-12 md:py-20 px-4 md:px-8">
+      <section className="py-20 px-4 md:px-8">
         <div className="container mx-auto max-w-4xl">
           <h2 className="nail-h2" data-testid="text-faq-title">
             Perguntas Frequentes
