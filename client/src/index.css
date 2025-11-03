@@ -385,7 +385,7 @@
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    font-family: var(--font-titulos);
+    font-family: 'Poppins', sans-serif;
   }
 
   /* Regular titles - smaller sizes */
@@ -394,7 +394,7 @@
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    font-family: var(--font-titulos);
+    font-family: 'Poppins', sans-serif;
   }
 
   .nail-h2 {
@@ -404,7 +404,7 @@
     margin-bottom: 40px;
     line-height: 1.2;
     letter-spacing: -0.02em;
-    font-family: var(--font-titulos);
+    font-family: 'Poppins', sans-serif;
   }
   
   .nail-h2-highlight {
@@ -416,7 +416,7 @@
     color: #FCE9B5;
     line-height: 1.25;
     letter-spacing: -0.01em;
-    font-family: var(--font-titulos);
+    font-family: 'Poppins', sans-serif;
   }
 
   .nail-subtitle {
