@@ -522,7 +522,7 @@
       transform: none;
       width: 1400px;
       height: 1600px;
-      background: radial-gradient(circle at left, rgba(219, 168, 111, 0.32) 0%, rgba(219, 168, 111, 0.18) 20%, rgba(219, 168, 111, 0.08) 35%, rgba(219, 168, 111, 0) 50%);
+      background: radial-gradient(circle at left, rgba(219, 168, 111, 0.14) 0%, rgba(219, 168, 111, 0.08) 20%, rgba(219, 168, 111, 0.04) 35%, rgba(219, 168, 111, 0) 50%);
     }
     
     /* Brilho na lateral direita para desktop */
@@ -533,7 +533,7 @@
       right: 0;
       width: 1400px;
       height: 1600px;
-      background: radial-gradient(circle at right, rgba(219, 168, 111, 0.32) 0%, rgba(219, 168, 111, 0.18) 20%, rgba(219, 168, 111, 0.08) 35%, rgba(219, 168, 111, 0) 50%);
+      background: radial-gradient(circle at right, rgba(219, 168, 111, 0.14) 0%, rgba(219, 168, 111, 0.08) 20%, rgba(219, 168, 111, 0.04) 35%, rgba(219, 168, 111, 0) 50%);
       z-index: 15;
       pointer-events: none;
       animation: none;
