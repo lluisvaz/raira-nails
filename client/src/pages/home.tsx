@@ -319,17 +319,17 @@ export default function Home() {
             </p>
           </div>
         </div>
-        {/* Divisória com degradê */}
-        <div className="w-full px-4 md:px-8 lg:px-16">
-          <div
-            style={{
-              height: "1px",
-              background: "linear-gradient(90deg, #130C0C 0%, #2B231D 15%, #2B231D 85%, #130C0C 100%)",
-              margin: "0 auto",
-            }}
-          />
-        </div>
       </header>
+      {/* Divisória com degradê */}
+      <div className="w-full px-4 md:px-8 lg:px-16">
+        <div
+          style={{
+            height: "1px",
+            background: "linear-gradient(90deg, #130C0C 0%, #2B231D 15%, #2B231D 85%, #130C0C 100%)",
+            margin: "0 auto",
+          }}
+        />
+      </div>
 
       {/* Problem Section */}
       <section className="px-4 md:px-8 text-center">
