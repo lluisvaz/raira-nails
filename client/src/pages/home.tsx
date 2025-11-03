@@ -206,8 +206,8 @@ export default function Home() {
           {/* Desktop Layout (lg+) */}
           <div className="hidden lg:block relative w-full min-h-[1000px]">
             {/* Imagem alinhada à direita - MUITO MAIOR */}
-            <div className="absolute inset-0 flex justify-end items-center">
-              <div className="relative" style={{ width: "120%", marginRight: "-40%" }}>
+            <div className="absolute inset-0 flex justify-end items-start">
+              <div className="relative" style={{ width: "120%", marginRight: "-40%", marginTop: "-150px" }}>
                 <img
                   src={heroImage}
                   alt="Nail Designer de Sucesso"
