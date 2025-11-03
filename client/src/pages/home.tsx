@@ -171,7 +171,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <header className="glow-section glow-section-hero text-center lg:text-left relative z-10" style={{ borderBottom: "1px solid #2B231D" }}>
+      <header className="glow-section glow-section-hero text-center lg:text-left relative z-10">
         <div className="container mx-auto max-w-7xl">
           {/* Mobile/Tablet Layout (até md) */}
           <div className="relative w-full lg:hidden">
@@ -318,6 +318,16 @@ export default function Home() {
               INSCRIÇÕES ABERTAS POR TEMPO LIMITADO
             </p>
           </div>
+        </div>
+        {/* Divisória com degradê */}
+        <div className="w-full px-4 md:px-8 lg:px-16">
+          <div
+            style={{
+              height: "1px",
+              background: "linear-gradient(90deg, #130C0C 0%, #2B231D 15%, #2B231D 85%, #130C0C 100%)",
+              margin: "0 auto",
+            }}
+          />
         </div>
       </header>
 
@@ -528,6 +538,16 @@ export default function Home() {
               />
             </div>
           </div>
+        </div>
+        {/* Divisória com degradê */}
+        <div className="w-full px-4 md:px-8 lg:px-16">
+          <div
+            style={{
+              height: "1px",
+              background: "linear-gradient(90deg, #130C0C 0%, #2B231D 15%, #2B231D 85%, #130C0C 100%)",
+              margin: "0 auto",
+            }}
+          />
         </div>
       </section>
 
