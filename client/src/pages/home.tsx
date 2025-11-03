@@ -323,20 +323,180 @@ export default function Home() {
 
       {/* Problem Section */}
       <section className="py-20 px-4 md:px-8 text-center">
-        <div className="container mx-auto max-w-3xl">
-          <h2 className="nail-h2" data-testid="text-problem-title">
-            Se você se sente{" "}
-            <span className="gradient-text nail-h2-highlight">presa</span> em um
-            trabalho que não te valoriza...
+        <div className="container mx-auto max-w-6xl">
+          <p
+            className="text-white uppercase mb-6"
+            style={{
+              fontSize: "11px",
+              fontWeight: 600,
+              letterSpacing: "0.1em",
+              opacity: 0.7,
+            }}
+            data-testid="text-problem-badge"
+          >
+            PARA QUEM É?
+          </p>
+          <h2 className="nail-h2 mb-4" data-testid="text-problem-title">
+            Cansada de trabalhar muito e sentir que não sai do lugar?
           </h2>
           <p
-            className="nail-body leading-relaxed mx-auto"
-            data-testid="text-problem-description"
+            className="nail-body leading-relaxed mx-auto max-w-3xl mb-16"
+            data-testid="text-problem-subtitle"
           >
-            Se você se sente presa em um trabalho que não te valoriza, sonha em
-            ter sua independência financeira ou já é manicure mas não consegue
-            aumentar seu faturamento... eu sei exatamente como você se sente.
+            Esta formação é o seu plano de fuga, desenhada para você que:
           </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
+            <div
+              className="nail-card text-left"
+              data-testid="card-target-audience-0"
+            >
+              <h3
+                className="text-lg font-semibold mb-3"
+                style={{ color: "#DBA86F" }}
+                data-testid="text-target-title-0"
+              >
+                Sente-se presa...
+              </h3>
+              <p
+                className="nail-body leading-relaxed max-w-none"
+                style={{ opacity: 0.85 }}
+                data-testid="text-target-description-0"
+              >
+                Em um emprego CLT que paga pouco, não te reconhece e rouba todo o seu tempo, sem nenhuma perspectiva de crescimento.
+              </p>
+            </div>
+
+            <div
+              className="nail-card text-left"
+              data-testid="card-target-audience-1"
+            >
+              <h3
+                className="text-lg font-semibold mb-3"
+                style={{ color: "#DBA86F" }}
+                data-testid="text-target-title-1"
+              >
+                Sonha em ter liberdade...
+              </h3>
+              <p
+                className="nail-body leading-relaxed max-w-none"
+                style={{ opacity: 0.85 }}
+                data-testid="text-target-description-1"
+              >
+                De fazer seus próprios horários, poder levar seu filho na escola ou ir à academia, sem ter que "bater ponto" ou pedir permissão.
+              </p>
+            </div>
+
+            <div
+              className="nail-card text-left"
+              data-testid="card-target-audience-2"
+            >
+              <h3
+                className="text-lg font-semibold mb-3"
+                style={{ color: "#DBA86F" }}
+                data-testid="text-target-title-2"
+              >
+                Busca uma renda maior...
+              </h3>
+              <p
+                className="nail-body leading-relaxed max-w-none"
+                style={{ opacity: 0.85 }}
+                data-testid="text-target-description-2"
+              >
+                E vê o potencial de ganhar R$ 3.000, R$ 5.000 ou mais por mês, trabalhando para si mesma, com suas próprias regras.
+              </p>
+            </div>
+
+            <div
+              className="nail-card text-left"
+              data-testid="card-target-audience-3"
+            >
+              <h3
+                className="text-lg font-semibold mb-3"
+                style={{ color: "#DBA86F" }}
+                data-testid="text-target-title-3"
+              >
+                Quer ser a própria chefe...
+              </h3>
+              <p
+                className="nail-body leading-relaxed max-w-none"
+                style={{ opacity: 0.85 }}
+                data-testid="text-target-description-3"
+              >
+                E finalmente parar de receber ordens, lidando diretamente com suas clientes e construindo algo que é seu de verdade.
+              </p>
+            </div>
+
+            <div
+              className="nail-card text-left"
+              data-testid="card-target-audience-4"
+            >
+              <h3
+                className="text-lg font-semibold mb-3"
+                style={{ color: "#DBA86F" }}
+                data-testid="text-target-title-4"
+              >
+                Mas não sabe por onde começar...
+              </h3>
+              <p
+                className="nail-body leading-relaxed max-w-none"
+                style={{ opacity: 0.85 }}
+                data-testid="text-target-description-4"
+              >
+                Você olha o mercado de unhas e parece muito difícil, com muitos materiais e técnicas, e tem medo de investir e não dar certo.
+              </p>
+            </div>
+
+            <div
+              className="nail-card text-left"
+              data-testid="card-target-audience-5"
+            >
+              <h3
+                className="text-lg font-semibold mb-3"
+                style={{ color: "#DBA86F" }}
+                data-testid="text-target-title-5"
+              >
+                Tem medo do julgamento...
+              </h3>
+              <p
+                className="nail-body leading-relaxed max-w-none"
+                style={{ opacity: 0.85 }}
+                data-testid="text-target-description-5"
+              >
+                De largar um emprego "seguro" (mesmo que ruim) para começar algo novo que sua família talvez não entenda como uma "profissão de verdade".
+              </p>
+            </div>
+          </div>
+
+          <p
+            className="nail-body leading-relaxed mx-auto max-w-3xl mb-10"
+            style={{ fontWeight: 500 }}
+            data-testid="text-problem-conclusion"
+          >
+            Se você está decidida a construir uma nova realidade financeira para você e sua família... Esta formação é para você.
+          </p>
+
+          <div
+            className="inline-block relative group"
+            style={{ padding: "6px" }}
+          >
+            <a
+              href="#offer"
+              className="cta-button"
+              data-testid="button-cta-target-audience"
+            >
+              QUERO ME TORNAR ALUNA
+              <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+            </a>
+            <BorderBeam
+              size={100}
+              duration={3}
+              colorFrom="#D19756"
+              colorTo="#F1EEE1"
+              borderThickness={2}
+              beamBorderRadius={12}
+            />
+          </div>
         </div>
       </section>
 
