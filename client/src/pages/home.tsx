@@ -171,7 +171,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <header className="glow-section text-center lg:text-left relative z-10" style={{ borderBottom: "1px solid #2B231D" }}>
+      <header className="glow-section glow-section-hero text-center lg:text-left relative z-10" style={{ borderBottom: "1px solid #2B231D" }}>
         <div className="container mx-auto max-w-7xl">
           {/* Mobile/Tablet Layout (até md) */}
           <div className="relative w-full lg:hidden">
