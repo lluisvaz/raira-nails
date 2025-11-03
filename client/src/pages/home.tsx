@@ -228,6 +228,18 @@ export default function Home() {
                       "linear-gradient(to right, rgba(19, 12, 12, 0.95) 0%, rgba(19, 12, 12, 0.85) 70%, transparent 100%)",
                   }}
                 >
+                  <p
+                    className="text-white uppercase mb-6 text-left"
+                    style={{
+                      fontSize: "11px",
+                      fontWeight: 600,
+                      letterSpacing: "0.1em",
+                      opacity: 0.7,
+                    }}
+                    data-testid="text-hero-badge-desktop"
+                  >
+                    INSCRIÇÕES ABERTAS POR TEMPO LIMITADO
+                  </p>
                   <h1 className="nail-hero-title mb-8" data-testid="text-hero-title-desktop">
                     Conquiste sua{" "}
                     <span className="gradient-text">Independência Financeira</span>{" "}
@@ -261,18 +273,6 @@ export default function Home() {
                       beamBorderRadius={12}
                     />
                   </div>
-                  <p
-                    className="text-white uppercase mt-6 text-left"
-                    style={{
-                      fontSize: "11px",
-                      fontWeight: 600,
-                      letterSpacing: "0.1em",
-                      opacity: 0.7,
-                    }}
-                    data-testid="text-hero-badge-desktop"
-                  >
-                    INSCRIÇÕES ABERTAS POR TEMPO LIMITADO
-                  </p>
                 </div>
               </div>
             </div>
