@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { MoveRightIcon } from "@/components/ui/MoveRightIcon";
+import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { ZapIcon } from "@/components/ui/ZapIcon";
 const heroImage = "/images/raira-home.png";
@@ -262,7 +262,7 @@ export default function Home() {
                       data-testid="button-cta-hero-desktop"
                     >
                       Quero me Tornar uma Nail Designer de Sucesso
-                      <MoveRightIcon size={24} className="text-black flex-shrink-0" />
+                      <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
                     </a>
                     <BorderBeam
                       size={100}
@@ -290,7 +290,7 @@ export default function Home() {
                 data-testid="button-cta-hero"
               >
                 Quero me Tornar uma Nail Designer de Sucesso
-                <MoveRightIcon size={24} className="text-black flex-shrink-0" />
+                <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
               </a>
               <BorderBeam
                 size={100}
@@ -495,7 +495,7 @@ export default function Home() {
               data-testid="button-cta-offer"
             >
               Quero Garantir Minha Vaga com Desconto!
-              <MoveRightIcon size={24} className="text-black flex-shrink-0" />
+              <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
             </a>
             <BorderBeam
               size={100}
