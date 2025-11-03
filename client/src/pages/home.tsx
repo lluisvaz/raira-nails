@@ -178,8 +178,10 @@ export default function Home() {
             <img
               src={heroImage}
               alt="Nail Designer de Sucesso"
-              className="w-full h-[500px] md:h-[800px] object-cover object-top"
+              className="w-full h-[500px] md:h-[800px] object-cover object-top pointer-events-none select-none"
               data-testid="img-hero"
+              draggable="false"
+              onContextMenu={(e) => e.preventDefault()}
             />
             <div
               className="absolute bottom-[-280px] md:bottom-[-140px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8"
@@ -211,9 +213,11 @@ export default function Home() {
                 <img
                   src={heroImage}
                   alt="Nail Designer de Sucesso"
-                  className="w-full h-[1500px] object-contain object-right"
+                  className="w-full h-[1500px] object-contain object-right pointer-events-none select-none"
                   data-testid="img-hero-desktop"
                   style={{ background: "#130C0C" }}
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
                 />
               </div>
             </div>
