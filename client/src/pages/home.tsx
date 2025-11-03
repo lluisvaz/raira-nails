@@ -279,7 +279,7 @@ export default function Home() {
           </div>
 
           {/* Botão Mobile/Tablet */}
-          <div className="lg:hidden px-4 md:px-8 pt-64 md:pt-32">
+          <div className="lg:hidden px-4 md:px-8 pt-64 md:pt-32 pb-12 md:pb-20">
             <div
               className="inline-block relative group"
               style={{ padding: "6px" }}
