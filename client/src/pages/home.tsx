@@ -262,7 +262,7 @@ export default function Home() {
                     />
                   </div>
                   <p
-                    className="text-white uppercase mt-6 text-center"
+                    className="text-white uppercase mt-6 text-left"
                     style={{
                       fontSize: "11px",
                       fontWeight: 600,
