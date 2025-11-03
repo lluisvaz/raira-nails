@@ -508,7 +508,7 @@
     transform: translateX(-50%);
     width: min(600px, 95vw);
     height: 350px;
-    background: radial-gradient(circle, rgba(219, 168, 111, 0.15) 0%, rgba(219, 168, 111, 0.08) 35%, rgba(219, 168, 111, 0.03) 60%, rgba(219, 168, 111, 0) 80%);
+    background: radial-gradient(circle, rgba(219, 168, 111, 0.28) 0%, rgba(219, 168, 111, 0.16) 35%, rgba(219, 168, 111, 0.06) 60%, rgba(219, 168, 111, 0) 80%);
     z-index: 15;
     pointer-events: none;
     animation: pulse-glow 3s ease-in-out infinite;
@@ -522,7 +522,7 @@
       transform: none;
       width: 1400px;
       height: 1600px;
-      background: radial-gradient(circle at left, rgba(219, 168, 111, 0.18) 0%, rgba(219, 168, 111, 0.09) 20%, rgba(219, 168, 111, 0.04) 35%, rgba(219, 168, 111, 0) 50%);
+      background: radial-gradient(circle at left, rgba(219, 168, 111, 0.32) 0%, rgba(219, 168, 111, 0.18) 20%, rgba(219, 168, 111, 0.08) 35%, rgba(219, 168, 111, 0) 50%);
     }
     
     /* Brilho na lateral direita para desktop */
@@ -533,7 +533,7 @@
       right: 0;
       width: 1400px;
       height: 1600px;
-      background: radial-gradient(circle at right, rgba(219, 168, 111, 0.18) 0%, rgba(219, 168, 111, 0.09) 20%, rgba(219, 168, 111, 0.04) 35%, rgba(219, 168, 111, 0) 50%);
+      background: radial-gradient(circle at right, rgba(219, 168, 111, 0.32) 0%, rgba(219, 168, 111, 0.18) 20%, rgba(219, 168, 111, 0.08) 35%, rgba(219, 168, 111, 0) 50%);
       z-index: 15;
       pointer-events: none;
       animation: none;
