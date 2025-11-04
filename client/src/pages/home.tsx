@@ -554,7 +554,7 @@ export default function Home() {
       </section>
 
       {/* Platform Access Section */}
-      <section className="py-20 px-4 md:px-8">
+      <section className="py-20 px-4 md:px-8 overflow-hidden">
         <div className="container mx-auto max-w-6xl">
           <div
             className="inline-flex items-center gap-3 px-6 py-3 mb-6 rounded-full"
@@ -582,7 +582,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center overflow-visible">
             {/* Lado Esquerdo - Conteúdo */}
             <div>
               <h2 className="nail-h2 mb-6 text-left" data-testid="text-access-title">
@@ -696,9 +696,10 @@ export default function Home() {
               >
                 {/* MacBook Pro Container */}
                 <div
-                  className="relative mx-auto"
+                  className="relative"
                   style={{
-                    maxWidth: "650px",
+                    maxWidth: "1100px",
+                    marginLeft: "200px",
                     transformStyle: "preserve-3d",
                     transform: "rotateX(8deg) rotateY(-5deg)",
                     transition: "transform 0.6s ease",
