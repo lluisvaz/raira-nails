@@ -651,13 +651,14 @@ export default function Home() {
               </p>
 
               {/* Lista de Benefícios */}
-              <div 
-                className="space-y-6 mb-10 p-6 rounded-lg"
-                style={{ 
-                  background: "linear-gradient(90deg, #372507 0%, #130C0C 100%)"
-                }}
-              >
-                <div className="flex items-start gap-4" data-testid="benefit-access-0">
+              <div className="space-y-6 mb-10">
+                <div 
+                  className="flex items-start gap-4 p-4 rounded-lg" 
+                  data-testid="benefit-access-0"
+                  style={{ 
+                    background: "linear-gradient(90deg, #372507 0%, #130C0C 100%)"
+                  }}
+                >
                   <div
                     className="w-1 h-full flex-shrink-0"
                     style={{ background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)" }}
@@ -672,7 +673,13 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4" data-testid="benefit-access-1">
+                <div 
+                  className="flex items-start gap-4 p-4 rounded-lg" 
+                  data-testid="benefit-access-1"
+                  style={{ 
+                    background: "linear-gradient(90deg, #372507 0%, #130C0C 100%)"
+                  }}
+                >
                   <div
                     className="w-1 h-full flex-shrink-0"
                     style={{ background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)" }}
@@ -687,7 +694,13 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4" data-testid="benefit-access-2">
+                <div 
+                  className="flex items-start gap-4 p-4 rounded-lg" 
+                  data-testid="benefit-access-2"
+                  style={{ 
+                    background: "linear-gradient(90deg, #372507 0%, #130C0C 100%)"
+                  }}
+                >
                   <div
                     className="w-1 h-full flex-shrink-0"
                     style={{ background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)" }}
@@ -702,7 +715,13 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4" data-testid="benefit-access-3">
+                <div 
+                  className="flex items-start gap-4 p-4 rounded-lg" 
+                  data-testid="benefit-access-3"
+                  style={{ 
+                    background: "linear-gradient(90deg, #372507 0%, #130C0C 100%)"
+                  }}
+                >
                   <div
                     className="w-1 h-full flex-shrink-0"
                     style={{ background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)" }}
