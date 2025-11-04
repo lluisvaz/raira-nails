@@ -13,6 +13,7 @@ const heroImage = "/images/raira-home.png";
 
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState(13 * 60 + 37);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
 
   useEffect(() => {
     if (timeLeft <= 0) return;
@@ -23,6 +24,15 @@ export default function Home() {
 
     return () => clearInterval(timer);
   }, [timeLeft]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -684,246 +694,6 @@ export default function Home() {
                 />
               </div>
             </div>
-
-            {/* Lado Direito - MacBook Pro 3D */}
-            <div className="relative" data-testid="container-notebook">
-              <div 
-                className="relative"
-                style={{
-                  perspective: "3000px",
-                  perspectiveOrigin: "50% 50%",
-                }}
-              >
-                {/* MacBook Pro Container */}
-                <div
-                  className="relative"
-                  style={{
-                    width: "2200px",
-                    maxWidth: "none",
-                    transformStyle: "preserve-3d",
-                    transform: "rotateX(8deg) rotateY(-5deg) translateX(50%)",
-                    transition: "transform 0.6s ease",
-                  }}
-                >
-                  {/* Screen/Display */}
-                  <div
-                    className="relative"
-                    style={{
-                      width: "100%",
-                      aspectRatio: "16/10",
-                      background: "linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%)",
-                      borderRadius: "12px 12px 4px 4px",
-                      padding: "14px 14px 28px 14px",
-                      boxShadow: `
-                        inset 0 0 0 2px #3a3a3a,
-                        0 30px 70px rgba(0, 0, 0, 0.5),
-                        0 15px 35px rgba(0, 0, 0, 0.3)
-                      `,
-                      transformStyle: "preserve-3d",
-                    }}
-                  >
-                    {/* Camera Notch */}
-                    <div
-                      className="absolute top-2 left-1/2"
-                      style={{
-                        transform: "translateX(-50%)",
-                        width: "80px",
-                        height: "6px",
-                        background: "#1a1a1a",
-                        borderRadius: "0 0 8px 8px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        zIndex: 10,
-                      }}
-                    >
-                      {/* Camera */}
-                      <div
-                        style={{
-                          width: "6px",
-                          height: "6px",
-                          borderRadius: "50%",
-                          background: "#303132",
-                          border: "0.5px solid #404040",
-                        }}
-                      />
-                    </div>
-
-                    {/* Screen Bezel */}
-                    <div
-                      className="relative w-full h-full overflow-hidden"
-                      style={{
-                        background: "#000",
-                        borderRadius: "6px",
-                        boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.05)",
-                      }}
-                    >
-                      {/* Vídeo em Loop */}
-                      <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-cover"
-                        style={{ pointerEvents: "none" }}
-                        data-testid="video-platform-preview"
-                      >
-                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-                      </video>
-
-                      {/* Screen Reflection Effect */}
-                      <div
-                        className="absolute inset-0 pointer-events-none"
-                        style={{
-                          background: `linear-gradient(
-                            135deg,
-                            rgba(255, 255, 255, 0.08) 0%,
-                            transparent 40%,
-                            transparent 60%,
-                            rgba(255, 255, 255, 0.03) 100%
-                          )`,
-                        }}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Keyboard Base */}
-                  <div
-                    className="relative"
-                    style={{
-                      width: "100%",
-                      height: "24px",
-                      background: "linear-gradient(to bottom, #d4d4d4 0%, #b8b8b8 50%, #a0a0a0 100%)",
-                      borderRadius: "0 0 8px 8px",
-                      transformOrigin: "top center",
-                      transform: "rotateX(90deg) translateZ(-12px)",
-                      transformStyle: "preserve-3d",
-                      boxShadow: `
-                        0 2px 4px rgba(0, 0, 0, 0.2),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.3)
-                      `,
-                    }}
-                  >
-                    {/* Trackpad indication */}
-                    <div
-                      className="absolute"
-                      style={{
-                        bottom: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, 50%)",
-                        width: "100px",
-                        height: "8px",
-                        background: "rgba(0, 0, 0, 0.1)",
-                        borderRadius: "2px",
-                      }}
-                    />
-                  </div>
-
-                  {/* Bottom Shadow */}
-                  <div
-                    className="absolute left-0 right-0 mx-auto"
-                    style={{
-                      bottom: "-70px",
-                      width: "85%",
-                      height: "70px",
-                      background: "radial-gradient(ellipse at center, rgba(26, 18, 18, 0.4) 0%, transparent 70%)",
-                      filter: "blur(25px)",
-                      transform: "translateZ(-50px)",
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Modules Section */}
-      <section className="glow-section py-20 px-4 md:px-8 relative z-10">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="nail-h2" data-testid="text-modules-title">
-            A Formação{" "}
-            <span className="gradient-text nail-h2-highlight">Completa</span> do
-            Zero ao Avançado
-          </h2>
-          <div className="modules-grid">
-            {modules.map((module, index) => (
-              <div
-                key={index}
-                className={`nail-card module-card-${index + 1}`}
-                data-testid={`card-module-${index}`}
-              >
-                <h3
-                  className="nail-h3 mb-4"
-                  data-testid={`text-module-title-${index}`}
-                >
-                  {module.title}
-                </h3>
-                <p
-                  className="nail-body leading-relaxed max-w-none"
-                  data-testid={`text-module-description-${index}`}
-                >
-                  {module.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Bonus Section */}
-      <section className="py-20 px-4 md:px-8 text-center">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="nail-h2" data-testid="text-bonus-title">
-            Você ainda recebe{" "}
-            <span className="gradient-text nail-h2-highlight">
-              Bônus Exclusivos
-            </span>
-          </h2>
-          <ul className="text-left space-y-5 max-w-2xl mx-auto">
-            {bonuses.map((bonus, index) => (
-              <li
-                key={index}
-                className="flex items-start nail-body max-w-none"
-                data-testid={`list-bonus-${index}`}
-              >
-                <span className="bonus-check">✓</span>
-                <span>{bonus}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 px-4 md:px-8">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="nail-h2" data-testid="text-testimonials-title">
-            Elas Começaram do Zero e Hoje Têm{" "}
-            <span className="gradient-text nail-h2-highlight">Sucesso</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="nail-card"
-                data-testid={`card-testimonial-${index}`}
-              >
-                <p
-                  className="nail-body leading-relaxed mb-4 max-w-none"
-                  data-testid={`text-testimonial-quote-${index}`}
-                >
-                  "{testimonial.text}"
-                </p>
-                <span
-                  className="text-sm font-medium"
-                  style={{ color: "#DBA86F" }}
-                  data-testid={`text-testimonial-author-${index}`}
-                >
-                  - Aluna {testimonial.author}
-                </span>
-              </div>
-            ))}
           </div>
         </div>
       </section>
