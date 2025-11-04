@@ -398,7 +398,7 @@ export default function Home() {
                 display: "flex", 
                 flexDirection: "column", 
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #130C0C 0%, #261816 100%)"
+                background: "linear-gradient(to top right, #130C0C 0%, #130C0C 60%, #261816 100%)"
               }}
               data-testid="card-target-audience-0"
             >
@@ -425,7 +425,7 @@ export default function Home() {
                 display: "flex", 
                 flexDirection: "column", 
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #130C0C 0%, #261816 100%)"
+                background: "linear-gradient(to top right, #130C0C 0%, #130C0C 60%, #261816 100%)"
               }}
               data-testid="card-target-audience-1"
             >
@@ -452,7 +452,7 @@ export default function Home() {
                 display: "flex", 
                 flexDirection: "column", 
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #130C0C 0%, #261816 100%)"
+                background: "linear-gradient(to top right, #130C0C 0%, #130C0C 60%, #261816 100%)"
               }}
               data-testid="card-target-audience-2"
             >
@@ -479,7 +479,7 @@ export default function Home() {
                 display: "flex", 
                 flexDirection: "column", 
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #130C0C 0%, #261816 100%)"
+                background: "linear-gradient(to top right, #130C0C 0%, #130C0C 60%, #261816 100%)"
               }}
               data-testid="card-target-audience-3"
             >
@@ -506,7 +506,7 @@ export default function Home() {
                 display: "flex", 
                 flexDirection: "column", 
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #130C0C 0%, #261816 100%)"
+                background: "linear-gradient(to top right, #130C0C 0%, #130C0C 60%, #261816 100%)"
               }}
               data-testid="card-target-audience-4"
             >
@@ -533,7 +533,7 @@ export default function Home() {
                 display: "flex", 
                 flexDirection: "column", 
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #130C0C 0%, #261816 100%)"
+                background: "linear-gradient(to top right, #130C0C 0%, #130C0C 60%, #261816 100%)"
               }}
               data-testid="card-target-audience-5"
             >
