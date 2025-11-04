@@ -603,32 +603,42 @@ export default function Home() {
               </h2>
 
               {/* Vídeo Mobile - aparece só no mobile abaixo do título */}
-              <div 
-                className="lg:hidden rounded-2xl overflow-hidden mb-8"
-                style={{ 
-                  border: "1px solid #DBA86F",
-                  height: "300px"
-                }}
-                data-testid="container-platform-video-mobile"
-              >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  disablePictureInPicture
-                  controlsList="nodownload nofullscreen noremoteplayback"
+              <div className="lg:hidden relative mb-8" style={{ padding: "6px" }}>
+                <div 
+                  className="rounded-2xl overflow-hidden"
                   style={{ 
-                    pointerEvents: "none",
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover"
+                    border: "1px solid #DBA86F",
+                    height: "300px"
                   }}
-                  data-testid="video-platform-preview-mobile"
+                  data-testid="container-platform-video-mobile"
                 >
-                  <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeos.
-                </video>
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    disablePictureInPicture
+                    controlsList="nodownload nofullscreen noremoteplayback"
+                    style={{ 
+                      pointerEvents: "none",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover"
+                    }}
+                    data-testid="video-platform-preview-mobile"
+                  >
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                    Seu navegador não suporta vídeos.
+                  </video>
+                </div>
+                <BorderBeam
+                  size={100}
+                  duration={3}
+                  colorFrom="#D19756"
+                  colorTo="#F1EEE1"
+                  borderThickness={2}
+                  beamBorderRadius={12}
+                />
               </div>
 
               <p
@@ -728,33 +738,43 @@ export default function Home() {
             </div>
 
             {/* Lado Direito - Vídeo */}
-            <div 
-              className="hidden lg:block rounded-2xl overflow-hidden"
-              style={{ 
-                border: "1px solid #DBA86F",
-                height: "100%",
-                minHeight: "500px"
-              }}
-              data-testid="container-platform-video"
-            >
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                disablePictureInPicture
-                controlsList="nodownload nofullscreen noremoteplayback"
+            <div className="hidden lg:block relative" style={{ padding: "6px" }}>
+              <div 
+                className="rounded-2xl overflow-hidden"
                 style={{ 
-                  pointerEvents: "none",
-                  width: "100%",
+                  border: "1px solid #DBA86F",
                   height: "100%",
-                  objectFit: "cover"
+                  minHeight: "500px"
                 }}
-                data-testid="video-platform-preview"
+                data-testid="container-platform-video"
               >
-                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-                Seu navegador não suporta vídeos.
-              </video>
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  disablePictureInPicture
+                  controlsList="nodownload nofullscreen noremoteplayback"
+                  style={{ 
+                    pointerEvents: "none",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover"
+                  }}
+                  data-testid="video-platform-preview"
+                >
+                  <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                  Seu navegador não suporta vídeos.
+                </video>
+              </div>
+              <BorderBeam
+                size={100}
+                duration={3}
+                colorFrom="#D19756"
+                colorTo="#F1EEE1"
+                borderThickness={2}
+                beamBorderRadius={12}
+              />
             </div>
           </div>
         </div>
