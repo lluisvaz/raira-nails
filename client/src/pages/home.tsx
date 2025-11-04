@@ -653,7 +653,7 @@ export default function Home() {
               {/* Lista de Benefícios */}
               <div className="space-y-6 mb-10">
                 <div 
-                  className="flex items-stretch gap-4 p-4" 
+                  className="flex items-stretch" 
                   data-testid="benefit-access-0"
                   style={{ 
                     background: "linear-gradient(90deg, #261403 0%, #130C0C 100%)"
@@ -661,9 +661,9 @@ export default function Home() {
                 >
                   <div
                     className="w-1.5 flex-shrink-0"
-                    style={{ background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)" }}
+                    style={{ background: "#D49D5E" }}
                   />
-                  <div>
+                  <div className="py-4 px-6">
                     <p className="nail-body font-semibold mb-1" style={{ color: "#DBA86F" }}>
                       Acesso imediato por 12 meses
                     </p>
@@ -674,7 +674,7 @@ export default function Home() {
                 </div>
 
                 <div 
-                  className="flex items-stretch gap-4 p-4" 
+                  className="flex items-stretch" 
                   data-testid="benefit-access-1"
                   style={{ 
                     background: "linear-gradient(90deg, #261403 0%, #130C0C 100%)"
@@ -682,9 +682,9 @@ export default function Home() {
                 >
                   <div
                     className="w-1.5 flex-shrink-0"
-                    style={{ background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)" }}
+                    style={{ background: "#D49D5E" }}
                   />
-                  <div>
+                  <div className="py-4 px-6">
                     <p className="nail-body font-semibold mb-1" style={{ color: "#DBA86F" }}>
                       Certificado Profissional de Conclusão
                     </p>
@@ -695,7 +695,7 @@ export default function Home() {
                 </div>
 
                 <div 
-                  className="flex items-stretch gap-4 p-4" 
+                  className="flex items-stretch" 
                   data-testid="benefit-access-2"
                   style={{ 
                     background: "linear-gradient(90deg, #261403 0%, #130C0C 100%)"
@@ -703,9 +703,9 @@ export default function Home() {
                 >
                   <div
                     className="w-1.5 flex-shrink-0"
-                    style={{ background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)" }}
+                    style={{ background: "#D49D5E" }}
                   />
-                  <div>
+                  <div className="py-4 px-6">
                     <p className="nail-body font-semibold mb-1" style={{ color: "#DBA86F" }}>
                       Assista em qualquer dispositivo
                     </p>
@@ -716,7 +716,7 @@ export default function Home() {
                 </div>
 
                 <div 
-                  className="flex items-stretch gap-4 p-4" 
+                  className="flex items-stretch" 
                   data-testid="benefit-access-3"
                   style={{ 
                     background: "linear-gradient(90deg, #261403 0%, #130C0C 100%)"
@@ -724,9 +724,9 @@ export default function Home() {
                 >
                   <div
                     className="w-1.5 flex-shrink-0"
-                    style={{ background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)" }}
+                    style={{ background: "#D49D5E" }}
                   />
-                  <div>
+                  <div className="py-4 px-6">
                     <p className="nail-body font-semibold mb-1" style={{ color: "#DBA86F" }}>
                       Suporte direto com nossa equipe
                     </p>
