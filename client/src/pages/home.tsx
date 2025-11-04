@@ -700,7 +700,7 @@ export default function Home() {
                   style={{
                     maxWidth: "650px",
                     transformStyle: "preserve-3d",
-                    transform: "rotateX(22deg) rotateY(-5deg)",
+                    transform: "rotateX(28deg) rotateY(-5deg)",
                     transition: "transform 0.6s ease",
                   }}
                 >
