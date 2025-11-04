@@ -393,7 +393,13 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 max-w-6xl mx-auto mb-12">
             <div
               className="nail-card text-left md:col-span-3"
-              style={{ minHeight: "180px", display: "flex", flexDirection: "column", justifyContent: "center" }}
+              style={{ 
+                minHeight: "180px", 
+                display: "flex", 
+                flexDirection: "column", 
+                justifyContent: "center",
+                background: "linear-gradient(to top right, #130C0C 0%, #261816 100%)"
+              }}
               data-testid="card-target-audience-0"
             >
               <h3
@@ -414,7 +420,13 @@ export default function Home() {
 
             <div
               className="nail-card text-left md:col-span-4"
-              style={{ minHeight: "200px", display: "flex", flexDirection: "column", justifyContent: "center" }}
+              style={{ 
+                minHeight: "200px", 
+                display: "flex", 
+                flexDirection: "column", 
+                justifyContent: "center",
+                background: "linear-gradient(to top right, #130C0C 0%, #261816 100%)"
+              }}
               data-testid="card-target-audience-1"
             >
               <h3
@@ -435,7 +447,13 @@ export default function Home() {
 
             <div
               className="nail-card text-left md:col-span-5"
-              style={{ minHeight: "190px", display: "flex", flexDirection: "column", justifyContent: "center" }}
+              style={{ 
+                minHeight: "190px", 
+                display: "flex", 
+                flexDirection: "column", 
+                justifyContent: "center",
+                background: "linear-gradient(to top right, #130C0C 0%, #261816 100%)"
+              }}
               data-testid="card-target-audience-2"
             >
               <h3
@@ -456,7 +474,13 @@ export default function Home() {
 
             <div
               className="nail-card text-left md:col-span-5"
-              style={{ minHeight: "195px", display: "flex", flexDirection: "column", justifyContent: "center" }}
+              style={{ 
+                minHeight: "195px", 
+                display: "flex", 
+                flexDirection: "column", 
+                justifyContent: "center",
+                background: "linear-gradient(to top right, #130C0C 0%, #261816 100%)"
+              }}
               data-testid="card-target-audience-3"
             >
               <h3
@@ -477,7 +501,13 @@ export default function Home() {
 
             <div
               className="nail-card text-left md:col-span-4"
-              style={{ minHeight: "185px", display: "flex", flexDirection: "column", justifyContent: "center" }}
+              style={{ 
+                minHeight: "185px", 
+                display: "flex", 
+                flexDirection: "column", 
+                justifyContent: "center",
+                background: "linear-gradient(to top right, #130C0C 0%, #261816 100%)"
+              }}
               data-testid="card-target-audience-4"
             >
               <h3
@@ -498,7 +528,13 @@ export default function Home() {
 
             <div
               className="nail-card text-left md:col-span-3"
-              style={{ minHeight: "205px", display: "flex", flexDirection: "column", justifyContent: "center" }}
+              style={{ 
+                minHeight: "205px", 
+                display: "flex", 
+                flexDirection: "column", 
+                justifyContent: "center",
+                background: "linear-gradient(to top right, #130C0C 0%, #261816 100%)"
+              }}
               data-testid="card-target-audience-5"
             >
               <h3
