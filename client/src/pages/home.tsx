@@ -553,22 +553,213 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Solution Section */}
-      <section className="py-20 px-4 md:px-8 text-center">
-        <div className="container mx-auto max-w-3xl">
-          <h2 className="nail-h2" data-testid="text-solution-title">
-            Mas imagine ter a Profissão que te dá{" "}
-            <span className="gradient-text nail-h2-highlight">Liberdade</span>
-          </h2>
-          <p
-            className="nail-body leading-relaxed mx-auto"
-            data-testid="text-solution-description"
+      {/* Platform Access Section */}
+      <section className="py-20 px-4 md:px-8">
+        <div className="container mx-auto max-w-6xl">
+          <div
+            className="inline-flex items-center gap-3 px-6 py-3 mb-6 rounded-full"
+            style={{
+              background: "linear-gradient(90deg, #130C0C 0%, #382607 100%)",
+            }}
           >
-            Mas imagine ter uma profissão que te permite ganhar bem, ter
-            flexibilidade de horários e ainda trabalhar com a beleza e
-            autoestima das mulheres. Essa é a realidade da Nail Designer de
-            Sucesso, e eu criei o mapa para você chegar lá.
-          </p>
+            <img
+              src="/images/logo-icon.png"
+              alt="Logo"
+              className="w-4 h-4"
+              data-testid="img-logo-icon-access"
+            />
+            <p
+              className="text-white uppercase m-0"
+              style={{
+                fontSize: "11px",
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                opacity: 0.7,
+              }}
+              data-testid="text-access-badge"
+            >
+              AO QUE VOCÊ TERÁ ACESSO?
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Lado Esquerdo - Conteúdo */}
+            <div>
+              <h2 className="nail-h2 mb-6 text-left" data-testid="text-access-title">
+                Conheça sua Escola de Unhas{" "}
+                <span className="gradient-text nail-h2-highlight">por dentro</span>
+              </h2>
+              <p
+                className="nail-body leading-relaxed mb-8 text-left"
+                data-testid="text-access-description"
+              >
+                Nossa plataforma oferece um{" "}
+                <span style={{ fontWeight: 700 }}>ambiente de aprendizado completo</span>, criado para
+                transformar você do zero em uma profissional requisitada.
+              </p>
+
+              {/* Lista de Benefícios */}
+              <div className="space-y-6 mb-10">
+                <div className="flex items-start gap-4" data-testid="benefit-access-0">
+                  <div
+                    className="w-1 h-full flex-shrink-0"
+                    style={{ background: "#DBA86F" }}
+                  />
+                  <div>
+                    <p className="nail-body font-semibold mb-1" style={{ color: "#DBA86F" }}>
+                      Acesso imediato por 12 meses
+                    </p>
+                    <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                      Para você ver e rever as técnicas no seu ritmo, até dominar cada detalhe.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4" data-testid="benefit-access-1">
+                  <div
+                    className="w-1 h-full flex-shrink-0"
+                    style={{ background: "#DBA86F" }}
+                  />
+                  <div>
+                    <p className="nail-body font-semibold mb-1" style={{ color: "#DBA86F" }}>
+                      Certificado Profissional de Conclusão
+                    </p>
+                    <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                      Para você pendurar no seu espaço e provar sua qualificação para as clientes.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4" data-testid="benefit-access-2">
+                  <div
+                    className="w-1 h-full flex-shrink-0"
+                    style={{ background: "#DBA86F" }}
+                  />
+                  <div>
+                    <p className="nail-body font-semibold mb-1" style={{ color: "#DBA86F" }}>
+                      Assista em qualquer dispositivo
+                    </p>
+                    <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                      No celular, tablet ou computador, na hora que for melhor para você.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4" data-testid="benefit-access-3">
+                  <div
+                    className="w-1 h-full flex-shrink-0"
+                    style={{ background: "#DBA86F" }}
+                  />
+                  <div>
+                    <p className="nail-body font-semibold mb-1" style={{ color: "#DBA86F" }}>
+                      Suporte direto com nossa equipe
+                    </p>
+                    <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                      Para tirar dúvidas técnicas sobre os módulos, materiais e procedimentos.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <div
+                className="inline-block relative group"
+                style={{ padding: "6px" }}
+              >
+                <a
+                  href="#offer"
+                  className="cta-button"
+                  data-testid="button-cta-access"
+                >
+                  QUERO ME TORNAR ALUNA
+                  <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                </a>
+                <BorderBeam
+                  size={100}
+                  duration={3}
+                  colorFrom="#D19756"
+                  colorTo="#F1EEE1"
+                  borderThickness={2}
+                  beamBorderRadius={12}
+                />
+              </div>
+            </div>
+
+            {/* Lado Direito - Notebook com Vídeo */}
+            <div className="relative" data-testid="container-notebook">
+              <div className="relative">
+                {/* Mockup de Notebook */}
+                <div
+                  className="relative mx-auto"
+                  style={{
+                    maxWidth: "600px",
+                    aspectRatio: "16/10",
+                    background: "#1A1212",
+                    borderRadius: "12px",
+                    padding: "20px 20px 40px 20px",
+                    boxShadow: "0 20px 60px rgba(0, 0, 0, 0.5)",
+                  }}
+                >
+                  {/* Tela do Notebook */}
+                  <div
+                    className="relative w-full h-full overflow-hidden"
+                    style={{
+                      background: "#000",
+                      borderRadius: "8px",
+                    }}
+                  >
+                    {/* Vídeo em Loop */}
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                      style={{ pointerEvents: "none" }}
+                      data-testid="video-platform-preview"
+                    >
+                      <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                    </video>
+
+                    {/* Overlay para indicar "AO VIVO" */}
+                    <div
+                      className="absolute top-4 left-4 px-3 py-1 rounded"
+                      style={{
+                        background: "rgba(0, 0, 0, 0.7)",
+                        fontSize: "10px",
+                        fontWeight: 600,
+                        letterSpacing: "0.05em",
+                        color: "#DBA86F",
+                      }}
+                    >
+                      AO VIVO
+                    </div>
+                  </div>
+
+                  {/* Base do Notebook */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-3"
+                    style={{
+                      background: "linear-gradient(to bottom, #2A2A2A, #1A1212)",
+                      borderRadius: "0 0 12px 12px",
+                    }}
+                  />
+                </div>
+
+                {/* Reflexo do Notebook */}
+                <div
+                  className="absolute left-0 right-0 mx-auto"
+                  style={{
+                    bottom: "-60px",
+                    maxWidth: "600px",
+                    height: "60px",
+                    background: "linear-gradient(to bottom, rgba(26, 18, 18, 0.3), transparent)",
+                    filter: "blur(20px)",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
