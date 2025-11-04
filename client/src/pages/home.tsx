@@ -595,12 +595,12 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center overflow-visible">
             {/* Lado Esquerdo - Conteúdo */}
             <div>
-              <h2 className="nail-h2 mb-6 text-left" data-testid="text-access-title">
+              <h2 className="nail-h2 mb-6 text-center lg:text-left" data-testid="text-access-title">
                 Conheça sua Escola de Unhas{" "}
                 <span className="gradient-text nail-h2-highlight">por dentro</span>
               </h2>
               <p
-                className="nail-body leading-relaxed mb-8 text-left"
+                className="nail-body leading-relaxed mb-8 text-center lg:text-left"
                 data-testid="text-access-description"
               >
                 Nossa plataforma oferece um{" "}
