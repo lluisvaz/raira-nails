@@ -714,26 +714,28 @@ export default function Home() {
               </div>
 
               {/* CTA Button */}
-              <div
-                className="inline-block relative group"
-                style={{ padding: "6px" }}
-              >
-                <a
-                  href="#offer"
-                  className="cta-button"
-                  data-testid="button-cta-access"
+              <div className="flex justify-center lg:justify-start">
+                <div
+                  className="inline-block relative group"
+                  style={{ padding: "6px" }}
                 >
-                  QUERO ME TORNAR ALUNA
-                  <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
-                </a>
-                <BorderBeam
-                  size={100}
-                  duration={3}
-                  colorFrom="#D19756"
-                  colorTo="#F1EEE1"
-                  borderThickness={2}
-                  beamBorderRadius={12}
-                />
+                  <a
+                    href="#offer"
+                    className="cta-button"
+                    data-testid="button-cta-access"
+                  >
+                    QUERO ME TORNAR ALUNA
+                    <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                  </a>
+                  <BorderBeam
+                    size={100}
+                    duration={3}
+                    colorFrom="#D19756"
+                    colorTo="#F1EEE1"
+                    borderThickness={2}
+                    beamBorderRadius={12}
+                  />
+                </div>
               </div>
             </div>
 
@@ -743,7 +745,6 @@ export default function Home() {
                 className="rounded-2xl overflow-hidden"
                 style={{ 
                   border: "1px solid #DBA86F",
-                  height: "100%",
                   minHeight: "500px"
                 }}
                 data-testid="container-platform-video"
@@ -758,7 +759,7 @@ export default function Home() {
                   style={{ 
                     pointerEvents: "none",
                     width: "100%",
-                    height: "100%",
+                    height: "500px",
                     objectFit: "cover"
                   }}
                   data-testid="video-platform-preview"
