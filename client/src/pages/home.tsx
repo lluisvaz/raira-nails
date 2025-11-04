@@ -601,6 +601,36 @@ export default function Home() {
                 Conheça sua Escola de Unhas{" "}
                 <span className="gradient-text nail-h2-highlight">por dentro</span>
               </h2>
+
+              {/* Vídeo Mobile - aparece só no mobile abaixo do título */}
+              <div 
+                className="lg:hidden rounded-2xl overflow-hidden mb-8"
+                style={{ 
+                  border: "1px solid #DBA86F",
+                  height: "300px"
+                }}
+                data-testid="container-platform-video-mobile"
+              >
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  disablePictureInPicture
+                  controlsList="nodownload nofullscreen noremoteplayback"
+                  style={{ 
+                    pointerEvents: "none",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover"
+                  }}
+                  data-testid="video-platform-preview-mobile"
+                >
+                  <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                  Seu navegador não suporta vídeos.
+                </video>
+              </div>
+
               <p
                 className="nail-body leading-relaxed mb-8 text-center lg:text-left"
                 data-testid="text-access-description"
@@ -695,6 +725,36 @@ export default function Home() {
                   beamBorderRadius={12}
                 />
               </div>
+            </div>
+
+            {/* Lado Direito - Vídeo */}
+            <div 
+              className="hidden lg:block rounded-2xl overflow-hidden"
+              style={{ 
+                border: "1px solid #DBA86F",
+                height: "100%",
+                minHeight: "500px"
+              }}
+              data-testid="container-platform-video"
+            >
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                disablePictureInPicture
+                controlsList="nodownload nofullscreen noremoteplayback"
+                style={{ 
+                  pointerEvents: "none",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover"
+                }}
+                data-testid="video-platform-preview"
+              >
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeos.
+              </video>
             </div>
           </div>
         </div>
