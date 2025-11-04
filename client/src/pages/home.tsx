@@ -651,11 +651,16 @@ export default function Home() {
               </p>
 
               {/* Lista de Benefícios */}
-              <div className="space-y-6 mb-10">
+              <div 
+                className="space-y-6 mb-10 p-6 rounded-lg"
+                style={{ 
+                  background: "linear-gradient(90deg, #372507 0%, #130C0C 100%)"
+                }}
+              >
                 <div className="flex items-start gap-4" data-testid="benefit-access-0">
                   <div
                     className="w-1 h-full flex-shrink-0"
-                    style={{ background: "#DBA86F" }}
+                    style={{ background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)" }}
                   />
                   <div>
                     <p className="nail-body font-semibold mb-1" style={{ color: "#DBA86F" }}>
@@ -670,7 +675,7 @@ export default function Home() {
                 <div className="flex items-start gap-4" data-testid="benefit-access-1">
                   <div
                     className="w-1 h-full flex-shrink-0"
-                    style={{ background: "#DBA86F" }}
+                    style={{ background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)" }}
                   />
                   <div>
                     <p className="nail-body font-semibold mb-1" style={{ color: "#DBA86F" }}>
@@ -685,7 +690,7 @@ export default function Home() {
                 <div className="flex items-start gap-4" data-testid="benefit-access-2">
                   <div
                     className="w-1 h-full flex-shrink-0"
-                    style={{ background: "#DBA86F" }}
+                    style={{ background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)" }}
                   />
                   <div>
                     <p className="nail-body font-semibold mb-1" style={{ color: "#DBA86F" }}>
@@ -700,7 +705,7 @@ export default function Home() {
                 <div className="flex items-start gap-4" data-testid="benefit-access-3">
                   <div
                     className="w-1 h-full flex-shrink-0"
-                    style={{ background: "#DBA86F" }}
+                    style={{ background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)" }}
                   />
                   <div>
                     <p className="nail-body font-semibold mb-1" style={{ color: "#DBA86F" }}>
