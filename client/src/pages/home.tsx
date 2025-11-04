@@ -685,78 +685,152 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Lado Direito - Notebook com Vídeo */}
+            {/* Lado Direito - MacBook Pro 3D */}
             <div className="relative" data-testid="container-notebook">
-              <div className="relative">
-                {/* Mockup de Notebook */}
+              <div 
+                className="relative"
+                style={{
+                  perspective: "2000px",
+                  perspectiveOrigin: "50% 50%",
+                }}
+              >
+                {/* MacBook Pro Container */}
                 <div
                   className="relative mx-auto"
                   style={{
-                    maxWidth: "600px",
-                    aspectRatio: "16/10",
-                    background: "#1A1212",
-                    borderRadius: "12px",
-                    padding: "20px 20px 40px 20px",
-                    boxShadow: "0 20px 60px rgba(0, 0, 0, 0.5)",
+                    maxWidth: "650px",
+                    transformStyle: "preserve-3d",
+                    transform: "rotateX(8deg) rotateY(-5deg)",
+                    transition: "transform 0.6s ease",
                   }}
                 >
-                  {/* Tela do Notebook */}
+                  {/* Screen/Display */}
                   <div
-                    className="relative w-full h-full overflow-hidden"
+                    className="relative"
                     style={{
-                      background: "#000",
-                      borderRadius: "8px",
+                      width: "100%",
+                      aspectRatio: "16/10",
+                      background: "linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%)",
+                      borderRadius: "12px 12px 4px 4px",
+                      padding: "14px 14px 28px 14px",
+                      boxShadow: `
+                        inset 0 0 0 2px #3a3a3a,
+                        0 30px 70px rgba(0, 0, 0, 0.5),
+                        0 15px 35px rgba(0, 0, 0, 0.3)
+                      `,
+                      transformStyle: "preserve-3d",
                     }}
                   >
-                    {/* Vídeo em Loop */}
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                      style={{ pointerEvents: "none" }}
-                      data-testid="video-platform-preview"
-                    >
-                      <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-                    </video>
-
-                    {/* Overlay para indicar "AO VIVO" */}
+                    {/* Camera Notch */}
                     <div
-                      className="absolute top-4 left-4 px-3 py-1 rounded"
+                      className="absolute top-2 left-1/2"
                       style={{
-                        background: "rgba(0, 0, 0, 0.7)",
-                        fontSize: "10px",
-                        fontWeight: 600,
-                        letterSpacing: "0.05em",
-                        color: "#DBA86F",
+                        transform: "translateX(-50%)",
+                        width: "80px",
+                        height: "6px",
+                        background: "#1a1a1a",
+                        borderRadius: "0 0 8px 8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        zIndex: 10,
                       }}
                     >
-                      AO VIVO
+                      {/* Camera */}
+                      <div
+                        style={{
+                          width: "6px",
+                          height: "6px",
+                          borderRadius: "50%",
+                          background: "#303132",
+                          border: "0.5px solid #404040",
+                        }}
+                      />
+                    </div>
+
+                    {/* Screen Bezel */}
+                    <div
+                      className="relative w-full h-full overflow-hidden"
+                      style={{
+                        background: "#000",
+                        borderRadius: "6px",
+                        boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.05)",
+                      }}
+                    >
+                      {/* Vídeo em Loop */}
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                        style={{ pointerEvents: "none" }}
+                        data-testid="video-platform-preview"
+                      >
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                      </video>
+
+                      {/* Screen Reflection Effect */}
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          background: `linear-gradient(
+                            135deg,
+                            rgba(255, 255, 255, 0.08) 0%,
+                            transparent 40%,
+                            transparent 60%,
+                            rgba(255, 255, 255, 0.03) 100%
+                          )`,
+                        }}
+                      />
                     </div>
                   </div>
 
-                  {/* Base do Notebook */}
+                  {/* Keyboard Base */}
                   <div
-                    className="absolute bottom-0 left-0 right-0 h-3"
+                    className="relative"
                     style={{
-                      background: "linear-gradient(to bottom, #2A2A2A, #1A1212)",
-                      borderRadius: "0 0 12px 12px",
+                      width: "100%",
+                      height: "24px",
+                      background: "linear-gradient(to bottom, #d4d4d4 0%, #b8b8b8 50%, #a0a0a0 100%)",
+                      borderRadius: "0 0 8px 8px",
+                      transformOrigin: "top center",
+                      transform: "rotateX(90deg) translateZ(-12px)",
+                      transformStyle: "preserve-3d",
+                      boxShadow: `
+                        0 2px 4px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3)
+                      `,
+                    }}
+                  >
+                    {/* Trackpad indication */}
+                    <div
+                      className="absolute"
+                      style={{
+                        bottom: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, 50%)",
+                        width: "100px",
+                        height: "8px",
+                        background: "rgba(0, 0, 0, 0.1)",
+                        borderRadius: "2px",
+                      }}
+                    />
+                  </div>
+
+                  {/* Bottom Shadow */}
+                  <div
+                    className="absolute left-0 right-0 mx-auto"
+                    style={{
+                      bottom: "-70px",
+                      width: "85%",
+                      height: "70px",
+                      background: "radial-gradient(ellipse at center, rgba(26, 18, 18, 0.4) 0%, transparent 70%)",
+                      filter: "blur(25px)",
+                      transform: "translateZ(-50px)",
                     }}
                   />
                 </div>
-
-                {/* Reflexo do Notebook */}
-                <div
-                  className="absolute left-0 right-0 mx-auto"
-                  style={{
-                    bottom: "-60px",
-                    maxWidth: "600px",
-                    height: "60px",
-                    background: "linear-gradient(to bottom, rgba(26, 18, 18, 0.3), transparent)",
-                    filter: "blur(20px)",
-                  }}
-                />
               </div>
             </div>
           </div>
