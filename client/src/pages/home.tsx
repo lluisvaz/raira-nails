@@ -582,9 +582,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Lado Esquerdo - Conteúdo */}
-            <div className="z-10">
+            <div>
               <h2 className="nail-h2 mb-6 text-left" data-testid="text-access-title">
                 Conheça sua Escola de Unhas{" "}
                 <span className="gradient-text nail-h2-highlight">por dentro</span>
@@ -686,96 +686,77 @@ export default function Home() {
             </div>
 
             {/* Lado Direito - Notebook com Vídeo */}
-            <div className="relative overflow-visible lg:overflow-visible" data-testid="container-notebook" style={{ marginRight: "-50%" }}>
-              <div className="relative" style={{ perspective: "2000px", perspectiveOrigin: "left center" }}>
-                {/* Mockup de Notebook em Perspectiva */}
+            <div className="relative" data-testid="container-notebook">
+              <div className="relative">
+                {/* Mockup de Notebook */}
                 <div
-                  className="relative"
+                  className="relative mx-auto"
                   style={{
-                    width: "1100px",
-                    height: "680px",
-                    marginLeft: "-150px",
-                    transform: "rotateY(-20deg) rotateX(3deg)",
-                    transformStyle: "preserve-3d",
+                    maxWidth: "600px",
+                    aspectRatio: "16/10",
+                    background: "#1A1212",
+                    borderRadius: "12px",
+                    padding: "20px 20px 40px 20px",
+                    boxShadow: "0 20px 60px rgba(0, 0, 0, 0.5)",
                   }}
                 >
-                  {/* Corpo do Notebook */}
+                  {/* Tela do Notebook */}
                   <div
-                    className="relative w-full h-full"
+                    className="relative w-full h-full overflow-hidden"
                     style={{
-                      background: "linear-gradient(135deg, #2A2A2A 0%, #1A1212 100%)",
-                      borderRadius: "20px",
-                      padding: "25px 25px 60px 25px",
-                      boxShadow: `
-                        -20px 30px 80px rgba(0, 0, 0, 0.6),
-                        -10px 15px 40px rgba(0, 0, 0, 0.4),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.1)
-                      `,
-                      border: "2px solid rgba(255, 255, 255, 0.05)",
+                      background: "#000",
+                      borderRadius: "8px",
                     }}
                   >
-                    {/* Tela do Notebook */}
-                    <div
-                      className="relative w-full h-full overflow-hidden"
-                      style={{
-                        background: "#000",
-                        borderRadius: "12px",
-                        boxShadow: "inset 0 0 30px rgba(0, 0, 0, 0.8)",
-                      }}
+                    {/* Vídeo em Loop */}
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                      style={{ pointerEvents: "none" }}
+                      data-testid="video-platform-preview"
                     >
-                      {/* Vídeo em Loop */}
-                      <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-cover"
-                        style={{ pointerEvents: "none" }}
-                        data-testid="video-platform-preview"
-                      >
-                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-                      </video>
-                    </div>
+                      <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                    </video>
 
-                    {/* Borda inferior (teclado) do Notebook */}
+                    {/* Overlay para indicar "AO VIVO" */}
                     <div
-                      className="absolute bottom-0 left-0 right-0"
+                      className="absolute top-4 left-4 px-3 py-1 rounded"
                       style={{
-                        height: "50px",
-                        background: "linear-gradient(to bottom, #2A2A2A 0%, #1A1212 100%)",
-                        borderRadius: "0 0 20px 20px",
-                        boxShadow: "inset 0 5px 15px rgba(0, 0, 0, 0.5)",
+                        background: "rgba(0, 0, 0, 0.7)",
+                        fontSize: "10px",
+                        fontWeight: 600,
+                        letterSpacing: "0.05em",
+                        color: "#DBA86F",
                       }}
                     >
-                      {/* Trackpad */}
-                      <div
-                        className="absolute top-1/2 left-1/2"
-                        style={{
-                          transform: "translate(-50%, -50%)",
-                          width: "120px",
-                          height: "20px",
-                          background: "rgba(0, 0, 0, 0.3)",
-                          borderRadius: "8px",
-                          border: "1px solid rgba(255, 255, 255, 0.05)",
-                        }}
-                      />
+                      AO VIVO
                     </div>
                   </div>
 
-                  {/* Reflexo/Sombra embaixo */}
+                  {/* Base do Notebook */}
                   <div
-                    className="absolute"
+                    className="absolute bottom-0 left-0 right-0 h-3"
                     style={{
-                      bottom: "-80px",
-                      left: "5%",
-                      right: "5%",
-                      height: "80px",
-                      background: "linear-gradient(to bottom, rgba(26, 18, 18, 0.4), transparent)",
-                      filter: "blur(30px)",
-                      transform: "translateZ(-10px)",
+                      background: "linear-gradient(to bottom, #2A2A2A, #1A1212)",
+                      borderRadius: "0 0 12px 12px",
                     }}
                   />
                 </div>
+
+                {/* Reflexo do Notebook */}
+                <div
+                  className="absolute left-0 right-0 mx-auto"
+                  style={{
+                    bottom: "-60px",
+                    maxWidth: "600px",
+                    height: "60px",
+                    background: "linear-gradient(to bottom, rgba(26, 18, 18, 0.3), transparent)",
+                    filter: "blur(20px)",
+                  }}
+                />
               </div>
             </div>
           </div>
