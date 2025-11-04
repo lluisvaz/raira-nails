@@ -690,7 +690,7 @@ export default function Home() {
               <div 
                 className="relative"
                 style={{
-                  perspective: "2000px",
+                  perspective: "3000px",
                   perspectiveOrigin: "50% 50%",
                 }}
               >
@@ -698,10 +698,10 @@ export default function Home() {
                 <div
                   className="relative"
                   style={{
-                    maxWidth: "1100px",
-                    marginLeft: "200px",
+                    width: "2200px",
+                    maxWidth: "none",
                     transformStyle: "preserve-3d",
-                    transform: "rotateX(8deg) rotateY(-5deg)",
+                    transform: "rotateX(8deg) rotateY(-5deg) translateX(50%)",
                     transition: "transform 0.6s ease",
                   }}
                 >
