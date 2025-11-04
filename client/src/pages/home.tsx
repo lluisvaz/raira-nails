@@ -566,30 +566,32 @@ export default function Home() {
       {/* Platform Access Section */}
       <section className="py-20 px-4 md:px-8 overflow-hidden">
         <div className="container mx-auto max-w-6xl">
-          <div
-            className="inline-flex items-center gap-3 px-6 py-3 mb-6 rounded-full"
-            style={{
-              background: "linear-gradient(90deg, #130C0C 0%, #382607 100%)",
-            }}
-          >
-            <img
-              src="/images/logo-icon.png"
-              alt="Logo"
-              className="w-4 h-4"
-              data-testid="img-logo-icon-access"
-            />
-            <p
-              className="text-white uppercase m-0"
+          <div className="flex justify-center lg:justify-start mb-6">
+            <div
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-full"
               style={{
-                fontSize: "11px",
-                fontWeight: 600,
-                letterSpacing: "0.1em",
-                opacity: 0.7,
+                background: "linear-gradient(90deg, #130C0C 0%, #382607 100%)",
               }}
-              data-testid="text-access-badge"
             >
-              AO QUE VOCÊ TERÁ ACESSO?
-            </p>
+              <img
+                src="/images/logo-icon.png"
+                alt="Logo"
+                className="w-4 h-4"
+                data-testid="img-logo-icon-access"
+              />
+              <p
+                className="text-white uppercase m-0"
+                style={{
+                  fontSize: "11px",
+                  fontWeight: 600,
+                  letterSpacing: "0.1em",
+                  opacity: 0.7,
+                }}
+                data-testid="text-access-badge"
+              >
+                AO QUE VOCÊ TERÁ ACESSO?
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center overflow-visible">
