@@ -192,7 +192,7 @@ export default function Home() {
               alt="Nail Designer de Sucesso"
               className="w-full h-[600px] md:h-[850px] object-cover pointer-events-none select-none"
               style={{ 
-                objectPosition: "center -15%"
+                objectPosition: "45% -15%"
               }}
               data-testid="img-hero"
               draggable="false"
