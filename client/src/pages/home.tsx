@@ -130,7 +130,7 @@ export default function Home() {
       {/* Barra de Oferta com Cronômetro */}
       <div
         style={{
-          background: "#AAA994",
+          background: "#F0DEBC",
           width: "100%",
           padding: "14px 16px",
           textAlign: "center",
@@ -882,7 +882,7 @@ export default function Home() {
             Além disso, <span className="gradient-text nail-h2-highlight">você também terá acesso a:</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {/* Card 1 - Formação Completa */}
             <div
               className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300"
@@ -948,7 +948,7 @@ export default function Home() {
 
             {/* Card 4 - Apostilas e Listas */}
             <div
-              className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 md:col-span-1 lg:col-start-2"
+              className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2"
               style={{ background: "linear-gradient(135deg, #1A1212 0%, #2A2020 100%)" }}
               data-testid="card-extra-3"
             >
@@ -969,7 +969,7 @@ export default function Home() {
 
             {/* Card 5 - Atualizações */}
             <div
-              className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300"
+              className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 md:col-span-2 lg:col-span-1"
               style={{ background: "linear-gradient(135deg, #1A1212 0%, #2A2020 100%)" }}
               data-testid="card-extra-4"
             >
