@@ -952,7 +952,7 @@ export default function Home() {
               style={{ background: "linear-gradient(135deg, #1A1212 0%, #2A2020 100%)" }}
               data-testid="card-extra-3"
             >
-              <div className="aspect-[4/3] relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
+              <div className="aspect-[2/1] relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
                 <div className="text-6xl" style={{ color: "#DBA86F", opacity: 0.3 }}>
                   📄
                 </div>
@@ -973,7 +973,7 @@ export default function Home() {
               style={{ background: "linear-gradient(135deg, #1A1212 0%, #2A2020 100%)" }}
               data-testid="card-extra-4"
             >
-              <div className="aspect-[4/3] relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
+              <div className="aspect-[2/1] relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
                 <div className="text-6xl" style={{ color: "#DBA86F", opacity: 0.3 }}>
                   🔄
                 </div>
