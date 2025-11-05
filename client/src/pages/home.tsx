@@ -134,6 +134,8 @@ export default function Home() {
           width: "100%",
           padding: "14px 16px",
           textAlign: "center",
+          position: "relative",
+          zIndex: 50,
         }}
         data-testid="offer-bar"
       >
@@ -181,7 +183,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <header className="text-center lg:text-left relative z-10">
+      <header className="text-center lg:text-left relative">
         <div className="container mx-auto max-w-7xl">
           {/* Mobile/Tablet Layout (até md) */}
           <div className="relative w-full lg:hidden">
@@ -323,7 +325,7 @@ export default function Home() {
         </div>
       </header>
       {/* Divisória com degradê */}
-      <div className="w-full px-4 md:px-8 lg:px-16">
+      <div className="w-full px-4 md:px-8 lg:px-16 relative z-20">
         <div
           style={{
             height: "1px",
@@ -334,7 +336,7 @@ export default function Home() {
       </div>
 
       {/* Problem Section */}
-      <section className="px-4 md:px-8 text-center">
+      <section className="px-4 md:px-8 text-center relative z-20">
         <div className="pt-20"></div>
         <div className="container mx-auto max-w-6xl">
           <div
