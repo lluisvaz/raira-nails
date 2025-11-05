@@ -6,7 +6,7 @@
 ## Core Design Elements
 
 ### Color Palette (Exact Specifications)
-- **Primary Background**: #130C0C (deep dark brown-black)
+- **Primary Background**: #170F0B (deep dark brown-black)
 - **Card/Section Background**: #1A1212 (slightly lighter for depth)
 - **Primary Text**: #FFFFFF (white for headings)
 - **Body Text**: #E0E0E0 (soft white to reduce harsh contrast)

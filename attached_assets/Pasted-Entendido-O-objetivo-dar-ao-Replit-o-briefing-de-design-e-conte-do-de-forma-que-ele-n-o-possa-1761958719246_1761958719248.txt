@@ -23,7 +23,7 @@ No entanto, as **especificações de design e a estrutura de conteúdo abaixo s�
 ### 1. Especificações Visuais Mandatórias (O Design)
 
 **a. Configuração Geral e Paleta:**
-* **Fundo Principal (Body):** `#130C0C`
+* **Fundo Principal (Body):** `#170F0B`
 * **Texto Padrão (Body):** `#FFFFFF` (Branco). Use um tom mais suave como `#E0E0E0` para parágrafos, para reduzir o contraste excessivo.
 * **Fonte Principal:** Importe e use `'Inter'` (via Google Fonts) com pesos 300, 400, 500 e 700.
 * **Antialiasing:** Aplique suavização de fonte (ex: `-webkit-font-smoothing: antialiased`).

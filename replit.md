@@ -25,7 +25,7 @@ Preferred communication style: Simple, everyday language.
 - Custom design system defined in `design_guidelines.md` with specific color palette, typography hierarchy, and gradient system
 
 **Styling Approach**
-- Dark theme foundation (#130C0C background) with gold gradient accents
+- Dark theme foundation (#170F0B background) with gold gradient accents
 - CSS variables for theme tokens defined in `client/src/index.css`
 - Custom Tailwind configuration extending base colors, border radius, and adding gradient utilities
 - Inter font family from Google Fonts with multiple weights (300, 400, 500, 700)

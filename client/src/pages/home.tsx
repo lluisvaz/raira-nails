@@ -120,7 +120,7 @@ export default function Home() {
   return (
     <div
       style={{
-        background: "#130C0C",
+        background: "#170F0B",
         color: "#FFFFFF",
         minHeight: "100vh",
         maxWidth: "100vw",
@@ -225,7 +225,7 @@ export default function Home() {
                   alt="Nail Designer de Sucesso"
                   className="w-full h-[1500px] object-contain object-right pointer-events-none select-none"
                   data-testid="img-hero-desktop"
-                  style={{ background: "#130C0C" }}
+                  style={{ background: "#170F0B" }}
                   draggable="false"
                   onContextMenu={(e) => e.preventDefault()}
                 />
@@ -335,7 +335,7 @@ export default function Home() {
         <div
           style={{
             height: "1px",
-            background: "linear-gradient(90deg, #130C0C 0%, #261404 15%, #261404 85%, #130C0C 100%)",
+            background: "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
             margin: "0 auto",
           }}
         />
@@ -348,7 +348,7 @@ export default function Home() {
           <div
             className="inline-flex items-center gap-3 px-6 py-3 mb-6 rounded-full"
             style={{
-              background: "linear-gradient(90deg, #130C0C 0%, #382607 100%)",
+              background: "linear-gradient(90deg, #170F0B 0%, #382607 100%)",
             }}
           >
             <img
@@ -398,7 +398,7 @@ export default function Home() {
                 display: "flex", 
                 flexDirection: "column", 
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #130C0C 0%, #130C0C 55%, #261816 100%)"
+                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)"
               }}
               data-testid="card-target-audience-0"
             >
@@ -425,7 +425,7 @@ export default function Home() {
                 display: "flex", 
                 flexDirection: "column", 
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #130C0C 0%, #130C0C 55%, #261816 100%)"
+                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)"
               }}
               data-testid="card-target-audience-1"
             >
@@ -452,7 +452,7 @@ export default function Home() {
                 display: "flex", 
                 flexDirection: "column", 
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #130C0C 0%, #130C0C 55%, #261816 100%)"
+                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)"
               }}
               data-testid="card-target-audience-2"
             >
@@ -479,7 +479,7 @@ export default function Home() {
                 display: "flex", 
                 flexDirection: "column", 
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #130C0C 0%, #130C0C 55%, #261816 100%)"
+                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)"
               }}
               data-testid="card-target-audience-3"
             >
@@ -506,7 +506,7 @@ export default function Home() {
                 display: "flex", 
                 flexDirection: "column", 
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #130C0C 0%, #130C0C 55%, #261816 100%)"
+                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)"
               }}
               data-testid="card-target-audience-4"
             >
@@ -533,7 +533,7 @@ export default function Home() {
                 display: "flex", 
                 flexDirection: "column", 
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #130C0C 0%, #130C0C 55%, #261816 100%)"
+                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)"
               }}
               data-testid="card-target-audience-5"
             >
@@ -592,7 +592,7 @@ export default function Home() {
           <div
             style={{
               height: "1px",
-              background: "linear-gradient(90deg, #130C0C 0%, #261404 15%, #261404 85%, #130C0C 100%)",
+              background: "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
               margin: "0 auto",
             }}
           />
@@ -606,7 +606,7 @@ export default function Home() {
             <div
               className="inline-flex items-center gap-3 px-6 py-3 rounded-full"
               style={{
-                background: "linear-gradient(90deg, #130C0C 0%, #382607 100%)",
+                background: "linear-gradient(90deg, #170F0B 0%, #382607 100%)",
               }}
             >
               <img
@@ -693,7 +693,7 @@ export default function Home() {
                   className="flex items-stretch" 
                   data-testid="benefit-access-0"
                   style={{ 
-                    background: "linear-gradient(90deg, #261403 0%, #130C0C 100%)"
+                    background: "linear-gradient(90deg, #261403 0%, #170F0B 100%)"
                   }}
                 >
                   <div
@@ -714,7 +714,7 @@ export default function Home() {
                   className="flex items-stretch" 
                   data-testid="benefit-access-1"
                   style={{ 
-                    background: "linear-gradient(90deg, #261403 0%, #130C0C 100%)"
+                    background: "linear-gradient(90deg, #261403 0%, #170F0B 100%)"
                   }}
                 >
                   <div
@@ -735,7 +735,7 @@ export default function Home() {
                   className="flex items-stretch" 
                   data-testid="benefit-access-2"
                   style={{ 
-                    background: "linear-gradient(90deg, #261403 0%, #130C0C 100%)"
+                    background: "linear-gradient(90deg, #261403 0%, #170F0B 100%)"
                   }}
                 >
                   <div
@@ -756,7 +756,7 @@ export default function Home() {
                   className="flex items-stretch" 
                   data-testid="benefit-access-3"
                   style={{ 
-                    background: "linear-gradient(90deg, #261403 0%, #130C0C 100%)"
+                    background: "linear-gradient(90deg, #261403 0%, #170F0B 100%)"
                   }}
                 >
                   <div
@@ -846,7 +846,7 @@ export default function Home() {
           <div
             style={{
               height: "1px",
-              background: "linear-gradient(90deg, #130C0C 0%, #261404 15%, #261404 85%, #130C0C 100%)",
+              background: "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
               margin: "0 auto",
             }}
           />
@@ -860,7 +860,7 @@ export default function Home() {
             <div
               className="inline-flex items-center gap-3 px-6 py-3 rounded-full"
               style={{
-                background: "linear-gradient(90deg, #130C0C 0%, #382607 100%)",
+                background: "linear-gradient(90deg, #170F0B 0%, #382607 100%)",
               }}
             >
               <img
@@ -1001,7 +1001,7 @@ export default function Home() {
           <div
             style={{
               height: "1px",
-              background: "linear-gradient(90deg, #130C0C 0%, #261404 15%, #261404 85%, #130C0C 100%)",
+              background: "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
               margin: "0 auto",
             }}
           />
@@ -1072,7 +1072,7 @@ export default function Home() {
 
           <div
             className="mt-8 md:mt-12 p-6 md:p-8 rounded-2xl"
-            style={{ background: "#130C0C", border: "2px solid #DBA86F" }}
+            style={{ background: "#170F0B", border: "2px solid #DBA86F" }}
           >
             <ShieldCheck
               size={64}
