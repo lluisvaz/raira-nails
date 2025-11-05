@@ -853,6 +853,161 @@ export default function Home() {
         </div>
       </section>
 
+      {/* E Tem Mais Section */}
+      <section className="py-20 px-4 md:px-8">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex justify-center mb-6">
+            <div
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-full"
+              style={{
+                background: "linear-gradient(90deg, #130C0C 0%, #382607 100%)",
+              }}
+            >
+              <img
+                src="/images/logo-icon.png"
+                alt="Logo"
+                className="w-4 h-4"
+                data-testid="img-logo-icon-extras"
+              />
+              <p
+                className="text-white uppercase m-0"
+                style={{
+                  fontSize: "11px",
+                  fontWeight: 600,
+                  letterSpacing: "0.1em",
+                  opacity: 0.7,
+                }}
+                data-testid="text-extras-badge"
+              >
+                E TEM MAIS!
+              </p>
+            </div>
+          </div>
+
+          <h2 className="nail-h2 mb-12" data-testid="text-extras-title">
+            Além disso, <span className="gradient-text nail-h2-highlight">você também terá acesso a:</span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 1 - Formação Completa */}
+            <div
+              className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300"
+              style={{ background: "linear-gradient(135deg, #1A1212 0%, #2A2020 100%)" }}
+              data-testid="card-extra-0"
+            >
+              <div className="aspect-[4/3] relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
+                <div className="text-6xl" style={{ color: "#DBA86F", opacity: 0.3 }}>
+                  📚
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3" style={{ color: "#FCE9B5" }}>
+                  Formação Completa (+150 Aulas)
+                </h3>
+                <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
+                  O passo a passo exato para dominar as técnicas mais lucrativas do zero.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2 - Comunidade VIP */}
+            <div
+              className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300"
+              style={{ background: "linear-gradient(135deg, #1A1212 0%, #2A2020 100%)" }}
+              data-testid="card-extra-1"
+            >
+              <div className="aspect-[4/3] relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
+                <div className="text-6xl" style={{ color: "#DBA86F", opacity: 0.3 }}>
+                  💬
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3" style={{ color: "#FCE9B5" }}>
+                  Comunidade VIP de Alunas
+                </h3>
+                <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
+                  Um ambiente seguro no WhatsApp para trocar experiências, mostrar treinos e ter apoio.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3 - Certificado */}
+            <div
+              className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300"
+              style={{ background: "linear-gradient(135deg, #1A1212 0%, #2A2020 100%)" }}
+              data-testid="card-extra-2"
+            >
+              <div className="aspect-[4/3] relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
+                <div className="text-6xl" style={{ color: "#DBA86F", opacity: 0.3 }}>
+                  🏆
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3" style={{ color: "#FCE9B5" }}>
+                  Certificado Profissional
+                </h3>
+                <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
+                  Ao final do curso, você recebe seu certificado para validar sua qualificação e passar confiança para as clientes.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 4 - Apostilas e Listas */}
+            <div
+              className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 md:col-span-1 lg:col-start-2"
+              style={{ background: "linear-gradient(135deg, #1A1212 0%, #2A2020 100%)" }}
+              data-testid="card-extra-3"
+            >
+              <div className="aspect-[4/3] relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
+                <div className="text-6xl" style={{ color: "#DBA86F", opacity: 0.3 }}>
+                  📄
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3" style={{ color: "#FCE9B5" }}>
+                  Apostilas e Listas (PDF)
+                </h3>
+                <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
+                  O guia de compras sem desperdício e os checklists de aplicação para você baixar.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 5 - Atualizações */}
+            <div
+              className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300"
+              style={{ background: "linear-gradient(135deg, #1A1212 0%, #2A2020 100%)" }}
+              data-testid="card-extra-4"
+            >
+              <div className="aspect-[4/3] relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
+                <div className="text-6xl" style={{ color: "#DBA86F", opacity: 0.3 }}>
+                  🔄
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3" style={{ color: "#FCE9B5" }}>
+                  Atualizações Gratuitas
+                </h3>
+                <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
+                  O mercado de unhas muda rápido. Você terá acesso a todas as novas aulas e técnicas adicionadas ao curso.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="pb-20"></div>
+        {/* Divisória com degradê */}
+        <div className="w-full px-4 md:px-8 lg:px-16">
+          <div
+            style={{
+              height: "1px",
+              background: "linear-gradient(90deg, #130C0C 0%, #261404 15%, #261404 85%, #130C0C 100%)",
+              margin: "0 auto",
+            }}
+          />
+        </div>
+      </section>
+
       {/* Offer Section */}
       <section
         id="offer"
