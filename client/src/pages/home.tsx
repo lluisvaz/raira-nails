@@ -630,7 +630,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start overflow-visible">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center overflow-visible">
             {/* Lado Esquerdo - Conteúdo */}
             <div>
               <h2 className="nail-h2 mb-6 text-center lg:text-left" data-testid="text-access-title">
@@ -801,12 +801,12 @@ export default function Home() {
             </div>
 
             {/* Lado Direito - Vídeo */}
-            <div className="hidden lg:block relative" style={{ padding: "6px", marginTop: "94px" }}>
+            <div className="hidden lg:block relative" style={{ padding: "6px" }}>
               <div 
                 className="rounded-2xl overflow-hidden"
                 style={{ 
                   border: "1px solid #DBA86F",
-                  minHeight: "630px"
+                  minHeight: "540px"
                 }}
                 data-testid="container-platform-video"
               >
@@ -820,7 +820,7 @@ export default function Home() {
                   style={{ 
                     pointerEvents: "none",
                     width: "100%",
-                    height: "630px",
+                    height: "540px",
                     objectFit: "cover"
                   }}
                   data-testid="video-platform-preview"
