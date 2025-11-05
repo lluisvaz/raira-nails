@@ -186,18 +186,20 @@ export default function Home() {
       <header className="text-center lg:text-left relative">
         <div className="container mx-auto max-w-7xl">
           {/* Mobile/Tablet Layout (até md) */}
-          <div className="relative w-full lg:hidden">
+          <div className="relative w-full lg:hidden overflow-visible" style={{ paddingTop: "80px" }}>
             <img
               src={heroImage}
               alt="Nail Designer de Sucesso"
               className="w-full h-[600px] md:h-[850px] object-cover pointer-events-none select-none"
-              style={{ objectPosition: "45% 35%" }}
+              style={{ 
+                objectPosition: "center -15%"
+              }}
               data-testid="img-hero"
               draggable="false"
               onContextMenu={(e) => e.preventDefault()}
             />
             <div
-              className="absolute bottom-[-280px] md:bottom-[-140px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8"
+              className="absolute bottom-[-240px] md:bottom-[-100px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8"
               style={{
                 background:
                   "linear-gradient(to top, rgba(19, 12, 12, 0.98) 0%, rgba(19, 12, 12, 0.85) 50%, rgba(19, 12, 12, 0.4) 80%, transparent 100%)",
