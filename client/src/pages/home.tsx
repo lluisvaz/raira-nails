@@ -952,16 +952,16 @@ export default function Home() {
               style={{ background: "linear-gradient(135deg, #1A1212 0%, #2A2020 100%)" }}
               data-testid="card-extra-3"
             >
-              <div className="aspect-[2/1] relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
-                <div className="text-6xl" style={{ color: "#DBA86F", opacity: 0.3 }}>
+              <div className="h-32 relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
+                <div className="text-5xl" style={{ color: "#DBA86F", opacity: 0.3 }}>
                   📄
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3" style={{ color: "#FCE9B5" }}>
+              <div className="p-5">
+                <h3 className="text-xl font-bold mb-2" style={{ color: "#FCE9B5" }}>
                   Apostilas e Listas (PDF)
                 </h3>
-                <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
+                <p className="nail-body text-sm leading-snug" style={{ color: "#E0E0E0", opacity: 0.85 }}>
                   O guia de compras sem desperdício e os checklists de aplicação para você baixar.
                 </p>
               </div>
@@ -973,16 +973,16 @@ export default function Home() {
               style={{ background: "linear-gradient(135deg, #1A1212 0%, #2A2020 100%)" }}
               data-testid="card-extra-4"
             >
-              <div className="aspect-[2/1] relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
-                <div className="text-6xl" style={{ color: "#DBA86F", opacity: 0.3 }}>
+              <div className="h-32 relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
+                <div className="text-5xl" style={{ color: "#DBA86F", opacity: 0.3 }}>
                   🔄
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3" style={{ color: "#FCE9B5" }}>
+              <div className="p-5">
+                <h3 className="text-xl font-bold mb-2" style={{ color: "#FCE9B5" }}>
                   Atualizações Gratuitas
                 </h3>
-                <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
+                <p className="nail-body text-sm leading-snug" style={{ color: "#E0E0E0", opacity: 0.85 }}>
                   O mercado de unhas muda rápido. Você terá acesso a todas as novas aulas e técnicas adicionadas ao curso.
                 </p>
               </div>
