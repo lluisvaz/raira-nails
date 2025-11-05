@@ -335,7 +335,7 @@ export default function Home() {
         <div
           style={{
             height: "1px",
-            background: "linear-gradient(90deg, #130C0C 0%, #2B231D 15%, #2B231D 85%, #130C0C 100%)",
+            background: "linear-gradient(90deg, #130C0C 0%, #261404 15%, #261404 85%, #130C0C 100%)",
             margin: "0 auto",
           }}
         />
@@ -592,7 +592,7 @@ export default function Home() {
           <div
             style={{
               height: "1px",
-              background: "linear-gradient(90deg, #130C0C 0%, #2B231D 15%, #2B231D 85%, #130C0C 100%)",
+              background: "linear-gradient(90deg, #130C0C 0%, #261404 15%, #261404 85%, #130C0C 100%)",
               margin: "0 auto",
             }}
           />
@@ -838,6 +838,17 @@ export default function Home() {
               />
             </div>
           </div>
+        </div>
+        <div className="pb-20"></div>
+        {/* Divisória com degradê */}
+        <div className="w-full px-4 md:px-8 lg:px-16">
+          <div
+            style={{
+              height: "1px",
+              background: "linear-gradient(90deg, #130C0C 0%, #261404 15%, #261404 85%, #130C0C 100%)",
+              margin: "0 auto",
+            }}
+          />
         </div>
       </section>
 
