@@ -191,7 +191,7 @@ export default function Home() {
               src={heroImage}
               alt="Nail Designer de Sucesso"
               className="w-full h-[500px] md:h-[800px] object-cover pointer-events-none select-none"
-              style={{ objectPosition: "45% 25%" }}
+              style={{ objectPosition: "45% 18%" }}
               data-testid="img-hero"
               draggable="false"
               onContextMenu={(e) => e.preventDefault()}
