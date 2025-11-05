@@ -181,7 +181,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <header className="glow-section glow-section-hero text-center lg:text-left relative z-10">
+      <header className="text-center lg:text-left relative z-10">
         <div className="container mx-auto max-w-7xl">
           {/* Mobile/Tablet Layout (até md) */}
           <div className="relative w-full lg:hidden">
@@ -235,58 +235,50 @@ export default function Home() {
             {/* Textos sobrepostos à esquerda - LARGURA AUMENTADA */}
             <div className="relative z-10 flex items-center min-h-[1000px]">
               <div className="max-w-[700px] px-8">
-                <div
-                  className="p-8 rounded-3xl"
+                <p
+                  className="text-white uppercase mb-6 text-left"
                   style={{
-                    background:
-                      "linear-gradient(to right, rgba(19, 12, 12, 0.95) 0%, rgba(19, 12, 12, 0.85) 70%, transparent 100%)",
+                    fontSize: "11px",
+                    fontWeight: 600,
+                    letterSpacing: "0.1em",
+                    opacity: 0.7,
                   }}
+                  data-testid="text-hero-badge-desktop"
                 >
-                  <p
-                    className="text-white uppercase mb-6 text-left"
-                    style={{
-                      fontSize: "11px",
-                      fontWeight: 600,
-                      letterSpacing: "0.1em",
-                      opacity: 0.7,
-                    }}
-                    data-testid="text-hero-badge-desktop"
+                  INSCRIÇÕES ABERTAS POR TEMPO LIMITADO
+                </p>
+                <h1 className="nail-hero-title mb-8" data-testid="text-hero-title-desktop">
+                  Conquiste sua{" "}
+                  <span className="gradient-text">Independência Financeira</span>{" "}
+                  como Nail Designer de Sucesso.
+                </h1>
+                <p
+                  className="nail-subtitle mb-12"
+                  data-testid="text-hero-subtitle-desktop"
+                >
+                  Fature +R$5.000/Mês como Nail Designer, Dominando as Técnicas
+                  que as Clientes Amam!
+                </p>
+                <div
+                  className="inline-block relative group z-20"
+                  style={{ padding: "6px" }}
+                >
+                  <a
+                    href="#offer"
+                    className="cta-button"
+                    data-testid="button-cta-hero-desktop"
                   >
-                    INSCRIÇÕES ABERTAS POR TEMPO LIMITADO
-                  </p>
-                  <h1 className="nail-hero-title mb-8" data-testid="text-hero-title-desktop">
-                    Conquiste sua{" "}
-                    <span className="gradient-text">Independência Financeira</span>{" "}
-                    como Nail Designer de Sucesso.
-                  </h1>
-                  <p
-                    className="nail-subtitle mb-12"
-                    data-testid="text-hero-subtitle-desktop"
-                  >
-                    Fature +R$5.000/Mês como Nail Designer, Dominando as Técnicas
-                    que as Clientes Amam!
-                  </p>
-                  <div
-                    className="inline-block relative group z-20"
-                    style={{ padding: "6px" }}
-                  >
-                    <a
-                      href="#offer"
-                      className="cta-button"
-                      data-testid="button-cta-hero-desktop"
-                    >
-                      Quero me Tornar uma Nail Designer de Sucesso
-                      <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
-                    </a>
-                    <BorderBeam
-                      size={100}
-                      duration={3}
-                      colorFrom="#D19756"
-                      colorTo="#F1EEE1"
-                      borderThickness={2}
-                      beamBorderRadius={12}
-                    />
-                  </div>
+                    Quero me Tornar uma Nail Designer de Sucesso
+                    <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                  </a>
+                  <BorderBeam
+                    size={100}
+                    duration={3}
+                    colorFrom="#D19756"
+                    colorTo="#F1EEE1"
+                    borderThickness={2}
+                    beamBorderRadius={12}
+                  />
                 </div>
               </div>
             </div>
@@ -1005,96 +997,6 @@ export default function Home() {
               margin: "0 auto",
             }}
           />
-        </div>
-      </section>
-
-      {/* Offer Section */}
-      <section
-        id="offer"
-        className="glow-section py-20 px-4 md:px-8 relative z-10"
-      >
-        <div
-          className="container mx-auto max-w-4xl p-6 md:p-12 text-center"
-          style={{ background: "#1A1212", borderRadius: "20px" }}
-        >
-          <h2 className="nail-h2" data-testid="text-offer-title">
-            Tenha{" "}
-            <span className="gradient-text nail-h2-highlight">
-              Acesso Imediato
-            </span>{" "}
-            à Formação Completa
-          </h2>
-
-          <p
-            className="nail-body line-through mb-4 max-w-none"
-            style={{ color: "#888" }}
-            data-testid="text-price-anchor"
-          >
-            Tudo isso valeria facilmente R$997
-          </p>
-
-          <div
-            className="font-bold mb-2"
-            style={{
-              color: "#FCE9B5",
-              fontSize: "clamp(2.5rem, 8vw, 3.75rem)",
-            }}
-            data-testid="text-price-installment"
-          >
-            12x de R$ 47,70
-          </div>
-
-          <p className="nail-subtitle mb-10" data-testid="text-price-cash">
-            ou R$ 497 à vista
-          </p>
-
-          <div
-            className="inline-block relative group mb-12"
-            style={{ padding: "6px" }}
-          >
-            <a
-              href="#checkout"
-              className="cta-button"
-              data-testid="button-cta-offer"
-            >
-              Quero Garantir Minha Vaga com Desconto!
-              <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
-            </a>
-            <BorderBeam
-              size={100}
-              duration={3}
-              colorFrom="#D19756"
-              colorTo="#F1EEE1"
-              borderThickness={2}
-              beamBorderRadius={12}
-            />
-          </div>
-
-          <div
-            className="mt-8 md:mt-12 p-6 md:p-8 rounded-2xl"
-            style={{ background: "#170F0B", border: "2px solid #DBA86F" }}
-          >
-            <ShieldCheck
-              size={64}
-              strokeWidth={1.5}
-              className="mx-auto mb-4"
-              style={{ color: "#DBA86F" }}
-              data-testid="icon-guarantee"
-            />
-            <h3
-              className="nail-h3 font-bold mb-3"
-              data-testid="text-guarantee-title"
-            >
-              Garantia de 7 Dias
-            </h3>
-            <p
-              className="nail-body leading-relaxed max-w-none"
-              data-testid="text-guarantee-description"
-            >
-              Seu risco é zero. Se por qualquer motivo não gostar do curso,
-              devolvemos 100% do seu dinheiro. Sem perguntas, sem complicação.
-            </p>
-          </div>
         </div>
       </section>
 
