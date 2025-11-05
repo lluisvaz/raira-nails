@@ -190,7 +190,8 @@ export default function Home() {
             <img
               src={heroImage}
               alt="Nail Designer de Sucesso"
-              className="w-full h-[500px] md:h-[800px] object-cover object-top pointer-events-none select-none"
+              className="w-full h-[500px] md:h-[800px] object-cover pointer-events-none select-none"
+              style={{ objectPosition: "60% 15%" }}
               data-testid="img-hero"
               draggable="false"
               onContextMenu={(e) => e.preventDefault()}
@@ -221,7 +222,7 @@ export default function Home() {
           <div className="hidden lg:block relative w-full min-h-[1000px]">
             {/* Imagem alinhada à direita - MUITO MAIOR */}
             <div className="absolute inset-0 flex justify-end items-center">
-              <div className="relative" style={{ width: "120%", marginRight: "-50%", marginTop: "-100px" }}>
+              <div className="relative" style={{ width: "120%", marginRight: "-40%", marginTop: "0px" }}>
                 <img
                   src={heroImage}
                   alt="Nail Designer de Sucesso"
