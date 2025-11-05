@@ -805,7 +805,7 @@ export default function Home() {
                 className="rounded-2xl overflow-hidden"
                 style={{ 
                   border: "1px solid #DBA86F",
-                  minHeight: "500px"
+                  minHeight: "630px"
                 }}
                 data-testid="container-platform-video"
               >
@@ -819,7 +819,7 @@ export default function Home() {
                   style={{ 
                     pointerEvents: "none",
                     width: "100%",
-                    height: "500px",
+                    height: "630px",
                     objectFit: "cover"
                   }}
                   data-testid="video-platform-preview"
