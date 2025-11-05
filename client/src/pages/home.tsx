@@ -183,10 +183,10 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <header className="text-center lg:text-left relative">
+      <header className="text-center lg:text-left relative" style={{ background: "#170F0B" }}>
         <div className="container mx-auto max-w-7xl">
           {/* Mobile/Tablet Layout (até md) */}
-          <div className="relative w-full lg:hidden overflow-visible" style={{ paddingTop: "80px" }}>
+          <div className="relative w-full lg:hidden overflow-visible" style={{ paddingTop: "80px", background: "#170F0B" }}>
             <img
               src={heroImage}
               alt="Nail Designer de Sucesso"
