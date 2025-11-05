@@ -202,7 +202,7 @@ export default function Home() {
               className="absolute bottom-[-240px] md:bottom-[-100px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8"
               style={{
                 background:
-                  "linear-gradient(to top, rgba(19, 12, 12, 0.98) 0%, rgba(19, 12, 12, 0.85) 50%, rgba(19, 12, 12, 0.4) 80%, transparent 100%)",
+                  "linear-gradient(to top, rgba(23, 15, 11, 0.98) 0%, rgba(23, 15, 11, 0.85) 50%, rgba(23, 15, 11, 0.4) 80%, transparent 100%)",
               }}
             >
               <h1 className="nail-hero-title mb-0" data-testid="text-hero-title">
