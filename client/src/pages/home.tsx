@@ -365,18 +365,27 @@ export default function Home() {
                   "linear-gradient(to top, rgba(23, 15, 11, 0.98) 0%, rgba(23, 15, 11, 0.85) 50%, rgba(23, 15, 11, 0.4) 80%, transparent 100%)",
               }}
             >
-              <h1 className="nail-hero-title mb-0" data-testid="text-hero-title">
+              <motion.h1 
+                className="nail-hero-title mb-0" 
+                data-testid="text-hero-title"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              >
                 Conquiste sua{" "}
                 <span className="gradient-text">Independência Financeira</span>{" "}
                 como Nail Designer de Sucesso.
-              </h1>
-              <p
+              </motion.h1>
+              <motion.p
                 className="nail-subtitle mb-10 md:mb-8 mt-10 md:mt-8"
                 data-testid="text-hero-subtitle"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
               >
                 Fature +R$5.000/Mês como Nail Designer, Dominando as Técnicas
                 que as Clientes Amam!
-              </p>
+              </motion.p>
             </div>
           </div>
 
@@ -400,7 +409,7 @@ export default function Home() {
             {/* Textos sobrepostos à esquerda - LARGURA AUMENTADA */}
             <div className="relative z-10 flex items-center min-h-[1000px]">
               <div className="max-w-[700px] px-8">
-                <p
+                <motion.p
                   className="text-white uppercase mb-6 text-left"
                   style={{
                     fontSize: "11px",
@@ -409,24 +418,40 @@ export default function Home() {
                     opacity: 0.7,
                   }}
                   data-testid="text-hero-badge-desktop"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 0.7, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                   INSCRIÇÕES ABERTAS POR TEMPO LIMITADO
-                </p>
-                <h1 className="nail-hero-title mb-8" data-testid="text-hero-title-desktop">
+                </motion.p>
+                <motion.h1 
+                  className="nail-hero-title mb-8" 
+                  data-testid="text-hero-title-desktop"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                >
                   Conquiste sua{" "}
                   <span className="gradient-text">Independência Financeira</span>{" "}
                   como Nail Designer de Sucesso.
-                </h1>
-                <p
+                </motion.h1>
+                <motion.p
                   className="nail-subtitle mb-12"
                   data-testid="text-hero-subtitle-desktop"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 >
                   Fature +R$5.000/Mês como Nail Designer, Dominando as Técnicas
                   que as Clientes Amam!
-                </p>
-                <div
+                </motion.p>
+                <motion.div
                   className="inline-block relative group z-20"
                   style={{ padding: "6px" }}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+                  whileHover={{ scale: 1.02 }}
                 >
                   <a
                     href="#offer"
@@ -444,16 +469,19 @@ export default function Home() {
                     borderThickness={2}
                     beamBorderRadius={12}
                   />
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
 
           {/* Botão Mobile/Tablet */}
           <div className="lg:hidden px-4 md:px-8 pt-64 md:pt-32 pb-20">
-            <div
+            <motion.div
               className="inline-block relative group"
               style={{ padding: "6px" }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
             >
               <a
                 href="#offer"
@@ -471,7 +499,7 @@ export default function Home() {
                 borderThickness={2}
                 beamBorderRadius={12}
               />
-            </div>
+            </motion.div>
             <p
               className="text-white uppercase mt-6 text-center"
               style={{
