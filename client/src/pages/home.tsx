@@ -9,6 +9,7 @@ import {
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { ZapIcon } from "@/components/ui/ZapIcon";
+import { motion } from "framer-motion";
 const heroImage = "/images/raira-home.png";
 
 export default function Home() {
@@ -184,36 +185,161 @@ export default function Home() {
 
       {/* Hero Section */}
       <header className="text-center lg:text-left relative overflow-hidden" style={{ background: "#170F0B" }}>
-        {/* Background Decorative Elements */}
+        {/* Background Decorative Elements - ENHANCED */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Gradiente radial sutil no canto superior esquerdo */}
-          <div 
-            className="absolute top-0 left-0 w-[600px] h-[600px] opacity-20"
+          {/* Animated gradient orbs */}
+          <motion.div 
+            className="absolute top-[-10%] left-[-5%] w-[800px] h-[800px]"
             style={{
-              background: "radial-gradient(circle at center, rgba(219, 168, 111, 0.15) 0%, transparent 70%)",
+              background: "radial-gradient(circle at center, rgba(219, 168, 111, 0.25) 0%, rgba(219, 168, 111, 0.15) 30%, transparent 70%)",
+              filter: "blur(60px)",
+            }}
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.5, 0.7, 0.5],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
             }}
           />
-          {/* Gradiente radial sutil no canto inferior direito */}
-          <div 
-            className="absolute bottom-0 right-0 w-[500px] h-[500px] opacity-15"
+          
+          <motion.div 
+            className="absolute bottom-[-10%] right-[-10%] w-[900px] h-[900px]"
             style={{
-              background: "radial-gradient(circle at center, rgba(219, 168, 111, 0.12) 0%, transparent 70%)",
+              background: "radial-gradient(circle at center, rgba(219, 168, 111, 0.2) 0%, rgba(209, 151, 86, 0.12) 40%, transparent 70%)",
+              filter: "blur(80px)",
+            }}
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.4, 0.6, 0.4],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut"
             }}
           />
-          {/* Padrão de pontos sutis */}
-          <div 
-            className="absolute inset-0 opacity-[0.03]"
+
+          {/* Geometric shapes */}
+          <motion.div 
+            className="absolute top-[20%] right-[15%] w-32 h-32"
             style={{
-              backgroundImage: "radial-gradient(circle, rgba(219, 168, 111, 0.6) 1px, transparent 1px)",
-              backgroundSize: "50px 50px",
+              background: "linear-gradient(135deg, rgba(219, 168, 111, 0.15) 0%, transparent 100%)",
+              borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
+              filter: "blur(20px)",
+            }}
+            animate={{
+              rotate: [0, 360],
+              scale: [1, 1.3, 1],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear"
             }}
           />
-          {/* Linha diagonal sutil */}
-          <div 
-            className="absolute top-1/4 left-0 w-full h-px opacity-5"
+
+          <motion.div 
+            className="absolute top-[60%] left-[10%] w-48 h-48"
             style={{
-              background: "linear-gradient(90deg, transparent 0%, rgba(219, 168, 111, 0.6) 50%, transparent 100%)",
-              transform: "rotate(-2deg)",
+              background: "linear-gradient(225deg, rgba(219, 168, 111, 0.1) 0%, transparent 100%)",
+              borderRadius: "63% 37% 54% 46% / 55% 48% 52% 45%",
+              filter: "blur(25px)",
+            }}
+            animate={{
+              rotate: [360, 0],
+              scale: [1.2, 1, 1.2],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+
+          {/* Enhanced dot pattern */}
+          <div 
+            className="absolute inset-0 opacity-[0.08]"
+            style={{
+              backgroundImage: "radial-gradient(circle, rgba(219, 168, 111, 0.8) 1.5px, transparent 1.5px)",
+              backgroundSize: "40px 40px",
+            }}
+          />
+
+          {/* Animated light sweeps */}
+          <motion.div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              background: "linear-gradient(90deg, transparent 0%, rgba(219, 168, 111, 0.08) 50%, transparent 100%)",
+            }}
+            animate={{
+              x: ["-100%", "200%"],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+
+          {/* Glassmorphism panels */}
+          <div 
+            className="absolute top-[30%] left-[5%] w-64 h-64 hidden lg:block"
+            style={{
+              background: "linear-gradient(135deg, rgba(219, 168, 111, 0.05) 0%, rgba(219, 168, 111, 0.02) 100%)",
+              backdropFilter: "blur(10px)",
+              borderRadius: "20px",
+              border: "1px solid rgba(219, 168, 111, 0.1)",
+              transform: "rotate(-15deg)",
+            }}
+          />
+
+          <div 
+            className="absolute bottom-[20%] right-[8%] w-48 h-48 hidden lg:block"
+            style={{
+              background: "linear-gradient(225deg, rgba(219, 168, 111, 0.04) 0%, rgba(219, 168, 111, 0.01) 100%)",
+              backdropFilter: "blur(10px)",
+              borderRadius: "20px",
+              border: "1px solid rgba(219, 168, 111, 0.08)",
+              transform: "rotate(25deg)",
+            }}
+          />
+
+          {/* Shimmer effect lines */}
+          <motion.div 
+            className="absolute top-[15%] left-0 w-full h-px"
+            style={{
+              background: "linear-gradient(90deg, transparent 0%, rgba(219, 168, 111, 0.4) 50%, transparent 100%)",
+              transform: "rotate(-3deg)",
+            }}
+            animate={{
+              opacity: [0, 0.6, 0],
+              scaleX: [0.5, 1, 0.5],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+
+          <motion.div 
+            className="absolute bottom-[25%] left-0 w-full h-px"
+            style={{
+              background: "linear-gradient(90deg, transparent 0%, rgba(219, 168, 111, 0.3) 50%, transparent 100%)",
+              transform: "rotate(2deg)",
+            }}
+            animate={{
+              opacity: [0, 0.5, 0],
+              scaleX: [0.5, 1, 0.5],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
             }}
           />
         </div>
