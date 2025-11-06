@@ -183,10 +183,44 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <header className="text-center lg:text-left relative" style={{ background: "#170F0B" }}>
-        <div className="container mx-auto max-w-7xl">
+      <header className="text-center lg:text-left relative overflow-hidden" style={{ background: "#170F0B" }}>
+        {/* Background Decorative Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Gradiente radial sutil no canto superior esquerdo */}
+          <div 
+            className="absolute top-0 left-0 w-[600px] h-[600px] opacity-20"
+            style={{
+              background: "radial-gradient(circle at center, rgba(219, 168, 111, 0.15) 0%, transparent 70%)",
+            }}
+          />
+          {/* Gradiente radial sutil no canto inferior direito */}
+          <div 
+            className="absolute bottom-0 right-0 w-[500px] h-[500px] opacity-15"
+            style={{
+              background: "radial-gradient(circle at center, rgba(219, 168, 111, 0.12) 0%, transparent 70%)",
+            }}
+          />
+          {/* Padrão de pontos sutis */}
+          <div 
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: "radial-gradient(circle, rgba(219, 168, 111, 0.6) 1px, transparent 1px)",
+              backgroundSize: "50px 50px",
+            }}
+          />
+          {/* Linha diagonal sutil */}
+          <div 
+            className="absolute top-1/4 left-0 w-full h-px opacity-5"
+            style={{
+              background: "linear-gradient(90deg, transparent 0%, rgba(219, 168, 111, 0.6) 50%, transparent 100%)",
+              transform: "rotate(-2deg)",
+            }}
+          />
+        </div>
+
+        <div className="container mx-auto max-w-7xl relative z-10">
           {/* Mobile/Tablet Layout (até md) */}
-          <div className="relative w-full lg:hidden overflow-visible" style={{ paddingTop: "80px", background: "#170F0B" }}>
+          <div className="relative w-full lg:hidden overflow-visible" style={{ paddingTop: "80px" }}>
             <img
               src={heroImage}
               alt="Nail Designer de Sucesso"
