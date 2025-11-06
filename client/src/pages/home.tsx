@@ -201,7 +201,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <header className="text-center lg:text-left relative overflow-hidden" style={{ background: "#170F0B" }}>
+      <header className="text-center lg:text-left relative overflow-hidden">
         {/* Background Decorative Elements - ENHANCED */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Animated gradient orbs */}
@@ -485,10 +485,6 @@ export default function Home() {
             />
             <div
               className="absolute bottom-[-240px] md:bottom-[-100px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8"
-              style={{
-                background:
-                  "linear-gradient(to top, rgba(23, 15, 11, 0.98) 0%, rgba(23, 15, 11, 0.85) 50%, rgba(23, 15, 11, 0.4) 80%, transparent 100%)",
-              }}
             >
               <motion.h1 
                 className="nail-hero-title mb-0" 
@@ -524,7 +520,6 @@ export default function Home() {
                   alt="Nail Designer de Sucesso"
                   className="w-full h-[1500px] object-contain object-right pointer-events-none select-none"
                   data-testid="img-hero-desktop"
-                  style={{ background: "#170F0B" }}
                   draggable="false"
                   onContextMenu={(e) => e.preventDefault()}
                 />
