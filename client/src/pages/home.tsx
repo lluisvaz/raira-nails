@@ -342,6 +342,131 @@ export default function Home() {
               delay: 1
             }}
           />
+
+          {/* Floating sparkles */}
+          {[...Array(12)].map((_, i) => (
+            <motion.div
+              key={`sparkle-${i}`}
+              className="absolute w-1 h-1 rounded-full"
+              style={{
+                background: "rgba(219, 168, 111, 0.8)",
+                boxShadow: "0 0 8px rgba(219, 168, 111, 0.6)",
+                left: `${10 + (i * 8)}%`,
+                top: `${20 + (i * 6)}%`,
+              }}
+              animate={{
+                opacity: [0, 1, 0],
+                scale: [0, 1.5, 0],
+                y: [0, -30, -60],
+              }}
+              transition={{
+                duration: 3 + (i * 0.3),
+                repeat: Infinity,
+                delay: i * 0.4,
+                ease: "easeOut"
+              }}
+            />
+          ))}
+
+          {/* Glowing circles */}
+          <motion.div
+            className="absolute top-[35%] left-[20%] w-3 h-3 rounded-full hidden lg:block"
+            style={{
+              background: "radial-gradient(circle, rgba(219, 168, 111, 0.6) 0%, transparent 70%)",
+              boxShadow: "0 0 20px rgba(219, 168, 111, 0.4)",
+            }}
+            animate={{
+              scale: [1, 1.5, 1],
+              opacity: [0.4, 0.8, 0.4],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+
+          <motion.div
+            className="absolute top-[55%] right-[25%] w-2 h-2 rounded-full hidden lg:block"
+            style={{
+              background: "radial-gradient(circle, rgba(219, 168, 111, 0.7) 0%, transparent 70%)",
+              boxShadow: "0 0 15px rgba(219, 168, 111, 0.5)",
+            }}
+            animate={{
+              scale: [1, 1.8, 1],
+              opacity: [0.3, 0.7, 0.3],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
+          />
+
+          <motion.div
+            className="absolute bottom-[40%] left-[15%] w-2.5 h-2.5 rounded-full hidden lg:block"
+            style={{
+              background: "radial-gradient(circle, rgba(219, 168, 111, 0.8) 0%, transparent 70%)",
+              boxShadow: "0 0 18px rgba(219, 168, 111, 0.6)",
+            }}
+            animate={{
+              scale: [1, 1.6, 1],
+              opacity: [0.5, 0.9, 0.5],
+            }}
+            transition={{
+              duration: 3.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.5
+            }}
+          />
+
+          {/* Grid overlay with fade */}
+          <div 
+            className="absolute inset-0 opacity-[0.04]"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(219, 168, 111, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(219, 168, 111, 0.3) 1px, transparent 1px)
+              `,
+              backgroundSize: "80px 80px",
+            }}
+          />
+
+          {/* Corner accent glows */}
+          <motion.div
+            className="absolute top-0 left-0 w-32 h-32"
+            style={{
+              background: "radial-gradient(circle at top left, rgba(219, 168, 111, 0.2) 0%, transparent 70%)",
+              filter: "blur(30px)",
+            }}
+            animate={{
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+
+          <motion.div
+            className="absolute bottom-0 right-0 w-40 h-40"
+            style={{
+              background: "radial-gradient(circle at bottom right, rgba(219, 168, 111, 0.18) 0%, transparent 70%)",
+              filter: "blur(35px)",
+            }}
+            animate={{
+              opacity: [0.4, 0.7, 0.4],
+            }}
+            transition={{
+              duration: 7,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1.5
+            }}
+          />
         </div>
 
         <div className="container mx-auto max-w-7xl relative z-10">
