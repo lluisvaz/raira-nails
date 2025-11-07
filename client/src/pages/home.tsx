@@ -1122,10 +1122,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
             {/* Card 1 - Formação Completa */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center lg:min-h-[320px]"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[200px] lg:min-h-[320px]"
               style={{
                 background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
-                minHeight: "200px",
               }}
               data-testid="card-extra-0"
             >
@@ -1152,10 +1151,9 @@ export default function Home() {
 
             {/* Card 2 - Comunidade VIP */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center lg:min-h-[320px]"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[200px] lg:min-h-[320px]"
               style={{
                 background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
-                minHeight: "200px",
               }}
               data-testid="card-extra-1"
             >
@@ -1182,10 +1180,9 @@ export default function Home() {
 
             {/* Card 3 - Certificado */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center lg:min-h-[320px]"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[200px] lg:min-h-[320px]"
               style={{
                 background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
-                minHeight: "200px",
               }}
               data-testid="card-extra-2"
             >
