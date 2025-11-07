@@ -1124,7 +1124,7 @@ export default function Home() {
             <div
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[200px] lg:min-h-[320px]"
               style={{
-                background: "linear-gradient(to bottom, #261816 0%, #170F0B 100%)",
+                background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
               }}
               data-testid="card-extra-0"
             >
@@ -1153,7 +1153,7 @@ export default function Home() {
             <div
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[200px] lg:min-h-[320px]"
               style={{
-                background: "linear-gradient(to bottom, #261816 0%, #170F0B 100%)",
+                background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
               }}
               data-testid="card-extra-1"
             >
@@ -1182,7 +1182,7 @@ export default function Home() {
             <div
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[200px] lg:min-h-[320px]"
               style={{
-                background: "linear-gradient(to bottom, #261816 0%, #170F0B 100%)",
+                background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
               }}
               data-testid="card-extra-2"
             >
@@ -1211,7 +1211,7 @@ export default function Home() {
             <div
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center min-h-[200px]"
               style={{
-                background: "linear-gradient(to bottom right, #261816 0%, #170F0B 100%)",
+                background: "linear-gradient(to bottom right, #261816 0%, #170F0B 70%)",
               }}
               data-testid="card-extra-3"
             >
@@ -1239,7 +1239,7 @@ export default function Home() {
             <div
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center min-h-[200px]"
               style={{
-                background: "linear-gradient(to bottom right, #261816 0%, #170F0B 100%)",
+                background: "linear-gradient(to bottom right, #261816 0%, #170F0B 70%)",
               }}
               data-testid="card-extra-4"
             >
