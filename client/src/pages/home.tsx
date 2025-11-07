@@ -1135,7 +1135,7 @@ export default function Home() {
                 📚
               </div>
               <h3
-                className="text-xl font-bold mb-3 gradient-text"
+                className="text-2xl font-bold mb-3 gradient-text"
               >
                 +150 Aulas
               </h3>
@@ -1163,7 +1163,7 @@ export default function Home() {
                 💬
               </div>
               <h3
-                className="text-xl font-bold mb-3 gradient-text"
+                className="text-2xl font-bold mb-3 gradient-text"
               >
                 Comunidade VIP de Alunas
               </h3>
@@ -1191,7 +1191,7 @@ export default function Home() {
                 🏆
               </div>
               <h3
-                className="text-xl font-bold mb-3 gradient-text"
+                className="text-2xl font-bold mb-3 gradient-text"
               >
                 Certificado Profissional
               </h3>
@@ -1219,7 +1219,7 @@ export default function Home() {
                 📄
               </div>
               <h3
-                className="text-xl font-bold mb-3 gradient-text"
+                className="text-2xl font-bold mb-3 gradient-text"
               >
                 Materiais de Apoio
               </h3>
@@ -1246,7 +1246,7 @@ export default function Home() {
                 🔄
               </div>
               <h3
-                className="text-xl font-bold mb-3 gradient-text"
+                className="text-2xl font-bold mb-3 gradient-text"
               >
                 Atualizações Gratuitas
               </h3>
