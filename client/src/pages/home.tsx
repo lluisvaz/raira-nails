@@ -20,17 +20,17 @@ export default function Home() {
   useEffect(() => {
     // Safe initialization for window-dependent state
     setIsDesktop(window.innerWidth >= 1024);
-    
+
     // Check for prefers-reduced-motion
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mediaQuery.matches);
 
     const handleMotionChange = (e: MediaQueryListEvent) => {
       setPrefersReducedMotion(e.matches);
     };
 
-    mediaQuery.addEventListener('change', handleMotionChange);
-    return () => mediaQuery.removeEventListener('change', handleMotionChange);
+    mediaQuery.addEventListener("change", handleMotionChange);
+    return () => mediaQuery.removeEventListener("change", handleMotionChange);
   }, []);
 
   useEffect(() => {
@@ -48,8 +48,8 @@ export default function Home() {
       setIsDesktop(window.innerWidth >= 1024);
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const formatTime = (seconds: number) => {
@@ -178,7 +178,8 @@ export default function Home() {
               gap: "6px",
             }}
           >
-            <ZapIcon size={18} className="text-[#1A1212]" /> OFERTA ESPECIAL EXPIRA EM:
+            <ZapIcon size={18} className="text-[#1A1212]" /> OFERTA ESPECIAL
+            EXPIRA EM:
           </span>
           <span
             style={{
@@ -205,79 +206,91 @@ export default function Home() {
         {/* Background Decorative Elements - OPTIMIZED */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Main gradient orbs - reduced blur for performance */}
-          <motion.div 
+          <motion.div
             className="absolute top-[-10%] left-[-5%] w-[800px] h-[800px]"
             style={{
-              background: "radial-gradient(circle at center, rgba(219, 168, 111, 0.25) 0%, rgba(219, 168, 111, 0.15) 30%, transparent 70%)",
+              background:
+                "radial-gradient(circle at center, rgba(219, 168, 111, 0.25) 0%, rgba(219, 168, 111, 0.15) 30%, transparent 70%)",
               filter: "blur(40px)",
               willChange: "transform, opacity",
             }}
-            animate={prefersReducedMotion ? {} : {
-              scale: [1, 1.2, 1],
-              opacity: [0.5, 0.7, 0.5],
-            }}
+            animate={
+              prefersReducedMotion
+                ? {}
+                : {
+                    scale: [1, 1.2, 1],
+                    opacity: [0.5, 0.7, 0.5],
+                  }
+            }
             transition={{
               duration: 8,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
-          
-          <motion.div 
+
+          <motion.div
             className="absolute bottom-[-10%] right-[-10%] w-[900px] h-[900px]"
             style={{
-              background: "radial-gradient(circle at center, rgba(219, 168, 111, 0.2) 0%, rgba(209, 151, 86, 0.12) 40%, transparent 70%)",
+              background:
+                "radial-gradient(circle at center, rgba(219, 168, 111, 0.2) 0%, rgba(209, 151, 86, 0.12) 40%, transparent 70%)",
               filter: "blur(40px)",
               willChange: "transform, opacity",
             }}
-            animate={prefersReducedMotion ? {} : {
-              scale: [1.2, 1, 1.2],
-              opacity: [0.4, 0.6, 0.4],
-            }}
+            animate={
+              prefersReducedMotion
+                ? {}
+                : {
+                    scale: [1.2, 1, 1.2],
+                    opacity: [0.4, 0.6, 0.4],
+                  }
+            }
             transition={{
               duration: 10,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
 
           {/* Dot pattern - static for performance */}
-          <div 
+          <div
             className="absolute inset-0 opacity-[0.08]"
             style={{
-              backgroundImage: "radial-gradient(circle, rgba(219, 168, 111, 0.8) 1.5px, transparent 1.5px)",
+              backgroundImage:
+                "radial-gradient(circle, rgba(219, 168, 111, 0.8) 1.5px, transparent 1.5px)",
               backgroundSize: "40px 40px",
             }}
           />
 
           {/* Minimal sparkles - reduced from 12 to 4 */}
-          {!prefersReducedMotion && [...Array(4)].map((_, i) => (
-            <motion.div
-              key={`sparkle-${i}`}
-              className="absolute w-1 h-1 rounded-full"
-              style={{
-                background: "rgba(219, 168, 111, 0.8)",
-                boxShadow: "0 0 8px rgba(219, 168, 111, 0.6)",
-                left: `${15 + (i * 20)}%`,
-                top: `${25 + (i * 15)}%`,
-                willChange: "transform, opacity",
-              }}
-              animate={{
-                opacity: [0, 1, 0],
-                scale: [0, 1.5, 0],
-                y: [0, -40, -80],
-              }}
-              transition={{
-                duration: 3 + (i * 0.5),
-                repeat: Infinity,
-                delay: i * 0.8,
-                ease: "easeOut"
-              }}
-            />
-          ))}
+          {!prefersReducedMotion &&
+            [...Array(4)].map((_, i) => (
+              <motion.div
+                key={`sparkle-${i}`}
+                className="absolute w-1 h-1 rounded-full"
+                style={{
+                  background: "rgba(219, 168, 111, 0.8)",
+                  boxShadow: "0 0 8px rgba(219, 168, 111, 0.6)",
+                  left: `${15 + i * 20}%`,
+                  top: `${25 + i * 15}%`,
+                  willChange: "transform, opacity",
+                }}
+                animate={{
+                  opacity: [0, 1, 0],
+                  scale: [0, 1.5, 0],
+                  y: [0, -40, -80],
+                }}
+                transition={{
+                  duration: 3 + i * 0.5,
+                  repeat: Infinity,
+                  delay: i * 0.8,
+                  ease: "easeOut",
+                }}
+              />
+            ))}
 
           {/* Grid overlay - static */}
-          <div 
+          <div
             className="absolute inset-0 opacity-[0.04]"
             style={{
               backgroundImage: `
@@ -291,23 +304,24 @@ export default function Home() {
 
         <div className="container mx-auto max-w-7xl relative z-10">
           {/* Mobile/Tablet Layout (até md) */}
-          <div className="relative w-full lg:hidden overflow-visible" style={{ paddingTop: "80px" }}>
+          <div
+            className="relative w-full lg:hidden overflow-visible"
+            style={{ paddingTop: "80px" }}
+          >
             <img
               src={heroImage}
               alt="Nail Designer de Sucesso"
               className="w-full h-[600px] md:h-[850px] object-cover pointer-events-none select-none"
-              style={{ 
-                objectPosition: "45% -15%"
+              style={{
+                objectPosition: "45% -15%",
               }}
               data-testid="img-hero"
               draggable="false"
               onContextMenu={(e) => e.preventDefault()}
             />
-            <div
-              className="absolute bottom-[-240px] md:bottom-[-100px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8"
-            >
-              <motion.h1 
-                className="nail-hero-title mb-0" 
+            <div className="absolute bottom-[-240px] md:bottom-[-100px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8">
+              <motion.h1
+                className="nail-hero-title mb-0"
                 data-testid="text-hero-title"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -334,7 +348,10 @@ export default function Home() {
           <div className="hidden lg:block relative w-full min-h-[1000px]">
             {/* Imagem alinhada à direita - MUITO MAIOR */}
             <div className="absolute inset-0 flex justify-end items-center">
-              <div className="relative" style={{ width: "120%", marginRight: "-40%", marginTop: "0px" }}>
+              <div
+                className="relative"
+                style={{ width: "120%", marginRight: "-40%", marginTop: "0px" }}
+              >
                 <img
                   src={heroImage}
                   alt="Nail Designer de Sucesso"
@@ -364,15 +381,17 @@ export default function Home() {
                 >
                   INSCRIÇÕES ABERTAS POR TEMPO LIMITADO
                 </motion.p>
-                <motion.h1 
-                  className="nail-hero-title mb-8" 
+                <motion.h1
+                  className="nail-hero-title mb-8"
                   data-testid="text-hero-title-desktop"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 >
                   Conquiste sua{" "}
-                  <span className="gradient-text">Independência Financeira</span>{" "}
+                  <span className="gradient-text">
+                    Independência Financeira
+                  </span>{" "}
                   como Nail Designer de Sucesso.
                 </motion.h1>
                 <motion.p
@@ -399,7 +418,10 @@ export default function Home() {
                     data-testid="button-cta-hero-desktop"
                   >
                     Quero me Tornar uma Nail Designer de Sucesso
-                    <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                    <HiOutlineArrowUpRight
+                      size={24}
+                      className="text-black flex-shrink-0"
+                    />
                   </a>
                   <BorderBeam
                     size={100}
@@ -429,7 +451,10 @@ export default function Home() {
                 data-testid="button-cta-hero"
               >
                 Quero me Tornar uma Nail Designer de Sucesso
-                <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                <HiOutlineArrowUpRight
+                  size={24}
+                  className="text-black flex-shrink-0"
+                />
               </a>
               <BorderBeam
                 size={100}
@@ -460,7 +485,8 @@ export default function Home() {
         <div
           style={{
             height: "1px",
-            background: "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+            background:
+              "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
             margin: "0 auto",
           }}
         />
@@ -495,7 +521,10 @@ export default function Home() {
               PARA QUEM É?
             </p>
           </div>
-          <h2 className="nail-h2 mb-4 mx-auto lg:max-w-3xl" data-testid="text-problem-title">
+          <h2
+            className="nail-h2 mb-4 mx-auto lg:max-w-3xl"
+            data-testid="text-problem-title"
+          >
             Cansada de trabalhar muito{" "}
             <span
               className="gradient-text"
@@ -518,12 +547,13 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 max-w-6xl mx-auto mb-12">
             <div
               className="nail-card text-left md:col-span-3"
-              style={{ 
-                minHeight: "180px", 
-                display: "flex", 
-                flexDirection: "column", 
+              style={{
+                minHeight: "180px",
+                display: "flex",
+                flexDirection: "column",
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)"
+                background:
+                  "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
               }}
               data-testid="card-target-audience-0"
             >
@@ -539,18 +569,20 @@ export default function Home() {
                 style={{ opacity: 0.85 }}
                 data-testid="text-target-description-0"
               >
-                Em um emprego CLT que paga pouco, não te reconhece e rouba todo o seu tempo, sem nenhuma perspectiva de crescimento.
+                Em um emprego CLT que paga pouco, não te reconhece e rouba todo
+                o seu tempo, sem nenhuma perspectiva de crescimento.
               </p>
             </div>
 
             <div
               className="nail-card text-left md:col-span-4"
-              style={{ 
-                minHeight: "200px", 
-                display: "flex", 
-                flexDirection: "column", 
+              style={{
+                minHeight: "200px",
+                display: "flex",
+                flexDirection: "column",
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)"
+                background:
+                  "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
               }}
               data-testid="card-target-audience-1"
             >
@@ -566,18 +598,20 @@ export default function Home() {
                 style={{ opacity: 0.85 }}
                 data-testid="text-target-description-1"
               >
-                De fazer seus próprios horários, poder levar seu filho na escola ou ir à academia, sem ter que "bater ponto" ou pedir permissão.
+                De fazer seus próprios horários, poder levar seu filho na escola
+                ou ir à academia, sem ter que "bater ponto" ou pedir permissão.
               </p>
             </div>
 
             <div
               className="nail-card text-left md:col-span-5"
-              style={{ 
-                minHeight: "190px", 
-                display: "flex", 
-                flexDirection: "column", 
+              style={{
+                minHeight: "190px",
+                display: "flex",
+                flexDirection: "column",
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)"
+                background:
+                  "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
               }}
               data-testid="card-target-audience-2"
             >
@@ -593,18 +627,20 @@ export default function Home() {
                 style={{ opacity: 0.85 }}
                 data-testid="text-target-description-2"
               >
-                E vê o potencial de ganhar R$ 3.000, R$ 5.000 ou mais por mês, trabalhando para si mesma, com suas próprias regras.
+                E vê o potencial de ganhar R$ 3.000, R$ 5.000 ou mais por mês,
+                trabalhando para si mesma, com suas próprias regras.
               </p>
             </div>
 
             <div
               className="nail-card text-left md:col-span-5"
-              style={{ 
-                minHeight: "195px", 
-                display: "flex", 
-                flexDirection: "column", 
+              style={{
+                minHeight: "195px",
+                display: "flex",
+                flexDirection: "column",
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)"
+                background:
+                  "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
               }}
               data-testid="card-target-audience-3"
             >
@@ -620,18 +656,20 @@ export default function Home() {
                 style={{ opacity: 0.85 }}
                 data-testid="text-target-description-3"
               >
-                E finalmente parar de receber ordens, lidando diretamente com suas clientes e construindo algo que é seu de verdade.
+                E finalmente parar de receber ordens, lidando diretamente com
+                suas clientes e construindo algo que é seu de verdade.
               </p>
             </div>
 
             <div
               className="nail-card text-left md:col-span-4"
-              style={{ 
-                minHeight: "185px", 
-                display: "flex", 
-                flexDirection: "column", 
+              style={{
+                minHeight: "185px",
+                display: "flex",
+                flexDirection: "column",
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)"
+                background:
+                  "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
               }}
               data-testid="card-target-audience-4"
             >
@@ -647,18 +685,20 @@ export default function Home() {
                 style={{ opacity: 0.85 }}
                 data-testid="text-target-description-4"
               >
-                Você olha o mercado de unhas e parece muito difícil, com muitos materiais e técnicas, e tem medo de investir e não dar certo.
+                Você olha o mercado de unhas e parece muito difícil, com muitos
+                materiais e técnicas, e tem medo de investir e não dar certo.
               </p>
             </div>
 
             <div
               className="nail-card text-left md:col-span-3"
-              style={{ 
-                minHeight: "205px", 
-                display: "flex", 
-                flexDirection: "column", 
+              style={{
+                minHeight: "205px",
+                display: "flex",
+                flexDirection: "column",
                 justifyContent: "center",
-                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)"
+                background:
+                  "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
               }}
               data-testid="card-target-audience-5"
             >
@@ -674,7 +714,9 @@ export default function Home() {
                 style={{ opacity: 0.85 }}
                 data-testid="text-target-description-5"
               >
-                De largar um emprego "seguro" (mesmo que ruim) para começar algo novo que sua família talvez não entenda como uma "profissão de verdade".
+                De largar um emprego "seguro" (mesmo que ruim) para começar algo
+                novo que sua família talvez não entenda como uma "profissão de
+                verdade".
               </p>
             </div>
           </div>
@@ -685,7 +727,8 @@ export default function Home() {
               style={{ fontWeight: 500 }}
               data-testid="text-problem-conclusion"
             >
-              Se você está decidida a construir uma nova realidade financeira para você e sua família... Esta formação é para você.
+              Se você está decidida a construir uma nova realidade financeira
+              para você e sua família... Esta formação é para você.
             </p>
 
             <div
@@ -698,7 +741,10 @@ export default function Home() {
                 data-testid="button-cta-target-audience"
               >
                 QUERO ME TORNAR ALUNA
-                <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                <HiOutlineArrowUpRight
+                  size={24}
+                  className="text-black flex-shrink-0"
+                />
               </a>
               <BorderBeam
                 size={100}
@@ -717,7 +763,8 @@ export default function Home() {
           <div
             style={{
               height: "1px",
-              background: "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              background:
+                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
               margin: "0 auto",
             }}
           />
@@ -758,18 +805,26 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center overflow-visible">
             {/* Lado Esquerdo - Conteúdo */}
             <div>
-              <h2 className="nail-h2 mb-6 text-center lg:text-left" data-testid="text-access-title">
+              <h2
+                className="nail-h2 mb-6 text-center lg:text-left"
+                data-testid="text-access-title"
+              >
                 Conheça sua Escola de Unhas{" "}
-                <span className="gradient-text nail-h2-highlight">por dentro</span>
+                <span className="gradient-text nail-h2-highlight">
+                  por dentro
+                </span>
               </h2>
 
               {/* Vídeo Mobile - aparece só no mobile abaixo do título */}
-              <div className="lg:hidden relative mb-8" style={{ padding: "6px" }}>
-                <div 
+              <div
+                className="lg:hidden relative mb-8"
+                style={{ padding: "6px" }}
+              >
+                <div
                   className="rounded-2xl overflow-hidden"
-                  style={{ 
+                  style={{
                     border: "1px solid #DBA86F",
-                    height: "300px"
+                    height: "300px",
                   }}
                   data-testid="container-platform-video-mobile"
                 >
@@ -780,15 +835,18 @@ export default function Home() {
                     playsInline
                     disablePictureInPicture
                     controlsList="nodownload nofullscreen noremoteplayback"
-                    style={{ 
+                    style={{
                       pointerEvents: "none",
                       width: "100%",
                       height: "100%",
-                      objectFit: "cover"
+                      objectFit: "cover",
                     }}
                     data-testid="video-platform-preview-mobile"
                   >
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                    <source
+                      src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                      type="video/mp4"
+                    />
                     Seu navegador não suporta vídeos.
                   </video>
                 </div>
@@ -808,17 +866,21 @@ export default function Home() {
                 data-testid="text-access-description"
               >
                 Nossa plataforma oferece um{" "}
-                <span style={{ fontWeight: 700 }}>ambiente de aprendizado completo</span>, criado para
-                transformar você do zero em uma profissional requisitada.
+                <span style={{ fontWeight: 700 }}>
+                  ambiente de aprendizado completo
+                </span>
+                , criado para transformar você do zero em uma profissional
+                requisitada.
               </p>
 
               {/* Lista de Benefícios */}
               <div className="space-y-6 mb-10">
-                <div 
-                  className="flex items-stretch" 
+                <div
+                  className="flex items-stretch"
                   data-testid="benefit-access-0"
-                  style={{ 
-                    background: "linear-gradient(90deg, #261403 0%, #170F0B 100%)"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, #261403 0%, #170F0B 100%)",
                   }}
                 >
                   <div
@@ -826,20 +888,28 @@ export default function Home() {
                     style={{ background: "#D49D5E" }}
                   />
                   <div className="py-4 px-6">
-                    <p className="nail-body font-semibold mb-1" style={{ color: "#DBA86F" }}>
+                    <p
+                      className="nail-body font-semibold mb-1"
+                      style={{ color: "#DBA86F" }}
+                    >
                       Acesso imediato por 12 meses
                     </p>
-                    <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
-                      Para você ver e rever as técnicas no seu ritmo, até dominar cada detalhe.
+                    <p
+                      className="nail-body leading-relaxed max-w-none"
+                      style={{ opacity: 0.85 }}
+                    >
+                      Para você ver e rever as técnicas no seu ritmo, até
+                      dominar cada detalhe.
                     </p>
                   </div>
                 </div>
 
-                <div 
-                  className="flex items-stretch" 
+                <div
+                  className="flex items-stretch"
                   data-testid="benefit-access-1"
-                  style={{ 
-                    background: "linear-gradient(90deg, #261403 0%, #170F0B 100%)"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, #261403 0%, #170F0B 100%)",
                   }}
                 >
                   <div
@@ -847,20 +917,28 @@ export default function Home() {
                     style={{ background: "#D49D5E" }}
                   />
                   <div className="py-4 px-6">
-                    <p className="nail-body font-semibold mb-1" style={{ color: "#DBA86F" }}>
+                    <p
+                      className="nail-body font-semibold mb-1"
+                      style={{ color: "#DBA86F" }}
+                    >
                       Certificado Profissional de Conclusão
                     </p>
-                    <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
-                      Para você pendurar no seu espaço e provar sua qualificação para as clientes.
+                    <p
+                      className="nail-body leading-relaxed max-w-none"
+                      style={{ opacity: 0.85 }}
+                    >
+                      Para você pendurar no seu espaço e provar sua qualificação
+                      para as clientes.
                     </p>
                   </div>
                 </div>
 
-                <div 
-                  className="flex items-stretch" 
+                <div
+                  className="flex items-stretch"
                   data-testid="benefit-access-2"
-                  style={{ 
-                    background: "linear-gradient(90deg, #261403 0%, #170F0B 100%)"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, #261403 0%, #170F0B 100%)",
                   }}
                 >
                   <div
@@ -868,20 +946,28 @@ export default function Home() {
                     style={{ background: "#D49D5E" }}
                   />
                   <div className="py-4 px-6">
-                    <p className="nail-body font-semibold mb-1" style={{ color: "#DBA86F" }}>
+                    <p
+                      className="nail-body font-semibold mb-1"
+                      style={{ color: "#DBA86F" }}
+                    >
                       Assista em qualquer dispositivo
                     </p>
-                    <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
-                      No celular, tablet ou computador, na hora que for melhor para você.
+                    <p
+                      className="nail-body leading-relaxed max-w-none"
+                      style={{ opacity: 0.85 }}
+                    >
+                      No celular, tablet ou computador, na hora que for melhor
+                      para você.
                     </p>
                   </div>
                 </div>
 
-                <div 
-                  className="flex items-stretch" 
+                <div
+                  className="flex items-stretch"
                   data-testid="benefit-access-3"
-                  style={{ 
-                    background: "linear-gradient(90deg, #261403 0%, #170F0B 100%)"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, #261403 0%, #170F0B 100%)",
                   }}
                 >
                   <div
@@ -889,11 +975,18 @@ export default function Home() {
                     style={{ background: "#D49D5E" }}
                   />
                   <div className="py-4 px-6">
-                    <p className="nail-body font-semibold mb-1" style={{ color: "#DBA86F" }}>
+                    <p
+                      className="nail-body font-semibold mb-1"
+                      style={{ color: "#DBA86F" }}
+                    >
                       Suporte direto com nossa equipe
                     </p>
-                    <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
-                      Para tirar dúvidas técnicas sobre os módulos, materiais e procedimentos.
+                    <p
+                      className="nail-body leading-relaxed max-w-none"
+                      style={{ opacity: 0.85 }}
+                    >
+                      Para tirar dúvidas técnicas sobre os módulos, materiais e
+                      procedimentos.
                     </p>
                   </div>
                 </div>
@@ -911,7 +1004,10 @@ export default function Home() {
                     data-testid="button-cta-access"
                   >
                     QUERO ME TORNAR ALUNA
-                    <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                    <HiOutlineArrowUpRight
+                      size={24}
+                      className="text-black flex-shrink-0"
+                    />
                   </a>
                   <BorderBeam
                     size={100}
@@ -926,12 +1022,15 @@ export default function Home() {
             </div>
 
             {/* Lado Direito - Vídeo */}
-            <div className="hidden lg:block relative" style={{ padding: "6px", marginTop: "80px" }}>
-              <div 
+            <div
+              className="hidden lg:block relative"
+              style={{ padding: "6px", marginTop: "80px" }}
+            >
+              <div
                 className="rounded-2xl overflow-hidden"
-                style={{ 
+                style={{
                   border: "1px solid #DBA86F",
-                  minHeight: "540px"
+                  minHeight: "540px",
                 }}
                 data-testid="container-platform-video"
               >
@@ -942,15 +1041,18 @@ export default function Home() {
                   playsInline
                   disablePictureInPicture
                   controlsList="nodownload nofullscreen noremoteplayback"
-                  style={{ 
+                  style={{
                     pointerEvents: "none",
                     width: "100%",
                     height: "540px",
-                    objectFit: "cover"
+                    objectFit: "cover",
                   }}
                   data-testid="video-platform-preview"
                 >
-                  <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                  <source
+                    src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                    type="video/mp4"
+                  />
                   Seu navegador não suporta vídeos.
                 </video>
               </div>
@@ -971,7 +1073,8 @@ export default function Home() {
           <div
             style={{
               height: "1px",
-              background: "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              background:
+                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
               margin: "0 auto",
             }}
           />
@@ -1010,113 +1113,160 @@ export default function Home() {
           </div>
 
           <h2 className="nail-h2 mb-12" data-testid="text-extras-title">
-            Além disso, <span className="gradient-text nail-h2-highlight">você também terá acesso a:</span>
+            Além disso,{" "}
+            <span className="gradient-text nail-h2-highlight">
+              você também terá acesso a:
+            </span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
             {/* Card 1 - Formação Completa */}
             <div
-              className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2"
-              style={{ background: "linear-gradient(135deg, #1A1212 0%, #2A2020 100%)" }}
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center lg:min-h-[320px]"
+              style={{
+                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
+                minHeight: "200px",
+              }}
               data-testid="card-extra-0"
             >
-              <div className="aspect-[4/3] relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
-                <div className="text-6xl" style={{ color: "#DBA86F", opacity: 0.3 }}>
-                  📚
-                </div>
+              <div
+                className="text-6xl mb-4"
+                style={{ color: "#DBA86F", opacity: 0.3 }}
+              >
+                📚
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3" style={{ color: "#FCE9B5" }}>
-                  Formação Completa (+150 Aulas)
-                </h3>
-                <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
-                  O passo a passo exato para dominar as técnicas mais lucrativas do zero.
-                </p>
-              </div>
+              <h3
+                className="text-xl font-bold mb-3"
+                style={{ color: "#FCE9B5" }}
+              >
+                +150 Aulas
+              </h3>
+              <p
+                className="nail-body text-sm leading-relaxed"
+                style={{ color: "#E0E0E0", opacity: 0.85 }}
+              >
+                O passo a passo exato para dominar as técnicas mais lucrativas
+                do zero.
+              </p>
             </div>
 
             {/* Card 2 - Comunidade VIP */}
             <div
-              className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2"
-              style={{ background: "linear-gradient(135deg, #1A1212 0%, #2A2020 100%)" }}
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center lg:min-h-[320px]"
+              style={{
+                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
+                minHeight: "200px",
+              }}
               data-testid="card-extra-1"
             >
-              <div className="aspect-[4/3] relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
-                <div className="text-6xl" style={{ color: "#DBA86F", opacity: 0.3 }}>
-                  💬
-                </div>
+              <div
+                className="text-6xl mb-4"
+                style={{ color: "#DBA86F", opacity: 0.3 }}
+              >
+                💬
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3" style={{ color: "#FCE9B5" }}>
-                  Comunidade VIP de Alunas
-                </h3>
-                <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
-                  Um ambiente seguro no WhatsApp para trocar experiências, mostrar treinos e ter apoio.
-                </p>
-              </div>
+              <h3
+                className="text-xl font-bold mb-3"
+                style={{ color: "#FCE9B5" }}
+              >
+                Comunidade VIP de Alunas
+              </h3>
+              <p
+                className="nail-body text-sm leading-relaxed"
+                style={{ color: "#E0E0E0", opacity: 0.85 }}
+              >
+                Um ambiente seguro no WhatsApp para trocar experiências,
+                mostrar treinos e ter apoio.
+              </p>
             </div>
 
             {/* Card 3 - Certificado */}
             <div
-              className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2"
-              style={{ background: "linear-gradient(135deg, #1A1212 0%, #2A2020 100%)" }}
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center lg:min-h-[320px]"
+              style={{
+                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
+                minHeight: "200px",
+              }}
               data-testid="card-extra-2"
             >
-              <div className="aspect-[4/3] relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
-                <div className="text-6xl" style={{ color: "#DBA86F", opacity: 0.3 }}>
-                  🏆
-                </div>
+              <div
+                className="text-6xl mb-4"
+                style={{ color: "#DBA86F", opacity: 0.3 }}
+              >
+                🏆
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3" style={{ color: "#FCE9B5" }}>
-                  Certificado Profissional
-                </h3>
-                <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
-                  Ao final do curso, você recebe seu certificado para validar sua qualificação e passar confiança para as clientes.
-                </p>
-              </div>
+              <h3
+                className="text-xl font-bold mb-3"
+                style={{ color: "#FCE9B5" }}
+              >
+                Certificado Profissional
+              </h3>
+              <p
+                className="nail-body text-sm leading-relaxed"
+                style={{ color: "#E0E0E0", opacity: 0.85 }}
+              >
+                Ao final do curso, você recebe seu certificado para validar
+                sua qualificação e passar confiança para as clientes.
+              </p>
             </div>
 
             {/* Card 4 - Apostilas e Listas */}
             <div
-              className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3"
-              style={{ background: "linear-gradient(135deg, #1A1212 0%, #2A2020 100%)" }}
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center"
+              style={{
+                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
+                minHeight: "200px",
+              }}
               data-testid="card-extra-3"
             >
-              <div className="aspect-[4/3] lg:h-40 lg:aspect-auto relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
-                <div className="text-6xl" style={{ color: "#DBA86F", opacity: 0.3 }}>
-                  📄
-                </div>
+              <div
+                className="text-6xl mb-4"
+                style={{ color: "#DBA86F", opacity: 0.3 }}
+              >
+                📄
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3" style={{ color: "#FCE9B5" }}>
-                  Apostilas e Listas (PDF)
-                </h3>
-                <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
-                  O guia de compras sem desperdício e os checklists de aplicação para você baixar.
-                </p>
-              </div>
+              <h3
+                className="text-xl font-bold mb-3"
+                style={{ color: "#FCE9B5" }}
+              >
+                Materiais de Apoio
+              </h3>
+              <p
+                className="nail-body text-sm leading-relaxed"
+                style={{ color: "#E0E0E0", opacity: 0.85 }}
+              >
+                O guia de aplicação para você baixar e estudar.
+              </p>
             </div>
 
             {/* Card 5 - Atualizações */}
             <div
-              className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3"
-              style={{ background: "linear-gradient(135deg, #1A1212 0%, #2A2020 100%)" }}
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center"
+              style={{
+                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
+                minHeight: "200px",
+              }}
               data-testid="card-extra-4"
             >
-              <div className="aspect-[4/3] lg:h-40 lg:aspect-auto relative bg-gradient-to-br from-[#2A2020] to-[#1A1212] flex items-center justify-center">
-                <div className="text-6xl" style={{ color: "#DBA86F", opacity: 0.3 }}>
-                  🔄
-                </div>
+              <div
+                className="text-6xl mb-4"
+                style={{ color: "#DBA86F", opacity: 0.3 }}
+              >
+                🔄
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3" style={{ color: "#FCE9B5" }}>
-                  Atualizações Gratuitas
-                </h3>
-                <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
-                  O mercado de unhas muda rápido. Você terá acesso a todas as novas aulas e técnicas adicionadas ao curso.
-                </p>
-              </div>
+              <h3
+                className="text-xl font-bold mb-3"
+                style={{ color: "#FCE9B5" }}
+              >
+                Atualizações Gratuitas
+              </h3>
+              <p
+                className="nail-body text-sm leading-relaxed"
+                style={{ color: "#E0E0E0", opacity: 0.85 }}
+              >
+                O mercado de unhas muda rápido. Você terá acesso a todas as
+                novas aulas e técnicas adicionadas ao curso.
+              </p>
             </div>
           </div>
         </div>
@@ -1126,7 +1276,8 @@ export default function Home() {
           <div
             style={{
               height: "1px",
-              background: "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              background:
+                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
               margin: "0 auto",
             }}
           />
