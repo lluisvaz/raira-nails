@@ -1124,7 +1124,7 @@ export default function Home() {
             <div
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[200px] lg:min-h-[320px]"
               style={{
-                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
+                background: "linear-gradient(to bottom, #261816 0%, #170F0B 100%)",
               }}
               data-testid="card-extra-0"
             >
@@ -1153,7 +1153,7 @@ export default function Home() {
             <div
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[200px] lg:min-h-[320px]"
               style={{
-                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
+                background: "linear-gradient(to bottom, #261816 0%, #170F0B 100%)",
               }}
               data-testid="card-extra-1"
             >
@@ -1182,7 +1182,7 @@ export default function Home() {
             <div
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[200px] lg:min-h-[320px]"
               style={{
-                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
+                background: "linear-gradient(to bottom, #261816 0%, #170F0B 100%)",
               }}
               data-testid="card-extra-2"
             >
@@ -1209,10 +1209,9 @@ export default function Home() {
 
             {/* Card 4 - Apostilas e Listas */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center min-h-[200px]"
               style={{
-                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
-                minHeight: "200px",
+                background: "linear-gradient(to bottom right, #261816 0%, #170F0B 100%)",
               }}
               data-testid="card-extra-3"
             >
@@ -1238,10 +1237,9 @@ export default function Home() {
 
             {/* Card 5 - Atualizações */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center min-h-[200px]"
               style={{
-                background: "linear-gradient(to top right, #170F0B 0%, #170F0B 55%, #261816 100%)",
-                minHeight: "200px",
+                background: "linear-gradient(to bottom right, #261816 0%, #170F0B 100%)",
               }}
               data-testid="card-extra-4"
             >
