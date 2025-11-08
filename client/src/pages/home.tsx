@@ -1133,7 +1133,7 @@ export default function Home() {
                 style={{ 
                   width: "95%", 
                   height: "550px",
-                  bottom: "-50px",
+                  bottom: "-120px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   pointerEvents: "none",
