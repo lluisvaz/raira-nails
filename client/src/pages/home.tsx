@@ -1211,8 +1211,8 @@ export default function Home() {
                   bottom: 0,
                   left: 0,
                   right: 0,
-                  height: "200px",
-                  background: "linear-gradient(to top, #170F0B 0%, transparent 100%)",
+                  height: "280px",
+                  background: "linear-gradient(to top, #170F0B 0%, #170F0B 35%, rgba(23, 15, 11, 0.7) 60%, transparent 100%)",
                   pointerEvents: "none",
                   zIndex: 5
                 }}
