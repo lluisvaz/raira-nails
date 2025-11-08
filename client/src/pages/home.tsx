@@ -1122,7 +1122,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
             {/* Card 1 - Formação Completa */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[200px] lg:min-h-[320px] relative overflow-hidden"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[380px] lg:min-h-[320px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
               }}
@@ -1235,7 +1235,7 @@ export default function Home() {
 
             {/* Card 2 - Comunidade VIP */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[200px] lg:min-h-[320px]"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[380px] lg:min-h-[320px]"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
               }}
@@ -1263,7 +1263,7 @@ export default function Home() {
 
             {/* Card 3 - Certificado */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[200px] lg:min-h-[320px]"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[380px] lg:min-h-[320px]"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
               }}
@@ -1291,7 +1291,7 @@ export default function Home() {
 
             {/* Card 4 - Apostilas e Listas */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center min-h-[200px]"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center min-h-[380px]"
               style={{
                 background: "linear-gradient(to bottom right, #261816 0%, #170F0B 70%)",
               }}
@@ -1318,7 +1318,7 @@ export default function Home() {
 
             {/* Card 5 - Atualizações */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center min-h-[200px]"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center min-h-[380px]"
               style={{
                 background: "linear-gradient(to bottom right, #261816 0%, #170F0B 70%)",
               }}
