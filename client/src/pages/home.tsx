@@ -1132,8 +1132,8 @@ export default function Home() {
                 className="absolute"
                 style={{ 
                   width: "95%", 
-                  height: "450px",
-                  bottom: "-80px",
+                  height: "550px",
+                  bottom: "-50px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   pointerEvents: "none",
@@ -1141,7 +1141,7 @@ export default function Home() {
                 }}
               >
                 <svg
-                  viewBox="0 0 450 450"
+                  viewBox="0 0 450 550"
                   preserveAspectRatio="xMidYMax meet"
                   className="w-full h-full"
                   style={{ 
@@ -1154,7 +1154,7 @@ export default function Home() {
                       <stop offset="100%" style={{ stopColor: "#1A1A1A", stopOpacity: 1 }} />
                     </linearGradient>
                     <clipPath id="screenClip">
-                      <rect x="15" y="15" width="420" height="360" rx="4" />
+                      <rect x="15" y="15" width="420" height="460" rx="4" />
                     </clipPath>
                   </defs>
                   
@@ -1162,7 +1162,7 @@ export default function Home() {
                     x="5"
                     y="5"
                     width="440"
-                    height="380"
+                    height="480"
                     rx="16"
                     fill="url(#tabletGradient)"
                     opacity="0.9"
@@ -1172,12 +1172,12 @@ export default function Home() {
                     x="15"
                     y="15"
                     width="420"
-                    height="360"
+                    height="460"
                     rx="4"
                     fill="#000"
                   />
                   
-                  <foreignObject x="15" y="15" width="420" height="360" clipPath="url(#screenClip)">
+                  <foreignObject x="15" y="15" width="420" height="460" clipPath="url(#screenClip)">
                     <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
                       <video
                         autoPlay
@@ -1197,25 +1197,27 @@ export default function Home() {
                   
                   <circle
                     cx="225"
-                    cy="395"
+                    cy="495"
                     r="6"
                     fill="#DBA86F"
                     opacity="0.6"
                   />
                 </svg>
               </div>
-              <h3
-                className="text-3xl font-bold mb-3 gradient-text relative z-10"
-              >
-                +150 Aulas
-              </h3>
-              <p
-                className="nail-body text-sm leading-relaxed relative z-10"
-                style={{ color: "#E0E0E0", opacity: 0.85 }}
-              >
-                O passo a passo exato para dominar as técnicas mais lucrativas
-                do zero.
-              </p>
+              <div style={{ marginTop: "40px" }} className="relative z-10">
+                <h3
+                  className="text-3xl font-bold mb-3 gradient-text"
+                >
+                  +150 Aulas
+                </h3>
+                <p
+                  className="nail-body text-sm leading-relaxed"
+                  style={{ color: "#E0E0E0", opacity: 0.85 }}
+                >
+                  O passo a passo exato para dominar as técnicas mais lucrativas
+                  do zero.
+                </p>
+              </div>
             </div>
 
             {/* Card 2 - Comunidade VIP */}
