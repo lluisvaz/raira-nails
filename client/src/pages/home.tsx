@@ -1128,11 +1128,69 @@ export default function Home() {
               }}
               data-testid="card-extra-0"
             >
-              <div
-                className="text-6xl mb-4"
-                style={{ color: "#DBA86F", opacity: 0.3 }}
-              >
-                📚
+              <div className="mb-4 relative" style={{ width: "140px", height: "100px" }}>
+                <svg
+                  viewBox="0 0 140 100"
+                  className="w-full h-full"
+                  style={{ filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))" }}
+                >
+                  <defs>
+                    <linearGradient id="tabletGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#3A3A3A", stopOpacity: 1 }} />
+                      <stop offset="100%" style={{ stopColor: "#1A1A1A", stopOpacity: 1 }} />
+                    </linearGradient>
+                    <clipPath id="screenClip">
+                      <rect x="8" y="8" width="124" height="84" rx="2" />
+                    </clipPath>
+                  </defs>
+                  
+                  <rect
+                    x="5"
+                    y="5"
+                    width="130"
+                    height="90"
+                    rx="8"
+                    fill="url(#tabletGradient)"
+                    stroke="#DBA86F"
+                    strokeWidth="1"
+                    opacity="0.9"
+                  />
+                  
+                  <rect
+                    x="8"
+                    y="8"
+                    width="124"
+                    height="84"
+                    rx="2"
+                    fill="#000"
+                  />
+                  
+                  <foreignObject x="8" y="8" width="124" height="84" clipPath="url(#screenClip)">
+                    <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover"
+                        }}
+                      >
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+                      </video>
+                    </div>
+                  </foreignObject>
+                  
+                  <circle
+                    cx="70"
+                    cy="95"
+                    r="2.5"
+                    fill="#DBA86F"
+                    opacity="0.6"
+                  />
+                </svg>
               </div>
               <h3
                 className="text-3xl font-bold mb-3 gradient-text"
