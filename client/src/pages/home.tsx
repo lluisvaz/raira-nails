@@ -1204,6 +1204,19 @@ export default function Home() {
                   />
                 </svg>
               </div>
+              {/* Gradiente de fade na parte inferior */}
+              <div 
+                className="absolute"
+                style={{
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: "200px",
+                  background: "linear-gradient(to top, #170F0B 0%, transparent 100%)",
+                  pointerEvents: "none",
+                  zIndex: 5
+                }}
+              />
               <div style={{ marginTop: "40px" }} className="relative z-10">
                 <h3
                   className="text-3xl font-bold mb-3 gradient-text"
