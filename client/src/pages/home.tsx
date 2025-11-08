@@ -1122,7 +1122,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
             {/* Card 1 - Formação Completa */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[200px] lg:min-h-[320px] relative overflow-hidden"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end min-h-[200px] lg:min-h-[320px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
               }}
@@ -1132,8 +1132,8 @@ export default function Home() {
                 className="absolute"
                 style={{ 
                   width: "95%", 
-                  height: "100%",
-                  bottom: "0",
+                  height: "450px",
+                  bottom: "-80px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   pointerEvents: "none",
@@ -1141,13 +1141,11 @@ export default function Home() {
                 }}
               >
                 <svg
-                  viewBox="0 0 450 320"
+                  viewBox="0 0 450 450"
                   preserveAspectRatio="xMidYMax meet"
                   className="w-full h-full"
                   style={{ 
-                    filter: "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))",
-                    position: "absolute",
-                    bottom: "0"
+                    filter: "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))"
                   }}
                 >
                   <defs>
@@ -1156,7 +1154,7 @@ export default function Home() {
                       <stop offset="100%" style={{ stopColor: "#1A1A1A", stopOpacity: 1 }} />
                     </linearGradient>
                     <clipPath id="screenClip">
-                      <rect x="15" y="15" width="420" height="260" rx="4" />
+                      <rect x="15" y="15" width="420" height="360" rx="4" />
                     </clipPath>
                   </defs>
                   
@@ -1164,7 +1162,7 @@ export default function Home() {
                     x="5"
                     y="5"
                     width="440"
-                    height="280"
+                    height="380"
                     rx="16"
                     fill="url(#tabletGradient)"
                     opacity="0.9"
@@ -1174,12 +1172,12 @@ export default function Home() {
                     x="15"
                     y="15"
                     width="420"
-                    height="260"
+                    height="360"
                     rx="4"
                     fill="#000"
                   />
                   
-                  <foreignObject x="15" y="15" width="420" height="260" clipPath="url(#screenClip)">
+                  <foreignObject x="15" y="15" width="420" height="360" clipPath="url(#screenClip)">
                     <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
                       <video
                         autoPlay
@@ -1199,7 +1197,7 @@ export default function Home() {
                   
                   <circle
                     cx="225"
-                    cy="295"
+                    cy="395"
                     r="6"
                     fill="#DBA86F"
                     opacity="0.6"
