@@ -1129,11 +1129,87 @@ export default function Home() {
               data-testid="card-extra-0"
             >
               <div 
-                className="absolute"
+                className="absolute lg:hidden"
                 style={{ 
                   width: "95%", 
                   height: "700px",
                   bottom: "-80px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  pointerEvents: "none",
+                  zIndex: 0
+                }}
+              >
+                <svg
+                  viewBox="0 0 450 550"
+                  preserveAspectRatio="xMidYMax meet"
+                  className="w-full h-full"
+                  style={{ 
+                    filter: "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))"
+                  }}
+                >
+                  <defs>
+                    <linearGradient id="tabletGradientMobile" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#3A3A3A", stopOpacity: 1 }} />
+                      <stop offset="100%" style={{ stopColor: "#1A1A1A", stopOpacity: 1 }} />
+                    </linearGradient>
+                    <clipPath id="screenClipMobile">
+                      <rect x="15" y="15" width="420" height="460" rx="4" />
+                    </clipPath>
+                  </defs>
+                  
+                  <rect
+                    x="5"
+                    y="5"
+                    width="440"
+                    height="480"
+                    rx="16"
+                    fill="url(#tabletGradientMobile)"
+                    opacity="0.9"
+                  />
+                  
+                  <rect
+                    x="15"
+                    y="15"
+                    width="420"
+                    height="460"
+                    rx="4"
+                    fill="#000"
+                  />
+                  
+                  <foreignObject x="15" y="15" width="420" height="460" clipPath="url(#screenClipMobile)">
+                    <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover"
+                        }}
+                      >
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+                      </video>
+                    </div>
+                  </foreignObject>
+                  
+                  <circle
+                    cx="225"
+                    cy="495"
+                    r="6"
+                    fill="#DBA86F"
+                    opacity="0.6"
+                  />
+                </svg>
+              </div>
+              <div 
+                className="absolute hidden lg:block"
+                style={{ 
+                  width: "95%", 
+                  height: "550px",
+                  bottom: "-150px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   pointerEvents: "none",
