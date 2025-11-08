@@ -1132,8 +1132,8 @@ export default function Home() {
                 className="absolute"
                 style={{ 
                   width: "95%", 
-                  height: "550px",
-                  bottom: "-150px",
+                  height: "700px",
+                  bottom: "-80px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   pointerEvents: "none",
@@ -1217,7 +1217,7 @@ export default function Home() {
                   zIndex: 5
                 }}
               />
-              <div style={{ marginTop: "40px" }} className="relative z-10">
+              <div style={{ marginTop: "140px" }} className="relative z-10">
                 <h3
                   className="text-3xl font-bold mb-3 gradient-text"
                 >
