@@ -1120,32 +1120,89 @@ export default function Home() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
-            {/* Card 1 - Formação Completa */}
+            {/* Card 1 - Formação Completa com Tablet */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[200px] lg:min-h-[320px]"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 relative overflow-hidden min-h-[200px] lg:min-h-[320px]"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
               }}
               data-testid="card-extra-0"
             >
-              <div
-                className="text-6xl mb-4"
-                style={{ color: "#DBA86F", opacity: 0.3 }}
-              >
-                📚
+              {/* Tablet Device Mockup */}
+              <div className="absolute inset-0 flex items-center justify-center px-4">
+                <div className="relative w-full max-w-[200px]" style={{ marginTop: "-10px" }}>
+                  {/* Tablet Frame */}
+                  <div
+                    className="relative rounded-lg overflow-hidden"
+                    style={{
+                      border: "3px solid #1A1212",
+                      boxShadow: "0 0 0 1px rgba(219, 168, 111, 0.3)",
+                      aspectRatio: "3/4",
+                    }}
+                  >
+                    {/* Video Inside Tablet */}
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      disablePictureInPicture
+                      controlsList="nodownload nofullscreen noremoteplayback"
+                      style={{
+                        pointerEvents: "none",
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                      data-testid="video-tablet-preview"
+                    >
+                      <source
+                        src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    
+                    {/* Gradient Fade at Bottom */}
+                    <div
+                      className="absolute bottom-0 left-0 right-0 pointer-events-none"
+                      style={{
+                        height: "40%",
+                        background: "linear-gradient(to bottom, transparent 0%, #170F0B 100%)",
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
-              <h3
-                className="text-3xl font-bold mb-3 gradient-text"
-              >
-                +150 Aulas
-              </h3>
-              <p
-                className="nail-body text-sm leading-relaxed"
-                style={{ color: "#E0E0E0", opacity: 0.85 }}
-              >
-                O passo a passo exato para dominar as técnicas mais lucrativas
-                do zero.
-              </p>
+
+              {/* Text Overlay */}
+              <div className="relative z-10 flex flex-col items-center justify-center text-center h-full">
+                <h3
+                  className="text-3xl font-bold mb-2 gradient-text"
+                  style={{ textShadow: "0 2px 10px rgba(0, 0, 0, 0.8)" }}
+                >
+                  +230 aulas
+                </h3>
+                <p
+                  className="nail-body text-sm leading-relaxed"
+                  style={{ 
+                    color: "#E0E0E0", 
+                    opacity: 0.95,
+                    textShadow: "0 1px 6px rgba(0, 0, 0, 0.8)"
+                  }}
+                >
+                  ao longo do curso
+                </p>
+                <p
+                  className="nail-body text-sm mt-1"
+                  style={{ 
+                    color: "#DBA86F", 
+                    fontWeight: 600,
+                    textShadow: "0 1px 6px rgba(0, 0, 0, 0.8)"
+                  }}
+                >
+                  ⤷ + bônus
+                </p>
+              </div>
             </div>
 
             {/* Card 2 - Comunidade VIP */}
