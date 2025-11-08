@@ -1122,17 +1122,28 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
             {/* Card 1 - Formação Completa */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[200px] lg:min-h-[320px]"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[200px] lg:min-h-[320px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
               }}
               data-testid="card-extra-0"
             >
-              <div className="mb-4 relative" style={{ width: "140px", height: "100px" }}>
+              <div 
+                className="absolute"
+                style={{ 
+                  width: "85%", 
+                  height: "280px",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  pointerEvents: "none",
+                  zIndex: 0
+                }}
+              >
                 <svg
-                  viewBox="0 0 140 100"
+                  viewBox="0 0 400 280"
                   className="w-full h-full"
-                  style={{ filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))" }}
+                  style={{ filter: "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))" }}
                 >
                   <defs>
                     <linearGradient id="tabletGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -1140,32 +1151,32 @@ export default function Home() {
                       <stop offset="100%" style={{ stopColor: "#1A1A1A", stopOpacity: 1 }} />
                     </linearGradient>
                     <clipPath id="screenClip">
-                      <rect x="8" y="8" width="124" height="84" rx="2" />
+                      <rect x="20" y="20" width="360" height="240" rx="4" />
                     </clipPath>
                   </defs>
                   
                   <rect
-                    x="5"
-                    y="5"
-                    width="130"
-                    height="90"
-                    rx="8"
+                    x="10"
+                    y="10"
+                    width="380"
+                    height="260"
+                    rx="16"
                     fill="url(#tabletGradient)"
                     stroke="#DBA86F"
-                    strokeWidth="1"
+                    strokeWidth="2"
                     opacity="0.9"
                   />
                   
                   <rect
-                    x="8"
-                    y="8"
-                    width="124"
-                    height="84"
-                    rx="2"
+                    x="20"
+                    y="20"
+                    width="360"
+                    height="240"
+                    rx="4"
                     fill="#000"
                   />
                   
-                  <foreignObject x="8" y="8" width="124" height="84" clipPath="url(#screenClip)">
+                  <foreignObject x="20" y="20" width="360" height="240" clipPath="url(#screenClip)">
                     <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
                       <video
                         autoPlay
@@ -1184,21 +1195,21 @@ export default function Home() {
                   </foreignObject>
                   
                   <circle
-                    cx="70"
-                    cy="95"
-                    r="2.5"
+                    cx="200"
+                    cy="265"
+                    r="6"
                     fill="#DBA86F"
                     opacity="0.6"
                   />
                 </svg>
               </div>
               <h3
-                className="text-3xl font-bold mb-3 gradient-text"
+                className="text-3xl font-bold mb-3 gradient-text relative z-10"
               >
                 +150 Aulas
               </h3>
               <p
-                className="nail-body text-sm leading-relaxed"
+                className="nail-body text-sm leading-relaxed relative z-10"
                 style={{ color: "#E0E0E0", opacity: 0.85 }}
               >
                 O passo a passo exato para dominar as técnicas mais lucrativas
