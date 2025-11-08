@@ -1132,7 +1132,7 @@ export default function Home() {
                 className="absolute"
                 style={{ 
                   width: "95%", 
-                  height: "380px",
+                  height: "100%",
                   bottom: "0",
                   left: "50%",
                   transform: "translateX(-50%)",
@@ -1141,9 +1141,14 @@ export default function Home() {
                 }}
               >
                 <svg
-                  viewBox="0 0 450 380"
+                  viewBox="0 0 450 320"
+                  preserveAspectRatio="xMidYMax meet"
                   className="w-full h-full"
-                  style={{ filter: "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))" }}
+                  style={{ 
+                    filter: "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))",
+                    position: "absolute",
+                    bottom: "0"
+                  }}
                 >
                   <defs>
                     <linearGradient id="tabletGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -1151,30 +1156,30 @@ export default function Home() {
                       <stop offset="100%" style={{ stopColor: "#1A1A1A", stopOpacity: 1 }} />
                     </linearGradient>
                     <clipPath id="screenClip">
-                      <rect x="20" y="20" width="410" height="320" rx="4" />
+                      <rect x="15" y="15" width="420" height="260" rx="4" />
                     </clipPath>
                   </defs>
                   
                   <rect
-                    x="10"
-                    y="10"
-                    width="430"
-                    height="340"
+                    x="5"
+                    y="5"
+                    width="440"
+                    height="280"
                     rx="16"
                     fill="url(#tabletGradient)"
                     opacity="0.9"
                   />
                   
                   <rect
-                    x="20"
-                    y="20"
-                    width="410"
-                    height="320"
+                    x="15"
+                    y="15"
+                    width="420"
+                    height="260"
                     rx="4"
                     fill="#000"
                   />
                   
-                  <foreignObject x="20" y="20" width="410" height="320" clipPath="url(#screenClip)">
+                  <foreignObject x="15" y="15" width="420" height="260" clipPath="url(#screenClip)">
                     <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
                       <video
                         autoPlay
@@ -1194,7 +1199,7 @@ export default function Home() {
                   
                   <circle
                     cx="225"
-                    cy="355"
+                    cy="295"
                     r="6"
                     fill="#DBA86F"
                     opacity="0.6"
