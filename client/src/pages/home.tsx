@@ -1153,21 +1153,41 @@ export default function Home() {
                       <stop offset="0%" style={{ stopColor: "#3A3A3A", stopOpacity: 1 }} />
                       <stop offset="100%" style={{ stopColor: "#1A1A1A", stopOpacity: 1 }} />
                     </linearGradient>
+                    <linearGradient id="bezelGradientMobile" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#2D2D2D", stopOpacity: 1 }} />
+                      <stop offset="50%" style={{ stopColor: "#1F1F1F", stopOpacity: 1 }} />
+                      <stop offset="100%" style={{ stopColor: "#2D2D2D", stopOpacity: 1 }} />
+                    </linearGradient>
                     <clipPath id="screenClipMobile">
                       <rect x="15" y="15" width="420" height="460" rx="4" />
                     </clipPath>
                   </defs>
                   
+                  {/* Corpo do tablet com gradiente */}
                   <rect
                     x="5"
                     y="5"
                     width="440"
                     height="480"
                     rx="16"
-                    fill="url(#tabletGradientMobile)"
-                    opacity="0.9"
+                    fill="url(#bezelGradientMobile)"
+                    opacity="0.95"
                   />
                   
+                  {/* Borda interna */}
+                  <rect
+                    x="7"
+                    y="7"
+                    width="436"
+                    height="476"
+                    rx="15"
+                    fill="none"
+                    stroke="#404040"
+                    strokeWidth="0.5"
+                    opacity="0.4"
+                  />
+                  
+                  {/* Tela */}
                   <rect
                     x="15"
                     y="15"
@@ -1177,6 +1197,86 @@ export default function Home() {
                     fill="#000"
                   />
                   
+                  {/* Câmera frontal */}
+                  <circle
+                    cx="225"
+                    cy="8"
+                    r="2.5"
+                    fill="#0A0A0A"
+                  />
+                  <circle
+                    cx="225"
+                    cy="8"
+                    r="1.2"
+                    fill="#1a1a2e"
+                    opacity="0.8"
+                  />
+                  
+                  {/* Sensor de luz */}
+                  <rect
+                    x="235"
+                    y="7"
+                    width="8"
+                    height="2"
+                    rx="1"
+                    fill="#0A0A0A"
+                    opacity="0.6"
+                  />
+                  
+                  {/* Botão Power (lateral direita) */}
+                  <rect
+                    x="445"
+                    y="120"
+                    width="3"
+                    height="40"
+                    rx="1.5"
+                    fill="#1A1A1A"
+                  />
+                  <rect
+                    x="445.5"
+                    y="121"
+                    width="2"
+                    height="38"
+                    rx="1"
+                    fill="#2D2D2D"
+                  />
+                  
+                  {/* Botões de Volume (lateral direita) */}
+                  <rect
+                    x="445"
+                    y="180"
+                    width="3"
+                    height="30"
+                    rx="1.5"
+                    fill="#1A1A1A"
+                  />
+                  <rect
+                    x="445.5"
+                    y="181"
+                    width="2"
+                    height="28"
+                    rx="1"
+                    fill="#2D2D2D"
+                  />
+                  
+                  <rect
+                    x="445"
+                    y="220"
+                    width="3"
+                    height="30"
+                    rx="1.5"
+                    fill="#1A1A1A"
+                  />
+                  <rect
+                    x="445.5"
+                    y="221"
+                    width="2"
+                    height="28"
+                    rx="1"
+                    fill="#2D2D2D"
+                  />
+                  
+                  {/* Vídeo na tela */}
                   <foreignObject x="15" y="15" width="420" height="460" clipPath="url(#screenClipMobile)">
                     <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
                       <video
@@ -1195,13 +1295,40 @@ export default function Home() {
                     </div>
                   </foreignObject>
                   
+                  {/* Reflexo na tela */}
+                  <rect
+                    x="15"
+                    y="15"
+                    width="420"
+                    height="230"
+                    rx="4"
+                    fill="url(#screenReflectionMobile)"
+                    opacity="0.08"
+                  />
+                  
+                  {/* Botão Home */}
                   <circle
                     cx="225"
                     cy="495"
-                    r="6"
-                    fill="#DBA86F"
-                    opacity="0.6"
+                    r="7"
+                    fill="#0A0A0A"
                   />
+                  <circle
+                    cx="225"
+                    cy="495"
+                    r="5.5"
+                    fill="none"
+                    stroke="#DBA86F"
+                    strokeWidth="0.8"
+                    opacity="0.5"
+                  />
+                  
+                  <defs>
+                    <linearGradient id="screenReflectionMobile" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#ffffff", stopOpacity: 0.15 }} />
+                      <stop offset="100%" style={{ stopColor: "#ffffff", stopOpacity: 0 }} />
+                    </linearGradient>
+                  </defs>
                 </svg>
               </div>
               <div 
@@ -1229,21 +1356,41 @@ export default function Home() {
                       <stop offset="0%" style={{ stopColor: "#3A3A3A", stopOpacity: 1 }} />
                       <stop offset="100%" style={{ stopColor: "#1A1A1A", stopOpacity: 1 }} />
                     </linearGradient>
+                    <linearGradient id="bezelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#2D2D2D", stopOpacity: 1 }} />
+                      <stop offset="50%" style={{ stopColor: "#1F1F1F", stopOpacity: 1 }} />
+                      <stop offset="100%" style={{ stopColor: "#2D2D2D", stopOpacity: 1 }} />
+                    </linearGradient>
                     <clipPath id="screenClip">
                       <rect x="15" y="15" width="420" height="460" rx="4" />
                     </clipPath>
                   </defs>
                   
+                  {/* Corpo do tablet com gradiente */}
                   <rect
                     x="5"
                     y="5"
                     width="440"
                     height="480"
                     rx="16"
-                    fill="url(#tabletGradient)"
-                    opacity="0.9"
+                    fill="url(#bezelGradient)"
+                    opacity="0.95"
                   />
                   
+                  {/* Borda interna */}
+                  <rect
+                    x="7"
+                    y="7"
+                    width="436"
+                    height="476"
+                    rx="15"
+                    fill="none"
+                    stroke="#404040"
+                    strokeWidth="0.5"
+                    opacity="0.4"
+                  />
+                  
+                  {/* Tela */}
                   <rect
                     x="15"
                     y="15"
@@ -1253,6 +1400,86 @@ export default function Home() {
                     fill="#000"
                   />
                   
+                  {/* Câmera frontal */}
+                  <circle
+                    cx="225"
+                    cy="8"
+                    r="2.5"
+                    fill="#0A0A0A"
+                  />
+                  <circle
+                    cx="225"
+                    cy="8"
+                    r="1.2"
+                    fill="#1a1a2e"
+                    opacity="0.8"
+                  />
+                  
+                  {/* Sensor de luz */}
+                  <rect
+                    x="235"
+                    y="7"
+                    width="8"
+                    height="2"
+                    rx="1"
+                    fill="#0A0A0A"
+                    opacity="0.6"
+                  />
+                  
+                  {/* Botão Power (lateral direita) */}
+                  <rect
+                    x="445"
+                    y="120"
+                    width="3"
+                    height="40"
+                    rx="1.5"
+                    fill="#1A1A1A"
+                  />
+                  <rect
+                    x="445.5"
+                    y="121"
+                    width="2"
+                    height="38"
+                    rx="1"
+                    fill="#2D2D2D"
+                  />
+                  
+                  {/* Botões de Volume (lateral direita) */}
+                  <rect
+                    x="445"
+                    y="180"
+                    width="3"
+                    height="30"
+                    rx="1.5"
+                    fill="#1A1A1A"
+                  />
+                  <rect
+                    x="445.5"
+                    y="181"
+                    width="2"
+                    height="28"
+                    rx="1"
+                    fill="#2D2D2D"
+                  />
+                  
+                  <rect
+                    x="445"
+                    y="220"
+                    width="3"
+                    height="30"
+                    rx="1.5"
+                    fill="#1A1A1A"
+                  />
+                  <rect
+                    x="445.5"
+                    y="221"
+                    width="2"
+                    height="28"
+                    rx="1"
+                    fill="#2D2D2D"
+                  />
+                  
+                  {/* Vídeo na tela */}
                   <foreignObject x="15" y="15" width="420" height="460" clipPath="url(#screenClip)">
                     <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
                       <video
@@ -1271,13 +1498,40 @@ export default function Home() {
                     </div>
                   </foreignObject>
                   
+                  {/* Reflexo na tela */}
+                  <rect
+                    x="15"
+                    y="15"
+                    width="420"
+                    height="230"
+                    rx="4"
+                    fill="url(#screenReflection)"
+                    opacity="0.08"
+                  />
+                  
+                  {/* Botão Home */}
                   <circle
                     cx="225"
                     cy="495"
-                    r="6"
-                    fill="#DBA86F"
-                    opacity="0.6"
+                    r="7"
+                    fill="#0A0A0A"
                   />
+                  <circle
+                    cx="225"
+                    cy="495"
+                    r="5.5"
+                    fill="none"
+                    stroke="#DBA86F"
+                    strokeWidth="0.8"
+                    opacity="0.5"
+                  />
+                  
+                  <defs>
+                    <linearGradient id="screenReflection" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#ffffff", stopOpacity: 0.15 }} />
+                      <stop offset="100%" style={{ stopColor: "#ffffff", stopOpacity: 0 }} />
+                    </linearGradient>
+                  </defs>
                 </svg>
               </div>
               {/* Gradiente de fade na parte inferior */}
