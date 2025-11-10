@@ -1065,7 +1065,7 @@ export default function Home() {
                 style={{
                   width: "95%",
                   height: "700px",
-                  bottom: "-80px",
+                  bottom: "-60px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   pointerEvents: "none",
@@ -1268,7 +1268,7 @@ export default function Home() {
                 style={{
                   width: "95%",
                   height: "550px",
-                  bottom: "-150px",
+                  bottom: "-130px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   pointerEvents: "none",
@@ -1479,7 +1479,7 @@ export default function Home() {
                   zIndex: 5
                 }}
               />
-              <div style={{ marginTop: "140px" }} className="relative z-10">
+              <div style={{ marginTop: "100px" }} className="relative z-10">
                 <h3
                   className="text-3xl font-bold mb-3 gradient-text"
                 >
@@ -1509,7 +1509,7 @@ export default function Home() {
                 style={{
                   width: "95%",
                   height: "700px",
-                  bottom: "-80px",
+                  bottom: "-60px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   pointerEvents: "none",
@@ -1576,7 +1576,7 @@ export default function Home() {
                 style={{
                   width: "95%",
                   height: "550px",
-                  bottom: "-150px",
+                  bottom: "-130px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   pointerEvents: "none",
@@ -1652,7 +1652,7 @@ export default function Home() {
               />
 
               {/* Conteúdo */}
-              <div style={{ marginTop: "140px" }} className="relative z-10">
+              <div style={{ marginTop: "100px" }} className="relative z-10">
                 <h3 className="text-3xl font-bold mb-3 gradient-text">Comunidade VIP de Alunas</h3>
                 <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
                   Um ambiente seguro no WhatsApp para trocar experiências,
@@ -1675,7 +1675,7 @@ export default function Home() {
                 style={{
                   width: "95%",
                   height: "700px",
-                  bottom: "-80px",
+                  bottom: "-60px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   pointerEvents: "none",
@@ -1742,7 +1742,7 @@ export default function Home() {
                 style={{
                   width: "95%",
                   height: "550px",
-                  bottom: "-150px",
+                  bottom: "-130px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   pointerEvents: "none",
