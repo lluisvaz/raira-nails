@@ -1054,7 +1054,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
             {/* Card 1 - Formação Completa */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[380px] lg:min-h-[320px] relative overflow-hidden"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[530px] lg:min-h-[320px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
               }}
@@ -1497,63 +1497,339 @@ export default function Home() {
 
             {/* Card 2 - Comunidade VIP */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[380px] lg:min-h-[320px]"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[530px] lg:min-h-[320px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
               }}
               data-testid="card-extra-1"
             >
+              {/* Tablet Mobile */}
               <div
-                className="text-6xl mb-4"
-                style={{ color: "#DBA86F", opacity: 0.3 }}
+                className="absolute lg:hidden"
+                style={{
+                  width: "95%",
+                  height: "700px",
+                  bottom: "-80px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  pointerEvents: "none",
+                  zIndex: 0
+                }}
               >
-                💬
+                <svg
+                  viewBox="0 0 450 550"
+                  preserveAspectRatio="xMidYMax meet"
+                  className="w-full h-full"
+                  style={{ filter: "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))" }}
+                >
+                  <defs>
+                    <linearGradient id="tabletGradientMobile2" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#3A3A3A", stopOpacity: 1 }} />
+                      <stop offset="100%" style={{ stopColor: "#1A1A1A", stopOpacity: 1 }} />
+                    </linearGradient>
+                    <linearGradient id="bezelGradientMobile2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#2D2D2D", stopOpacity: 1 }} />
+                      <stop offset="50%" style={{ stopColor: "#1F1F1F", stopOpacity: 1 }} />
+                      <stop offset="100%" style={{ stopColor: "#2D2D2D", stopOpacity: 1 }} />
+                    </linearGradient>
+                    <clipPath id="screenClipMobile2">
+                      <rect x="15" y="15" width="420" height="460" rx="4" />
+                    </clipPath>
+                  </defs>
+
+                  <rect x="5" y="5" width="440" height="480" rx="16" fill="url(#bezelGradientMobile2)" opacity="0.95" />
+                  <rect x="7" y="7" width="436" height="476" rx="15" fill="none" stroke="#404040" strokeWidth="0.5" opacity="0.4" />
+                  <rect x="15" y="15" width="420" height="460" rx="4" fill="#000" />
+                  <circle cx="225" cy="8" r="2.5" fill="#0A0A0A" />
+                  <circle cx="225" cy="8" r="1.2" fill="#1a1a2e" opacity="0.8" />
+                  <rect x="235" y="7" width="8" height="2" rx="1" fill="#0A0A0A" opacity="0.6" />
+                  <rect x="445" y="120" width="3" height="40" rx="1.5" fill="#1A1A1A" />
+                  <rect x="445.5" y="121" width="2" height="38" rx="1" fill="#2D2D2D" />
+                  <rect x="445" y="180" width="3" height="30" rx="1.5" fill="#1A1A1A" />
+                  <rect x="445.5" y="181" width="2" height="28" rx="1" fill="#2D2D2D" />
+                  <rect x="445" y="220" width="3" height="30" rx="1.5" fill="#1A1A1A" />
+                  <rect x="445.5" y="221" width="2" height="28" rx="1" fill="#2D2D2D" />
+
+                  <foreignObject x="15" y="15" width="420" height="460" clipPath="url(#screenClipMobile2)">
+                    <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
+                      <video autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }}>
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4" />
+                      </video>
+                    </div>
+                  </foreignObject>
+
+                  <rect x="15" y="15" width="420" height="230" rx="4" fill="url(#screenReflectionMobile2)" opacity="0.08" />
+                  <circle cx="225" cy="495" r="7" fill="#0A0A0A" />
+                  <circle cx="225" cy="495" r="5.5" fill="none" stroke="#DBA86F" strokeWidth="0.8" opacity="0.5" />
+                  <defs>
+                    <linearGradient id="screenReflectionMobile2" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#ffffff", stopOpacity: 0.15 }} />
+                      <stop offset="100%" style={{ stopColor: "#ffffff", stopOpacity: 0 }} />
+                    </linearGradient>
+                  </defs>
+                </svg>
               </div>
-              <h3
-                className="text-3xl font-bold mb-3 gradient-text"
+
+              {/* Tablet Desktop */}
+              <div
+                className="absolute hidden lg:block"
+                style={{
+                  width: "95%",
+                  height: "550px",
+                  bottom: "-150px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  pointerEvents: "none",
+                  zIndex: 0
+                }}
               >
-                Comunidade VIP de Alunas
-              </h3>
-              <p
-                className="nail-body text-sm leading-relaxed"
-                style={{ color: "#E0E0E0", opacity: 0.85 }}
-              >
-                Um ambiente seguro no WhatsApp para trocar experiências,
-                mostrar treinos e ter apoio.
-              </p>
+                <svg
+                  viewBox="0 0 450 550"
+                  preserveAspectRatio="xMidYMax meet"
+                  className="w-full h-full"
+                  style={{ filter: "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))" }}
+                >
+                  <defs>
+                    <linearGradient id="tabletGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#3A3A3A", stopOpacity: 1 }} />
+                      <stop offset="100%" style={{ stopColor: "#1A1A1A", stopOpacity: 1 }} />
+                    </linearGradient>
+                    <linearGradient id="bezelGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#2D2D2D", stopOpacity: 1 }} />
+                      <stop offset="50%" style={{ stopColor: "#1F1F1F", stopOpacity: 1 }} />
+                      <stop offset="100%" style={{ stopColor: "#2D2D2D", stopOpacity: 1 }} />
+                    </linearGradient>
+                    <clipPath id="screenClip2">
+                      <rect x="15" y="15" width="420" height="460" rx="4" />
+                    </clipPath>
+                  </defs>
+
+                  <rect x="5" y="5" width="440" height="480" rx="16" fill="url(#bezelGradient2)" opacity="0.95" />
+                  <rect x="7" y="7" width="436" height="476" rx="15" fill="none" stroke="#404040" strokeWidth="0.5" opacity="0.4" />
+                  <rect x="15" y="15" width="420" height="460" rx="4" fill="#000" />
+                  <circle cx="225" cy="8" r="2.5" fill="#0A0A0A" />
+                  <circle cx="225" cy="8" r="1.2" fill="#1a1a2e" opacity="0.8" />
+                  <rect x="235" y="7" width="8" height="2" rx="1" fill="#0A0A0A" opacity="0.6" />
+                  <rect x="445" y="120" width="3" height="40" rx="1.5" fill="#1A1A1A" />
+                  <rect x="445.5" y="121" width="2" height="38" rx="1" fill="#2D2D2D" />
+                  <rect x="445" y="180" width="3" height="30" rx="1.5" fill="#1A1A1A" />
+                  <rect x="445.5" y="181" width="2" height="28" rx="1" fill="#2D2D2D" />
+                  <rect x="445" y="220" width="3" height="30" rx="1.5" fill="#1A1A1A" />
+                  <rect x="445.5" y="221" width="2" height="28" rx="1" fill="#2D2D2D" />
+
+                  <foreignObject x="15" y="15" width="420" height="460" clipPath="url(#screenClip2)">
+                    <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
+                      <video autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }}>
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4" />
+                      </video>
+                    </div>
+                  </foreignObject>
+
+                  <rect x="15" y="15" width="420" height="230" rx="4" fill="url(#screenReflection2)" opacity="0.08" />
+                  <circle cx="225" cy="495" r="7" fill="#0A0A0A" />
+                  <circle cx="225" cy="495" r="5.5" fill="none" stroke="#DBA86F" strokeWidth="0.8" opacity="0.5" />
+                  <defs>
+                    <linearGradient id="screenReflection2" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#ffffff", stopOpacity: 0.15 }} />
+                      <stop offset="100%" style={{ stopColor: "#ffffff", stopOpacity: 0 }} />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+
+              {/* Gradiente de fade na parte inferior */}
+              <div
+                className="absolute"
+                style={{
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: "320px",
+                  background: "linear-gradient(to top, #170F0B 0%, #170F0B 15%, rgba(23, 15, 11, 0.9) 35%, rgba(23, 15, 11, 0.5) 65%, transparent 100%)",
+                  pointerEvents: "none",
+                  zIndex: 5
+                }}
+              />
+
+              {/* Conteúdo */}
+              <div style={{ marginTop: "140px" }} className="relative z-10">
+                <h3 className="text-3xl font-bold mb-3 gradient-text">Comunidade VIP de Alunas</h3>
+                <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
+                  Um ambiente seguro no WhatsApp para trocar experiências,
+                  mostrar treinos e ter apoio.
+                </p>
+              </div>
             </div>
 
             {/* Card 3 - Certificado */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[380px] lg:min-h-[320px]"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-center min-h-[530px] lg:min-h-[320px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
               }}
               data-testid="card-extra-2"
             >
+              {/* Tablet Mobile */}
               <div
-                className="text-6xl mb-4"
-                style={{ color: "#DBA86F", opacity: 0.3 }}
+                className="absolute lg:hidden"
+                style={{
+                  width: "95%",
+                  height: "700px",
+                  bottom: "-80px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  pointerEvents: "none",
+                  zIndex: 0
+                }}
               >
-                🏆
+                <svg
+                  viewBox="0 0 450 550"
+                  preserveAspectRatio="xMidYMax meet"
+                  className="w-full h-full"
+                  style={{ filter: "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))" }}
+                >
+                  <defs>
+                    <linearGradient id="tabletGradientMobile3" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#3A3A3A", stopOpacity: 1 }} />
+                      <stop offset="100%" style={{ stopColor: "#1A1A1A", stopOpacity: 1 }} />
+                    </linearGradient>
+                    <linearGradient id="bezelGradientMobile3" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#2D2D2D", stopOpacity: 1 }} />
+                      <stop offset="50%" style={{ stopColor: "#1F1F1F", stopOpacity: 1 }} />
+                      <stop offset="100%" style={{ stopColor: "#2D2D2D", stopOpacity: 1 }} />
+                    </linearGradient>
+                    <clipPath id="screenClipMobile3">
+                      <rect x="15" y="15" width="420" height="460" rx="4" />
+                    </clipPath>
+                  </defs>
+
+                  <rect x="5" y="5" width="440" height="480" rx="16" fill="url(#bezelGradientMobile3)" opacity="0.95" />
+                  <rect x="7" y="7" width="436" height="476" rx="15" fill="none" stroke="#404040" strokeWidth="0.5" opacity="0.4" />
+                  <rect x="15" y="15" width="420" height="460" rx="4" fill="#000" />
+                  <circle cx="225" cy="8" r="2.5" fill="#0A0A0A" />
+                  <circle cx="225" cy="8" r="1.2" fill="#1a1a2e" opacity="0.8" />
+                  <rect x="235" y="7" width="8" height="2" rx="1" fill="#0A0A0A" opacity="0.6" />
+                  <rect x="445" y="120" width="3" height="40" rx="1.5" fill="#1A1A1A" />
+                  <rect x="445.5" y="121" width="2" height="38" rx="1" fill="#2D2D2D" />
+                  <rect x="445" y="180" width="3" height="30" rx="1.5" fill="#1A1A1A" />
+                  <rect x="445.5" y="181" width="2" height="28" rx="1" fill="#2D2D2D" />
+                  <rect x="445" y="220" width="3" height="30" rx="1.5" fill="#1A1A1A" />
+                  <rect x="445.5" y="221" width="2" height="28" rx="1" fill="#2D2D2D" />
+
+                  <foreignObject x="15" y="15" width="420" height="460" clipPath="url(#screenClipMobile3)">
+                    <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
+                      <video autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }}>
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4" />
+                      </video>
+                    </div>
+                  </foreignObject>
+
+                  <rect x="15" y="15" width="420" height="230" rx="4" fill="url(#screenReflectionMobile3)" opacity="0.08" />
+                  <circle cx="225" cy="495" r="7" fill="#0A0A0A" />
+                  <circle cx="225" cy="495" r="5.5" fill="none" stroke="#DBA86F" strokeWidth="0.8" opacity="0.5" />
+                  <defs>
+                    <linearGradient id="screenReflectionMobile3" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#ffffff", stopOpacity: 0.15 }} />
+                      <stop offset="100%" style={{ stopColor: "#ffffff", stopOpacity: 0 }} />
+                    </linearGradient>
+                  </defs>
+                </svg>
               </div>
-              <h3
-                className="text-3xl font-bold mb-3 gradient-text"
+
+              {/* Tablet Desktop */}
+              <div
+                className="absolute hidden lg:block"
+                style={{
+                  width: "95%",
+                  height: "550px",
+                  bottom: "-150px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  pointerEvents: "none",
+                  zIndex: 0
+                }}
               >
-                Certificado Profissional
-              </h3>
-              <p
-                className="nail-body text-sm leading-relaxed"
-                style={{ color: "#E0E0E0", opacity: 0.85 }}
-              >
-                Ao final do curso, você recebe seu certificado para validar
-                sua qualificação e passar confiança para as clientes.
-              </p>
+                <svg
+                  viewBox="0 0 450 550"
+                  preserveAspectRatio="xMidYMax meet"
+                  className="w-full h-full"
+                  style={{ filter: "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))" }}
+                >
+                  <defs>
+                    <linearGradient id="tabletGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#3A3A3A", stopOpacity: 1 }} />
+                      <stop offset="100%" style={{ stopColor: "#1A1A1A", stopOpacity: 1 }} />
+                    </linearGradient>
+                    <linearGradient id="bezelGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#2D2D2D", stopOpacity: 1 }} />
+                      <stop offset="50%" style={{ stopColor: "#1F1F1F", stopOpacity: 1 }} />
+                      <stop offset="100%" style={{ stopColor: "#2D2D2D", stopOpacity: 1 }} />
+                    </linearGradient>
+                    <clipPath id="screenClip3">
+                      <rect x="15" y="15" width="420" height="460" rx="4" />
+                    </clipPath>
+                  </defs>
+
+                  <rect x="5" y="5" width="440" height="480" rx="16" fill="url(#bezelGradient3)" opacity="0.95" />
+                  <rect x="7" y="7" width="436" height="476" rx="15" fill="none" stroke="#404040" strokeWidth="0.5" opacity="0.4" />
+                  <rect x="15" y="15" width="420" height="460" rx="4" fill="#000" />
+                  <circle cx="225" cy="8" r="2.5" fill="#0A0A0A" />
+                  <circle cx="225" cy="8" r="1.2" fill="#1a1a2e" opacity="0.8" />
+                  <rect x="235" y="7" width="8" height="2" rx="1" fill="#0A0A0A" opacity="0.6" />
+                  <rect x="445" y="120" width="3" height="40" rx="1.5" fill="#1A1A1A" />
+                  <rect x="445.5" y="121" width="2" height="38" rx="1" fill="#2D2D2D" />
+                  <rect x="445" y="180" width="3" height="30" rx="1.5" fill="#1A1A1A" />
+                  <rect x="445.5" y="181" width="2" height="28" rx="1" fill="#2D2D2D" />
+                  <rect x="445" y="220" width="3" height="30" rx="1.5" fill="#1A1A1A" />
+                  <rect x="445.5" y="221" width="2" height="28" rx="1" fill="#2D2D2D" />
+
+                  <foreignObject x="15" y="15" width="420" height="460" clipPath="url(#screenClip3)">
+                    <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
+                      <video autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }}>
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4" />
+                      </video>
+                    </div>
+                  </foreignObject>
+
+                  <rect x="15" y="15" width="420" height="230" rx="4" fill="url(#screenReflection3)" opacity="0.08" />
+                  <circle cx="225" cy="495" r="7" fill="#0A0A0A" />
+                  <circle cx="225" cy="495" r="5.5" fill="none" stroke="#DBA86F" strokeWidth="0.8" opacity="0.5" />
+                  <defs>
+                    <linearGradient id="screenReflection3" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: "#ffffff", stopOpacity: 0.15 }} />
+                      <stop offset="100%" style={{ stopColor: "#ffffff", stopOpacity: 0 }} />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+
+              {/* Gradiente de fade na parte inferior */}
+              <div
+                className="absolute"
+                style={{
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: "320px",
+                  background: "linear-gradient(to top, #170F0B 0%, #170F0B 15%, rgba(23, 15, 11, 0.9) 35%, rgba(23, 15, 11, 0.5) 65%, transparent 100%)",
+                  pointerEvents: "none",
+                  zIndex: 5
+                }}
+              />
+
+              {/* Conteúdo */}
+              <div style={{ marginTop: "140px" }} className="relative z-10">
+                <h3 className="text-3xl font-bold mb-3 gradient-text">Certificado Profissional</h3>
+                <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
+                  Ao final do curso, você recebe seu certificado para validar
+                  sua qualificação e passar confiança para as clientes.
+                </p>
+              </div>
             </div>
 
             {/* Card 4 - Apostilas e Listas */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center min-h-[380px]"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center min-h-[280px]"
               style={{
                 background: "linear-gradient(to bottom right, #261816 0%, #170F0B 70%)",
               }}
@@ -1580,7 +1856,7 @@ export default function Home() {
 
             {/* Card 5 - Atualizações */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center min-h-[380px]"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center min-h-[280px]"
               style={{
                 background: "linear-gradient(to bottom right, #261816 0%, #170F0B 70%)",
               }}
