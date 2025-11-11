@@ -1054,7 +1054,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
             {/* Card 1 - Formação Completa */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[320px] relative overflow-hidden"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
               }}
@@ -1117,6 +1117,18 @@ export default function Home() {
                     stroke="#404040"
                     strokeWidth="0.5"
                     opacity="0.4"
+                  />
+                  {/* Contorno branco (mobile) */}
+                  <rect
+                    x="7"
+                    y="7"
+                    width="436"
+                    height="476"
+                    rx="15"
+                    fill="none"
+                    stroke="#FFFFFF"
+                    strokeWidth="1.2"
+                    opacity="0.35"
                   />
 
                   {/* Tela */}
@@ -1264,11 +1276,11 @@ export default function Home() {
                 </svg>
               </div>
               <div
-                className="absolute hidden lg:block"
+              className="absolute hidden lg:block"
                 style={{
                   width: "95%",
-                  height: "550px",
-                  bottom: "-130px",
+                  height: "620px",
+                  bottom: "5px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   pointerEvents: "none",
@@ -1303,7 +1315,7 @@ export default function Home() {
                     x="5"
                     y="5"
                     width="440"
-                    height="480"
+                    height="540"
                     rx="16"
                     fill="url(#bezelGradient)"
                     opacity="0.95"
@@ -1314,12 +1326,12 @@ export default function Home() {
                     x="7"
                     y="7"
                     width="436"
-                    height="476"
+                    height="536"
                     rx="15"
                     fill="none"
-                    stroke="#404040"
-                    strokeWidth="0.5"
-                    opacity="0.4"
+                    stroke="#FFFFFF"
+                    strokeWidth="1.2"
+                    opacity="0.35"
                   />
 
                   {/* Tela */}
@@ -1327,7 +1339,7 @@ export default function Home() {
                     x="15"
                     y="15"
                     width="420"
-                    height="460"
+                    height="520"
                     rx="4"
                     fill="#000"
                   />
@@ -1479,25 +1491,18 @@ export default function Home() {
                   zIndex: 5
                 }}
               />
-              <div className="relative z-10 mt-0 lg:mt-[100px] pb-2">
-                <h3
-                  className="text-3xl font-bold mb-3 gradient-text"
-                >
-                  +150 Aulas
+              <div className="relative z-10 mt-0 lg:mt-[200px] pb-4">
+                <h3 className="text-3xl lg:text-[34px] font-bold mb-0">
+                  <span className="gradient-text">+150 Aulas</span>
+                  <br />
+                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>práticas</span>
                 </h3>
-                <p
-                  className="nail-body text-sm leading-relaxed"
-                  style={{ color: "#E0E0E0", opacity: 0.85 }}
-                >
-                  O passo a passo exato para dominar as técnicas mais lucrativas
-                  do zero.
-                </p>
               </div>
             </div>
 
             {/* Card 2 - Comunidade VIP */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[320px] relative overflow-hidden"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
               }}
@@ -1539,6 +1544,8 @@ export default function Home() {
 
                   <rect x="5" y="5" width="440" height="480" rx="16" fill="url(#bezelGradientMobile2)" opacity="0.95" />
                   <rect x="7" y="7" width="436" height="476" rx="15" fill="none" stroke="#404040" strokeWidth="0.5" opacity="0.4" />
+                  {/* Contorno branco (mobile) */}
+                  <rect x="7" y="7" width="436" height="476" rx="15" fill="none" stroke="#FFFFFF" strokeWidth="1.2" opacity="0.35" />
                   <rect x="15" y="15" width="420" height="460" rx="4" fill="#000" />
                   <circle cx="225" cy="8" r="2.5" fill="#0A0A0A" />
                   <circle cx="225" cy="8" r="1.2" fill="#1a1a2e" opacity="0.8" />
@@ -1575,8 +1582,8 @@ export default function Home() {
                 className="absolute hidden lg:block"
                 style={{
                   width: "95%",
-                  height: "550px",
-                  bottom: "-130px",
+                  height: "620px",
+                  bottom: "5px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   pointerEvents: "none",
@@ -1604,9 +1611,9 @@ export default function Home() {
                     </clipPath>
                   </defs>
 
-                  <rect x="5" y="5" width="440" height="480" rx="16" fill="url(#bezelGradient2)" opacity="0.95" />
-                  <rect x="7" y="7" width="436" height="476" rx="15" fill="none" stroke="#404040" strokeWidth="0.5" opacity="0.4" />
-                  <rect x="15" y="15" width="420" height="460" rx="4" fill="#000" />
+                  <rect x="5" y="5" width="440" height="540" rx="16" fill="url(#bezelGradient2)" opacity="0.95" />
+                  <rect x="7" y="7" width="436" height="536" rx="15" fill="none" stroke="#FFFFFF" strokeWidth="1.2" opacity="0.35" />
+                  <rect x="15" y="15" width="420" height="520" rx="4" fill="#000" />
                   <circle cx="225" cy="8" r="2.5" fill="#0A0A0A" />
                   <circle cx="225" cy="8" r="1.2" fill="#1a1a2e" opacity="0.8" />
                   <rect x="235" y="7" width="8" height="2" rx="1" fill="#0A0A0A" opacity="0.6" />
@@ -1617,7 +1624,7 @@ export default function Home() {
                   <rect x="445" y="220" width="3" height="30" rx="1.5" fill="#1A1A1A" />
                   <rect x="445.5" y="221" width="2" height="28" rx="1" fill="#2D2D2D" />
 
-                  <foreignObject x="15" y="15" width="420" height="460" clipPath="url(#screenClip2)">
+                  <foreignObject x="15" y="15" width="420" height="520" clipPath="url(#screenClip2)">
                     <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
                       <video autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }}>
                         <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4" />
@@ -1652,18 +1659,18 @@ export default function Home() {
               />
 
               {/* Conteúdo */}
-              <div className="relative z-10 mt-0 lg:mt-[100px] pb-2">
-                <h3 className="text-3xl font-bold mb-3 gradient-text">Comunidade VIP de Alunas</h3>
-                <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
-                  Um ambiente seguro no WhatsApp para trocar experiências,
-                  mostrar treinos e ter apoio.
-                </p>
+              <div className="relative z-10 mt-0 lg:mt-[200px] pb-4">
+                <h3 className="text-3xl lg:text-[34px] font-bold mb-0">
+                  <span className="gradient-text">Comunidade de Alunas</span>
+                  <br />
+                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>no Instagram</span>
+                </h3>
               </div>
             </div>
 
             {/* Card 3 - Certificado */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[320px] relative overflow-hidden"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
               }}
@@ -1705,6 +1712,8 @@ export default function Home() {
 
                   <rect x="5" y="5" width="440" height="480" rx="16" fill="url(#bezelGradientMobile3)" opacity="0.95" />
                   <rect x="7" y="7" width="436" height="476" rx="15" fill="none" stroke="#404040" strokeWidth="0.5" opacity="0.4" />
+                  {/* Contorno branco (mobile) */}
+                  <rect x="7" y="7" width="436" height="476" rx="15" fill="none" stroke="#FFFFFF" strokeWidth="1.2" opacity="0.35" />
                   <rect x="15" y="15" width="420" height="460" rx="4" fill="#000" />
                   <circle cx="225" cy="8" r="2.5" fill="#0A0A0A" />
                   <circle cx="225" cy="8" r="1.2" fill="#1a1a2e" opacity="0.8" />
@@ -1741,8 +1750,8 @@ export default function Home() {
                 className="absolute hidden lg:block"
                 style={{
                   width: "95%",
-                  height: "550px",
-                  bottom: "-130px",
+                  height: "620px",
+                  bottom: "5px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   pointerEvents: "none",
@@ -1770,9 +1779,9 @@ export default function Home() {
                     </clipPath>
                   </defs>
 
-                  <rect x="5" y="5" width="440" height="480" rx="16" fill="url(#bezelGradient3)" opacity="0.95" />
-                  <rect x="7" y="7" width="436" height="476" rx="15" fill="none" stroke="#404040" strokeWidth="0.5" opacity="0.4" />
-                  <rect x="15" y="15" width="420" height="460" rx="4" fill="#000" />
+                  <rect x="5" y="5" width="440" height="540" rx="16" fill="url(#bezelGradient3)" opacity="0.95" />
+                  <rect x="7" y="7" width="436" height="536" rx="15" fill="none" stroke="#FFFFFF" strokeWidth="1.2" opacity="0.35" />
+                  <rect x="15" y="15" width="420" height="520" rx="4" fill="#000" />
                   <circle cx="225" cy="8" r="2.5" fill="#0A0A0A" />
                   <circle cx="225" cy="8" r="1.2" fill="#1a1a2e" opacity="0.8" />
                   <rect x="235" y="7" width="8" height="2" rx="1" fill="#0A0A0A" opacity="0.6" />
@@ -1783,7 +1792,7 @@ export default function Home() {
                   <rect x="445" y="220" width="3" height="30" rx="1.5" fill="#1A1A1A" />
                   <rect x="445.5" y="221" width="2" height="28" rx="1" fill="#2D2D2D" />
 
-                  <foreignObject x="15" y="15" width="420" height="460" clipPath="url(#screenClip3)">
+                  <foreignObject x="15" y="15" width="420" height="520" clipPath="url(#screenClip3)">
                     <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
                       <video autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }}>
                         <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4" />
@@ -1818,12 +1827,12 @@ export default function Home() {
               />
 
               {/* Conteúdo */}
-              <div className="relative z-10 mt-0 lg:mt-[140px] pb-2">
-                <h3 className="text-3xl font-bold mb-3 gradient-text">Certificado Profissional</h3>
-                <p className="nail-body text-sm leading-relaxed" style={{ color: "#E0E0E0", opacity: 0.85 }}>
-                  Ao final do curso, você recebe seu certificado para validar
-                  sua qualificação e passar confiança para as clientes.
-                </p>
+              <div className="relative z-10 mt-0 lg:mt-[200px] pb-4">
+                <h3 className="text-3xl lg:text-[34px] font-bold mb-0">
+                  <span className="gradient-text">Certificado</span>
+                  <br />
+                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>de Conclusão</span>
+                </h3>
               </div>
             </div>
 
@@ -1841,17 +1850,11 @@ export default function Home() {
               >
                 📄
               </div>
-              <h3
-                className="text-3xl font-bold mb-3 gradient-text"
-              >
-                Materiais de Apoio
+              <h3 className="text-3xl font-bold mb-0">
+                <span className="gradient-text">Material de Apoio</span>
+                <br />
+                <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>em PDF</span>
               </h3>
-              <p
-                className="nail-body text-sm leading-relaxed"
-                style={{ color: "#E0E0E0", opacity: 0.85 }}
-              >
-                O guia de aplicação para você baixar e estudar.
-              </p>
             </div>
 
             {/* Card 5 - Atualizações */}
@@ -1868,18 +1871,11 @@ export default function Home() {
               >
                 🔄
               </div>
-              <h3
-                className="text-3xl font-bold mb-3 gradient-text"
-              >
-                Atualizações Gratuitas
+              <h3 className="text-3xl font-bold mb-0">
+                <span className="gradient-text">Atualizações Gratuitas</span>
+                <br />
+                <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>do Curso</span>
               </h3>
-              <p
-                className="nail-body text-sm leading-relaxed"
-                style={{ color: "#E0E0E0", opacity: 0.85 }}
-              >
-                O mercado de unhas muda rápido. Você terá acesso a todas as
-                novas aulas e técnicas adicionadas ao curso.
-              </p>
             </div>
           </div>
         </div>
