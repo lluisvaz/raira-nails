@@ -229,6 +229,55 @@ const PhoneComponent = () => {
   );
 };
 
+// Componente do PDF
+const PDFComponent = () => {
+  return (
+    <motion.div
+      className="relative mx-auto h-full w-full"
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="relative h-full w-full flex items-center justify-center">
+        {/* Documento PDF */}
+        <div className="relative bg-white dark:bg-neutral-100 rounded-lg shadow-2xl" style={{ width: "85%", height: "90%", transform: "perspective(1000px) rotateY(-5deg) rotateX(2deg)" }}>
+          {/* Folha do documento */}
+          <div className="absolute inset-0 bg-white rounded-lg shadow-inner" style={{ padding: "12px" }}>
+            {/* Cabeçalho do PDF */}
+            <div className="h-8 rounded-t flex items-center justify-center mb-2" style={{ background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)" }}>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-black opacity-20"></div>
+                <div className="w-2 h-2 rounded-full bg-black opacity-20"></div>
+                <div className="w-2 h-2 rounded-full bg-black opacity-20"></div>
+              </div>
+            </div>
+
+            {/* Conteúdo do PDF */}
+            <div className="space-y-2">
+              <div className="h-3 bg-neutral-300 rounded w-3/4"></div>
+              <div className="h-3 bg-neutral-300 rounded w-full"></div>
+              <div className="h-3 bg-neutral-300 rounded w-5/6"></div>
+              <div className="h-3 bg-neutral-300 rounded w-4/5 mt-3"></div>
+              <div className="h-3 bg-neutral-300 rounded w-full"></div>
+              <div className="h-3 bg-neutral-300 rounded w-3/4"></div>
+              <div className="h-3 bg-neutral-300 rounded w-5/6 mt-3"></div>
+              <div className="h-3 bg-neutral-300 rounded w-full"></div>
+              <div className="h-3 bg-neutral-300 rounded w-4/5"></div>
+            </div>
+          </div>
+
+          {/* Ícone PDF no canto */}
+          <div className="absolute bottom-2 right-2 w-8 h-8 rounded flex items-center justify-center" style={{ background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)" }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#000000">
+              <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState(13 * 60 + 37);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -1445,17 +1494,102 @@ export default function Home() {
 
             {/* Card 4 - Apostilas e Listas */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center min-h-[320px] lg:min-h-[280px]"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 relative overflow-hidden min-h-[320px] lg:min-h-[280px]"
               style={{
-                background: "linear-gradient(to bottom right, #261816 0%, #170F0B 70%)",
+                background: "linear-gradient(to top right, #170F0B 0%, #261816 100%)",
               }}
               data-testid="card-extra-3"
             >
-              <h3 className="text-3xl font-bold mb-0">
-                <span className="gradient-text">Material de Apoio</span>
-                <br />
-                <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>em PDF</span>
-              </h3>
+              {/* PDF - Mobile: centralizado, Desktop: à esquerda */}
+              <motion.div
+                initial="open"
+                animate="open"
+                variants={{
+                  open: {
+                    transition: {
+                      staggerChildren: 0.08,
+                      delayChildren: 0.15,
+                    },
+                  },
+                }}
+                className="absolute lg:hidden"
+                style={{
+                  width: "95%",
+                  maxWidth: "280px",
+                  height: "320px",
+                  bottom: "-20px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  pointerEvents: "none",
+                  zIndex: 0
+                }}
+              >
+                <PDFComponent />
+              </motion.div>
+
+              {/* Gradiente mobile - vindo de baixo no centro */}
+              <div
+                className="absolute lg:hidden"
+                style={{
+                  bottom: 0,
+                  left: "-24px",
+                  right: "-24px",
+                  width: "calc(100% + 48px)",
+                  height: "60%",
+                  background: "linear-gradient(to top, #170F0B 0%, #170F0B 25%, rgba(23, 15, 11, 0.95) 45%, rgba(23, 15, 11, 0.7) 70%, rgba(23, 15, 11, 0.3) 85%, transparent 100%)",
+                  pointerEvents: "none",
+                  zIndex: 5
+                }}
+              />
+
+              {/* PDF - Desktop: à esquerda, grande escala, metade fora */}
+              <motion.div
+                initial="open"
+                animate="open"
+                variants={{
+                  open: {
+                    transition: {
+                      staggerChildren: 0.08,
+                      delayChildren: 0.15,
+                    },
+                  },
+                }}
+                className="absolute hidden lg:block"
+                style={{
+                  width: "700px",
+                  height: "550px",
+                  bottom: "-300px",
+                  left: "-350px",
+                  transform: "scale(1)",
+                  pointerEvents: "none",
+                  zIndex: 0
+                }}
+              >
+                <PDFComponent />
+              </motion.div>
+
+              {/* Gradiente sobreposto ao PDF - vindo do canto inferior esquerdo */}
+              <div
+                className="absolute hidden lg:block"
+                style={{
+                  width: "700px",
+                  height: "550px",
+                  bottom: "-300px",
+                  left: "-280px",
+                  background: "radial-gradient(ellipse 180% 110% at left bottom, #170F0B 0%, rgba(23, 15, 11, 0.98) 12%, rgba(23, 15, 11, 0.85) 25%, rgba(23, 15, 11, 0.65) 40%, rgba(23, 15, 11, 0.4) 58%, rgba(23, 15, 11, 0.2) 75%, rgba(23, 15, 11, 0.08) 88%, transparent 100%)",
+                  pointerEvents: "none",
+                  zIndex: 1
+                }}
+              />
+
+              {/* Conteúdo - Desktop: à direita, Mobile: centralizado */}
+              <div className="relative z-10 flex flex-col justify-end lg:justify-center h-full lg:items-end items-center text-center pb-6 lg:pb-4">
+                <h3 className="text-3xl lg:text-[34px] font-bold mb-0 text-center">
+                  <span className="gradient-text">Material de Apoio</span>
+                  <br />
+                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>em PDF</span>
+                </h3>
+              </div>
             </div>
 
             {/* Card 5 - Atualizações */}
