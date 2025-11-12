@@ -1234,7 +1234,7 @@ export default function Home() {
                           objectFit: "cover"
                         }}
                       >
-                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+                        <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1762976398/raira-video-1_dbwv0v.mp4" type="video/mp4" />
                       </video>
                     </div>
                   </foreignObject>
@@ -1437,7 +1437,7 @@ export default function Home() {
                           objectFit: "cover"
                         }}
                       >
-                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+                        <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1762976398/raira-video-1_dbwv0v.mp4" type="video/mp4" />
                       </video>
                     </div>
                   </foreignObject>
