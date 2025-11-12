@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -8,8 +8,226 @@ import {
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { ZapIcon } from "@/components/ui/ZapIcon";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
+import { AiFillSpotify } from "react-icons/ai";
+import { FaHeadphones, FaXTwitter } from "react-icons/fa6";
+import { FaPhoneAlt, FaPinterest, FaSnapchatGhost } from "react-icons/fa";
+import { RiNetflixFill } from "react-icons/ri";
 const heroImage = "/images/raira-home.png";
+
+// Componente auxiliar para ícones do celular
+const IconWrapper = ({ children }: { children?: React.ReactNode }) => {
+  return (
+    <div className="relative flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-neutral-300 to-neutral-200 dark:from-neutral-700 dark:to-neutral-900">
+      {children}
+    </div>
+  );
+};
+
+// Variantes de animação do celular
+const phoneVariant: Variants = {
+  open: {
+    y: -36,
+    transition: {
+      duration: 0.3,
+      ease: "easeInOut",
+    },
+  },
+  close: {
+    y: 0,
+    transition: {
+      duration: 0.2,
+      ease: "easeInOut",
+    },
+  },
+};
+
+const notificationVariant: Variants = {
+  open: {
+    y: 48,
+    scale: 1,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.3,
+      ease: "easeInOut",
+      delay: 0.1,
+    },
+  },
+  close: {
+    y: -72,
+    scale: 0.75,
+    filter: "blur(10px)",
+    transition: {
+      duration: 0.3,
+      ease: "easeInOut",
+    },
+  },
+};
+
+const lockVariant: Variants = {
+  open: {
+    backgroundColor: "#EF5024",
+    transition: {
+      duration: 0.1,
+      ease: "easeInOut",
+    },
+  },
+  close: {
+    backgroundColor: "#262626",
+    transition: {
+      duration: 0.1,
+      ease: "easeInOut",
+    },
+  },
+};
+
+const lockLightVariant: Variants = {
+  open: {
+    backgroundColor: "#EF5024",
+    transition: {
+      duration: 0.1,
+      ease: "easeInOut",
+    },
+  },
+  close: {
+    backgroundColor: "#a3a3a3",
+    transition: {
+      duration: 0.1,
+      ease: "easeInOut",
+    },
+  },
+};
+
+// Componente do celular
+const PhoneComponent = () => {
+  return (
+    <motion.div
+      variants={phoneVariant}
+      className="relative mx-auto h-full w-full rounded-[44px] bg-neutral-300 p-1.5 dark:bg-neutral-800"
+    >
+      <div className="relative h-full overflow-hidden rounded-[38px] bg-neutral-200 dark:bg-neutral-950/50">
+        <div className="absolute left-8 top-3.5 text-[9px] text-neutral-500">
+          {new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+          })}
+        </div>
+        <motion.div
+          variants={lockVariant}
+          className="absolute left-[112px] top-2 hidden h-6 w-6 items-center justify-center rounded-full dark:flex"
+        >
+          <svg viewBox="0 0 16 16" className="h-4 w-4">
+            <g fill="#545454">
+              <path d="M3 8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8Z"></path>
+              <path d="M8 3a2.5 2.5 0 0 0-2.5 2.5V9h-1V5.5a3.5 3.5 0 1 1 7 0V9h-1V5.5A2.5 2.5 0 0 0 8 3Z"></path>
+            </g>
+          </svg>
+        </motion.div>
+        <motion.div
+          variants={lockLightVariant}
+          className="absolute left-[112px] top-2 flex h-6 w-6 items-center justify-center rounded-full dark:hidden"
+        >
+          <svg viewBox="0 0 16 16" className="h-4 w-4">
+            <g fill="#404040">
+              <path d="M3 8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8Z"></path>
+              <path d="M8 3a2.5 2.5 0 0 0-2.5 2.5V9h-1V5.5a3.5 3.5 0 1 1 7 0V9h-1V5.5A2.5 2.5 0 0 0 8 3Z"></path>
+            </g>
+          </svg>
+        </motion.div>
+        <motion.div
+          variants={notificationVariant}
+          className="absolute left-3.5 z-10 h-12 w-[90%] overflow-hidden rounded-md bg-neutral-300 shadow-lg dark:bg-neutral-800"
+        >
+          <div className="relative flex h-full items-center gap-3 px-2">
+            <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-neutral-200 shadow-lg dark:bg-neutral-700">
+              <img
+                src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1762983841/hotmart_rgwrhr.png"
+                alt="Hotmart"
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  objectFit: "contain"
+                }}
+              />
+            </div>
+            <div className="flex-1">
+              <div className="flex w-full flex-col">
+                <div className="relative flex w-full items-start justify-between">
+                  <p className="text-xs font-medium text-neutral-900 dark:text-neutral-100">
+                    Hotmart
+                  </p>
+                  <span className="absolute right-0 top-0 text-[9px] text-neutral-500">
+                    2h atrás
+                  </span>
+                </div>
+                <p className="mt-1 text-start text-[10px] text-neutral-600 dark:text-neutral-400" style={{ whiteSpace: "normal", wordBreak: "break-word" }}>
+                  Novo conteúdo disponível.
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+        <div className="absolute top-10 flex h-full w-full flex-col items-center gap-3 px-4 pt-4">
+          <div className="flex w-full items-center gap-5">
+            <IconWrapper>
+              <FaPhoneAlt className="size-5 text-neutral-500" />
+            </IconWrapper>
+            <IconWrapper>
+              <FaPinterest className="size-5 text-neutral-500" />
+            </IconWrapper>
+            <IconWrapper>
+              <AiFillSpotify className="size-5 text-neutral-500" />
+            </IconWrapper>
+            <IconWrapper>
+              <FaHeadphones className="size-5 text-neutral-500" />
+            </IconWrapper>
+          </div>
+          <div className="flex w-full items-center gap-5">
+            <IconWrapper>
+              <RiNetflixFill className="size-5 text-neutral-500" />
+            </IconWrapper>
+            <IconWrapper>
+              <img
+                src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1762983841/hotmart_rgwrhr.png"
+                alt="Hotmart"
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  objectFit: "contain"
+                }}
+              />
+              <motion.div
+                variants={lockVariant}
+                className="absolute -left-1 -top-1 hidden h-3.5 w-3.5 items-center justify-center rounded-full text-[9px] text-neutral-500 dark:flex"
+              >
+                1
+              </motion.div>
+              <motion.div
+                variants={lockLightVariant}
+                className="absolute -left-1 -top-1 flex h-3.5 w-3.5 items-center justify-center rounded-full text-[9px] text-neutral-700 dark:hidden"
+              >
+                1
+              </motion.div>
+            </IconWrapper>
+            <IconWrapper>
+              <FaXTwitter className="size-5 text-neutral-500" />
+            </IconWrapper>
+            <IconWrapper>
+              <FaSnapchatGhost className="size-5 text-neutral-500" />
+            </IconWrapper>
+          </div>
+          <div className="flex w-full items-center gap-5">
+            <IconWrapper />
+            <IconWrapper />
+            <IconWrapper />
+            <IconWrapper />
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState(13 * 60 + 37);
@@ -1071,14 +1289,14 @@ export default function Home() {
                   zIndex: 0
                 }}
               >
-                <video 
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline 
-                  style={{ 
-                    width: "100%", 
-                    height: "100%", 
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{
+                    width: "100%",
+                    height: "100%",
                     objectFit: "cover",
                     display: "block"
                   }}
@@ -1120,7 +1338,7 @@ export default function Home() {
               }}
               data-testid="card-extra-1"
             >
-              {/* Vídeo grudado no topo com largura máxima */}
+              {/* Imagem grudada no topo com largura máxima */}
               <div
                 className="absolute top-0"
                 style={{
@@ -1131,20 +1349,16 @@ export default function Home() {
                   zIndex: 0
                 }}
               >
-                <video 
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline 
-                  style={{ 
-                    width: "100%", 
-                    height: "100%", 
+                <img
+                  src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1762981626/raira-nail-3_nudo1i.jpg"
+                  alt="Comunidade de Alunas no Instagram"
+                  style={{
+                    width: "100%",
+                    height: "100%",
                     objectFit: "cover",
                     display: "block"
                   }}
-                >
-                  <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4" />
-                </video>
+                />
               </div>
 
               {/* Gradiente de fade na parte inferior - mais forte e subindo mais */}
@@ -1180,7 +1394,7 @@ export default function Home() {
               }}
               data-testid="card-extra-2"
             >
-              {/* Vídeo grudado no topo com largura máxima */}
+              {/* Imagem grudada no topo com largura máxima */}
               <div
                 className="absolute top-0"
                 style={{
@@ -1191,20 +1405,17 @@ export default function Home() {
                   zIndex: 0
                 }}
               >
-                <video 
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline 
-                  style={{ 
-                    width: "100%", 
-                    height: "100%", 
+                <img
+                  src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1762981251/raira-nail-2_hnpxek.jpg"
+                  alt="Certificado de Conclusão"
+                  style={{
+                    width: "100%",
+                    height: "100%",
                     objectFit: "cover",
+                    objectPosition: "center 30%",
                     display: "block"
                   }}
-                >
-                  <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4" />
-                </video>
+                />
               </div>
 
               {/* Gradiente de fade na parte inferior - mais forte e subindo mais */}
@@ -1240,12 +1451,6 @@ export default function Home() {
               }}
               data-testid="card-extra-3"
             >
-              <div
-                className="text-6xl mb-4"
-                style={{ color: "#DBA86F", opacity: 0.3 }}
-              >
-                📄
-              </div>
               <h3 className="text-3xl font-bold mb-0">
                 <span className="gradient-text">Material de Apoio</span>
                 <br />
@@ -1255,23 +1460,102 @@ export default function Home() {
 
             {/* Card 5 - Atualizações */}
             <div
-              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 text-center flex flex-col items-center justify-center min-h-[320px] lg:min-h-[280px]"
+              className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 relative overflow-hidden min-h-[320px] lg:min-h-[280px]"
               style={{
                 background: "linear-gradient(to bottom right, #261816 0%, #170F0B 70%)",
               }}
               data-testid="card-extra-4"
             >
-              <div
-                className="text-6xl mb-4"
-                style={{ color: "#DBA86F", opacity: 0.3 }}
+              {/* Celular - Mobile: centralizado, Desktop: à direita */}
+              <motion.div
+                initial="open"
+                animate="open"
+                variants={{
+                  open: {
+                    transition: {
+                      staggerChildren: 0.08,
+                      delayChildren: 0.15,
+                    },
+                  },
+                }}
+                className="absolute lg:hidden"
+                style={{
+                  width: "95%",
+                  maxWidth: "264px",
+                  height: "270px",
+                  bottom: "-10px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  pointerEvents: "none",
+                  zIndex: 0
+                }}
               >
-                🔄
+                <PhoneComponent />
+              </motion.div>
+
+              {/* Gradiente mobile - vindo de baixo no centro */}
+              <div
+                className="absolute lg:hidden"
+                style={{
+                  bottom: 0,
+                  left: "-24px",
+                  right: "-24px",
+                  width: "calc(100% + 48px)",
+                  height: "60%",
+                  background: "linear-gradient(to top, #170F0B 0%, #170F0B 25%, rgba(23, 15, 11, 0.95) 45%, rgba(23, 15, 11, 0.7) 70%, rgba(23, 15, 11, 0.3) 85%, transparent 100%)",
+                  pointerEvents: "none",
+                  zIndex: 5
+                }}
+              />
+
+              {/* Celular - Desktop: à direita, grande escala, metade fora */}
+              <motion.div
+                initial="open"
+                animate="open"
+                variants={{
+                  open: {
+                    transition: {
+                      staggerChildren: 0.08,
+                      delayChildren: 0.15,
+                    },
+                  },
+                }}
+                className="absolute hidden lg:block"
+                style={{
+                  width: "600px",
+                  height: "450px",
+                  bottom: "-250px",
+                  right: "-360px",
+                  transform: "scale(1)",
+                  pointerEvents: "none",
+                  zIndex: 0
+                }}
+              >
+                <PhoneComponent />
+              </motion.div>
+
+              {/* Gradiente sobreposto ao celular - vindo do canto inferior direito */}
+              <div
+                className="absolute hidden lg:block"
+                style={{
+                  width: "600px",
+                  height: "450px",
+                  bottom: "-250px",
+                  right: "-360px",
+                  background: "radial-gradient(ellipse 180% 110% at right bottom, #170F0B 0%, rgba(23, 15, 11, 0.98) 12%, rgba(23, 15, 11, 0.85) 25%, rgba(23, 15, 11, 0.65) 40%, rgba(23, 15, 11, 0.4) 58%, rgba(23, 15, 11, 0.2) 75%, rgba(23, 15, 11, 0.08) 88%, transparent 100%)",
+                  pointerEvents: "none",
+                  zIndex: 1
+                }}
+              />
+
+              {/* Conteúdo - Desktop: à esquerda, Mobile: centralizado */}
+              <div className="relative z-10 flex flex-col justify-end lg:justify-center h-full lg:items-start items-center text-center lg:text-left">
+                <h3 className="text-3xl lg:text-[34px] font-bold mb-0">
+                  <span className="gradient-text">Atualizações Gratuitas</span>
+                  <br />
+                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>do Curso</span>
+                </h3>
               </div>
-              <h3 className="text-3xl font-bold mb-0">
-                <span className="gradient-text">Atualizações Gratuitas</span>
-                <br />
-                <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>do Curso</span>
-              </h3>
             </div>
           </div>
         </div>
