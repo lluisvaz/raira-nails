@@ -1301,7 +1301,7 @@ export default function Home() {
                     display: "block"
                   }}
                 >
-                  <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1762976398/raira-video-1_dbwv0v.mp4" type="video/mp4" />
+                  <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1762985422/raira-nail-1_pceofa.mp4" type="video/mp4" />
                 </video>
               </div>
 
