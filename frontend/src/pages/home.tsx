@@ -1508,151 +1508,43 @@ export default function Home() {
               }}
               data-testid="card-extra-1"
             >
-              {/* Tablet Mobile */}
+              {/* Vídeo grudado no topo com largura máxima */}
               <div
-                className="absolute lg:hidden"
+                className="absolute top-0"
                 style={{
-                  width: "95%",
-                  height: "700px",
-                  bottom: "-100px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  pointerEvents: "none",
+                  left: "-24px",
+                  right: "-24px",
+                  width: "calc(100% + 48px)",
+                  height: "100%",
                   zIndex: 0
                 }}
               >
-                <svg
-                  viewBox="0 0 450 550"
-                  preserveAspectRatio="xMidYMax meet"
-                  className="w-full h-full"
-                  style={{ filter: "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))" }}
+                <video 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline 
+                  style={{ 
+                    width: "100%", 
+                    height: "100%", 
+                    objectFit: "cover",
+                    display: "block"
+                  }}
                 >
-                  <defs>
-                    <linearGradient id="tabletGradientMobile2" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" style={{ stopColor: "#3A3A3A", stopOpacity: 1 }} />
-                      <stop offset="100%" style={{ stopColor: "#1A1A1A", stopOpacity: 1 }} />
-                    </linearGradient>
-                    <linearGradient id="bezelGradientMobile2" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" style={{ stopColor: "#2D2D2D", stopOpacity: 1 }} />
-                      <stop offset="50%" style={{ stopColor: "#1F1F1F", stopOpacity: 1 }} />
-                      <stop offset="100%" style={{ stopColor: "#2D2D2D", stopOpacity: 1 }} />
-                    </linearGradient>
-                    <clipPath id="screenClipMobile2">
-                      <rect x="15" y="15" width="420" height="460" rx="4" />
-                    </clipPath>
-                  </defs>
-
-                  <rect x="5" y="5" width="440" height="480" rx="16" fill="url(#bezelGradientMobile2)" opacity="0.95" />
-                  <rect x="7" y="7" width="436" height="476" rx="15" fill="none" stroke="#404040" strokeWidth="0.5" opacity="0.4" />
-                  {/* Contorno branco (mobile) */}
-                  <rect x="7" y="7" width="436" height="476" rx="15" fill="none" stroke="#FFFFFF" strokeWidth="1.2" opacity="0.35" />
-                  <rect x="15" y="15" width="420" height="460" rx="4" fill="#000" />
-                  <circle cx="225" cy="8" r="2.5" fill="#0A0A0A" />
-                  <circle cx="225" cy="8" r="1.2" fill="#1a1a2e" opacity="0.8" />
-                  <rect x="235" y="7" width="8" height="2" rx="1" fill="#0A0A0A" opacity="0.6" />
-                  <rect x="445" y="120" width="3" height="40" rx="1.5" fill="#1A1A1A" />
-                  <rect x="445.5" y="121" width="2" height="38" rx="1" fill="#2D2D2D" />
-                  <rect x="445" y="180" width="3" height="30" rx="1.5" fill="#1A1A1A" />
-                  <rect x="445.5" y="181" width="2" height="28" rx="1" fill="#2D2D2D" />
-                  <rect x="445" y="220" width="3" height="30" rx="1.5" fill="#1A1A1A" />
-                  <rect x="445.5" y="221" width="2" height="28" rx="1" fill="#2D2D2D" />
-
-                  <foreignObject x="15" y="15" width="420" height="460" clipPath="url(#screenClipMobile2)">
-                    <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
-                      <video autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }}>
-                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4" />
-                      </video>
-                    </div>
-                  </foreignObject>
-
-                  <rect x="15" y="15" width="420" height="230" rx="4" fill="url(#screenReflectionMobile2)" opacity="0.08" />
-                  <circle cx="225" cy="495" r="7" fill="#0A0A0A" />
-                  <circle cx="225" cy="495" r="5.5" fill="none" stroke="#DBA86F" strokeWidth="0.8" opacity="0.5" />
-                  <defs>
-                    <linearGradient id="screenReflectionMobile2" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" style={{ stopColor: "#ffffff", stopOpacity: 0.15 }} />
-                      <stop offset="100%" style={{ stopColor: "#ffffff", stopOpacity: 0 }} />
-                    </linearGradient>
-                  </defs>
-                </svg>
+                  <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4" />
+                </video>
               </div>
 
-              {/* Tablet Desktop */}
-              <div
-                className="absolute hidden lg:block"
-                style={{
-                  width: "95%",
-                  height: "620px",
-                  bottom: "5px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  pointerEvents: "none",
-                  zIndex: 0
-                }}
-              >
-                <svg
-                  viewBox="0 0 450 550"
-                  preserveAspectRatio="xMidYMax meet"
-                  className="w-full h-full"
-                  style={{ filter: "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))" }}
-                >
-                  <defs>
-                    <linearGradient id="tabletGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" style={{ stopColor: "#3A3A3A", stopOpacity: 1 }} />
-                      <stop offset="100%" style={{ stopColor: "#1A1A1A", stopOpacity: 1 }} />
-                    </linearGradient>
-                    <linearGradient id="bezelGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" style={{ stopColor: "#2D2D2D", stopOpacity: 1 }} />
-                      <stop offset="50%" style={{ stopColor: "#1F1F1F", stopOpacity: 1 }} />
-                      <stop offset="100%" style={{ stopColor: "#2D2D2D", stopOpacity: 1 }} />
-                    </linearGradient>
-                    <clipPath id="screenClip2">
-                      <rect x="15" y="15" width="420" height="460" rx="4" />
-                    </clipPath>
-                  </defs>
-
-                  <rect x="5" y="5" width="440" height="540" rx="16" fill="url(#bezelGradient2)" opacity="0.95" />
-                  <rect x="7" y="7" width="436" height="536" rx="15" fill="none" stroke="#FFFFFF" strokeWidth="1.2" opacity="0.35" />
-                  <rect x="15" y="15" width="420" height="520" rx="4" fill="#000" />
-                  <circle cx="225" cy="8" r="2.5" fill="#0A0A0A" />
-                  <circle cx="225" cy="8" r="1.2" fill="#1a1a2e" opacity="0.8" />
-                  <rect x="235" y="7" width="8" height="2" rx="1" fill="#0A0A0A" opacity="0.6" />
-                  <rect x="445" y="120" width="3" height="40" rx="1.5" fill="#1A1A1A" />
-                  <rect x="445.5" y="121" width="2" height="38" rx="1" fill="#2D2D2D" />
-                  <rect x="445" y="180" width="3" height="30" rx="1.5" fill="#1A1A1A" />
-                  <rect x="445.5" y="181" width="2" height="28" rx="1" fill="#2D2D2D" />
-                  <rect x="445" y="220" width="3" height="30" rx="1.5" fill="#1A1A1A" />
-                  <rect x="445.5" y="221" width="2" height="28" rx="1" fill="#2D2D2D" />
-
-                  <foreignObject x="15" y="15" width="420" height="520" clipPath="url(#screenClip2)">
-                    <div style={{ width: "100%", height: "100%", overflow: "hidden" }}>
-                      <video autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }}>
-                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4" />
-                      </video>
-                    </div>
-                  </foreignObject>
-
-                  <rect x="15" y="15" width="420" height="230" rx="4" fill="url(#screenReflection2)" opacity="0.08" />
-                  <circle cx="225" cy="495" r="7" fill="#0A0A0A" />
-                  <circle cx="225" cy="495" r="5.5" fill="none" stroke="#DBA86F" strokeWidth="0.8" opacity="0.5" />
-                  <defs>
-                    <linearGradient id="screenReflection2" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" style={{ stopColor: "#ffffff", stopOpacity: 0.15 }} />
-                      <stop offset="100%" style={{ stopColor: "#ffffff", stopOpacity: 0 }} />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-
-              {/* Gradiente de fade na parte inferior */}
+              {/* Gradiente de fade na parte inferior - mais forte e subindo mais */}
               <div
                 className="absolute"
                 style={{
                   bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: "320px",
-                  background: "linear-gradient(to top, #170F0B 0%, #170F0B 15%, rgba(23, 15, 11, 0.9) 35%, rgba(23, 15, 11, 0.5) 65%, transparent 100%)",
+                  left: "-24px",
+                  right: "-24px",
+                  width: "calc(100% + 48px)",
+                  height: "60%",
+                  background: "linear-gradient(to top, #170F0B 0%, #170F0B 25%, rgba(23, 15, 11, 0.95) 45%, rgba(23, 15, 11, 0.7) 70%, rgba(23, 15, 11, 0.3) 85%, transparent 100%)",
                   pointerEvents: "none",
                   zIndex: 5
                 }}
