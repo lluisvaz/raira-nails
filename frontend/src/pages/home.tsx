@@ -1549,11 +1549,11 @@ export default function Home() {
               />
 
               {/* Conteúdo - Desktop: à esquerda, Mobile: centralizado */}
-              <div className="relative z-10 flex flex-col justify-end lg:justify-center h-full lg:items-start items-center text-center lg:text-left">
-                <h3 className="text-3xl lg:text-[34px] font-bold mb-0">
-                  <span className="gradient-text">Atualizações Gratuitas</span>
+              <div className="relative z-10 flex flex-col justify-end lg:justify-center h-full lg:items-start items-center text-center pb-6 lg:pb-4">
+                <h3 className="text-3xl lg:text-[34px] font-bold mb-0 text-center">
+                  <span className="gradient-text">Atualizações Contínuas</span>
                   <br />
-                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>do Curso</span>
+                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>e Gratuitas do Curso</span>
                 </h3>
               </div>
             </div>
