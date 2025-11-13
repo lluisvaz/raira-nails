@@ -1707,6 +1707,152 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Por Dentro Section */}
+      <section className="py-20 px-4 md:px-8 overflow-hidden">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex justify-center mb-6">
+            <div
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-full"
+              style={{
+                background: "linear-gradient(90deg, #170F0B 0%, #382607 100%)",
+              }}
+            >
+              <img
+                src="/images/logo-icon.png"
+                alt="Logo"
+                className="w-4 h-4"
+                data-testid="img-logo-icon-por-dentro"
+              />
+              <p
+                className="text-white uppercase m-0"
+                style={{
+                  fontSize: "11px",
+                  fontWeight: 600,
+                  letterSpacing: "0.1em",
+                  opacity: 0.7,
+                }}
+                data-testid="text-por-dentro-badge"
+              >
+                POR DENTRO
+              </p>
+            </div>
+          </div>
+
+          <h2 className="nail-h2 mb-12 text-center" data-testid="text-por-dentro-title">
+            <span className="gradient-text nail-h2-highlight">Confira os módulos</span> presentes no curso
+          </h2>
+
+          {/* Esteira de módulos com gradientes laterais */}
+          <div className="relative w-full">
+            {/* Gradiente esquerdo */}
+            <div
+              className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
+              style={{
+                background: "linear-gradient(to right, #170F0B 0%, rgba(23, 15, 11, 0.8) 30%, rgba(23, 15, 11, 0.4) 60%, transparent 100%)",
+              }}
+            />
+
+            {/* Gradiente direito */}
+            <div
+              className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
+              style={{
+                background: "linear-gradient(to left, #170F0B 0%, rgba(23, 15, 11, 0.8) 30%, rgba(23, 15, 11, 0.4) 60%, transparent 100%)",
+              }}
+            />
+
+            {/* Container da esteira */}
+            <div className="overflow-hidden">
+              <div
+                className="flex gap-2 md:gap-3 scroll-modules-container"
+                style={{
+                  animation: "scrollModulesMobile 30s linear infinite",
+                  willChange: "transform",
+                  width: "fit-content",
+                }}
+              >
+                {/* Primeira cópia dos cards */}
+                {[...Array(10)].map((_, index) => (
+                  <div
+                    key={`module-1-${index}`}
+                    className="flex-shrink-0 w-[150px] h-[210px] md:w-[200px] md:h-[280px] rounded-2xl overflow-hidden"
+                    style={{
+                      background: "linear-gradient(to bottom, #261816 0%, #170F0B 100%)",
+                      border: "1px solid #332A2A",
+                    }}
+                  >
+                    <img
+                      src={`https://picsum.photos/seed/module-${index}/200/280`}
+                      alt={`Módulo ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+
+                {/* Segunda cópia dos cards para loop infinito */}
+                {[...Array(10)].map((_, index) => (
+                  <div
+                    key={`module-2-${index}`}
+                    className="flex-shrink-0 w-[150px] h-[210px] md:w-[200px] md:h-[280px] rounded-2xl overflow-hidden"
+                    style={{
+                      background: "linear-gradient(to bottom, #261816 0%, #170F0B 100%)",
+                      border: "1px solid #332A2A",
+                    }}
+                  >
+                    <img
+                      src={`https://picsum.photos/seed/module-${index}/200/280`}
+                      alt={`Módulo ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* CSS para animação */}
+          <style dangerouslySetInnerHTML={{
+            __html: `
+              .scroll-modules-container {
+                display: flex;
+              }
+              @keyframes scrollModulesMobile {
+                0% {
+                  transform: translateX(0);
+                }
+                100% {
+                  transform: translateX(calc(-150px * 10 - 8px * 9));
+                }
+              }
+              @keyframes scrollModulesDesktop {
+                0% {
+                  transform: translateX(0);
+                }
+                100% {
+                  transform: translateX(calc(-200px * 10 - 12px * 9));
+                }
+              }
+              @media (min-width: 768px) {
+                .scroll-modules-container {
+                  animation: scrollModulesDesktop 30s linear infinite !important;
+                }
+              }
+            `
+          }} />
+        </div>
+        <div className="pb-20"></div>
+        {/* Divisória com degradê */}
+        <div className="w-full px-4 md:px-8 lg:px-16">
+          <div
+            style={{
+              height: "1px",
+              background:
+                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              margin: "0 auto",
+            }}
+          />
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-20 px-4 md:px-8">
         <div className="container mx-auto max-w-4xl">
