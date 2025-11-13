@@ -1774,10 +1774,9 @@ export default function Home() {
                 {[...Array(10)].map((_, index) => (
                   <div
                     key={`module-1-${index}`}
-                    className="flex-shrink-0 w-[180px] h-[250px] md:w-[250px] md:h-[350px] rounded-2xl overflow-hidden"
+                    className="flex-shrink-0 w-[180px] h-[250px] md:w-[250px] md:h-[350px] rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300"
                     style={{
                       background: "linear-gradient(to bottom, #261816 0%, #170F0B 100%)",
-                      border: "1px solid #332A2A",
                     }}
                   >
                     <img
@@ -1792,10 +1791,9 @@ export default function Home() {
                 {[...Array(10)].map((_, index) => (
                   <div
                     key={`module-2-${index}`}
-                    className="flex-shrink-0 w-[180px] h-[250px] md:w-[250px] md:h-[350px] rounded-2xl overflow-hidden"
+                    className="flex-shrink-0 w-[180px] h-[250px] md:w-[250px] md:h-[350px] rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300"
                     style={{
                       background: "linear-gradient(to bottom, #261816 0%, #170F0B 100%)",
-                      border: "1px solid #332A2A",
                     }}
                   >
                     <img
