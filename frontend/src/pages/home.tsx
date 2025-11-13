@@ -1774,14 +1774,14 @@ export default function Home() {
                 {[...Array(10)].map((_, index) => (
                   <div
                     key={`module-1-${index}`}
-                    className="flex-shrink-0 w-[150px] h-[210px] md:w-[200px] md:h-[280px] rounded-2xl overflow-hidden"
+                    className="flex-shrink-0 w-[180px] h-[250px] md:w-[250px] md:h-[350px] rounded-2xl overflow-hidden"
                     style={{
                       background: "linear-gradient(to bottom, #261816 0%, #170F0B 100%)",
                       border: "1px solid #332A2A",
                     }}
                   >
                     <img
-                      src={`https://picsum.photos/seed/module-${index}/200/280`}
+                      src={`https://picsum.photos/seed/module-${index}/250/350`}
                       alt={`Módulo ${index + 1}`}
                       className="w-full h-full object-cover"
                     />
@@ -1792,14 +1792,14 @@ export default function Home() {
                 {[...Array(10)].map((_, index) => (
                   <div
                     key={`module-2-${index}`}
-                    className="flex-shrink-0 w-[150px] h-[210px] md:w-[200px] md:h-[280px] rounded-2xl overflow-hidden"
+                    className="flex-shrink-0 w-[180px] h-[250px] md:w-[250px] md:h-[350px] rounded-2xl overflow-hidden"
                     style={{
                       background: "linear-gradient(to bottom, #261816 0%, #170F0B 100%)",
                       border: "1px solid #332A2A",
                     }}
                   >
                     <img
-                      src={`https://picsum.photos/seed/module-${index}/200/280`}
+                      src={`https://picsum.photos/seed/module-${index}/250/350`}
                       alt={`Módulo ${index + 1}`}
                       className="w-full h-full object-cover"
                     />
@@ -1820,7 +1820,7 @@ export default function Home() {
                   transform: translateX(0);
                 }
                 100% {
-                  transform: translateX(calc(-150px * 10 - 8px * 9));
+                  transform: translateX(calc(-180px * 10 - 8px * 9));
                 }
               }
               @keyframes scrollModulesDesktop {
@@ -1828,7 +1828,7 @@ export default function Home() {
                   transform: translateX(0);
                 }
                 100% {
-                  transform: translateX(calc(-200px * 10 - 12px * 9));
+                  transform: translateX(calc(-250px * 10 - 12px * 9));
                 }
               }
               @media (min-width: 768px) {
