@@ -696,8 +696,7 @@ export default function Home() {
       </div>
 
       {/* Problem Section */}
-      <section className="px-4 md:px-8 text-center relative z-20">
-        <div className="pt-20"></div>
+      <section className="pt-16 px-4 md:px-8 text-center relative z-20">
         <div className="container mx-auto max-w-6xl">
           <div
             className="inline-flex items-center gap-3 px-6 py-3 mb-6 rounded-full"
@@ -974,7 +973,7 @@ export default function Home() {
       </section>
 
       {/* Platform Access Section */}
-      <section className="py-20 px-4 md:px-8 overflow-hidden">
+      <section className="pt-16 px-4 md:px-8 overflow-hidden">
         <div className="container mx-auto max-w-6xl">
           <div className="flex justify-center lg:justify-start mb-6">
             <div
@@ -1281,7 +1280,7 @@ export default function Home() {
       </section>
 
       {/* E Tem Mais Section */}
-      <section className="py-20 px-4 md:px-8">
+      <section className="pt-16 px-4 md:px-8">
         <div className="container mx-auto max-w-6xl">
           <div className="flex justify-center mb-6">
             <div
@@ -1708,7 +1707,7 @@ export default function Home() {
       </section>
 
       {/* Por Dentro Section */}
-      <section className="py-20 px-4 md:px-8 overflow-hidden">
+      <section className="pt-16 px-4 md:px-8 overflow-hidden">
         <div className="container mx-auto max-w-6xl">
           <div className="flex justify-center mb-6">
             <div
@@ -1852,7 +1851,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 md:px-8">
+      <section className="pt-16 px-4 md:px-8">
         <div className="container mx-auto max-w-4xl">
           <h2 className="nail-h2" data-testid="text-faq-title">
             Perguntas Frequentes
