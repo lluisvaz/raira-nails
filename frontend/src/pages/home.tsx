@@ -1850,6 +1850,176 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="pt-16 px-4 md:px-8">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center">
+            <div className="order-1 lg:hidden">
+              <h2 className="nail-h2 mb-4">
+                Prazer, <span className="gradient-text nail-h2-highlight">eu sou a Vivi.</span>
+              </h2>
+            </div>
+
+            <div className="order-2 lg:order-1 justify-self-center lg:justify-self-start transform scale-[0.92] md:scale-100 origin-top md:origin-top-left">
+              <div className="grid grid-cols-3 gap-3">
+              <div
+                className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
+                style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
+              >
+                <img src="/images/me-raira-1.jpg" alt="" className="w-full h-full object-cover" />
+              </div>
+              <div
+                className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
+                style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
+              >
+                <img src="/images/me-raira-2.jpg" alt="" className="w-full h-full object-cover" />
+              </div>
+              <div
+                className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
+                style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
+              >
+                <img src="/images/me-raira-3.jpg" alt="" className="w-full h-full object-cover" />
+              </div>
+              <div
+                className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 row-span-2 col-span-1 h-[300px] md:h-[372px]"
+                style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
+              >
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  disablePictureInPicture
+                  controlsList="nodownload nofullscreen noremoteplayback"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                >
+                  <source src="/images/me-raira-4.mp4" type="video/mp4" />
+                  Seu navegador não suporta vídeos.
+                </video>
+              </div>
+              <div
+                className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 col-span-2 h-[150px] md:h-[180px]"
+                style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
+              >
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  disablePictureInPicture
+                  controlsList="nodownload nofullscreen noremoteplayback"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                >
+                  <source src="/images/me-raira-5.mp4" type="video/mp4" />
+                  Seu navegador não suporta vídeos.
+                </video>
+              </div>
+              <div
+                className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 col-span-2 h-[150px] md:h-[180px]"
+                style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
+              >
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  disablePictureInPicture
+                  controlsList="nodownload nofullscreen noremoteplayback"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                >
+                  <source src="/images/me-raira-6.mp4" type="video/mp4" />
+                  Seu navegador não suporta vídeos.
+                </video>
+              </div>
+              </div>
+            </div>
+
+            <div className="hidden lg:block lg:order-2 lg:col-start-2">
+              <h2 className="nail-h2 mb-6" style={{ textAlign: "left" }}>
+                Prazer, <span className="gradient-text nail-h2-highlight">eu sou a Vivi.</span>
+              </h2>
+              <div className="space-y-3">
+                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                  Meu propósito é claro: reposicionar e transformar mulheres, devolvendo a cada uma o lugar de honra
+                  dentro do lar.
+                </p>
+                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                  Tenho viajado o Brasil e as nações com uma mensagem: Deus está levantando mulheres para um propósito
+                  eterno.
+                </p>
+                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                  Sou autora do livro "Mulheres Improváveis", que alcançou mais de 250 mil leitoras em menos de um
+                  ano.
+                </p>
+                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                  Também idealizei a Conferência de Mulheres Abba Pai, que reúne milhares de mulheres todos os anos aqui
+                  em Criciúma (SC), onde lidero o ministério Abba Pai Church ao lado do meu esposo, Pastor Telmo
+                  Martinello.
+                </p>
+                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                  Em 2020, nasceu a Casa de Isobel — uma plataforma de ensino que já alcançou mais de 35 nações,
+                  guiando mulheres em uma jornada profunda de fé, identidade e restauração familiar.
+                </p>
+              </div>
+              <div className="mt-6 flex justify-start">
+                <div className="inline-block relative group" style={{ padding: "6px" }}>
+                  <a href="#offer" className="cta-button">
+                    QUERO ME TORNAR ALUNA
+                    <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                  </a>
+                  <BorderBeam size={100} duration={3} colorFrom="#D19756" colorTo="#F1EEE1" beamBorderRadius={12} />
+                </div>
+              </div>
+            </div>
+
+            <div className="order-3 lg:hidden">
+              <div className="space-y-3">
+                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                  Meu propósito é claro: reposicionar e transformar mulheres, devolvendo a cada uma o lugar de honra
+                  dentro do lar.
+                </p>
+                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                  Tenho viajado o Brasil e as nações com uma mensagem: Deus está levantando mulheres para um propósito
+                  eterno.
+                </p>
+                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                  Sou autora do livro "Mulheres Improváveis", que alcançou mais de 250 mil leitoras em menos de um
+                  ano.
+                </p>
+                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                  Também idealizei a Conferência de Mulheres Abba Pai, que reúne milhares de mulheres todos os anos aqui
+                  em Criciúma (SC), onde lidero o ministério Abba Pai Church ao lado do meu esposo, Pastor Telmo
+                  Martinello.
+                </p>
+                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                  Em 2020, nasceu a Casa de Isobel — uma plataforma de ensino que já alcançou mais de 35 nações,
+                  guiando mulheres em uma jornada profunda de fé, identidade e restauração familiar.
+                </p>
+              </div>
+              <div className="mt-8 flex justify-center">
+                <div className="inline-block relative group" style={{ padding: "6px" }}>
+                  <a href="#offer" className="cta-button">
+                    QUERO ME TORNAR ALUNA
+                    <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                  </a>
+                  <BorderBeam size={100} duration={3} colorFrom="#D19756" colorTo="#F1EEE1" beamBorderRadius={12} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="pb-20"></div>
+        <div className="w-full px-4 md:px-8 lg:px-16">
+          <div
+            style={{
+              height: "1px",
+              background:
+                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              margin: "0 auto",
+            }}
+          />
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="pt-16 px-4 md:px-8">
         <div className="container mx-auto max-w-4xl">
@@ -1892,7 +2062,7 @@ export default function Home() {
       >
         <div className="container mx-auto">
           <p className="nail-footer" data-testid="text-footer-copyright">
-            © 2025 Formação Nail Designer de Sucesso. Todos os direitos
+            © 2025 Monfily Digital. Todos os direitos
             reservados.
           </p>
         </div>
