@@ -1855,7 +1855,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center">
             <div className="order-1 lg:hidden">
               <h2 className="nail-h2 mb-4">
-                Prazer, <span className="gradient-text nail-h2-highlight">eu sou a Vivi.</span>
+                Prazer, <span className="gradient-text nail-h2-highlight">eu sou a Raira.</span>
               </h2>
             </div>
 
@@ -1935,29 +1935,23 @@ export default function Home() {
 
             <div className="hidden lg:block lg:order-2 lg:col-start-2">
               <h2 className="nail-h2 mb-6" style={{ textAlign: "left" }}>
-                Prazer, <span className="gradient-text nail-h2-highlight">eu sou a Vivi.</span>
+                Prazer, <span className="gradient-text nail-h2-highlight">eu sou a Raira.</span>
               </h2>
               <div className="space-y-3">
                 <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
-                  Meu propósito é claro: reposicionar e transformar mulheres, devolvendo a cada uma o lugar de honra
-                  dentro do lar.
+                  Meu propósito vai muito além de ensinar a fazer unhas. Eu acredito que essa profissão é uma das ferramentas mais poderosas de independência financeira que uma mulher pode ter.
                 </p>
                 <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
-                  Tenho viajado o Brasil e as nações com uma mensagem: Deus está levantando mulheres para um propósito
-                  eterno.
+                  Comecei minha jornada buscando liberdade de tempo e de dinheiro. O que descobri foi uma carreira que me permitiu ser minha própria chefe e ditar minhas regras.
                 </p>
                 <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
-                  Sou autora do livro "Mulheres Improváveis", que alcançou mais de 250 mil leitoras em menos de um
-                  ano.
+                  Hoje, minha missão é elevar o nível do nosso mercado. Eu me dedico a formar profissionais de elite, que não sabem apenas a técnica, mas que sabem comandar seus próprios negócios.
                 </p>
                 <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
-                  Também idealizei a Conferência de Mulheres Abba Pai, que reúne milhares de mulheres todos os anos aqui
-                  em Criciúma (SC), onde lidero o ministério Abba Pai Church ao lado do meu esposo, Pastor Telmo
-                  Martinello.
+                  Por isso, decidi reunir todo o meu conhecimento em um único lugar.
                 </p>
                 <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
-                  Em 2020, nasceu a Casa de Isobel — uma plataforma de ensino que já alcançou mais de 35 nações,
-                  guiando mulheres em uma jornada profunda de fé, identidade e restauração familiar.
+                  Assim, nasceu nosso curso — um método pensado para guiar outras mulheres na mesma jornada de transformação que um dia eu vivi, ensinando o caminho exato para construir uma carreira lucrativa e ser dona da sua própria história.
                 </p>
               </div>
               <div className="mt-6 flex justify-start">
@@ -1974,25 +1968,19 @@ export default function Home() {
             <div className="order-3 lg:hidden">
               <div className="space-y-3">
                 <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
-                  Meu propósito é claro: reposicionar e transformar mulheres, devolvendo a cada uma o lugar de honra
-                  dentro do lar.
+                  Meu propósito vai muito além de ensinar a fazer unhas. Eu acredito que essa profissão é uma das ferramentas mais poderosas de independência financeira que uma mulher pode ter.
                 </p>
                 <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
-                  Tenho viajado o Brasil e as nações com uma mensagem: Deus está levantando mulheres para um propósito
-                  eterno.
+                  Comecei minha jornada buscando liberdade de tempo e de dinheiro. O que descobri foi uma carreira que me permitiu ser minha própria chefe e ditar minhas regras.
                 </p>
                 <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
-                  Sou autora do livro "Mulheres Improváveis", que alcançou mais de 250 mil leitoras em menos de um
-                  ano.
+                  Hoje, minha missão é elevar o nível do nosso mercado. Eu me dedico a formar profissionais de elite, que não sabem apenas a técnica, mas que sabem comandar seus próprios negócios.
                 </p>
                 <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
-                  Também idealizei a Conferência de Mulheres Abba Pai, que reúne milhares de mulheres todos os anos aqui
-                  em Criciúma (SC), onde lidero o ministério Abba Pai Church ao lado do meu esposo, Pastor Telmo
-                  Martinello.
+                  Por isso, decidi reunir todo o meu conhecimento em um único lugar.
                 </p>
                 <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
-                  Em 2020, nasceu a Casa de Isobel — uma plataforma de ensino que já alcançou mais de 35 nações,
-                  guiando mulheres em uma jornada profunda de fé, identidade e restauração familiar.
+                  Assim, nasceu nosso curso — um método pensado para guiar outras mulheres na mesma jornada de transformação que um dia eu vivi, ensinando o caminho exato para construir uma carreira lucrativa e ser dona da sua própria história.
                 </p>
               </div>
               <div className="mt-8 flex justify-center">
