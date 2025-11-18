@@ -2345,13 +2345,25 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div className="pb-20"></div>
+        {/* Divisória com degradê */}
+        <div className="w-full px-4 md:px-8 lg:px-16">
+          <div
+            style={{
+              height: "1px",
+              background:
+                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              margin: "0 auto",
+            }}
+          />
+        </div>
       </section>
 
-      <section className="pt-24 px-4 md:px-8" style={{ paddingTop: "80px" }}>
+      <section className="pt-16 px-4 md:px-8">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center md:justify-items-center">
             <div className="order-1 lg:hidden">
-              <h2 className="nail-h2 mb-4 text-center md:text-center">
+              <h2 className="nail-h2 mb-4 text-center md:text-center" style={{ fontSize: "48px" }}>
                 Prazer, <span className="gradient-text nail-h2-highlight">eu sou a Raira.</span>
               </h2>
             </div>
