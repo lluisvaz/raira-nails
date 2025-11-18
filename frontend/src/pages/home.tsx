@@ -2041,6 +2041,18 @@ export default function Home() {
             ))}
           </Accordion>
         </div>
+        <div className="pb-20"></div>
+        {/* Divisória com degradê */}
+        <div className="w-full px-4 md:px-8 lg:px-16">
+          <div
+            style={{
+              height: "1px",
+              background:
+                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              margin: "0 auto",
+            }}
+          />
+        </div>
       </section>
 
       {/* Footer */}
