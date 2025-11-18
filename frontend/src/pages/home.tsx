@@ -1852,7 +1852,7 @@ export default function Home() {
 
       {/* Banner Section - Tudo que você precisa */}
       <section 
-        className="w-full relative"
+        className="w-full relative pt-4 md:pt-0"
         style={{ 
           width: "100%",
           margin: "0",
@@ -2359,7 +2359,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pt-16 px-4 md:px-8">
+      {/* Prazer, sou a Raira Section */}
+      <section className="pt-4 md:pt-8 px-4 md:px-8">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center md:justify-items-center">
             <div className="order-1 lg:hidden">
