@@ -1965,7 +1965,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="order-3 lg:hidden">
+            <div className="order-3 lg:hidden justify-self-center" style={{ width: "92%", maxWidth: "92%" }}>
               <div className="space-y-3">
                 <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
                   Meu propósito vai muito além de ensinar a fazer unhas. Eu acredito que essa profissão é uma das ferramentas mais poderosas de independência financeira que uma mulher pode ter.
