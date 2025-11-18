@@ -585,6 +585,21 @@
     box-shadow: 0 4px 20px rgba(239, 213, 167, 0.2);
   }
 
+  /* Mobile only (not tablet): 100% width for CTA buttons and their parent containers */
+  @media (max-width: 767px) {
+    .cta-button {
+      width: 100%;
+    }
+    
+    /* Make parent wrapper full width on mobile */
+    .relative.group:has(.cta-button),
+    .relative.group.flex-shrink-0:has(.cta-button),
+    .inline-block.relative.group:has(.cta-button) {
+      width: 100%;
+      display: block;
+    }
+  }
+
   @media (min-width: 1024px) {
     .cta-button {
       box-shadow: none;

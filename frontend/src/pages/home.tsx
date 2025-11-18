@@ -1850,11 +1850,508 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pt-16 px-4 md:px-8">
+      {/* Banner Section - Tudo que você precisa */}
+      <section 
+        className="w-full relative"
+        style={{ 
+          width: "100%",
+          margin: "0",
+          padding: "0",
+        }}
+      >
+        <div
+          className="w-full relative"
+          style={{
+            background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)",
+            padding: "40px 20px 50px 20px",
+            borderTop: "1px solid #000000",
+            borderBottom: "1px solid #000000",
+            width: "100%",
+            position: "relative",
+            zIndex: 1,
+            paddingBottom: "60px",
+          }}
+        >
+          <div className="text-center">
+            <p
+              style={{
+                color: "#1A1212",
+                fontSize: "30px",
+                fontWeight: 600,
+                lineHeight: "1.5",
+                margin: "0 auto",
+                maxWidth: "800px",
+              }}
+            >
+              Tudo o que você precisa para começar, incluso em uma única inscrição:
+            </p>
+          </div>
+        </div>
+        
+        {/* Lombadinha arredondada com a seta */}
+        <div
+          className="absolute"
+          style={{
+            bottom: "-20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "80px",
+            height: "40px",
+            background: "#170F0B",
+            borderTopLeftRadius: "40px",
+            borderTopRightRadius: "40px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 2,
+          }}
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            style={{ color: "#FFFFFF" }}
+          >
+            <path
+              d="M6 9L12 15L18 9"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+      </section>
+
+      {/* Pricing Card Section */}
+      <section className="pt-16 px-4 md:px-8 pb-16">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+            {/* Pricing Card */}
+            <div
+              className="rounded-2xl overflow-hidden"
+              style={{
+                background: "#261816",
+                border: "1px solid #332A2A",
+              }}
+            >
+              {/* Top Banner */}
+              <div
+                className="w-full text-center py-4"
+                style={{
+                  background: "#FFE6BF",
+                }}
+              >
+                <p
+                  style={{
+                    color: "#1A1212",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    letterSpacing: "0.01em",
+                    margin: 0,
+                  }}
+                >
+                  ACESSO ANUAL
+                </p>
+              </div>
+
+              {/* Content */}
+              <div className="p-8 md:p-10">
+                {/* Price */}
+                <div className="text-center mb-8">
+                  <p
+                    style={{
+                      color: "#FFFFFF",
+                      fontSize: "52px",
+                      fontWeight: 700,
+                      margin: "0 0 8px 0",
+                      lineHeight: "1.2",
+                    }}
+                  >
+                    R$ 47,26<span style={{ fontSize: "12px", fontWeight: 500 }}>/POR MÊS</span>
+                  </p>
+                  <p
+                    style={{
+                      color: "#DBA86F",
+                      fontSize: "18px",
+                      fontWeight: 600,
+                      margin: 0,
+                    }}
+                  >
+                    OU R$ 457 À VISTA NO PIX
+                  </p>
+                </div>
+
+                {/* Features List */}
+                <div className="flex justify-center mb-8">
+                  <div className="space-y-4" style={{ maxWidth: "100%", width: "fit-content" }}>
+                  <div className="flex items-center gap-3">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style={{ flexShrink: 0 }}
+                  >
+                    <path
+                      d="M20 6L9 17L4 12"
+                      stroke="#DBA86F"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <p
+                    style={{
+                      color: "#FFFFFF",
+                      fontSize: "16px",
+                      lineHeight: "1.6",
+                      margin: 0,
+                      opacity: 0.9,
+                      textAlign: "left",
+                    }}
+                  >
+                    +150 aulas práticas de técnicas profissionais
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style={{ flexShrink: 0 }}
+                  >
+                    <path
+                      d="M20 6L9 17L4 12"
+                      stroke="#DBA86F"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <p
+                    style={{
+                      color: "#FFFFFF",
+                      fontSize: "16px",
+                      lineHeight: "1.6",
+                      margin: 0,
+                      opacity: 0.9,
+                      textAlign: "left",
+                    }}
+                  >
+                    Acesso por 12 meses à plataforma completa
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style={{ flexShrink: 0 }}
+                  >
+                    <path
+                      d="M20 6L9 17L4 12"
+                      stroke="#DBA86F"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <p
+                    style={{
+                      color: "#FFFFFF",
+                      fontSize: "16px",
+                      lineHeight: "1.6",
+                      margin: 0,
+                      opacity: 0.9,
+                      textAlign: "left",
+                    }}
+                  >
+                    Comunidade VIP de alunas no Instagram
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style={{ flexShrink: 0 }}
+                  >
+                    <path
+                      d="M20 6L9 17L4 12"
+                      stroke="#DBA86F"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <p
+                    style={{
+                      color: "#FFFFFF",
+                      fontSize: "16px",
+                      lineHeight: "1.6",
+                      margin: 0,
+                      opacity: 0.9,
+                      textAlign: "left",
+                    }}
+                  >
+                    Certificado Profissional de Conclusão
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style={{ flexShrink: 0 }}
+                  >
+                    <path
+                      d="M20 6L9 17L4 12"
+                      stroke="#DBA86F"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <p
+                    style={{
+                      color: "#FFFFFF",
+                      fontSize: "16px",
+                      lineHeight: "1.6",
+                      margin: 0,
+                      opacity: 0.9,
+                      textAlign: "left",
+                    }}
+                  >
+                    Material de apoio em PDF
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style={{ flexShrink: 0 }}
+                  >
+                    <path
+                      d="M20 6L9 17L4 12"
+                      stroke="#DBA86F"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <p
+                    style={{
+                      color: "#FFFFFF",
+                      fontSize: "16px",
+                      lineHeight: "1.6",
+                      margin: 0,
+                      opacity: 0.9,
+                      textAlign: "left",
+                    }}
+                  >
+                    Atualizações contínuas e gratuitas do curso
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style={{ flexShrink: 0 }}
+                  >
+                    <path
+                      d="M20 6L9 17L4 12"
+                      stroke="#DBA86F"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <p
+                    style={{
+                      color: "#FFFFFF",
+                      fontSize: "16px",
+                      lineHeight: "1.6",
+                      margin: 0,
+                      opacity: 0.9,
+                      textAlign: "left",
+                    }}
+                  >
+                    Suporte direto com nossa equipe
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style={{ flexShrink: 0 }}
+                  >
+                    <path
+                      d="M20 6L9 17L4 12"
+                      stroke="#DBA86F"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <p
+                    style={{
+                      color: "#FFFFFF",
+                      fontSize: "16px",
+                      lineHeight: "1.6",
+                      margin: 0,
+                      opacity: 0.9,
+                      textAlign: "left",
+                    }}
+                  >
+                    Sem fidelidade
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    style={{ flexShrink: 0 }}
+                  >
+                    <path
+                      d="M20 6L9 17L4 12"
+                      stroke="#DBA86F"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <p
+                    style={{
+                      color: "#FFFFFF",
+                      fontSize: "16px",
+                      lineHeight: "1.6",
+                      margin: 0,
+                      opacity: 0.9,
+                      textAlign: "left",
+                    }}
+                  >
+                    Melhor custo x benefício
+                  </p>
+                </div>
+                  </div>
+                </div>
+
+              {/* CTA Button */}
+              <div className="text-center">
+                <div
+                  className="inline-block relative group"
+                  style={{ padding: "6px", width: "100%", maxWidth: "100%" }}
+                >
+                  <a
+                    href="#offer"
+                    className="cta-button"
+                    style={{ width: "100%" }}
+                  >
+                    QUERO ME TORNAR ALUNA
+                    <HiOutlineArrowUpRight
+                      size={24}
+                      className="text-black flex-shrink-0"
+                    />
+                  </a>
+                  <BorderBeam
+                    size={100}
+                    duration={3}
+                    colorFrom="#D19756"
+                    colorTo="#F1EEE1"
+                    beamBorderRadius={12}
+                  />
+                </div>
+              </div>
+              </div>
+            </div>
+
+            {/* Guarantee Card */}
+            <div
+              className="rounded-2xl overflow-hidden flex items-center justify-center"
+              style={{
+                background: "#170F0B",
+              }}
+            >
+              <div className="p-8 md:p-10 flex flex-col items-center justify-center w-full">
+                {/* Logo and Main Text */}
+                <div className="flex flex-col items-center text-center mb-6">
+                  <img
+                    src="/images/raira-garantia.png"
+                    alt="Garantia 7 dias"
+                    className="mb-6"
+                    style={{ maxWidth: "200px", height: "auto" }}
+                  />
+                  <p
+                    style={{
+                      color: "#DBA86F",
+                      fontSize: "28px",
+                      fontWeight: 700,
+                      margin: 0,
+                      lineHeight: "1.1",
+                    }}
+                  >
+                    Você tem 7 dias para testar
+                  </p>
+                  <p
+                    style={{
+                      color: "#DBA86F",
+                      fontSize: "28px",
+                      fontWeight: 700,
+                      margin: "-4px 0 0 0",
+                      lineHeight: "1.1",
+                    }}
+                  >
+                    com risco zero
+                  </p>
+                </div>
+
+                {/* Description Text */}
+                <p
+                  style={{
+                    color: "#FFFFFF",
+                    fontSize: "14px",
+                    lineHeight: "1.6",
+                    margin: 0,
+                    opacity: 0.85,
+                    textAlign: "center",
+                    maxWidth: "400px",
+                  }}
+                >
+                  Caso você se arrependa de ter feito sua matrícula, independente do motivo, nós vamos alegremente devolver seu dinheiro sem perguntas e sem aborrecimentos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="pt-24 px-4 md:px-8" style={{ paddingTop: "80px" }}>
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center md:justify-items-center">
             <div className="order-1 lg:hidden">
-              <h2 className="nail-h2 mb-4">
+              <h2 className="nail-h2 mb-4 text-center md:text-center">
                 Prazer, <span className="gradient-text nail-h2-highlight">eu sou a Raira.</span>
               </h2>
             </div>
@@ -1965,25 +2462,52 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="order-3 lg:hidden justify-self-center" style={{ width: "92%", maxWidth: "92%" }}>
-              <div className="space-y-3">
-                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+            <div className="order-3 lg:hidden w-full flex flex-col items-center justify-center mx-auto">
+              <style dangerouslySetInnerHTML={{
+                __html: `
+                  @media (max-width: 767px) {
+                    .raira-text-container {
+                      text-align: left !important;
+                      width: 92% !important;
+                      max-width: 92% !important;
+                    }
+                    .raira-text-container p {
+                      text-align: left !important;
+                    }
+                  }
+                  @media (min-width: 768px) and (max-width: 1023px) {
+                    .raira-text-container {
+                      text-align: center !important;
+                      width: 100% !important;
+                      max-width: 100% !important;
+                      margin: 0 auto !important;
+                    }
+                    .raira-text-container p {
+                      text-align: center !important;
+                      margin-left: auto !important;
+                      margin-right: auto !important;
+                    }
+                  }
+                `
+              }} />
+              <div className="space-y-3 raira-text-container w-full">
+                <p className="nail-body leading-relaxed" style={{ opacity: 0.85 }}>
                   Meu propósito vai muito além de ensinar a fazer unhas. Eu acredito que essa profissão é uma das ferramentas mais poderosas de independência financeira que uma mulher pode ter.
                 </p>
-                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                <p className="nail-body leading-relaxed" style={{ opacity: 0.85 }}>
                   Comecei minha jornada buscando liberdade de tempo e de dinheiro. O que descobri foi uma carreira que me permitiu ser minha própria chefe e ditar minhas regras.
                 </p>
-                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                <p className="nail-body leading-relaxed" style={{ opacity: 0.85 }}>
                   Hoje, minha missão é elevar o nível do nosso mercado. Eu me dedico a formar profissionais de elite, que não sabem apenas a técnica, mas que sabem comandar seus próprios negócios.
                 </p>
-                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                <p className="nail-body leading-relaxed" style={{ opacity: 0.85 }}>
                   Por isso, decidi reunir todo o meu conhecimento em um único lugar.
                 </p>
-                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                <p className="nail-body leading-relaxed" style={{ opacity: 0.85 }}>
                   Assim, nasceu nosso curso — um método pensado para guiar outras mulheres na mesma jornada de transformação que um dia eu vivi, ensinando o caminho exato para construir uma carreira lucrativa e ser dona da sua própria história.
                 </p>
               </div>
-              <div className="mt-8 flex justify-center">
+              <div className="mt-8 flex justify-center w-full">
                 <div className="inline-block relative group" style={{ padding: "6px" }}>
                   <a href="#offer" className="cta-button">
                     QUERO ME TORNAR ALUNA
