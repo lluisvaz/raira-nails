@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -96,6 +96,30 @@ const lockLightVariant: Variants = {
       ease: "easeInOut",
     },
   },
+};
+
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+
+const hoverLift = {
+  y: -8,
+  transition: { duration: 0.3, ease: "easeOut" }
 };
 
 // Componente do celular
@@ -310,7 +334,7 @@ export default function Home() {
     const handleSmoothScroll = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const link = target.closest('a[href^="#"]') as HTMLAnchorElement;
-      
+
       if (link && link.getAttribute('href') === '#tudo-que-voce-precisa') {
         e.preventDefault();
         const targetElement = document.getElementById('tudo-que-voce-precisa');
@@ -768,8 +792,16 @@ export default function Home() {
             <span style={{ fontWeight: 700 }}>desenhada para você que:</span>
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 max-w-6xl mx-auto mb-12">
-            <div
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-12 gap-4 max-w-6xl mx-auto mb-12"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            <motion.div
+              variants={fadeInUp}
+              whileHover={hoverLift}
               className="nail-card text-left md:col-span-3"
               style={{
                 minHeight: "180px",
@@ -796,9 +828,11 @@ export default function Home() {
                 Em um emprego CLT que paga pouco, não te reconhece e rouba todo
                 o seu tempo, sem nenhuma perspectiva de crescimento.
               </p>
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
+              variants={fadeInUp}
+              whileHover={hoverLift}
               className="nail-card text-left md:col-span-4"
               style={{
                 minHeight: "200px",
@@ -825,9 +859,11 @@ export default function Home() {
                 De fazer seus próprios horários, poder levar seu filho na escola
                 ou ir à academia, sem ter que "bater ponto" ou pedir permissão.
               </p>
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
+              variants={fadeInUp}
+              whileHover={hoverLift}
               className="nail-card text-left md:col-span-5"
               style={{
                 minHeight: "190px",
@@ -854,9 +890,11 @@ export default function Home() {
                 E vê o potencial de ganhar R$ 3.000, R$ 5.000 ou mais por mês,
                 trabalhando para si mesma, com suas próprias regras.
               </p>
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
+              variants={fadeInUp}
+              whileHover={hoverLift}
               className="nail-card text-left md:col-span-5"
               style={{
                 minHeight: "195px",
@@ -883,9 +921,11 @@ export default function Home() {
                 E finalmente parar de receber ordens, lidando diretamente com
                 suas clientes e construindo algo que é seu de verdade.
               </p>
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
+              variants={fadeInUp}
+              whileHover={hoverLift}
               className="nail-card text-left md:col-span-4"
               style={{
                 minHeight: "185px",
@@ -912,9 +952,11 @@ export default function Home() {
                 Você olha o mercado de unhas e parece muito difícil, com muitos
                 materiais e técnicas, e tem medo de investir e não dar certo.
               </p>
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
+              variants={fadeInUp}
+              whileHover={hoverLift}
               className="nail-card text-left md:col-span-3"
               style={{
                 minHeight: "205px",
@@ -942,8 +984,8 @@ export default function Home() {
                 novo que sua família talvez não entenda como uma "profissão de
                 verdade".
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           <div className="flex flex-col md:flex-row items-center md:items-center justify-between gap-6 max-w-6xl mx-auto">
             <p
@@ -979,7 +1021,7 @@ export default function Home() {
               />
             </div>
           </div>
-        </div>
+        </div >
         <div className="pb-20"></div>
         {/* Divisória com degradê */}
         <div className="w-full px-4 md:px-8 lg:px-16">
@@ -992,10 +1034,10 @@ export default function Home() {
             }}
           />
         </div>
-      </section>
+      </section >
 
       {/* Platform Access Section */}
-      <section className="pt-16 px-4 md:px-8 overflow-hidden">
+      < section className="pt-16 px-4 md:px-8 overflow-hidden" >
         <div className="container mx-auto max-w-6xl">
           <div className="flex justify-center lg:justify-start mb-6">
             <div
@@ -1096,8 +1138,15 @@ export default function Home() {
               </p>
 
               {/* Lista de Benefícios */}
-              <div className="space-y-6 mb-10">
-                <div
+              <motion.div
+                className="space-y-6 mb-10"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                <motion.div
+                  variants={fadeInUp}
                   className="flex items-stretch"
                   data-testid="benefit-access-0"
                   style={{
@@ -1124,9 +1173,10 @@ export default function Home() {
                       dominar cada detalhe.
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
-                <div
+                <motion.div
+                  variants={fadeInUp}
                   className="flex items-stretch"
                   data-testid="benefit-access-1"
                   style={{
@@ -1153,9 +1203,10 @@ export default function Home() {
                       para as clientes.
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
-                <div
+                <motion.div
+                  variants={fadeInUp}
                   className="flex items-stretch"
                   data-testid="benefit-access-2"
                   style={{
@@ -1182,9 +1233,10 @@ export default function Home() {
                       para você.
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
-                <div
+                <motion.div
+                  variants={fadeInUp}
                   className="flex items-stretch"
                   data-testid="benefit-access-3"
                   style={{
@@ -1211,8 +1263,8 @@ export default function Home() {
                       procedimentos.
                     </p>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               {/* CTA Button */}
               <div className="flex justify-center lg:justify-start">
@@ -1286,7 +1338,7 @@ export default function Home() {
               />
             </div>
           </div>
-        </div>
+        </div >
         <div className="pb-20"></div>
         {/* Divisória com degradê */}
         <div className="w-full px-4 md:px-8 lg:px-16">
@@ -1299,10 +1351,10 @@ export default function Home() {
             }}
           />
         </div>
-      </section>
+      </section >
 
       {/* E Tem Mais Section */}
-      <section className="pt-16 px-4 md:px-8">
+      < section className="pt-16 px-4 md:px-8" >
         <div className="container mx-auto max-w-6xl">
           <div className="flex justify-center mb-6">
             <div
@@ -1341,7 +1393,12 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
             {/* Card 1 - Formação Completa */}
-            <div
+            <motion.div
+              whileHover={hoverLift}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
@@ -1398,10 +1455,15 @@ export default function Home() {
                   <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>práticas</span>
                 </h3>
               </div>
-            </div>
+            </motion.div>
 
             {/* Card 2 - Comunidade VIP */}
-            <div
+            <motion.div
+              whileHover={hoverLift}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
@@ -1454,10 +1516,15 @@ export default function Home() {
                   <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>no Instagram</span>
                 </h3>
               </div>
-            </div>
+            </motion.div>
 
             {/* Card 3 - Certificado */}
-            <div
+            <motion.div
+              whileHover={hoverLift}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
@@ -1511,10 +1578,15 @@ export default function Home() {
                   <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>de Conclusão</span>
                 </h3>
               </div>
-            </div>
+            </motion.div>
 
             {/* Card 4 - Apostilas e Listas */}
-            <div
+            <motion.div
+              whileHover={hoverLift}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 relative overflow-hidden min-h-[320px] lg:min-h-[280px]"
               style={{
                 background: "linear-gradient(to top right, #170F0B 0%, #261816 100%)",
@@ -1611,10 +1683,15 @@ export default function Home() {
                   <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>em PDF</span>
                 </h3>
               </div>
-            </div>
+            </motion.div>
 
             {/* Card 5 - Atualizações */}
-            <div
+            <motion.div
+              whileHover={hoverLift}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 relative overflow-hidden min-h-[320px] lg:min-h-[280px]"
               style={{
                 background: "linear-gradient(to bottom right, #261816 0%, #170F0B 70%)",
@@ -1711,7 +1788,7 @@ export default function Home() {
                   <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>e Gratuitas do Curso</span>
                 </h3>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
         <div className="pb-20"></div>
@@ -1793,7 +1870,8 @@ export default function Home() {
               >
                 {/* Primeira cópia dos cards */}
                 {[...Array(10)].map((_, index) => (
-                  <div
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
                     key={`module-1-${index}`}
                     className="flex-shrink-0 w-[180px] h-[250px] md:w-[250px] md:h-[350px] rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300"
                     style={{
@@ -1805,12 +1883,13 @@ export default function Home() {
                       alt={`Módulo ${index + 1}`}
                       className="w-full h-full object-cover"
                     />
-                  </div>
+                  </motion.div>
                 ))}
 
                 {/* Segunda cópia dos cards para loop infinito */}
                 {[...Array(10)].map((_, index) => (
-                  <div
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
                     key={`module-2-${index}`}
                     className="flex-shrink-0 w-[180px] h-[250px] md:w-[250px] md:h-[350px] rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300"
                     style={{
@@ -1822,7 +1901,7 @@ export default function Home() {
                       alt={`Módulo ${index + 1}`}
                       className="w-full h-full object-cover"
                     />
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -1870,17 +1949,18 @@ export default function Home() {
             }}
           />
         </div>
-      </section>
+      </section >
 
       {/* Banner Section - Tudo que você precisa */}
-      <section 
+      < section
         id="tudo-que-voce-precisa"
         className="w-full relative pt-4 md:pt-0"
-        style={{ 
+        style={{
           width: "100%",
           margin: "0",
           padding: "0",
-        }}
+        }
+        }
       >
         <div
           className="w-full relative"
@@ -1910,7 +1990,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        
+
         {/* Lombadinha arredondada com a seta */}
         <div
           className="absolute"
@@ -1952,363 +2032,387 @@ export default function Home() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* Pricing Card */}
-            <div
-              className="rounded-2xl overflow-hidden"
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="rounded-2xl overflow-hidden relative"
               style={{
                 background: "#261816",
                 border: "1px solid #332A2A",
               }}
             >
-              {/* Top Banner */}
-              <div
-                className="w-full text-center py-4"
+              {/* Glow effect */}
+              <motion.div
+                className="absolute inset-0 z-0"
                 style={{
-                  background: "#FFE6BF",
+                  background: "radial-gradient(circle at center, rgba(219, 168, 111, 0.15) 0%, transparent 70%)",
+                  filter: "blur(40px)",
                 }}
-              >
-                <p
+                animate={{
+                  opacity: [0.5, 0.8, 0.5],
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+
+              <div className="relative z-10">
+                {/* Top Banner */}
+                <div
+                  className="w-full text-center py-4"
                   style={{
-                    color: "#1A1212",
-                    fontSize: "14px",
-                    fontWeight: 600,
-                    letterSpacing: "0.01em",
-                    margin: 0,
+                    background: "#FFE6BF",
                   }}
                 >
-                  ACESSO ANUAL
-                </p>
-              </div>
-
-              {/* Content */}
-              <div className="p-8 md:p-10">
-                {/* Price */}
-                <div className="text-center mb-8">
                   <p
                     style={{
-                      color: "#FFFFFF",
-                      fontSize: "52px",
-                      fontWeight: 700,
-                      margin: "0 0 8px 0",
-                      lineHeight: "1.2",
-                    }}
-                  >
-                    R$ 47,26<span style={{ fontSize: "12px", fontWeight: 500 }}>/POR MÊS</span>
-                  </p>
-                  <p
-                    style={{
-                      color: "#DBA86F",
-                      fontSize: "18px",
+                      color: "#1A1212",
+                      fontSize: "14px",
                       fontWeight: 600,
+                      letterSpacing: "0.01em",
                       margin: 0,
                     }}
                   >
-                    OU R$ 457 À VISTA NO PIX
+                    ACESSO ANUAL
                   </p>
                 </div>
 
-                {/* Features List */}
-                <div className="flex justify-center mb-8">
-                  <div className="space-y-4" style={{ maxWidth: "100%", width: "fit-content" }}>
-                  <div className="flex items-center gap-3">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    style={{ flexShrink: 0 }}
-                  >
-                    <path
-                      d="M20 6L9 17L4 12"
-                      stroke="#DBA86F"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <p
-                    style={{
-                      color: "#FFFFFF",
-                      fontSize: "16px",
-                      lineHeight: "1.6",
-                      margin: 0,
-                      opacity: 0.9,
-                      textAlign: "left",
-                    }}
-                  >
-                    +20 aulas práticas de técnicas profissionais
-                  </p>
-                </div>
+                {/* Content */}
+                <div className="p-8 md:p-10">
+                  {/* Price */}
+                  <div className="text-center mb-8">
+                    <p
+                      style={{
+                        color: "#FFFFFF",
+                        fontSize: "52px",
+                        fontWeight: 700,
+                        margin: "0 0 8px 0",
+                        lineHeight: "1.2",
+                      }}
+                    >
+                      R$ 47,26<span style={{ fontSize: "12px", fontWeight: 500 }}>/POR MÊS</span>
+                    </p>
+                    <p
+                      style={{
+                        color: "#DBA86F",
+                        fontSize: "18px",
+                        fontWeight: 600,
+                        margin: 0,
+                      }}
+                    >
+                      OU R$ 457 À VISTA NO PIX
+                    </p>
+                  </div>
 
-                <div className="flex items-center gap-3">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    style={{ flexShrink: 0 }}
-                  >
-                    <path
-                      d="M20 6L9 17L4 12"
-                      stroke="#DBA86F"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <p
-                    style={{
-                      color: "#FFFFFF",
-                      fontSize: "16px",
-                      lineHeight: "1.6",
-                      margin: 0,
-                      opacity: 0.9,
-                      textAlign: "left",
-                    }}
-                  >
-                    Acesso por 12 meses à plataforma completa
-                  </p>
-                </div>
+                  {/* Features List */}
+                  <div className="flex justify-center mb-8">
+                    <div className="space-y-4" style={{ maxWidth: "100%", width: "fit-content" }}>
+                      <div className="flex items-center gap-3">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          style={{ flexShrink: 0 }}
+                        >
+                          <path
+                            d="M20 6L9 17L4 12"
+                            stroke="#DBA86F"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <p
+                          style={{
+                            color: "#FFFFFF",
+                            fontSize: "16px",
+                            lineHeight: "1.6",
+                            margin: 0,
+                            opacity: 0.9,
+                            textAlign: "left",
+                          }}
+                        >
+                          +20 aulas práticas de técnicas profissionais
+                        </p>
+                      </div>
 
-                <div className="flex items-center gap-3">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    style={{ flexShrink: 0 }}
-                  >
-                    <path
-                      d="M20 6L9 17L4 12"
-                      stroke="#DBA86F"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <p
-                    style={{
-                      color: "#FFFFFF",
-                      fontSize: "16px",
-                      lineHeight: "1.6",
-                      margin: 0,
-                      opacity: 0.9,
-                      textAlign: "left",
-                    }}
-                  >
-                    Comunidade VIP de alunas no Instagram
-                  </p>
-                </div>
+                      <div className="flex items-center gap-3">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          style={{ flexShrink: 0 }}
+                        >
+                          <path
+                            d="M20 6L9 17L4 12"
+                            stroke="#DBA86F"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <p
+                          style={{
+                            color: "#FFFFFF",
+                            fontSize: "16px",
+                            lineHeight: "1.6",
+                            margin: 0,
+                            opacity: 0.9,
+                            textAlign: "left",
+                          }}
+                        >
+                          Acesso por 12 meses à plataforma completa
+                        </p>
+                      </div>
 
-                <div className="flex items-center gap-3">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    style={{ flexShrink: 0 }}
-                  >
-                    <path
-                      d="M20 6L9 17L4 12"
-                      stroke="#DBA86F"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <p
-                    style={{
-                      color: "#FFFFFF",
-                      fontSize: "16px",
-                      lineHeight: "1.6",
-                      margin: 0,
-                      opacity: 0.9,
-                      textAlign: "left",
-                    }}
-                  >
-                    Certificado Profissional de Conclusão
-                  </p>
-                </div>
+                      <div className="flex items-center gap-3">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          style={{ flexShrink: 0 }}
+                        >
+                          <path
+                            d="M20 6L9 17L4 12"
+                            stroke="#DBA86F"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <p
+                          style={{
+                            color: "#FFFFFF",
+                            fontSize: "16px",
+                            lineHeight: "1.6",
+                            margin: 0,
+                            opacity: 0.9,
+                            textAlign: "left",
+                          }}
+                        >
+                          Comunidade VIP de alunas no Instagram
+                        </p>
+                      </div>
 
-                <div className="flex items-center gap-3">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    style={{ flexShrink: 0 }}
-                  >
-                    <path
-                      d="M20 6L9 17L4 12"
-                      stroke="#DBA86F"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <p
-                    style={{
-                      color: "#FFFFFF",
-                      fontSize: "16px",
-                      lineHeight: "1.6",
-                      margin: 0,
-                      opacity: 0.9,
-                      textAlign: "left",
-                    }}
-                  >
-                    Material de apoio em PDF
-                  </p>
-                </div>
+                      <div className="flex items-center gap-3">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          style={{ flexShrink: 0 }}
+                        >
+                          <path
+                            d="M20 6L9 17L4 12"
+                            stroke="#DBA86F"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <p
+                          style={{
+                            color: "#FFFFFF",
+                            fontSize: "16px",
+                            lineHeight: "1.6",
+                            margin: 0,
+                            opacity: 0.9,
+                            textAlign: "left",
+                          }}
+                        >
+                          Certificado Profissional de Conclusão
+                        </p>
+                      </div>
 
-                <div className="flex items-center gap-3">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    style={{ flexShrink: 0 }}
-                  >
-                    <path
-                      d="M20 6L9 17L4 12"
-                      stroke="#DBA86F"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <p
-                    style={{
-                      color: "#FFFFFF",
-                      fontSize: "16px",
-                      lineHeight: "1.6",
-                      margin: 0,
-                      opacity: 0.9,
-                      textAlign: "left",
-                    }}
-                  >
-                    Atualizações contínuas e gratuitas do curso
-                  </p>
-                </div>
+                      <div className="flex items-center gap-3">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          style={{ flexShrink: 0 }}
+                        >
+                          <path
+                            d="M20 6L9 17L4 12"
+                            stroke="#DBA86F"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <p
+                          style={{
+                            color: "#FFFFFF",
+                            fontSize: "16px",
+                            lineHeight: "1.6",
+                            margin: 0,
+                            opacity: 0.9,
+                            textAlign: "left",
+                          }}
+                        >
+                          Material de apoio em PDF
+                        </p>
+                      </div>
 
-                <div className="flex items-center gap-3">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    style={{ flexShrink: 0 }}
-                  >
-                    <path
-                      d="M20 6L9 17L4 12"
-                      stroke="#DBA86F"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <p
-                    style={{
-                      color: "#FFFFFF",
-                      fontSize: "16px",
-                      lineHeight: "1.6",
-                      margin: 0,
-                      opacity: 0.9,
-                      textAlign: "left",
-                    }}
-                  >
-                    Suporte direto com nossa equipe
-                  </p>
-                </div>
+                      <div className="flex items-center gap-3">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          style={{ flexShrink: 0 }}
+                        >
+                          <path
+                            d="M20 6L9 17L4 12"
+                            stroke="#DBA86F"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <p
+                          style={{
+                            color: "#FFFFFF",
+                            fontSize: "16px",
+                            lineHeight: "1.6",
+                            margin: 0,
+                            opacity: 0.9,
+                            textAlign: "left",
+                          }}
+                        >
+                          Atualizações contínuas e gratuitas do curso
+                        </p>
+                      </div>
 
-                <div className="flex items-center gap-3">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    style={{ flexShrink: 0 }}
-                  >
-                    <path
-                      d="M20 6L9 17L4 12"
-                      stroke="#DBA86F"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <p
-                    style={{
-                      color: "#FFFFFF",
-                      fontSize: "16px",
-                      lineHeight: "1.6",
-                      margin: 0,
-                      opacity: 0.9,
-                      textAlign: "left",
-                    }}
-                  >
-                    Sem fidelidade
-                  </p>
-                </div>
+                      <div className="flex items-center gap-3">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          style={{ flexShrink: 0 }}
+                        >
+                          <path
+                            d="M20 6L9 17L4 12"
+                            stroke="#DBA86F"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <p
+                          style={{
+                            color: "#FFFFFF",
+                            fontSize: "16px",
+                            lineHeight: "1.6",
+                            margin: 0,
+                            opacity: 0.9,
+                            textAlign: "left",
+                          }}
+                        >
+                          Suporte direto com nossa equipe
+                        </p>
+                      </div>
 
-                <div className="flex items-center gap-3">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    style={{ flexShrink: 0 }}
-                  >
-                    <path
-                      d="M20 6L9 17L4 12"
-                      stroke="#DBA86F"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <p
-                    style={{
-                      color: "#FFFFFF",
-                      fontSize: "16px",
-                      lineHeight: "1.6",
-                      margin: 0,
-                      opacity: 0.9,
-                      textAlign: "left",
-                    }}
-                  >
-                    Melhor custo x benefício
-                  </p>
-                </div>
+                      <div className="flex items-center gap-3">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          style={{ flexShrink: 0 }}
+                        >
+                          <path
+                            d="M20 6L9 17L4 12"
+                            stroke="#DBA86F"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <p
+                          style={{
+                            color: "#FFFFFF",
+                            fontSize: "16px",
+                            lineHeight: "1.6",
+                            margin: 0,
+                            opacity: 0.9,
+                            textAlign: "left",
+                          }}
+                        >
+                          Sem fidelidade
+                        </p>
+                      </div>
+
+                      <div className="flex items-center gap-3">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          style={{ flexShrink: 0 }}
+                        >
+                          <path
+                            d="M20 6L9 17L4 12"
+                            stroke="#DBA86F"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <p
+                          style={{
+                            color: "#FFFFFF",
+                            fontSize: "16px",
+                            lineHeight: "1.6",
+                            margin: 0,
+                            opacity: 0.9,
+                            textAlign: "left",
+                          }}
+                        >
+                          Melhor custo x benefício
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="text-center">
+                    <div
+                      className="inline-block relative group"
+                      style={{ padding: "6px", width: "100%", maxWidth: "100%" }}
+                    >
+                      <a
+                        href="#tudo-que-voce-precisa"
+                        className="cta-button"
+                        style={{ width: "100%" }}
+                      >
+                        QUERO ME TORNAR ALUNA
+                        <HiOutlineArrowUpRight
+                          size={24}
+                          className="text-black flex-shrink-0"
+                        />
+                      </a>
+                      <BorderBeam
+                        size={100}
+                        duration={3}
+                        colorFrom="#D19756"
+                        colorTo="#F1EEE1"
+                        beamBorderRadius={12}
+                      />
+                    </div>
                   </div>
                 </div>
-
-              {/* CTA Button */}
-              <div className="text-center">
-                <div
-                  className="inline-block relative group"
-                  style={{ padding: "6px", width: "100%", maxWidth: "100%" }}
-                >
-                  <a
-                    href="#tudo-que-voce-precisa"
-                    className="cta-button"
-                    style={{ width: "100%" }}
-                  >
-                    QUERO ME TORNAR ALUNA
-                    <HiOutlineArrowUpRight
-                      size={24}
-                      className="text-black flex-shrink-0"
-                    />
-                  </a>
-                  <BorderBeam
-                    size={100}
-                    duration={3}
-                    colorFrom="#D19756"
-                    colorTo="#F1EEE1"
-                    beamBorderRadius={12}
-                  />
-                </div>
               </div>
-              </div>
-            </div>
+            </motion.div>
 
             {/* Guarantee Card */}
             <div
@@ -2393,77 +2497,87 @@ export default function Home() {
             </div>
 
             <div className="order-2 lg:order-1 justify-self-center lg:justify-self-start transform scale-[0.92] md:scale-100 origin-top md:origin-top-left">
-              <div className="grid grid-cols-3 gap-3">
-              <div
-                className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
-                style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
+              <motion.div
+                className="grid grid-cols-3 gap-3"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
               >
-                <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769327/me-raira-1_xcb5uv.jpg" alt="" className="w-full h-full object-cover" />
-              </div>
-              <div
-                className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
-                style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
-              >
-                <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769328/me-raira-2_kbrc5v.jpg" alt="" className="w-full h-full object-cover" />
-              </div>
-              <div
-                className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
-                style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
-              >
-                <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769329/me-raira-3_lxjkdy.jpg" alt="" className="w-full h-full object-cover" />
-              </div>
-              <div
-                className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 row-span-2 col-span-1 h-[300px] md:h-[372px]"
-                style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
-              >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  disablePictureInPicture
-                  controlsList="nodownload nofullscreen noremoteplayback"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                <motion.div
+                  variants={fadeInUp}
+                  className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
+                  style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769329/me-raira-4_dpazsg.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeos.
-                </video>
-              </div>
-              <div
-                className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 col-span-2 h-[150px] md:h-[180px]"
-                style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
-              >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  disablePictureInPicture
-                  controlsList="nodownload nofullscreen noremoteplayback"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                  <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769327/me-raira-1_xcb5uv.jpg" alt="" className="w-full h-full object-cover" />
+                </motion.div>
+                <motion.div
+                  variants={fadeInUp}
+                  className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
+                  style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769329/me-raira-5_akjtca.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeos.
-                </video>
-              </div>
-              <div
-                className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 col-span-2 h-[150px] md:h-[180px]"
-                style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
-              >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  disablePictureInPicture
-                  controlsList="nodownload nofullscreen noremoteplayback"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                  <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769328/me-raira-2_kbrc5v.jpg" alt="" className="w-full h-full object-cover" />
+                </motion.div>
+                <motion.div
+                  variants={fadeInUp}
+                  className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
+                  style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769328/me-raira-6_lnjn8a.mp4" type="video/mp4" />
-                  Seu navegador não suporta vídeos.
-                </video>
-              </div>
-              </div>
+                  <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769329/me-raira-3_lxjkdy.jpg" alt="" className="w-full h-full object-cover" />
+                </motion.div>
+                <motion.div
+                  variants={fadeInUp}
+                  className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 row-span-2 col-span-1 h-[300px] md:h-[372px]"
+                  style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
+                >
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    disablePictureInPicture
+                    controlsList="nodownload nofullscreen noremoteplayback"
+                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                  >
+                    <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769329/me-raira-4_dpazsg.mp4" type="video/mp4" />
+                    Seu navegador não suporta vídeos.
+                  </video>
+                </motion.div>
+                <div
+                  className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 col-span-2 h-[150px] md:h-[180px]"
+                  style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
+                >
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    disablePictureInPicture
+                    controlsList="nodownload nofullscreen noremoteplayback"
+                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                  >
+                    <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769329/me-raira-5_akjtca.mp4" type="video/mp4" />
+                    Seu navegador não suporta vídeos.
+                  </video>
+                </div>
+                <div
+                  className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 col-span-2 h-[150px] md:h-[180px]"
+                  style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
+                >
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    disablePictureInPicture
+                    controlsList="nodownload nofullscreen noremoteplayback"
+                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                  >
+                    <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769328/me-raira-6_lnjn8a.mp4" type="video/mp4" />
+                    Seu navegador não suporta vídeos.
+                  </video>
+                </div>
+              </motion.div>
             </div>
 
             <div className="hidden lg:block lg:order-2 lg:col-start-2">
@@ -2497,34 +2611,33 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
             <div className="order-3 lg:hidden w-full flex flex-col items-center justify-center mx-auto">
               <style dangerouslySetInnerHTML={{
                 __html: `
-                  @media (max-width: 767px) {
-                    .raira-text-container {
-                      text-align: left !important;
-                      width: 92% !important;
-                      max-width: 92% !important;
-                    }
-                    .raira-text-container p {
-                      text-align: left !important;
-                    }
-                  }
-                  @media (min-width: 768px) and (max-width: 1023px) {
-                    .raira-text-container {
-                      text-align: center !important;
-                      width: 100% !important;
-                      max-width: 100% !important;
-                      margin: 0 auto !important;
-                    }
-                    .raira-text-container p {
-                      text-align: center !important;
-                      margin-left: auto !important;
-                      margin-right: auto !important;
-                    }
-                  }
-                `
+                      @media (max-width: 767px) {
+                        .raira-text-container {
+                          text-align: left !important;
+                          width: 92% !important;
+                          max-width: 92% !important;
+                        }
+                        .raira-text-container p {
+                          text-align: left !important;
+                        }
+                      }
+                      @media (min-width: 768px) and (max-width: 1023px) {
+                        .raira-text-container {
+                          text-align: center !important;
+                          width: 100% !important;
+                          max-width: 100% !important;
+                          margin: 0 auto !important;
+                        }
+                        .raira-text-container p {
+                          text-align: center !important;
+                          margin-left: auto !important;
+                          margin-right: auto !important;
+                        }
+                      }
+                    `
               }} />
               <div className="space-y-3 raira-text-container w-full">
                 <p className="nail-body leading-relaxed" style={{ opacity: 0.85 }}>
@@ -2622,8 +2735,7 @@ export default function Home() {
       >
         <div className="container mx-auto">
           <p className="nail-footer" data-testid="text-footer-copyright">
-            © 2025 Monfily Digital. Todos os direitos
-            reservados.
+            © 2025 Monfily Digital. Todos os direitos reservados.
           </p>
         </div>
       </footer>
