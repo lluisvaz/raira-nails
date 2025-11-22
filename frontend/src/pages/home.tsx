@@ -305,6 +305,28 @@ export default function Home() {
     return () => clearInterval(timer);
   }, [timeLeft]);
 
+  // Smooth scroll handler for anchor links
+  useEffect(() => {
+    const handleSmoothScroll = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest('a[href^="#"]') as HTMLAnchorElement;
+      
+      if (link && link.getAttribute('href') === '#tudo-que-voce-precisa') {
+        e.preventDefault();
+        const targetElement = document.getElementById('tudo-que-voce-precisa');
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
+      }
+    };
+
+    document.addEventListener('click', handleSmoothScroll);
+    return () => document.removeEventListener('click', handleSmoothScroll);
+  }, []);
+
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -618,7 +640,7 @@ export default function Home() {
                   whileHover={{ scale: 1.02 }}
                 >
                   <a
-                    href="#offer"
+                    href="#tudo-que-voce-precisa"
                     className="cta-button"
                     data-testid="button-cta-hero-desktop"
                   >
@@ -650,7 +672,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
             >
               <a
-                href="#offer"
+                href="#tudo-que-voce-precisa"
                 className="cta-button"
                 data-testid="button-cta-hero"
               >
@@ -938,7 +960,7 @@ export default function Home() {
               style={{ padding: "6px" }}
             >
               <a
-                href="#offer"
+                href="#tudo-que-voce-precisa"
                 className="cta-button"
                 data-testid="button-cta-target-audience"
               >
@@ -1199,7 +1221,7 @@ export default function Home() {
                   style={{ padding: "6px" }}
                 >
                   <a
-                    href="#offer"
+                    href="#tudo-que-voce-precisa"
                     className="cta-button"
                     data-testid="button-cta-access"
                   >
@@ -1371,7 +1393,7 @@ export default function Home() {
               {/* Conteúdo */}
               <div className="relative z-10 mt-0 lg:mt-[200px] pb-4">
                 <h3 className="text-3xl lg:text-[34px] font-bold mb-0">
-                  <span className="gradient-text">+150 Aulas</span>
+                  <span className="gradient-text">+20 Aulas</span>
                   <br />
                   <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>práticas</span>
                 </h3>
@@ -1852,6 +1874,7 @@ export default function Home() {
 
       {/* Banner Section - Tudo que você precisa */}
       <section 
+        id="tudo-que-voce-precisa"
         className="w-full relative pt-4 md:pt-0"
         style={{ 
           width: "100%",
@@ -2012,7 +2035,7 @@ export default function Home() {
                       textAlign: "left",
                     }}
                   >
-                    +150 aulas práticas de técnicas profissionais
+                    +20 aulas práticas de técnicas profissionais
                   </p>
                 </div>
 
@@ -2265,7 +2288,7 @@ export default function Home() {
                   style={{ padding: "6px", width: "100%", maxWidth: "100%" }}
                 >
                   <a
-                    href="#offer"
+                    href="#tudo-que-voce-precisa"
                     className="cta-button"
                     style={{ width: "100%" }}
                   >
@@ -2375,19 +2398,19 @@ export default function Home() {
                 className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
                 style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
               >
-                <img src="/images/me-raira-1.jpg" alt="" className="w-full h-full object-cover" />
+                <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769327/me-raira-1_xcb5uv.jpg" alt="" className="w-full h-full object-cover" />
               </div>
               <div
                 className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
                 style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
               >
-                <img src="/images/me-raira-2.jpg" alt="" className="w-full h-full object-cover" />
+                <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769328/me-raira-2_kbrc5v.jpg" alt="" className="w-full h-full object-cover" />
               </div>
               <div
                 className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
                 style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
               >
-                <img src="/images/me-raira-3.jpg" alt="" className="w-full h-full object-cover" />
+                <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769329/me-raira-3_lxjkdy.jpg" alt="" className="w-full h-full object-cover" />
               </div>
               <div
                 className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 row-span-2 col-span-1 h-[300px] md:h-[372px]"
@@ -2402,7 +2425,7 @@ export default function Home() {
                   controlsList="nodownload nofullscreen noremoteplayback"
                   style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
                 >
-                  <source src="/images/me-raira-4.mp4" type="video/mp4" />
+                  <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769329/me-raira-4_dpazsg.mp4" type="video/mp4" />
                   Seu navegador não suporta vídeos.
                 </video>
               </div>
@@ -2419,7 +2442,7 @@ export default function Home() {
                   controlsList="nodownload nofullscreen noremoteplayback"
                   style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
                 >
-                  <source src="/images/me-raira-5.mp4" type="video/mp4" />
+                  <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769329/me-raira-5_akjtca.mp4" type="video/mp4" />
                   Seu navegador não suporta vídeos.
                 </video>
               </div>
@@ -2436,7 +2459,7 @@ export default function Home() {
                   controlsList="nodownload nofullscreen noremoteplayback"
                   style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
                 >
-                  <source src="/images/me-raira-6.mp4" type="video/mp4" />
+                  <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769328/me-raira-6_lnjn8a.mp4" type="video/mp4" />
                   Seu navegador não suporta vídeos.
                 </video>
               </div>
@@ -2466,7 +2489,7 @@ export default function Home() {
               </div>
               <div className="mt-6 flex justify-start">
                 <div className="inline-block relative group" style={{ padding: "6px" }}>
-                  <a href="#offer" className="cta-button">
+                  <a href="#tudo-que-voce-precisa" className="cta-button">
                     QUERO ME TORNAR ALUNA
                     <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
                   </a>
@@ -2522,7 +2545,7 @@ export default function Home() {
               </div>
               <div className="mt-8 flex justify-center w-full">
                 <div className="inline-block relative group" style={{ padding: "6px" }}>
-                  <a href="#offer" className="cta-button">
+                  <a href="#tudo-que-voce-precisa" className="cta-button">
                     QUERO ME TORNAR ALUNA
                     <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
                   </a>
