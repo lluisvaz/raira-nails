@@ -2395,7 +2395,7 @@ export default function Home() {
                         className="cta-button"
                         style={{ width: "100%" }}
                       >
-                        QUERO ME TORNAR ALUNA
+                        GARANTIR OFERTA
                         <HiOutlineArrowUpRight
                           size={24}
                           className="text-black flex-shrink-0"
