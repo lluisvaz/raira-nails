@@ -98,28 +98,38 @@ const lockLightVariant: Variants = {
   },
 };
 
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
+const hoverLift = {
+  y: -8,
+  transition: { duration: 0.3, ease: "easeOut" }
 };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
+// Variante de animação blur text minimalista e moderna
+const blurText: Variants = {
+  hidden: { 
+    opacity: 0, 
+    filter: "blur(10px)",
+    y: 20
+  },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.15
+    filter: "blur(0px)",
+    y: 0,
+    transition: { 
+      duration: 0.8, 
+      ease: [0.16, 1, 0.3, 1] // easeOutExpo
     }
   }
 };
 
-const hoverLift = {
-  y: -8,
-  transition: { duration: 0.3, ease: "easeOut" }
+const blurTextStagger: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1
+    }
+  }
 };
 
 // Componente do celular
@@ -258,9 +268,9 @@ const PDFComponent = () => {
   return (
     <motion.div
       className="relative mx-auto h-full w-full"
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
+      variants={blurText}
+      initial="hidden"
+      animate="visible"
     >
       <div className="relative h-full w-full flex items-center justify-center">
         {/* Documento PDF */}
@@ -574,9 +584,10 @@ export default function Home() {
               <motion.h1
                 className="nail-hero-title mb-0"
                 data-testid="text-hero-title"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                variants={blurText}
+                initial="hidden"
+                animate="visible"
+                transition={{ delay: 0.2 }}
               >
                 Conquiste sua{" "}
                 <span className="gradient-text">Independência Financeira</span>{" "}
@@ -585,9 +596,10 @@ export default function Home() {
               <motion.p
                 className="nail-subtitle mb-10 md:mb-8 mt-10 md:mt-8"
                 data-testid="text-hero-subtitle"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                variants={blurText}
+                initial="hidden"
+                animate="visible"
+                transition={{ delay: 0.4 }}
               >
                 Fature +R$5.000/Mês como Nail Designer, Dominando as Técnicas
                 que as Clientes Amam!
@@ -626,18 +638,19 @@ export default function Home() {
                     opacity: 0.7,
                   }}
                   data-testid="text-hero-badge-desktop"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 0.7, y: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  variants={blurText}
+                  initial="hidden"
+                  animate="visible"
                 >
                   INSCRIÇÕES ABERTAS POR TEMPO LIMITADO
                 </motion.p>
                 <motion.h1
                   className="nail-hero-title mb-8"
                   data-testid="text-hero-title-desktop"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                  variants={blurText}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ delay: 0.2 }}
                 >
                   Conquiste sua{" "}
                   <span className="gradient-text">
@@ -648,9 +661,10 @@ export default function Home() {
                 <motion.p
                   className="nail-subtitle mb-12"
                   data-testid="text-hero-subtitle-desktop"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                  variants={blurText}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ delay: 0.4 }}
                 >
                   Fature +R$5.000/Mês como Nail Designer, Dominando as Técnicas
                   que as Clientes Amam!
@@ -658,9 +672,10 @@ export default function Home() {
                 <motion.div
                   className="inline-block relative group z-20"
                   style={{ padding: "6px" }}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+                  variants={blurText}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ delay: 0.6 }}
                   whileHover={{ scale: 1.02 }}
                 >
                   <a
@@ -691,9 +706,10 @@ export default function Home() {
             <motion.div
               className="inline-block relative group"
               style={{ padding: "6px" }}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+              variants={blurText}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: 0.6 }}
             >
               <a
                 href="#tudo-que-voce-precisa"
@@ -714,7 +730,7 @@ export default function Home() {
                 beamBorderRadius={12}
               />
             </motion.div>
-            <p
+            <motion.p
               className="text-white uppercase mt-6 text-center"
               style={{
                 fontSize: "11px",
@@ -723,9 +739,13 @@ export default function Home() {
                 opacity: 0.7,
               }}
               data-testid="text-hero-badge"
+              variants={blurText}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: 0.8 }}
             >
               INSCRIÇÕES ABERTAS POR TEMPO LIMITADO
-            </p>
+            </motion.p>
           </div>
         </div>
       </header>
@@ -744,11 +764,15 @@ export default function Home() {
       {/* Problem Section */}
       <section className="pt-16 px-4 md:px-8 text-center relative z-20">
         <div className="container mx-auto max-w-6xl">
-          <div
+          <motion.div
             className="inline-flex items-center gap-3 px-6 py-3 mb-6 rounded-full"
             style={{
               background: "linear-gradient(90deg, #170F0B 0%, #382607 100%)",
             }}
+            variants={blurText}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
           >
             <img
               src="/images/logo-icon.png"
@@ -768,10 +792,15 @@ export default function Home() {
             >
               PARA QUEM É?
             </p>
-          </div>
-          <h2
+          </motion.div>
+          <motion.h2
             className="nail-h2 mb-4 mx-auto lg:max-w-3xl"
             data-testid="text-problem-title"
+            variants={blurText}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ delay: 0.1 }}
           >
             Cansada de trabalhar muito{" "}
             <span
@@ -783,24 +812,29 @@ export default function Home() {
             >
               e sentir que não sai do lugar?
             </span>
-          </h2>
-          <p
+          </motion.h2>
+          <motion.p
             className="nail-body leading-relaxed mx-auto max-w-xl mb-16"
             data-testid="text-problem-subtitle"
+            variants={blurText}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ delay: 0.2 }}
           >
             Esta formação é o seu plano de fuga,{" "}
             <span style={{ fontWeight: 700 }}>desenhada para você que:</span>
-          </p>
+          </motion.p>
 
           <motion.div
             className="grid grid-cols-1 md:grid-cols-12 gap-4 max-w-6xl mx-auto mb-12"
-            variants={staggerContainer}
+            variants={blurTextStagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
           >
             <motion.div
-              variants={fadeInUp}
+              variants={blurText}
               whileHover={hoverLift}
               className="nail-card text-left md:col-span-3"
               style={{
@@ -831,7 +865,7 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              variants={fadeInUp}
+              variants={blurText}
               whileHover={hoverLift}
               className="nail-card text-left md:col-span-4"
               style={{
@@ -862,7 +896,7 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              variants={fadeInUp}
+              variants={blurText}
               whileHover={hoverLift}
               className="nail-card text-left md:col-span-5"
               style={{
@@ -893,7 +927,7 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              variants={fadeInUp}
+              variants={blurText}
               whileHover={hoverLift}
               className="nail-card text-left md:col-span-5"
               style={{
@@ -924,7 +958,7 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              variants={fadeInUp}
+              variants={blurText}
               whileHover={hoverLift}
               className="nail-card text-left md:col-span-4"
               style={{
@@ -955,7 +989,7 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              variants={fadeInUp}
+              variants={blurText}
               whileHover={hoverLift}
               className="nail-card text-left md:col-span-3"
               style={{
@@ -987,19 +1021,27 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          <div className="flex flex-col md:flex-row items-center md:items-center justify-between gap-6 max-w-6xl mx-auto">
-            <p
+          <motion.div 
+            className="flex flex-col md:flex-row items-center md:items-center justify-between gap-6 max-w-6xl mx-auto"
+            variants={blurTextStagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            <motion.p
               className="nail-body leading-relaxed text-center md:text-left md:max-w-md"
               style={{ fontWeight: 500 }}
               data-testid="text-problem-conclusion"
+              variants={blurText}
             >
               Se você está decidida a construir uma nova realidade financeira
               para você e sua família... Esta formação é para você.
-            </p>
+            </motion.p>
 
-            <div
+            <motion.div
               className="relative group flex-shrink-0"
               style={{ padding: "6px" }}
+              variants={blurText}
             >
               <a
                 href="#tudo-que-voce-precisa"
@@ -1019,9 +1061,9 @@ export default function Home() {
                 colorTo="#F1EEE1"
                 beamBorderRadius={12}
               />
-            </div>
-          </div>
-        </div >
+            </motion.div>
+          </motion.div>
+        </div>
         <div className="pb-20"></div>
         {/* Divisória com degradê */}
         <div className="w-full px-4 md:px-8 lg:px-16">
@@ -1034,12 +1076,18 @@ export default function Home() {
             }}
           />
         </div>
-      </section >
+      </section>
 
       {/* Platform Access Section */}
-      < section className="pt-16 px-4 md:px-8 overflow-hidden" >
+      <section className="pt-16 px-4 md:px-8 overflow-hidden">
         <div className="container mx-auto max-w-6xl">
-          <div className="flex justify-center lg:justify-start mb-6">
+          <motion.div 
+            className="flex justify-center lg:justify-start mb-6"
+            variants={blurText}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <div
               className="inline-flex items-center gap-3 px-6 py-3 rounded-full"
               style={{
@@ -1065,25 +1113,32 @@ export default function Home() {
                 AO QUE VOCÊ TERÁ ACESSO?
               </p>
             </div>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center overflow-visible">
             {/* Lado Esquerdo - Conteúdo */}
-            <div>
-              <h2
+            <motion.div
+              variants={blurTextStagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              <motion.h2
                 className="nail-h2 mb-6 text-center lg:text-left"
                 data-testid="text-access-title"
+                variants={blurText}
               >
                 Conheça sua Escola de Unhas{" "}
                 <span className="gradient-text nail-h2-highlight">
                   por dentro
                 </span>
-              </h2>
+              </motion.h2>
 
               {/* Vídeo Mobile - aparece só no mobile abaixo do título */}
-              <div
+              <motion.div
                 className="lg:hidden relative mb-8"
                 style={{ padding: "6px" }}
+                variants={blurText}
               >
                 <div
                   className="rounded-2xl overflow-hidden"
@@ -1122,12 +1177,13 @@ export default function Home() {
                   colorTo="#F1EEE1"
                   beamBorderRadius={12}
                 />
-              </div>
+              </motion.div>
 
-              <p
+              <motion.p
                 id="text-platform-description"
                 className="nail-body leading-relaxed mb-8 text-center lg:text-left"
                 data-testid="text-access-description"
+                variants={blurText}
               >
                 Nossa plataforma oferece um{" "}
                 <span style={{ fontWeight: 700 }}>
@@ -1135,18 +1191,15 @@ export default function Home() {
                 </span>
                 , criado para transformar você do zero em uma profissional
                 requisitada.
-              </p>
+              </motion.p>
 
               {/* Lista de Benefícios */}
               <motion.div
                 className="space-y-6 mb-10"
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
+                variants={blurTextStagger}
               >
                 <motion.div
-                  variants={fadeInUp}
+                  variants={blurText}
                   className="flex items-stretch"
                   data-testid="benefit-access-0"
                   style={{
@@ -1176,7 +1229,7 @@ export default function Home() {
                 </motion.div>
 
                 <motion.div
-                  variants={fadeInUp}
+                  variants={blurText}
                   className="flex items-stretch"
                   data-testid="benefit-access-1"
                   style={{
@@ -1206,7 +1259,7 @@ export default function Home() {
                 </motion.div>
 
                 <motion.div
-                  variants={fadeInUp}
+                  variants={blurText}
                   className="flex items-stretch"
                   data-testid="benefit-access-2"
                   style={{
@@ -1236,7 +1289,7 @@ export default function Home() {
                 </motion.div>
 
                 <motion.div
-                  variants={fadeInUp}
+                  variants={blurText}
                   className="flex items-stretch"
                   data-testid="benefit-access-3"
                   style={{
@@ -1267,7 +1320,10 @@ export default function Home() {
               </motion.div>
 
               {/* CTA Button */}
-              <div className="flex justify-center lg:justify-start">
+              <motion.div 
+                className="flex justify-center lg:justify-start"
+                variants={blurText}
+              >
                 <div
                   className="inline-block relative group"
                   style={{ padding: "6px" }}
@@ -1291,13 +1347,14 @@ export default function Home() {
                     beamBorderRadius={12}
                   />
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Lado Direito - Vídeo */}
-            <div
+            <motion.div
               className="hidden lg:block relative"
               style={{ padding: "6px", marginTop: "80px" }}
+              variants={blurText}
             >
               <div
                 className="rounded-2xl overflow-hidden"
@@ -1336,9 +1393,9 @@ export default function Home() {
                 colorTo="#F1EEE1"
                 beamBorderRadius={12}
               />
-            </div>
+            </motion.div>
           </div>
-        </div >
+        </div>
         <div className="pb-20"></div>
         {/* Divisória com degradê */}
         <div className="w-full px-4 md:px-8 lg:px-16">
@@ -1351,12 +1408,18 @@ export default function Home() {
             }}
           />
         </div>
-      </section >
+      </section>
 
       {/* E Tem Mais Section */}
-      < section className="pt-16 px-4 md:px-8" >
+      <section className="pt-16 px-4 md:px-8">
         <div className="container mx-auto max-w-6xl">
-          <div className="flex justify-center mb-6">
+          <motion.div 
+            className="flex justify-center mb-6"
+            variants={blurText}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <div
               className="inline-flex items-center gap-3 px-6 py-3 rounded-full"
               style={{
@@ -1382,23 +1445,31 @@ export default function Home() {
                 E TEM MAIS!
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <h2 className="nail-h2 mb-12" data-testid="text-extras-title">
+          <motion.h2 
+            className="nail-h2 mb-12" 
+            data-testid="text-extras-title"
+            variants={blurText}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ delay: 0.1 }}
+          >
             Além disso,{" "}
             <span className="gradient-text nail-h2-highlight">
               você também terá acesso a:
             </span>
-          </h2>
+          </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
             {/* Card 1 - Formação Completa */}
             <motion.div
               whileHover={hoverLift}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              variants={blurText}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
@@ -1460,10 +1531,11 @@ export default function Home() {
             {/* Card 2 - Comunidade VIP */}
             <motion.div
               whileHover={hoverLift}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              variants={blurText}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.1 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
@@ -1521,10 +1593,11 @@ export default function Home() {
             {/* Card 3 - Certificado */}
             <motion.div
               whileHover={hoverLift}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              variants={blurText}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.2 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
@@ -1583,10 +1656,11 @@ export default function Home() {
             {/* Card 4 - Apostilas e Listas */}
             <motion.div
               whileHover={hoverLift}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              variants={blurText}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.3 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 relative overflow-hidden min-h-[320px] lg:min-h-[280px]"
               style={{
                 background: "linear-gradient(to top right, #170F0B 0%, #261816 100%)",
@@ -1688,10 +1762,11 @@ export default function Home() {
             {/* Card 5 - Atualizações */}
             <motion.div
               whileHover={hoverLift}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              variants={blurText}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.4 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 relative overflow-hidden min-h-[320px] lg:min-h-[280px]"
               style={{
                 background: "linear-gradient(to bottom right, #261816 0%, #170F0B 70%)",
@@ -1808,7 +1883,13 @@ export default function Home() {
       {/* Por Dentro Section */}
       <section className="pt-16 px-4 md:px-8 overflow-hidden">
         <div className="container mx-auto max-w-6xl">
-          <div className="flex justify-center mb-6">
+          <motion.div 
+            className="flex justify-center mb-6"
+            variants={blurText}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <div
               className="inline-flex items-center gap-3 px-6 py-3 rounded-full"
               style={{
@@ -1834,11 +1915,19 @@ export default function Home() {
                 POR DENTRO
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <h2 className="nail-h2 mb-12 text-center" data-testid="text-por-dentro-title">
+          <motion.h2 
+            className="nail-h2 mb-12 text-center" 
+            data-testid="text-por-dentro-title"
+            variants={blurText}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ delay: 0.1 }}
+          >
             <span className="gradient-text nail-h2-highlight">Confira os módulos</span> presentes no curso
-          </h2>
+          </motion.h2>
 
           {/* Esteira de módulos com gradientes laterais */}
           <div className="relative w-full">
@@ -1949,10 +2038,10 @@ export default function Home() {
             }}
           />
         </div>
-      </section >
+      </section>
 
       {/* Banner Section - Tudo que você precisa */}
-      < section
+      <section
         id="tudo-que-voce-precisa"
         className="w-full relative pt-4 md:pt-0"
         style={{
@@ -1975,7 +2064,13 @@ export default function Home() {
             paddingBottom: "60px",
           }}
         >
-          <div className="text-center">
+          <motion.div 
+            className="text-center"
+            variants={blurText}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <p
               style={{
                 color: "#1A1212",
@@ -1988,7 +2083,7 @@ export default function Home() {
             >
               Tudo o que você precisa para começar, incluso em uma única inscrição:
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Lombadinha arredondada com a seta */}
@@ -2033,10 +2128,10 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* Pricing Card */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              variants={blurText}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className="rounded-2xl overflow-hidden relative"
               style={{
                 background: "#261816",
@@ -2415,11 +2510,16 @@ export default function Home() {
             </motion.div>
 
             {/* Guarantee Card */}
-            <div
+            <motion.div
               className="rounded-2xl overflow-hidden flex items-center justify-center"
               style={{
                 background: "#170F0B",
               }}
+              variants={blurText}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.2 }}
             >
               <div className="p-8 md:p-10 flex flex-col items-center justify-center w-full">
                 {/* Logo and Main Text */}
@@ -2469,7 +2569,7 @@ export default function Home() {
                   Caso você se arrependa de ter feito sua matrícula, independente do motivo, nós vamos alegremente devolver seu dinheiro sem perguntas e sem aborrecimentos.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
         <div className="pb-20"></div>
@@ -2490,43 +2590,49 @@ export default function Home() {
       <section className="pt-4 md:pt-8 px-4 md:px-8">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center md:justify-items-center">
-            <div className="order-1 lg:hidden">
+            <motion.div 
+              className="order-1 lg:hidden"
+              variants={blurText}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <h2 className="nail-h2 mb-4 text-center md:text-center" style={{ fontSize: "48px" }}>
                 Prazer, <span className="gradient-text nail-h2-highlight">eu sou a Raira.</span>
               </h2>
-            </div>
+            </motion.div>
 
             <div className="order-2 lg:order-1 justify-self-center lg:justify-self-start transform scale-[0.92] md:scale-100 origin-top md:origin-top-left">
               <motion.div
                 className="grid grid-cols-3 gap-3"
-                variants={staggerContainer}
+                variants={blurTextStagger}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-50px" }}
               >
                 <motion.div
-                  variants={fadeInUp}
+                  variants={blurText}
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
                   <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769327/me-raira-1_xcb5uv.jpg" alt="" className="w-full h-full object-cover" />
                 </motion.div>
                 <motion.div
-                  variants={fadeInUp}
+                  variants={blurText}
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
                   <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769328/me-raira-2_kbrc5v.jpg" alt="" className="w-full h-full object-cover" />
                 </motion.div>
                 <motion.div
-                  variants={fadeInUp}
+                  variants={blurText}
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
                   <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769329/me-raira-3_lxjkdy.jpg" alt="" className="w-full h-full object-cover" />
                 </motion.div>
                 <motion.div
-                  variants={fadeInUp}
+                  variants={blurText}
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 row-span-2 col-span-1 h-[300px] md:h-[372px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
@@ -2580,28 +2686,61 @@ export default function Home() {
               </motion.div>
             </div>
 
-            <div className="hidden lg:block lg:order-2 lg:col-start-2">
-              <h2 className="nail-h2 mb-6" style={{ textAlign: "left" }}>
+            <motion.div 
+              className="hidden lg:block lg:order-2 lg:col-start-2"
+              variants={blurTextStagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              <motion.h2 
+                className="nail-h2 mb-6" 
+                style={{ textAlign: "left" }}
+                variants={blurText}
+              >
                 Prazer, <span className="gradient-text nail-h2-highlight">eu sou a Raira.</span>
-              </h2>
+              </motion.h2>
               <div className="space-y-3">
-                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                <motion.p 
+                  className="nail-body leading-relaxed max-w-none" 
+                  style={{ opacity: 0.85 }}
+                  variants={blurText}
+                >
                   Meu propósito vai muito além de ensinar a fazer unhas. Eu acredito que essa profissão é uma das ferramentas mais poderosas de independência financeira que uma mulher pode ter.
-                </p>
-                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                </motion.p>
+                <motion.p 
+                  className="nail-body leading-relaxed max-w-none" 
+                  style={{ opacity: 0.85 }}
+                  variants={blurText}
+                >
                   Comecei minha jornada buscando liberdade de tempo e de dinheiro. O que descobri foi uma carreira que me permitiu ser minha própria chefe e ditar minhas regras.
-                </p>
-                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                </motion.p>
+                <motion.p 
+                  className="nail-body leading-relaxed max-w-none" 
+                  style={{ opacity: 0.85 }}
+                  variants={blurText}
+                >
                   Hoje, minha missão é elevar o nível do nosso mercado. Eu me dedico a formar profissionais de elite, que não sabem apenas a técnica, mas que sabem comandar seus próprios negócios.
-                </p>
-                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                </motion.p>
+                <motion.p 
+                  className="nail-body leading-relaxed max-w-none" 
+                  style={{ opacity: 0.85 }}
+                  variants={blurText}
+                >
                   Por isso, decidi reunir todo o meu conhecimento em um único lugar.
-                </p>
-                <p className="nail-body leading-relaxed max-w-none" style={{ opacity: 0.85 }}>
+                </motion.p>
+                <motion.p 
+                  className="nail-body leading-relaxed max-w-none" 
+                  style={{ opacity: 0.85 }}
+                  variants={blurText}
+                >
                   Assim, nasceu nosso curso — um método pensado para guiar outras mulheres na mesma jornada de transformação que um dia eu vivi, ensinando o caminho exato para construir uma carreira lucrativa e ser dona da sua própria história.
-                </p>
+                </motion.p>
               </div>
-              <div className="mt-6 flex justify-start">
+              <motion.div 
+                className="mt-6 flex justify-start"
+                variants={blurText}
+              >
                 <div className="inline-block relative group" style={{ padding: "6px" }}>
                   <a href="#tudo-que-voce-precisa" className="cta-button">
                     QUERO ME TORNAR ALUNA
@@ -2609,9 +2748,15 @@ export default function Home() {
                   </a>
                   <BorderBeam size={100} duration={3} colorFrom="#D19756" colorTo="#F1EEE1" beamBorderRadius={12} />
                 </div>
-              </div>
-            </div>
-            <div className="order-3 lg:hidden w-full flex flex-col items-center justify-center mx-auto">
+              </motion.div>
+            </motion.div>
+            <motion.div 
+              className="order-3 lg:hidden w-full flex flex-col items-center justify-center mx-auto"
+              variants={blurTextStagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               <style dangerouslySetInnerHTML={{
                 __html: `
                       @media (max-width: 767px) {
@@ -2640,23 +2785,46 @@ export default function Home() {
                     `
               }} />
               <div className="space-y-3 raira-text-container w-full">
-                <p className="nail-body leading-relaxed" style={{ opacity: 0.85 }}>
+                <motion.p 
+                  className="nail-body leading-relaxed" 
+                  style={{ opacity: 0.85 }}
+                  variants={blurText}
+                >
                   Meu propósito vai muito além de ensinar a fazer unhas. Eu acredito que essa profissão é uma das ferramentas mais poderosas de independência financeira que uma mulher pode ter.
-                </p>
-                <p className="nail-body leading-relaxed" style={{ opacity: 0.85 }}>
+                </motion.p>
+                <motion.p 
+                  className="nail-body leading-relaxed" 
+                  style={{ opacity: 0.85 }}
+                  variants={blurText}
+                >
                   Comecei minha jornada buscando liberdade de tempo e de dinheiro. O que descobri foi uma carreira que me permitiu ser minha própria chefe e ditar minhas regras.
-                </p>
-                <p className="nail-body leading-relaxed" style={{ opacity: 0.85 }}>
+                </motion.p>
+                <motion.p 
+                  className="nail-body leading-relaxed" 
+                  style={{ opacity: 0.85 }}
+                  variants={blurText}
+                >
                   Hoje, minha missão é elevar o nível do nosso mercado. Eu me dedico a formar profissionais de elite, que não sabem apenas a técnica, mas que sabem comandar seus próprios negócios.
-                </p>
-                <p className="nail-body leading-relaxed" style={{ opacity: 0.85 }}>
+                </motion.p>
+                <motion.p 
+                  className="nail-body leading-relaxed" 
+                  style={{ opacity: 0.85 }}
+                  variants={blurText}
+                >
                   Por isso, decidi reunir todo o meu conhecimento em um único lugar.
-                </p>
-                <p className="nail-body leading-relaxed" style={{ opacity: 0.85 }}>
+                </motion.p>
+                <motion.p 
+                  className="nail-body leading-relaxed" 
+                  style={{ opacity: 0.85 }}
+                  variants={blurText}
+                >
                   Assim, nasceu nosso curso — um método pensado para guiar outras mulheres na mesma jornada de transformação que um dia eu vivi, ensinando o caminho exato para construir uma carreira lucrativa e ser dona da sua própria história.
-                </p>
+                </motion.p>
               </div>
-              <div className="mt-8 flex justify-center w-full">
+              <motion.div 
+                className="mt-8 flex justify-center w-full"
+                variants={blurText}
+              >
                 <div className="inline-block relative group" style={{ padding: "6px" }}>
                   <a href="#tudo-que-voce-precisa" className="cta-button">
                     QUERO ME TORNAR ALUNA
@@ -2664,8 +2832,8 @@ export default function Home() {
                   </a>
                   <BorderBeam size={100} duration={3} colorFrom="#D19756" colorTo="#F1EEE1" beamBorderRadius={12} />
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
         <div className="pb-20"></div>
@@ -2684,10 +2852,23 @@ export default function Home() {
       {/* FAQ Section */}
       <section className="pt-16 px-4 md:px-8">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="nail-h2" data-testid="text-faq-title">
+          <motion.h2 
+            className="nail-h2" 
+            data-testid="text-faq-title"
+            variants={blurText}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             Perguntas Frequentes
-          </h2>
-          <Accordion type="single" collapsible className="space-y-3">
+          </motion.h2>
+          <motion.div
+            variants={blurTextStagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
@@ -2713,6 +2894,7 @@ export default function Home() {
               </AccordionItem>
             ))}
           </Accordion>
+          </motion.div>
         </div>
         <div className="pb-20"></div>
         {/* Divisória com degradê */}
