@@ -580,7 +580,7 @@ export default function Home() {
               draggable="false"
               onContextMenu={(e) => e.preventDefault()}
             />
-            <div className="absolute bottom-[-240px] md:bottom-[-100px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8">
+            <div className="absolute bottom-[-180px] md:bottom-[-100px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8">
               <motion.h1
                 className="nail-hero-title mb-0"
                 data-testid="text-hero-title"
@@ -594,7 +594,7 @@ export default function Home() {
                 como Nail Designer de Sucesso.
               </motion.h1>
               <motion.p
-                className="nail-subtitle mb-10 md:mb-8 mt-10 md:mt-8"
+                className="nail-subtitle mb-8 md:mb-8 mt-10 md:mt-8"
                 data-testid="text-hero-subtitle"
                 variants={blurText}
                 initial="hidden"
@@ -702,7 +702,7 @@ export default function Home() {
           </div>
 
           {/* Botão Mobile/Tablet */}
-          <div className="lg:hidden px-4 md:px-8 pt-64 md:pt-32 pb-20">
+          <div className="lg:hidden px-4 md:px-8 pt-36 md:pt-32 pb-20">
             <motion.div
               className="inline-block relative group"
               style={{ padding: "6px" }}

@@ -384,7 +384,7 @@
   .nail-hero-title {
     font-size: 48px;
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 0.95;
     letter-spacing: -0.02em;
     font-family: var(--font-titulos);
   }
