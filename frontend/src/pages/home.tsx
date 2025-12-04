@@ -625,21 +625,34 @@ export default function Home() {
             {/* Textos sobrepostos à esquerda - LARGURA AUMENTADA */}
             <div className="relative z-10 flex items-center min-h-[1000px]">
               <div className="max-w-[700px] px-8">
-                <motion.p
-                  className="text-white uppercase mb-6 text-left"
-                  style={{
-                    fontSize: "11px",
-                    fontWeight: 600,
-                    letterSpacing: "0.1em",
-                    opacity: 0.7,
-                  }}
+                <motion.div
+                  className="inline-flex items-center gap-4 mb-6 text-left"
                   data-testid="text-hero-badge-desktop"
                   variants={blurText}
                   initial="hidden"
                   animate="visible"
                 >
-                  INSCRIÇÕES ABERTAS POR TEMPO LIMITADO
-                </motion.p>
+                  <img
+                    src="/images/logo-icon.png"
+                    alt="Logo"
+                    className="w-16 h-16"
+                    data-testid="img-logo-icon-hero-desktop"
+                  />
+                  <p
+                    className="text-white uppercase m-0"
+                    style={{
+                      fontSize: "10px",
+                      fontWeight: 600,
+                      letterSpacing: "0.1em",
+                      opacity: 0.7,
+                      maxWidth: "150px",
+                      lineHeight: "1.4",
+                      whiteSpace: "normal",
+                    }}
+                  >
+                    INSCRIÇÕES ABERTAS POR TEMPO LIMITADO
+                  </p>
+                </motion.div>
                 <motion.h1
                   className="nail-hero-title mb-8"
                   data-testid="text-hero-title-desktop"
