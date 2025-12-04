@@ -646,7 +646,7 @@ export default function Home() {
                       letterSpacing: "0.1em",
                       opacity: 0.7,
                       maxWidth: "150px",
-                      lineHeight: "1.4",
+                      lineHeight: "1.1",
                       whiteSpace: "normal",
                     }}
                   >
@@ -824,7 +824,8 @@ export default function Home() {
             </span>
           </motion.h2>
           <motion.p
-            className="nail-body leading-relaxed mx-auto max-w-xl mb-16"
+            className="nail-body mx-auto max-w-xl mb-16"
+            style={{ lineHeight: "1.1" }}
             data-testid="text-problem-subtitle"
             variants={blurText}
             initial="hidden"
@@ -832,7 +833,7 @@ export default function Home() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: 0.2 }}
           >
-            Esta formação é o seu plano de fuga,{" "}
+            Esta formação é o seu plano de fuga,<br className="md:hidden" />{" "}
             <span style={{ fontWeight: 700 }}>desenhada para você que:</span>
           </motion.p>
 
@@ -2086,12 +2087,12 @@ export default function Home() {
                 color: "#1A1212",
                 fontSize: "30px",
                 fontWeight: 600,
-                lineHeight: "1.5",
+                lineHeight: "1.1",
                 margin: "0 auto",
                 maxWidth: "800px",
               }}
             >
-              Tudo o que você precisa para começar, incluso em uma única inscrição:
+              Tudo o que você precisa para começar,<br className="hidden md:block" /> incluso em uma única inscrição:
             </p>
           </motion.div>
         </div>
@@ -2197,7 +2198,7 @@ export default function Home() {
                         fontSize: "52px",
                         fontWeight: 700,
                         margin: "0 0 8px 0",
-                        lineHeight: "1.2",
+                        lineHeight: "1.1",
                       }}
                     >
                       R$ 47,26<span style={{ fontSize: "12px", fontWeight: 500 }}>/POR MÊS</span>
@@ -2237,7 +2238,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2267,7 +2268,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2297,7 +2298,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2327,7 +2328,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2357,7 +2358,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2387,7 +2388,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2417,7 +2418,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2447,7 +2448,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2477,7 +2478,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2569,7 +2570,7 @@ export default function Home() {
                   style={{
                     color: "#FFFFFF",
                     fontSize: "14px",
-                    lineHeight: "1.6",
+                    lineHeight: "1.1",
                     margin: 0,
                     opacity: 0.85,
                     textAlign: "center",
