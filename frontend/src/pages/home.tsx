@@ -13,7 +13,6 @@ import { AiFillSpotify } from "react-icons/ai";
 import { FaHeadphones, FaXTwitter } from "react-icons/fa6";
 import { FaPhoneAlt, FaPinterest, FaSnapchatGhost } from "react-icons/fa";
 import { RiNetflixFill } from "react-icons/ri";
-const heroImage = "/images/raira-home.png";
 
 // Componente auxiliar para ícones do celular
 const IconWrapper = ({ children }: { children?: React.ReactNode }) => {
@@ -464,6 +463,28 @@ export default function Home() {
 
       {/* Hero Section */}
       <header className="text-center lg:text-left relative overflow-hidden">
+        {/* Full-width Background Images */}
+        <div className="absolute inset-0" style={{ zIndex: 0 }}>
+          <div
+            className="absolute inset-0 lg:hidden"
+            style={{
+              backgroundImage: "url('/images/raira-nails-background.png')",
+              backgroundSize: "130%",
+              backgroundPosition: "top center",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+          <div
+            className="absolute inset-0 hidden lg:block"
+            style={{
+              backgroundImage: "url('/images/raira-nails-background-desktop.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center left",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+        </div>
+
         {/* Background Decorative Elements - OPTIMIZED */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Main gradient orbs - reduced blur for performance */}
@@ -566,21 +587,12 @@ export default function Home() {
         <div className="container mx-auto max-w-7xl relative z-10">
           {/* Mobile/Tablet Layout (até md) */}
           <div
-            className="relative w-full lg:hidden overflow-visible"
-            style={{ paddingTop: "80px" }}
+            className="relative w-full lg:hidden overflow-visible min-h-[600px] md:min-h-[850px]"
+            style={{
+              paddingTop: "80px",
+            }}
           >
-            <img
-              src={heroImage}
-              alt="Nail Designer de Sucesso"
-              className="w-full h-[600px] md:h-[850px] object-cover pointer-events-none select-none"
-              style={{
-                objectPosition: "45% -15%",
-              }}
-              data-testid="img-hero"
-              draggable="false"
-              onContextMenu={(e) => e.preventDefault()}
-            />
-            <div className="absolute bottom-[-180px] md:bottom-[-100px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8">
+            <div className="absolute bottom-[-240px] md:bottom-[-140px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8">
               <motion.h1
                 className="nail-hero-title mb-0"
                 data-testid="text-hero-title"
@@ -609,22 +621,6 @@ export default function Home() {
 
           {/* Desktop Layout (lg+) */}
           <div className="hidden lg:block relative w-full min-h-[1000px]">
-            {/* Imagem alinhada à direita - MUITO MAIOR */}
-            <div className="absolute inset-0 flex justify-end items-center">
-              <div
-                className="relative"
-                style={{ width: "120%", marginRight: "-40%", marginTop: "0px" }}
-              >
-                <img
-                  src={heroImage}
-                  alt="Nail Designer de Sucesso"
-                  className="w-full h-[1500px] object-contain object-right pointer-events-none select-none"
-                  data-testid="img-hero-desktop"
-                  draggable="false"
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-              </div>
-            </div>
 
             {/* Textos sobrepostos à esquerda - LARGURA AUMENTADA */}
             <div className="relative z-10 flex items-center min-h-[1000px]">
@@ -702,7 +698,7 @@ export default function Home() {
           </div>
 
           {/* Botão Mobile/Tablet */}
-          <div className="lg:hidden px-4 md:px-8 pt-36 md:pt-32 pb-20">
+          <div className="lg:hidden px-4 md:px-8 pt-48 md:pt-40 pb-20">
             <motion.div
               className="inline-block relative group"
               style={{ padding: "6px" }}
@@ -803,11 +799,12 @@ export default function Home() {
             transition={{ delay: 0.1 }}
           >
             Cansada de trabalhar muito{" "}
+            <br className="hidden lg:block" />
             <span
               className="gradient-text"
               style={{
                 fontFamily: "var(--font-titulos)",
-                fontWeight: 700,
+                fontWeight: 400,
               }}
             >
               e sentir que não sai do lugar?
@@ -2539,7 +2536,7 @@ export default function Home() {
                       lineHeight: "1.1",
                     }}
                   >
-                    Você tem 7 dias para testar
+                    7 dias para testar
                   </p>
                   <p
                     style={{
@@ -2550,7 +2547,7 @@ export default function Home() {
                       lineHeight: "1.1",
                     }}
                   >
-                    com risco zero
+                    com risco zero.
                   </p>
                 </div>
 
