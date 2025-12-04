@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -177,6 +177,9 @@ const PhoneComponent = () => {
               <img
                 src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1762983841/hotmart_rgwrhr.png"
                 alt="Hotmart"
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
                 style={{
                   width: "50px",
                   height: "50px",
@@ -224,6 +227,9 @@ const PhoneComponent = () => {
               <img
                 src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1762983841/hotmart_rgwrhr.png"
                 alt="Hotmart"
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
                 style={{
                   width: "50px",
                   height: "50px",
@@ -636,6 +642,9 @@ export default function Home() {
                     src="/images/logo-icon.png"
                     alt="Logo"
                     className="w-16 h-16"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
                     data-testid="img-logo-icon-hero-desktop"
                   />
                   <p
@@ -787,6 +796,9 @@ export default function Home() {
               src="/images/logo-icon.png"
               alt="Logo"
               className="w-4 h-4"
+              draggable="false"
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
               data-testid="img-logo-icon"
             />
             <p
@@ -1109,6 +1121,9 @@ export default function Home() {
                 src="/images/logo-icon.png"
                 alt="Logo"
                 className="w-4 h-4"
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
                 data-testid="img-logo-icon-access"
               />
               <p
@@ -1166,6 +1181,9 @@ export default function Home() {
                     playsInline
                     disablePictureInPicture
                     controlsList="nodownload nofullscreen noremoteplayback"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
                     style={{
                       pointerEvents: "none",
                       width: "100%",
@@ -1382,6 +1400,9 @@ export default function Home() {
                   playsInline
                   disablePictureInPicture
                   controlsList="nodownload nofullscreen noremoteplayback"
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
                   style={{
                     pointerEvents: "none",
                     width: "100%",
@@ -1441,6 +1462,9 @@ export default function Home() {
                 src="/images/logo-icon.png"
                 alt="Logo"
                 className="w-4 h-4"
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
                 data-testid="img-logo-icon-extras"
               />
               <p
@@ -1503,11 +1527,17 @@ export default function Home() {
                   loop
                   muted
                   playsInline
+                  disablePictureInPicture
+                  controlsList="nodownload nofullscreen noremoteplayback"
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
                   style={{
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    display: "block"
+                    display: "block",
+                    pointerEvents: "none"
                   }}
                 >
                   <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1762985422/raira-nail-1_pceofa.mp4" type="video/mp4" />
@@ -1567,6 +1597,9 @@ export default function Home() {
                 <img
                   src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1762981626/raira-nail-3_nudo1i.jpg"
                   alt="Comunidade de Alunas no Instagram"
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
                   style={{
                     width: "100%",
                     height: "100%",
@@ -1629,6 +1662,9 @@ export default function Home() {
                 <img
                   src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1762981251/raira-nail-2_hnpxek.jpg"
                   alt="Certificado de Conclusão"
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
                   style={{
                     width: "100%",
                     height: "100%",
@@ -1911,6 +1947,9 @@ export default function Home() {
                 src="/images/logo-icon.png"
                 alt="Logo"
                 className="w-4 h-4"
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
                 data-testid="img-logo-icon-por-dentro"
               />
               <p
@@ -1982,6 +2021,9 @@ export default function Home() {
                       src={`https://picsum.photos/seed/module-${index}/250/350`}
                       alt={`Módulo ${index + 1}`}
                       className="w-full h-full object-cover"
+                      draggable="false"
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
                     />
                   </motion.div>
                 ))}
@@ -2000,6 +2042,9 @@ export default function Home() {
                       src={`https://picsum.photos/seed/module-${index}/250/350`}
                       alt={`Módulo ${index + 1}`}
                       className="w-full h-full object-cover"
+                      draggable="false"
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
                     />
                   </motion.div>
                 ))}
@@ -2539,6 +2584,9 @@ export default function Home() {
                     src="/images/raira-garantia.png"
                     alt="Garantia 7 dias"
                     className="mb-6"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
                     style={{ maxWidth: "200px", height: "auto" }}
                   />
                   <p
@@ -2626,21 +2674,42 @@ export default function Home() {
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769327/me-raira-1_xcb5uv.jpg" alt="" className="w-full h-full object-cover" />
+                  <img 
+                    src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769327/me-raira-1_xcb5uv.jpg" 
+                    alt="" 
+                    className="w-full h-full object-cover"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
+                  />
                 </motion.div>
                 <motion.div
                   variants={blurText}
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769328/me-raira-2_kbrc5v.jpg" alt="" className="w-full h-full object-cover" />
+                  <img 
+                    src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769328/me-raira-2_kbrc5v.jpg" 
+                    alt="" 
+                    className="w-full h-full object-cover"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
+                  />
                 </motion.div>
                 <motion.div
                   variants={blurText}
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769329/me-raira-3_lxjkdy.jpg" alt="" className="w-full h-full object-cover" />
+                  <img 
+                    src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769329/me-raira-3_lxjkdy.jpg" 
+                    alt="" 
+                    className="w-full h-full object-cover"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
+                  />
                 </motion.div>
                 <motion.div
                   variants={blurText}
@@ -2654,6 +2723,9 @@ export default function Home() {
                     playsInline
                     disablePictureInPicture
                     controlsList="nodownload nofullscreen noremoteplayback"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
                     style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
                   >
                     <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769329/me-raira-4_dpazsg.mp4" type="video/mp4" />
@@ -2671,6 +2743,9 @@ export default function Home() {
                     playsInline
                     disablePictureInPicture
                     controlsList="nodownload nofullscreen noremoteplayback"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
                     style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
                   >
                     <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769329/me-raira-5_akjtca.mp4" type="video/mp4" />
@@ -2688,6 +2763,9 @@ export default function Home() {
                     playsInline
                     disablePictureInPicture
                     controlsList="nodownload nofullscreen noremoteplayback"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
                     style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
                   >
                     <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769328/me-raira-6_lnjn8a.mp4" type="video/mp4" />
