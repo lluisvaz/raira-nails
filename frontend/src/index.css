@@ -13,29 +13,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Destaques Custom';
-  src: url('/fonts/destaques.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'The Seasons';
-  src: url('/fonts/theseasons.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'The Seasons';
-  src: url('/fonts/theseasons.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
 
 @font-face {
   font-family: 'Texts Custom';
@@ -122,7 +99,6 @@
   --font-sans: 'Texts Custom', 'Plus Jakarta Sans', 'Inter', 'Open Sans', sans-serif;
   --font-texts: 'Texts Custom', 'Plus Jakarta Sans', sans-serif;
   --font-titulos: 'Titulos Custom', 'Plus Jakarta Sans', sans-serif;
-  --font-destaques: 'Destaques Custom', 'Plus Jakarta Sans', sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
   --radius: .5rem; /* 8px */

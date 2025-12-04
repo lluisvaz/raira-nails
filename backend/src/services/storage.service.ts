@@ -1,24 +1,23 @@
-import { type User, type InsertUser } from "../../shared/schema";
+import { type User, type InsertUser } from "../../../shared/schema";
 import { randomUUID } from "crypto";
 
-// modify the interface with any CRUD methods
-// you might need
-
+/**
+ * Interface para operações de armazenamento
+ */
 export interface IStorage {
-  getUser(id: string): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
 }
 
+/**
+ * Implementação em memória do storage (para desenvolvimento)
+ * Em produção, substitua por uma implementação com banco de dados
+ */
 export class MemStorage implements IStorage {
   private users: Map<string, User>;
 
   constructor() {
     this.users = new Map();
-  }
-
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {

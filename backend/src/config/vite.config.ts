@@ -4,22 +4,14 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { createServer as createViteServer, createLogger } from "vite";
 import { type Server } from "http";
-import viteConfig from "../../frontend/vite.config";
+import viteConfig from "../../../frontend/vite.config";
 
 const viteLogger = createLogger();
 
-export function log(message: string, source = "express") {
-  const formattedTime = new Date().toLocaleTimeString("en-US", {
-    hour: "numeric",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: true,
-  });
-
-  console.log(`${formattedTime} [${source}] ${message}`);
-}
-
-export async function setupVite(app: Express, server: Server) {
+/**
+ * Configura o Vite para desenvolvimento (HMR, etc.)
+ */
+export async function setupVite(app: Express, server: Server): Promise<void> {
   const serverOptions = {
     middlewareMode: true,
     hmr: { server },
@@ -32,7 +24,7 @@ export async function setupVite(app: Express, server: Server) {
     customLogger: {
       ...viteLogger,
       error: (msg, options) => {
-        // Log Vite errors without terminating the process to allow debugging
+        // Log Vite errors sem terminar o processo para permitir debugging
         viteLogger.error(msg, options);
       },
     },
@@ -50,11 +42,12 @@ export async function setupVite(app: Express, server: Server) {
         __dirname,
         "..",
         "..",
+        "..",
         "frontend",
         "index.html",
       );
 
-      // always reload the index.html file from disk incase it changes
+      // Sempre recarrega o arquivo index.html do disco caso ele mude
       let template = await fs.promises.readFile(clientTemplate, "utf-8");
       template = template.replace(
         `src="/src/main.tsx"`,
@@ -69,9 +62,12 @@ export async function setupVite(app: Express, server: Server) {
   });
 }
 
-export function serveStatic(app: Express) {
+/**
+ * Serve arquivos estáticos do build de produção
+ */
+export function serveStatic(app: Express): void {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const distPath = path.resolve(__dirname, "..", "..", "frontend", "dist");
+  const distPath = path.resolve(__dirname, "..", "..", "..", "frontend", "dist");
 
   if (!fs.existsSync(distPath)) {
     throw new Error(
@@ -81,7 +77,7 @@ export function serveStatic(app: Express) {
 
   app.use(express.static(distPath));
 
-  // fall through to index.html if the file doesn't exist
+  // Fallback para index.html se o arquivo não existir
   app.use("*", (_req, res) => {
     res.sendFile(path.resolve(distPath, "index.html"));
   });

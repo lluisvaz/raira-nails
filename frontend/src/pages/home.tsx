@@ -8,7 +8,7 @@ import {
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { ZapIcon } from "@/components/ui/ZapIcon";
-import { motion, Variants } from "framer-motion";
+import { motion, type Variants } from "motion/react";
 import { AiFillSpotify } from "react-icons/ai";
 import { FaHeadphones, FaXTwitter } from "react-icons/fa6";
 import { FaPhoneAlt, FaPinterest, FaSnapchatGhost } from "react-icons/fa";
