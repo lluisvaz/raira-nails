@@ -775,6 +775,8 @@ export default function Home() {
             background:
               "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
             margin: "0 auto",
+            boxShadow: "0 0 4px rgba(219, 168, 111, 0.15), 0 0 2px rgba(239, 213, 167, 0.1)",
+            position: "relative",
           }}
         />
       </div>
@@ -1096,6 +1098,8 @@ export default function Home() {
               background:
               "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
+              boxShadow: "0 0 4px rgba(219, 168, 111, 0.15), 0 0 2px rgba(239, 213, 167, 0.1)",
+              position: "relative",
             }}
           />
         </div>
@@ -1437,6 +1441,8 @@ export default function Home() {
               background:
               "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
+              boxShadow: "0 0 4px rgba(219, 168, 111, 0.15), 0 0 2px rgba(239, 213, 167, 0.1)",
+              position: "relative",
             }}
           />
         </div>
@@ -1922,6 +1928,8 @@ export default function Home() {
               background:
               "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
+              boxShadow: "0 0 4px rgba(219, 168, 111, 0.15), 0 0 2px rgba(239, 213, 167, 0.1)",
+              position: "relative",
             }}
           />
         </div>
@@ -2091,6 +2099,8 @@ export default function Home() {
               background:
               "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
+              boxShadow: "0 0 4px rgba(219, 168, 111, 0.15), 0 0 2px rgba(239, 213, 167, 0.1)",
+              position: "relative",
             }}
           />
         </div>
@@ -2117,6 +2127,7 @@ export default function Home() {
             width: "100%",
             position: "relative",
             zIndex: 1,
+            boxShadow: "inset 0 1px 0 0 rgba(219, 168, 111, 0.15), inset 0 -1px 0 0 rgba(219, 168, 111, 0.15), 0 1px 0 0 rgba(239, 213, 167, 0.1), 0 -1px 0 0 rgba(239, 213, 167, 0.1)",
             paddingBottom: "60px",
           }}
         >
@@ -2640,6 +2651,8 @@ export default function Home() {
               background:
               "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
+              boxShadow: "0 0 4px rgba(219, 168, 111, 0.15), 0 0 2px rgba(239, 213, 167, 0.1)",
+              position: "relative",
             }}
           />
         </div>
@@ -3015,6 +3028,8 @@ export default function Home() {
               background:
               "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
+              boxShadow: "0 0 4px rgba(219, 168, 111, 0.15), 0 0 2px rgba(239, 213, 167, 0.1)",
+              position: "relative",
             }}
           />
         </div>
@@ -3023,7 +3038,10 @@ export default function Home() {
       {/* Footer */}
       <footer
         className="py-8 px-4 md:px-8 text-center"
-        style={{ borderTop: "1px solid #372507" }}
+        style={{ 
+          borderTop: "1px solid #372507",
+          boxShadow: "inset 0 1px 0 0 rgba(219, 168, 111, 0.15), 0 1px 0 0 rgba(239, 213, 167, 0.1)"
+        }}
       >
         <div className="container mx-auto">
           <p className="nail-footer" data-testid="text-footer-copyright">
