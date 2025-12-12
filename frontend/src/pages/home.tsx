@@ -474,7 +474,7 @@ export default function Home() {
           <div
             className="absolute inset-0 lg:hidden"
             style={{
-              backgroundImage: "url('/images/raira-nails-background.png')",
+              backgroundImage: "url('/images/raira-nails-background.webp')",
               backgroundSize: "130%",
               backgroundPosition: "top center",
               backgroundRepeat: "no-repeat",
@@ -483,7 +483,7 @@ export default function Home() {
           <div
             className="absolute inset-0 hidden lg:block"
             style={{
-              backgroundImage: "url('/images/raira-nails-background-desktop.png')",
+              backgroundImage: "url('/images/raira-nails-background-desktop.webp')",
               backgroundSize: "cover",
               backgroundPosition: "center left",
               backgroundRepeat: "no-repeat",
@@ -639,9 +639,9 @@ export default function Home() {
                   animate="visible"
                 >
                   <img
-                    src="/images/logo-icon.png"
+                    src="/images/logo-icon.webp"
                     alt="Logo"
-                    className="w-16 h-16"
+                    className="w-10 h-10"
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
                     onDragStart={(e) => e.preventDefault()}
@@ -659,7 +659,7 @@ export default function Home() {
                       whiteSpace: "normal",
                     }}
                   >
-                    INSCRIÇÕES ABERTAS POR TEMPO LIMITADO
+                    INSCRIÇÕES ABERTAS<br />POR TEMPO LIMITADO
                   </p>
                 </motion.div>
                 <motion.h1
@@ -773,7 +773,7 @@ export default function Home() {
           style={{
             height: "1px",
             background:
-              "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
             margin: "0 auto",
           }}
         />
@@ -793,7 +793,7 @@ export default function Home() {
             viewport={{ once: true, margin: "-50px" }}
           >
             <img
-              src="/images/logo-icon.png"
+              src="/images/logo-icon.webp"
               alt="Logo"
               className="w-4 h-4"
               draggable="false"
@@ -850,7 +850,7 @@ export default function Home() {
           </motion.p>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-12 gap-4 max-w-6xl mx-auto mb-12"
+            className="grid grid-cols-1 md:grid-cols-12 gap-2 max-w-6xl mx-auto mb-12"
             variants={blurTextStagger}
             initial="hidden"
             whileInView="visible"
@@ -1094,7 +1094,7 @@ export default function Home() {
             style={{
               height: "1px",
               background:
-                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
             }}
           />
@@ -1118,7 +1118,7 @@ export default function Home() {
               }}
             >
               <img
-                src="/images/logo-icon.png"
+                src="/images/logo-icon.webp"
                 alt="Logo"
                 className="w-4 h-4"
                 draggable="false"
@@ -1435,7 +1435,7 @@ export default function Home() {
             style={{
               height: "1px",
               background:
-                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
             }}
           />
@@ -1459,7 +1459,7 @@ export default function Home() {
               }}
             >
               <img
-                src="/images/logo-icon.png"
+                src="/images/logo-icon.webp"
                 alt="Logo"
                 className="w-4 h-4"
                 draggable="false"
@@ -1540,7 +1540,7 @@ export default function Home() {
                     pointerEvents: "none"
                   }}
                 >
-                  <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1762985422/raira-nail-1_pceofa.mp4" type="video/mp4" />
+                  <source src="/images/more-raira-nail-1.webm" type="video/webm" />
                 </video>
               </div>
 
@@ -1595,7 +1595,7 @@ export default function Home() {
                 }}
               >
                 <img
-                  src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1762981626/raira-nail-3_nudo1i.jpg"
+                  src="/images/more-raira-nail-2.webp"
                   alt="Comunidade de Alunas no Instagram"
                   draggable="false"
                   onContextMenu={(e) => e.preventDefault()}
@@ -1660,7 +1660,7 @@ export default function Home() {
                 }}
               >
                 <img
-                  src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1762981251/raira-nail-2_hnpxek.jpg"
+                  src="/images/more-raira-nail-3.webp"
                   alt="Certificado de Conclusão"
                   draggable="false"
                   onContextMenu={(e) => e.preventDefault()}
@@ -1920,7 +1920,7 @@ export default function Home() {
             style={{
               height: "1px",
               background:
-                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
             }}
           />
@@ -1944,7 +1944,7 @@ export default function Home() {
               }}
             >
               <img
-                src="/images/logo-icon.png"
+                src="/images/logo-icon.webp"
                 alt="Logo"
                 className="w-4 h-4"
                 draggable="false"
@@ -2089,7 +2089,7 @@ export default function Home() {
             style={{
               height: "1px",
               background:
-                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
             }}
           />
@@ -2112,8 +2112,8 @@ export default function Home() {
           style={{
             background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)",
             padding: "40px 20px 50px 20px",
-            borderTop: "1px solid #000000",
-            borderBottom: "1px solid #000000",
+            borderTop: "1px solid #372507",
+            borderBottom: "1px solid #372507",
             width: "100%",
             position: "relative",
             zIndex: 1,
@@ -2581,7 +2581,7 @@ export default function Home() {
                 {/* Logo and Main Text */}
                 <div className="flex flex-col items-center text-center mb-6">
                   <img
-                    src="/images/raira-garantia.png"
+                    src="/images/raira-garantia.webp"
                     alt="Garantia 7 dias"
                     className="mb-6"
                     draggable="false"
@@ -2638,7 +2638,7 @@ export default function Home() {
             style={{
               height: "1px",
               background:
-                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
             }}
           />
@@ -2663,7 +2663,7 @@ export default function Home() {
 
             <div className="order-2 lg:order-1 justify-self-center lg:justify-self-start transform scale-[0.92] md:scale-100 origin-top md:origin-top-left">
               <motion.div
-                className="grid grid-cols-3 gap-3"
+                className="grid grid-cols-3 gap-2"
                 variants={blurTextStagger}
                 initial="hidden"
                 whileInView="visible"
@@ -2674,46 +2674,25 @@ export default function Home() {
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <img 
-                    src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769327/me-raira-1_xcb5uv.jpg" 
-                    alt="" 
-                    className="w-full h-full object-cover"
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    disablePictureInPicture
+                    controlsList="nodownload nofullscreen noremoteplayback"
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
                     onDragStart={(e) => e.preventDefault()}
-                  />
+                    style={{ width: "100%", height: "120%", objectFit: "cover", objectPosition: "top", pointerEvents: "none", transform: "translateY(-10%)" }}
+                  >
+                    <source src="/images/me-raira-1.webm" type="video/webm" />
+                    Seu navegador não suporta vídeos.
+                  </video>
                 </motion.div>
                 <motion.div
                   variants={blurText}
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
-                  style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
-                >
-                  <img 
-                    src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769328/me-raira-2_kbrc5v.jpg" 
-                    alt="" 
-                    className="w-full h-full object-cover"
-                    draggable="false"
-                    onContextMenu={(e) => e.preventDefault()}
-                    onDragStart={(e) => e.preventDefault()}
-                  />
-                </motion.div>
-                <motion.div
-                  variants={blurText}
-                  className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
-                  style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
-                >
-                  <img 
-                    src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769329/me-raira-3_lxjkdy.jpg" 
-                    alt="" 
-                    className="w-full h-full object-cover"
-                    draggable="false"
-                    onContextMenu={(e) => e.preventDefault()}
-                    onDragStart={(e) => e.preventDefault()}
-                  />
-                </motion.div>
-                <motion.div
-                  variants={blurText}
-                  className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 row-span-2 col-span-1 h-[300px] md:h-[372px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
                   <video
@@ -2728,7 +2707,49 @@ export default function Home() {
                     onDragStart={(e) => e.preventDefault()}
                     style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
                   >
-                    <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769329/me-raira-4_dpazsg.mp4" type="video/mp4" />
+                    <source src="/images/me-raira-2.webm" type="video/webm" />
+                    Seu navegador não suporta vídeos.
+                  </video>
+                </motion.div>
+                <motion.div
+                  variants={blurText}
+                  className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
+                  style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
+                >
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    disablePictureInPicture
+                    controlsList="nodownload nofullscreen noremoteplayback"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                  >
+                    <source src="/images/me-raira-3.webm" type="video/webm" />
+                    Seu navegador não suporta vídeos.
+                  </video>
+                </motion.div>
+                <motion.div
+                  variants={blurText}
+                  className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 row-span-2 col-span-1 h-[308px] md:h-[372px]"
+                  style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
+                >
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    disablePictureInPicture
+                    controlsList="nodownload nofullscreen noremoteplayback"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                  >
+                    <source src="/images/me-raira-4.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
                   </video>
                 </motion.div>
@@ -2746,9 +2767,9 @@ export default function Home() {
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
                     onDragStart={(e) => e.preventDefault()}
-                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                    style={{ width: "100%", height: "140%", objectFit: "cover", objectPosition: "top", pointerEvents: "none", transform: "translateY(-25%)" }}
                   >
-                    <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769329/me-raira-5_akjtca.mp4" type="video/mp4" />
+                    <source src="/images/me-raira-5.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
                   </video>
                 </div>
@@ -2766,9 +2787,9 @@ export default function Home() {
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
                     onDragStart={(e) => e.preventDefault()}
-                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                    style={{ width: "100%", height: "140%", objectFit: "cover", objectPosition: "center", pointerEvents: "none", transform: "translateY(-20%)" }}
                   >
-                    <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769328/me-raira-6_lnjn8a.mp4" type="video/mp4" />
+                    <source src="/images/me-raira-6.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
                   </video>
                 </div>
@@ -2931,7 +2952,7 @@ export default function Home() {
             style={{
               height: "1px",
               background:
-                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
             }}
           />
@@ -2992,7 +3013,7 @@ export default function Home() {
             style={{
               height: "1px",
               background:
-                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
             }}
           />
@@ -3002,7 +3023,7 @@ export default function Home() {
       {/* Footer */}
       <footer
         className="py-8 px-4 md:px-8 text-center"
-        style={{ borderTop: "1px solid #221A2A" }}
+        style={{ borderTop: "1px solid #372507" }}
       >
         <div className="container mx-auto">
           <p className="nail-footer" data-testid="text-footer-copyright">
