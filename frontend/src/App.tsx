@@ -2,6 +2,8 @@ import { Switch, Route, useLocation } from "wouter";
 import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import GradualBlur from "@/components/ui/gradual-blur";
+import { useFooterVisibility } from "@/hooks/use-footer-visibility";
 import Home from "@/pages/home";
 
 function RedirectToHome() {
@@ -24,10 +26,21 @@ function Router() {
 }
 
 function App() {
+  const isFooterVisible = useFooterVisibility();
+
   return (
     <TooltipProvider>
       <Toaster />
       <Router />
+      <GradualBlur
+        target="page"
+        position="bottom"
+        exponential={true}
+        strength={2}
+        divCount={5}
+        opacity={1}
+        disabled={isFooterVisible}
+      />
     </TooltipProvider>
   );
 }

@@ -2973,7 +2973,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="pt-16 px-4 md:px-8">
+      <section id="faq-section" className="pt-16 px-4 md:px-8">
         <div className="container mx-auto max-w-4xl">
           <motion.h2 
             className="nail-h2" 
@@ -3037,6 +3037,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer
+        id="footer-section"
         className="py-8 px-4 md:px-8 text-center"
         style={{ 
           borderTop: "1px solid #372507",
