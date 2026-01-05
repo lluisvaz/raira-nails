@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/accordion";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import { BorderBeam } from "@/components/ui/border-beam";
-import { ZapIcon } from "@/components/ui/ZapIcon";
 import { motion, type Variants } from "motion/react";
 import { AiFillSpotify } from "react-icons/ai";
 import { FaHeadphones, FaXTwitter } from "react-icons/fa6";
@@ -318,7 +317,6 @@ const PDFComponent = () => {
 };
 
 export default function Home() {
-  const [timeLeft, setTimeLeft] = useState(13 * 60 + 37);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -333,16 +331,6 @@ export default function Home() {
     mediaQuery.addEventListener("change", handleMotionChange);
     return () => mediaQuery.removeEventListener("change", handleMotionChange);
   }, []);
-
-  useEffect(() => {
-    if (timeLeft <= 0) return;
-
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [timeLeft]);
 
   // Smooth scroll handler for anchor links
   useEffect(() => {
@@ -365,13 +353,6 @@ export default function Home() {
     document.addEventListener('click', handleSmoothScroll);
     return () => document.removeEventListener('click', handleSmoothScroll);
   }, []);
-
-
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
-  };
 
   const faqs = [
     {
@@ -411,62 +392,6 @@ export default function Home() {
         overflowX: "hidden",
       }}
     >
-      {/* Barra de Oferta com Cronômetro */}
-      <div
-        style={{
-          background: "#F0DEBC",
-          width: "100%",
-          padding: "14px 16px",
-          textAlign: "center",
-          position: "relative",
-          zIndex: 50,
-        }}
-        data-testid="offer-bar"
-      >
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "12px",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
-          <span
-            style={{
-              margin: 0,
-              color: "#1A1212",
-              fontSize: "15px",
-              fontWeight: 600,
-              letterSpacing: "-0.01em",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "6px",
-            }}
-          >
-            <ZapIcon size={18} className="text-[#1A1212]" /> OFERTA ESPECIAL
-            EXPIRA EM:
-          </span>
-          <span
-            style={{
-              background: "#1A1212",
-              color: "#FF4444",
-              fontSize: "14px",
-              fontWeight: 700,
-              padding: "3px 8px",
-              borderRadius: "4px",
-              letterSpacing: "0.03em",
-              fontFamily: "monospace",
-              boxShadow: "0 2px 6px rgba(0, 0, 0, 0.25)",
-              border: "1.5px solid #FF4444",
-            }}
-            data-testid="text-offer-timer"
-          >
-            {formatTime(timeLeft)}
-          </span>
-        </div>
-      </div>
-
       {/* Hero Section */}
       <header className="text-center lg:text-left relative overflow-hidden">
         {/* Full-width Background Images */}
