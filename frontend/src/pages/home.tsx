@@ -790,9 +790,6 @@ export default function Home() {
               background: "linear-gradient(90deg, #170F0B 0%, #382607 100%)",
             }}
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             <img
               src="/images/logo-icon.webp"
@@ -820,9 +817,6 @@ export default function Home() {
             className="nail-h2 mb-4 mx-auto lg:max-w-3xl"
             data-testid="text-problem-title"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: 0.1 }}
           >
             Cansada de trabalhar muito{" "}
@@ -842,9 +836,6 @@ export default function Home() {
             style={{ lineHeight: "1.1" }}
             data-testid="text-problem-subtitle"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: 0.2 }}
           >
             Esta formação é o seu plano de fuga,<br className="md:hidden" />{" "}
@@ -854,9 +845,6 @@ export default function Home() {
           <motion.div
             className="grid grid-cols-1 md:grid-cols-12 gap-2 max-w-6xl mx-auto mb-12"
             variants={blurTextStagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             <motion.div
               variants={blurText}
@@ -1049,9 +1037,6 @@ export default function Home() {
           <motion.div 
             className="flex flex-col md:flex-row items-center md:items-center justify-between gap-6 max-w-6xl mx-auto"
             variants={blurTextStagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             <motion.p
               className="nail-body leading-relaxed text-center md:text-left md:max-w-md"
@@ -1111,9 +1096,6 @@ export default function Home() {
           <motion.div 
             className="flex justify-center lg:justify-start mb-6"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             <div
               className="inline-flex items-center gap-3 px-6 py-3 rounded-full"
@@ -1149,9 +1131,6 @@ export default function Home() {
             {/* Lado Esquerdo - Conteúdo */}
             <motion.div
               variants={blurTextStagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
             >
               <motion.h2
                 className="nail-h2 mb-6 text-center lg:text-left"
@@ -1454,9 +1433,6 @@ export default function Home() {
           <motion.div 
             className="flex justify-center mb-6"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             <div
               className="inline-flex items-center gap-3 px-6 py-3 rounded-full"
@@ -1492,9 +1468,6 @@ export default function Home() {
             className="nail-h2 mb-12" 
             data-testid="text-extras-title"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: 0.1 }}
           >
             Além disso,{" "}
@@ -1508,9 +1481,6 @@ export default function Home() {
             <motion.div
               whileHover={hoverLift}
               variants={blurText}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
@@ -1579,9 +1549,6 @@ export default function Home() {
             <motion.div
               whileHover={hoverLift}
               variants={blurText}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.1 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
@@ -1644,9 +1611,6 @@ export default function Home() {
             <motion.div
               whileHover={hoverLift}
               variants={blurText}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.2 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
@@ -1710,9 +1674,6 @@ export default function Home() {
             <motion.div
               whileHover={hoverLift}
               variants={blurText}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.3 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 relative overflow-hidden min-h-[320px] lg:min-h-[280px]"
               style={{
@@ -1816,9 +1777,6 @@ export default function Home() {
             <motion.div
               whileHover={hoverLift}
               variants={blurText}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.4 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 relative overflow-hidden min-h-[320px] lg:min-h-[280px]"
               style={{
@@ -1941,9 +1899,6 @@ export default function Home() {
           <motion.div 
             className="flex justify-center mb-6"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             <div
               className="inline-flex items-center gap-3 px-6 py-3 rounded-full"
@@ -1979,9 +1934,6 @@ export default function Home() {
             className="nail-h2 mb-12 text-center" 
             data-testid="text-por-dentro-title"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: 0.1 }}
           >
             <span className="gradient-text nail-h2-highlight">Confira os módulos</span> presentes no curso
@@ -2134,9 +2086,6 @@ export default function Home() {
           <motion.div 
             className="text-center"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             <p
               style={{
@@ -2196,9 +2145,6 @@ export default function Home() {
             {/* Pricing Card */}
             <motion.div
               variants={blurText}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               className="rounded-2xl overflow-hidden relative"
               style={{
                 background: "#261816",
@@ -2583,9 +2529,6 @@ export default function Home() {
                 background: "#170F0B",
               }}
               variants={blurText}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.2 }}
             >
               <div className="p-8 md:p-10 flex flex-col items-center justify-center w-full">
@@ -2665,9 +2608,6 @@ export default function Home() {
             <motion.div 
               className="order-1 lg:hidden"
               variants={blurText}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
             >
               <h2 className="nail-h2 mb-4 text-center md:text-center" style={{ fontSize: "48px" }}>
                 Prazer, <span className="gradient-text nail-h2-highlight">eu sou a Raira.</span>
@@ -2678,9 +2618,6 @@ export default function Home() {
               <motion.div
                 className="grid grid-cols-3 gap-2"
                 variants={blurTextStagger}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
               >
                 <motion.div
                   variants={blurText}
@@ -2812,9 +2749,6 @@ export default function Home() {
             <motion.div 
               className="hidden lg:block lg:order-2 lg:col-start-2"
               variants={blurTextStagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
             >
               <motion.h2 
                 className="nail-h2 mb-6" 
@@ -2876,9 +2810,6 @@ export default function Home() {
             <motion.div 
               className="order-3 lg:hidden w-full flex flex-col items-center justify-center mx-auto"
               variants={blurTextStagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
             >
               <style dangerouslySetInnerHTML={{
                 __html: `
@@ -2979,17 +2910,11 @@ export default function Home() {
             className="nail-h2" 
             data-testid="text-faq-title"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             Perguntas Frequentes
           </motion.h2>
           <motion.div
             variants={blurTextStagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, index) => (
