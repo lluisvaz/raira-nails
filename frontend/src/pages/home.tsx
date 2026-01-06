@@ -98,7 +98,7 @@ const lockLightVariant: Variants = {
 
 const hoverLift = {
   y: -8,
-  transition: { duration: 0.3, ease: "easeOut" }
+  transition: { duration: 0.3, ease: "easeOut" as const }
 };
 
 // Variante de animação blur text minimalista e moderna
