@@ -1,28 +1,47 @@
-import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
+import { Switch, Route, useLocation } from "wouter";
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import GradualBlur from "@/components/ui/gradual-blur";
+import { useFooterVisibility } from "@/hooks/use-footer-visibility";
 import Home from "@/pages/home";
-import NotFound from "@/pages/not-found";
+
+function RedirectToHome() {
+  const [, setLocation] = useLocation();
+  
+  useEffect(() => {
+    setLocation("/");
+  }, [setLocation]);
+  
+  return null;
+}
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home}/>
-      <Route component={NotFound} />
+      <Route component={RedirectToHome} />
     </Switch>
   );
 }
 
 function App() {
+  const isFooterVisible = useFooterVisibility();
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
-    </QueryClientProvider>
+    <TooltipProvider>
+      <Toaster />
+      <Router />
+      <GradualBlur
+        target="page"
+        position="bottom"
+        exponential={true}
+        strength={2}
+        divCount={5}
+        opacity={1}
+        disabled={isFooterVisible}
+      />
+    </TooltipProvider>
   );
 }
 

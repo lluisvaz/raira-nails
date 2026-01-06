@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -7,13 +7,11 @@ import {
 } from "@/components/ui/accordion";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import { BorderBeam } from "@/components/ui/border-beam";
-import { ZapIcon } from "@/components/ui/ZapIcon";
-import { motion, Variants } from "framer-motion";
+import { motion, type Variants } from "motion/react";
 import { AiFillSpotify } from "react-icons/ai";
 import { FaHeadphones, FaXTwitter } from "react-icons/fa6";
 import { FaPhoneAlt, FaPinterest, FaSnapchatGhost } from "react-icons/fa";
 import { RiNetflixFill } from "react-icons/ri";
-const heroImage = "/images/raira-home.png";
 
 // Componente auxiliar para ícones do celular
 const IconWrapper = ({ children }: { children?: React.ReactNode }) => {
@@ -178,6 +176,9 @@ const PhoneComponent = () => {
               <img
                 src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1762983841/hotmart_rgwrhr.png"
                 alt="Hotmart"
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
                 style={{
                   width: "50px",
                   height: "50px",
@@ -225,6 +226,9 @@ const PhoneComponent = () => {
               <img
                 src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1762983841/hotmart_rgwrhr.png"
                 alt="Hotmart"
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
                 style={{
                   width: "50px",
                   height: "50px",
@@ -313,7 +317,6 @@ const PDFComponent = () => {
 };
 
 export default function Home() {
-  const [timeLeft, setTimeLeft] = useState(13 * 60 + 37);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -328,16 +331,6 @@ export default function Home() {
     mediaQuery.addEventListener("change", handleMotionChange);
     return () => mediaQuery.removeEventListener("change", handleMotionChange);
   }, []);
-
-  useEffect(() => {
-    if (timeLeft <= 0) return;
-
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [timeLeft]);
 
   // Smooth scroll handler for anchor links
   useEffect(() => {
@@ -360,13 +353,6 @@ export default function Home() {
     document.addEventListener('click', handleSmoothScroll);
     return () => document.removeEventListener('click', handleSmoothScroll);
   }, []);
-
-
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
-  };
 
   const faqs = [
     {
@@ -406,64 +392,30 @@ export default function Home() {
         overflowX: "hidden",
       }}
     >
-      {/* Barra de Oferta com Cronômetro */}
-      <div
-        style={{
-          background: "#F0DEBC",
-          width: "100%",
-          padding: "14px 16px",
-          textAlign: "center",
-          position: "relative",
-          zIndex: 50,
-        }}
-        data-testid="offer-bar"
-      >
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "12px",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
-          <span
-            style={{
-              margin: 0,
-              color: "#1A1212",
-              fontSize: "15px",
-              fontWeight: 600,
-              letterSpacing: "-0.01em",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "6px",
-            }}
-          >
-            <ZapIcon size={18} className="text-[#1A1212]" /> OFERTA ESPECIAL
-            EXPIRA EM:
-          </span>
-          <span
-            style={{
-              background: "#1A1212",
-              color: "#FF4444",
-              fontSize: "14px",
-              fontWeight: 700,
-              padding: "3px 8px",
-              borderRadius: "4px",
-              letterSpacing: "0.03em",
-              fontFamily: "monospace",
-              boxShadow: "0 2px 6px rgba(0, 0, 0, 0.25)",
-              border: "1.5px solid #FF4444",
-            }}
-            data-testid="text-offer-timer"
-          >
-            {formatTime(timeLeft)}
-          </span>
-        </div>
-      </div>
-
       {/* Hero Section */}
       <header className="text-center lg:text-left relative overflow-hidden">
+        {/* Full-width Background Images */}
+        <div className="absolute inset-0" style={{ zIndex: 0 }}>
+          <div
+            className="absolute inset-0 lg:hidden"
+            style={{
+              backgroundImage: "url('/images/raira-nails-background.webp')",
+              backgroundSize: "130%",
+              backgroundPosition: "top center",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+          <div
+            className="absolute inset-0 hidden lg:block"
+            style={{
+              backgroundImage: "url('/images/raira-nails-background-desktop.webp')",
+              backgroundSize: "cover",
+              backgroundPosition: "center left",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+        </div>
+
         {/* Background Decorative Elements - OPTIMIZED */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Main gradient orbs - reduced blur for performance */}
@@ -566,21 +518,12 @@ export default function Home() {
         <div className="container mx-auto max-w-7xl relative z-10">
           {/* Mobile/Tablet Layout (até md) */}
           <div
-            className="relative w-full lg:hidden overflow-visible"
-            style={{ paddingTop: "80px" }}
+            className="relative w-full lg:hidden overflow-visible min-h-[600px] md:min-h-[850px]"
+            style={{
+              paddingTop: "80px",
+            }}
           >
-            <img
-              src={heroImage}
-              alt="Nail Designer de Sucesso"
-              className="w-full h-[600px] md:h-[850px] object-cover pointer-events-none select-none"
-              style={{
-                objectPosition: "45% -15%",
-              }}
-              data-testid="img-hero"
-              draggable="false"
-              onContextMenu={(e) => e.preventDefault()}
-            />
-            <div className="absolute bottom-[-180px] md:bottom-[-100px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8">
+            <div className="absolute bottom-[-240px] md:bottom-[-140px] left-0 right-0 pb-8 md:pb-8 px-4 md:px-8">
               <motion.h1
                 className="nail-hero-title mb-0"
                 data-testid="text-hero-title"
@@ -609,41 +552,41 @@ export default function Home() {
 
           {/* Desktop Layout (lg+) */}
           <div className="hidden lg:block relative w-full min-h-[1000px]">
-            {/* Imagem alinhada à direita - MUITO MAIOR */}
-            <div className="absolute inset-0 flex justify-end items-center">
-              <div
-                className="relative"
-                style={{ width: "120%", marginRight: "-40%", marginTop: "0px" }}
-              >
-                <img
-                  src={heroImage}
-                  alt="Nail Designer de Sucesso"
-                  className="w-full h-[1500px] object-contain object-right pointer-events-none select-none"
-                  data-testid="img-hero-desktop"
-                  draggable="false"
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-              </div>
-            </div>
 
             {/* Textos sobrepostos à esquerda - LARGURA AUMENTADA */}
             <div className="relative z-10 flex items-center min-h-[1000px]">
               <div className="max-w-[700px] px-8">
-                <motion.p
-                  className="text-white uppercase mb-6 text-left"
-                  style={{
-                    fontSize: "11px",
-                    fontWeight: 600,
-                    letterSpacing: "0.1em",
-                    opacity: 0.7,
-                  }}
+                <motion.div
+                  className="inline-flex items-center gap-4 mb-6 text-left"
                   data-testid="text-hero-badge-desktop"
                   variants={blurText}
                   initial="hidden"
                   animate="visible"
                 >
-                  INSCRIÇÕES ABERTAS POR TEMPO LIMITADO
-                </motion.p>
+                  <img
+                    src="/images/logo-icon.webp"
+                    alt="Logo"
+                    className="w-10 h-10"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
+                    data-testid="img-logo-icon-hero-desktop"
+                  />
+                  <p
+                    className="text-white uppercase m-0"
+                    style={{
+                      fontSize: "10px",
+                      fontWeight: 600,
+                      letterSpacing: "0.1em",
+                      opacity: 0.7,
+                      maxWidth: "150px",
+                      lineHeight: "1.1",
+                      whiteSpace: "normal",
+                    }}
+                  >
+                    INSCRIÇÕES ABERTAS<br />POR TEMPO LIMITADO
+                  </p>
+                </motion.div>
                 <motion.h1
                   className="nail-hero-title mb-8"
                   data-testid="text-hero-title-desktop"
@@ -702,7 +645,7 @@ export default function Home() {
           </div>
 
           {/* Botão Mobile/Tablet */}
-          <div className="lg:hidden px-4 md:px-8 pt-36 md:pt-32 pb-20">
+          <div className="lg:hidden px-4 md:px-8 pt-48 md:pt-40 pb-20">
             <motion.div
               className="inline-block relative group"
               style={{ padding: "6px" }}
@@ -755,8 +698,10 @@ export default function Home() {
           style={{
             height: "1px",
             background:
-              "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
             margin: "0 auto",
+            boxShadow: "0 0 4px rgba(219, 168, 111, 0.15), 0 0 2px rgba(239, 213, 167, 0.1)",
+            position: "relative",
           }}
         />
       </div>
@@ -770,14 +715,14 @@ export default function Home() {
               background: "linear-gradient(90deg, #170F0B 0%, #382607 100%)",
             }}
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             <img
-              src="/images/logo-icon.png"
+              src="/images/logo-icon.webp"
               alt="Logo"
               className="w-4 h-4"
+              draggable="false"
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
               data-testid="img-logo-icon"
             />
             <p
@@ -797,41 +742,34 @@ export default function Home() {
             className="nail-h2 mb-4 mx-auto lg:max-w-3xl"
             data-testid="text-problem-title"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: 0.1 }}
           >
             Cansada de trabalhar muito{" "}
+            <br className="hidden lg:block" />
             <span
               className="gradient-text"
               style={{
                 fontFamily: "var(--font-titulos)",
-                fontWeight: 700,
+                fontWeight: 400,
               }}
             >
               e sentir que não sai do lugar?
             </span>
           </motion.h2>
           <motion.p
-            className="nail-body leading-relaxed mx-auto max-w-xl mb-16"
+            className="nail-body mx-auto max-w-xl mb-16"
+            style={{ lineHeight: "1.1" }}
             data-testid="text-problem-subtitle"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: 0.2 }}
           >
-            Esta formação é o seu plano de fuga,{" "}
+            Esta formação é o seu plano de fuga,<br className="md:hidden" />{" "}
             <span style={{ fontWeight: 700 }}>desenhada para você que:</span>
           </motion.p>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-12 gap-4 max-w-6xl mx-auto mb-12"
+            className="grid grid-cols-1 md:grid-cols-12 gap-2 max-w-6xl mx-auto mb-12"
             variants={blurTextStagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             <motion.div
               variants={blurText}
@@ -1024,9 +962,6 @@ export default function Home() {
           <motion.div 
             className="flex flex-col md:flex-row items-center md:items-center justify-between gap-6 max-w-6xl mx-auto"
             variants={blurTextStagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             <motion.p
               className="nail-body leading-relaxed text-center md:text-left md:max-w-md"
@@ -1071,8 +1006,10 @@ export default function Home() {
             style={{
               height: "1px",
               background:
-                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
+              boxShadow: "0 0 4px rgba(219, 168, 111, 0.15), 0 0 2px rgba(239, 213, 167, 0.1)",
+              position: "relative",
             }}
           />
         </div>
@@ -1084,9 +1021,6 @@ export default function Home() {
           <motion.div 
             className="flex justify-center lg:justify-start mb-6"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             <div
               className="inline-flex items-center gap-3 px-6 py-3 rounded-full"
@@ -1095,9 +1029,12 @@ export default function Home() {
               }}
             >
               <img
-                src="/images/logo-icon.png"
+                src="/images/logo-icon.webp"
                 alt="Logo"
                 className="w-4 h-4"
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
                 data-testid="img-logo-icon-access"
               />
               <p
@@ -1119,9 +1056,6 @@ export default function Home() {
             {/* Lado Esquerdo - Conteúdo */}
             <motion.div
               variants={blurTextStagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
             >
               <motion.h2
                 className="nail-h2 mb-6 text-center lg:text-left"
@@ -1155,6 +1089,9 @@ export default function Home() {
                     playsInline
                     disablePictureInPicture
                     controlsList="nodownload nofullscreen noremoteplayback"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
                     style={{
                       pointerEvents: "none",
                       width: "100%",
@@ -1371,6 +1308,9 @@ export default function Home() {
                   playsInline
                   disablePictureInPicture
                   controlsList="nodownload nofullscreen noremoteplayback"
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
                   style={{
                     pointerEvents: "none",
                     width: "100%",
@@ -1403,8 +1343,10 @@ export default function Home() {
             style={{
               height: "1px",
               background:
-                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
+              boxShadow: "0 0 4px rgba(219, 168, 111, 0.15), 0 0 2px rgba(239, 213, 167, 0.1)",
+              position: "relative",
             }}
           />
         </div>
@@ -1416,9 +1358,6 @@ export default function Home() {
           <motion.div 
             className="flex justify-center mb-6"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             <div
               className="inline-flex items-center gap-3 px-6 py-3 rounded-full"
@@ -1427,9 +1366,12 @@ export default function Home() {
               }}
             >
               <img
-                src="/images/logo-icon.png"
+                src="/images/logo-icon.webp"
                 alt="Logo"
                 className="w-4 h-4"
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
                 data-testid="img-logo-icon-extras"
               />
               <p
@@ -1451,9 +1393,6 @@ export default function Home() {
             className="nail-h2 mb-12" 
             data-testid="text-extras-title"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: 0.1 }}
           >
             Além disso,{" "}
@@ -1467,9 +1406,6 @@ export default function Home() {
             <motion.div
               whileHover={hoverLift}
               variants={blurText}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
                 background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)",
@@ -1492,14 +1428,20 @@ export default function Home() {
                   loop
                   muted
                   playsInline
+                  disablePictureInPicture
+                  controlsList="nodownload nofullscreen noremoteplayback"
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
                   style={{
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    display: "block"
+                    display: "block",
+                    pointerEvents: "none"
                   }}
                 >
-                  <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1762985422/raira-nail-1_pceofa.mp4" type="video/mp4" />
+                  <source src="/images/more-raira-nail-1.webm" type="video/webm" />
                 </video>
               </div>
 
@@ -1532,9 +1474,6 @@ export default function Home() {
             <motion.div
               whileHover={hoverLift}
               variants={blurText}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.1 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
@@ -1554,8 +1493,11 @@ export default function Home() {
                 }}
               >
                 <img
-                  src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1762981626/raira-nail-3_nudo1i.jpg"
+                  src="/images/more-raira-nail-2.webp"
                   alt="Comunidade de Alunas no Instagram"
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
                   style={{
                     width: "100%",
                     height: "100%",
@@ -1594,9 +1536,6 @@ export default function Home() {
             <motion.div
               whileHover={hoverLift}
               variants={blurText}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.2 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
@@ -1616,8 +1555,11 @@ export default function Home() {
                 }}
               >
                 <img
-                  src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1762981251/raira-nail-2_hnpxek.jpg"
+                  src="/images/more-raira-nail-3.webp"
                   alt="Certificado de Conclusão"
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
                   style={{
                     width: "100%",
                     height: "100%",
@@ -1657,9 +1599,6 @@ export default function Home() {
             <motion.div
               whileHover={hoverLift}
               variants={blurText}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.3 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 relative overflow-hidden min-h-[320px] lg:min-h-[280px]"
               style={{
@@ -1763,9 +1702,6 @@ export default function Home() {
             <motion.div
               whileHover={hoverLift}
               variants={blurText}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.4 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-3 relative overflow-hidden min-h-[320px] lg:min-h-[280px]"
               style={{
@@ -1873,8 +1809,10 @@ export default function Home() {
             style={{
               height: "1px",
               background:
-                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
+              boxShadow: "0 0 4px rgba(219, 168, 111, 0.15), 0 0 2px rgba(239, 213, 167, 0.1)",
+              position: "relative",
             }}
           />
         </div>
@@ -1886,9 +1824,6 @@ export default function Home() {
           <motion.div 
             className="flex justify-center mb-6"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             <div
               className="inline-flex items-center gap-3 px-6 py-3 rounded-full"
@@ -1897,9 +1832,12 @@ export default function Home() {
               }}
             >
               <img
-                src="/images/logo-icon.png"
+                src="/images/logo-icon.webp"
                 alt="Logo"
                 className="w-4 h-4"
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
                 data-testid="img-logo-icon-por-dentro"
               />
               <p
@@ -1921,9 +1859,6 @@ export default function Home() {
             className="nail-h2 mb-12 text-center" 
             data-testid="text-por-dentro-title"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: 0.1 }}
           >
             <span className="gradient-text nail-h2-highlight">Confira os módulos</span> presentes no curso
@@ -1971,6 +1906,9 @@ export default function Home() {
                       src={`https://picsum.photos/seed/module-${index}/250/350`}
                       alt={`Módulo ${index + 1}`}
                       className="w-full h-full object-cover"
+                      draggable="false"
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
                     />
                   </motion.div>
                 ))}
@@ -1989,6 +1927,9 @@ export default function Home() {
                       src={`https://picsum.photos/seed/module-${index}/250/350`}
                       alt={`Módulo ${index + 1}`}
                       className="w-full h-full object-cover"
+                      draggable="false"
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
                     />
                   </motion.div>
                 ))}
@@ -2033,8 +1974,10 @@ export default function Home() {
             style={{
               height: "1px",
               background:
-                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
+              boxShadow: "0 0 4px rgba(219, 168, 111, 0.15), 0 0 2px rgba(239, 213, 167, 0.1)",
+              position: "relative",
             }}
           />
         </div>
@@ -2056,32 +1999,30 @@ export default function Home() {
           style={{
             background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)",
             padding: "40px 20px 50px 20px",
-            borderTop: "1px solid #000000",
-            borderBottom: "1px solid #000000",
+            borderTop: "1px solid #372507",
+            borderBottom: "1px solid #372507",
             width: "100%",
             position: "relative",
             zIndex: 1,
+            boxShadow: "inset 0 1px 0 0 rgba(219, 168, 111, 0.15), inset 0 -1px 0 0 rgba(219, 168, 111, 0.15), 0 1px 0 0 rgba(239, 213, 167, 0.1), 0 -1px 0 0 rgba(239, 213, 167, 0.1)",
             paddingBottom: "60px",
           }}
         >
           <motion.div 
             className="text-center"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             <p
               style={{
                 color: "#1A1212",
                 fontSize: "30px",
                 fontWeight: 600,
-                lineHeight: "1.5",
+                lineHeight: "1.1",
                 margin: "0 auto",
                 maxWidth: "800px",
               }}
             >
-              Tudo o que você precisa para começar, incluso em uma única inscrição:
+              Tudo o que você precisa para começar,<br className="hidden md:block" /> incluso em uma única inscrição:
             </p>
           </motion.div>
         </div>
@@ -2129,9 +2070,6 @@ export default function Home() {
             {/* Pricing Card */}
             <motion.div
               variants={blurText}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               className="rounded-2xl overflow-hidden relative"
               style={{
                 background: "#261816",
@@ -2187,7 +2125,7 @@ export default function Home() {
                         fontSize: "52px",
                         fontWeight: 700,
                         margin: "0 0 8px 0",
-                        lineHeight: "1.2",
+                        lineHeight: "1.1",
                       }}
                     >
                       R$ 47,26<span style={{ fontSize: "12px", fontWeight: 500 }}>/POR MÊS</span>
@@ -2227,7 +2165,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2257,7 +2195,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2287,7 +2225,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2317,7 +2255,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2347,7 +2285,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2377,7 +2315,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2407,7 +2345,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2437,7 +2375,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2467,7 +2405,7 @@ export default function Home() {
                           style={{
                             color: "#FFFFFF",
                             fontSize: "16px",
-                            lineHeight: "1.6",
+                            lineHeight: "1.1",
                             margin: 0,
                             opacity: 0.9,
                             textAlign: "left",
@@ -2516,18 +2454,18 @@ export default function Home() {
                 background: "#170F0B",
               }}
               variants={blurText}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.2 }}
             >
               <div className="p-8 md:p-10 flex flex-col items-center justify-center w-full">
                 {/* Logo and Main Text */}
                 <div className="flex flex-col items-center text-center mb-6">
                   <img
-                    src="/images/raira-garantia.png"
+                    src="/images/raira-garantia.webp"
                     alt="Garantia 7 dias"
                     className="mb-6"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
                     style={{ maxWidth: "200px", height: "auto" }}
                   />
                   <p
@@ -2539,7 +2477,7 @@ export default function Home() {
                       lineHeight: "1.1",
                     }}
                   >
-                    Você tem 7 dias para testar
+                    7 dias para testar
                   </p>
                   <p
                     style={{
@@ -2550,7 +2488,7 @@ export default function Home() {
                       lineHeight: "1.1",
                     }}
                   >
-                    com risco zero
+                    com risco zero.
                   </p>
                 </div>
 
@@ -2559,7 +2497,7 @@ export default function Home() {
                   style={{
                     color: "#FFFFFF",
                     fontSize: "14px",
-                    lineHeight: "1.6",
+                    lineHeight: "1.1",
                     margin: 0,
                     opacity: 0.85,
                     textAlign: "center",
@@ -2579,8 +2517,10 @@ export default function Home() {
             style={{
               height: "1px",
               background:
-                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
+              boxShadow: "0 0 4px rgba(219, 168, 111, 0.15), 0 0 2px rgba(239, 213, 167, 0.1)",
+              position: "relative",
             }}
           />
         </div>
@@ -2593,9 +2533,6 @@ export default function Home() {
             <motion.div 
               className="order-1 lg:hidden"
               variants={blurText}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
             >
               <h2 className="nail-h2 mb-4 text-center md:text-center" style={{ fontSize: "48px" }}>
                 Prazer, <span className="gradient-text nail-h2-highlight">eu sou a Raira.</span>
@@ -2604,36 +2541,12 @@ export default function Home() {
 
             <div className="order-2 lg:order-1 justify-self-center lg:justify-self-start transform scale-[0.92] md:scale-100 origin-top md:origin-top-left">
               <motion.div
-                className="grid grid-cols-3 gap-3"
+                className="grid grid-cols-3 gap-2"
                 variants={blurTextStagger}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
               >
                 <motion.div
                   variants={blurText}
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
-                  style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
-                >
-                  <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769327/me-raira-1_xcb5uv.jpg" alt="" className="w-full h-full object-cover" />
-                </motion.div>
-                <motion.div
-                  variants={blurText}
-                  className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
-                  style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
-                >
-                  <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769328/me-raira-2_kbrc5v.jpg" alt="" className="w-full h-full object-cover" />
-                </motion.div>
-                <motion.div
-                  variants={blurText}
-                  className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
-                  style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
-                >
-                  <img src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1763769329/me-raira-3_lxjkdy.jpg" alt="" className="w-full h-full object-cover" />
-                </motion.div>
-                <motion.div
-                  variants={blurText}
-                  className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 row-span-2 col-span-1 h-[300px] md:h-[372px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
                   <video
@@ -2643,9 +2556,75 @@ export default function Home() {
                     playsInline
                     disablePictureInPicture
                     controlsList="nodownload nofullscreen noremoteplayback"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
+                    style={{ width: "100%", height: "120%", objectFit: "cover", objectPosition: "top", pointerEvents: "none", transform: "translateY(-10%)" }}
+                  >
+                    <source src="/images/me-raira-1.webm" type="video/webm" />
+                    Seu navegador não suporta vídeos.
+                  </video>
+                </motion.div>
+                <motion.div
+                  variants={blurText}
+                  className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
+                  style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
+                >
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    disablePictureInPicture
+                    controlsList="nodownload nofullscreen noremoteplayback"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
                     style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
                   >
-                    <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769329/me-raira-4_dpazsg.mp4" type="video/mp4" />
+                    <source src="/images/me-raira-2.webm" type="video/webm" />
+                    Seu navegador não suporta vídeos.
+                  </video>
+                </motion.div>
+                <motion.div
+                  variants={blurText}
+                  className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
+                  style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
+                >
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    disablePictureInPicture
+                    controlsList="nodownload nofullscreen noremoteplayback"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                  >
+                    <source src="/images/me-raira-3.webm" type="video/webm" />
+                    Seu navegador não suporta vídeos.
+                  </video>
+                </motion.div>
+                <motion.div
+                  variants={blurText}
+                  className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 row-span-2 col-span-1 h-[308px] md:h-[372px]"
+                  style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
+                >
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    disablePictureInPicture
+                    controlsList="nodownload nofullscreen noremoteplayback"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                  >
+                    <source src="/images/me-raira-4.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
                   </video>
                 </motion.div>
@@ -2660,9 +2639,12 @@ export default function Home() {
                     playsInline
                     disablePictureInPicture
                     controlsList="nodownload nofullscreen noremoteplayback"
-                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
+                    style={{ width: "100%", height: "140%", objectFit: "cover", objectPosition: "top", pointerEvents: "none", transform: "translateY(-25%)" }}
                   >
-                    <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769329/me-raira-5_akjtca.mp4" type="video/mp4" />
+                    <source src="/images/me-raira-5.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
                   </video>
                 </div>
@@ -2677,9 +2659,12 @@ export default function Home() {
                     playsInline
                     disablePictureInPicture
                     controlsList="nodownload nofullscreen noremoteplayback"
-                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
+                    style={{ width: "100%", height: "140%", objectFit: "cover", objectPosition: "center", pointerEvents: "none", transform: "translateY(-20%)" }}
                   >
-                    <source src="https://res.cloudinary.com/dopp0v9eq/video/upload/v1763769328/me-raira-6_lnjn8a.mp4" type="video/mp4" />
+                    <source src="/images/me-raira-6.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
                   </video>
                 </div>
@@ -2689,9 +2674,6 @@ export default function Home() {
             <motion.div 
               className="hidden lg:block lg:order-2 lg:col-start-2"
               variants={blurTextStagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
             >
               <motion.h2 
                 className="nail-h2 mb-6" 
@@ -2753,9 +2735,6 @@ export default function Home() {
             <motion.div 
               className="order-3 lg:hidden w-full flex flex-col items-center justify-center mx-auto"
               variants={blurTextStagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
             >
               <style dangerouslySetInnerHTML={{
                 __html: `
@@ -2842,7 +2821,7 @@ export default function Home() {
             style={{
               height: "1px",
               background:
-                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
             }}
           />
@@ -2850,23 +2829,17 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="pt-16 px-4 md:px-8">
+      <section id="faq-section" className="pt-16 px-4 md:px-8">
         <div className="container mx-auto max-w-4xl">
           <motion.h2 
             className="nail-h2" 
             data-testid="text-faq-title"
             variants={blurText}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             Perguntas Frequentes
           </motion.h2>
           <motion.div
             variants={blurTextStagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
           >
             <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, index) => (
@@ -2903,8 +2876,10 @@ export default function Home() {
             style={{
               height: "1px",
               background:
-                "linear-gradient(90deg, #170F0B 0%, #261404 15%, #261404 85%, #170F0B 100%)",
+              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
               margin: "0 auto",
+              boxShadow: "0 0 4px rgba(219, 168, 111, 0.15), 0 0 2px rgba(239, 213, 167, 0.1)",
+              position: "relative",
             }}
           />
         </div>
@@ -2912,8 +2887,12 @@ export default function Home() {
 
       {/* Footer */}
       <footer
+        id="footer-section"
         className="py-8 px-4 md:px-8 text-center"
-        style={{ borderTop: "1px solid #221A2A" }}
+        style={{ 
+          borderTop: "1px solid #372507",
+          boxShadow: "inset 0 1px 0 0 rgba(219, 168, 111, 0.15), 0 1px 0 0 rgba(239, 213, 167, 0.1)"
+        }}
       >
         <div className="container mx-auto">
           <p className="nail-footer" data-testid="text-footer-copyright">
