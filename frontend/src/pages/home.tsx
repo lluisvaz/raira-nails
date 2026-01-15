@@ -2575,12 +2575,12 @@ export default function Home() {
                 <p
                   style={{
                     color: "#FFFFFF",
-                    fontSize: "14px",
+                    fontSize: isMobile ? "16px" : "26px",
                     lineHeight: "1.1",
                     margin: 0,
                     opacity: 0.85,
                     textAlign: "center",
-                    maxWidth: "400px",
+                    maxWidth: isMobile ? "400px" : "600px",
                   }}
                 >
                   Caso você se arrependa de ter feito sua matrícula dentro de 7 dias, nós vamos devolver seu dinheiro.
