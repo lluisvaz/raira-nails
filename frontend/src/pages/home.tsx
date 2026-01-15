@@ -390,6 +390,46 @@ export default function Home() {
       answer:
         "Sim! Ao concluir a formação, você receberá um certificado digital de conclusão que comprova sua qualificação como Nail Designer profissional.",
     },
+    {
+      question: "Preciso ter experiência para começar?",
+      answer:
+        "Não! O curso foi desenhado tanto para iniciantes do absoluto zero quanto para profissionais que já atuam e desejam aperfeiçoar suas técnicas e elevar o nível do seu trabalho.",
+    },
+    {
+      question: "Quais as formas de pagamento?",
+      answer:
+        "Você pode realizar sua inscrição via Cartão de Crédito (com parcelamento em até 12x), Pix ou Boleto Bancário. No cartão e Pix, o acesso é liberado imediatamente.",
+    },
+    {
+      question: "O curso serve para quem já é manicure?",
+      answer:
+        "Com certeza! Se você já é manicure, este curso é o próximo passo ideal para você se especializar em alongamentos de alto padrão e aumentar consideravelmente o valor do seu serviço.",
+    },
+    {
+      question: "Como tiro minhas dúvidas durante o curso?",
+      answer:
+        "Além da nossa comunidade exclusiva no WhatsApp, você pode deixar suas dúvidas logo abaixo de cada aula na plataforma de membros. Nossa equipe e a própria Raira dão suporte às alunas.",
+    },
+    {
+      question: "O curso oferece algum material de apoio?",
+      answer:
+        "Sim! Além das videoaulas, você terá acesso a materiais complementares em PDF, como guias de estudo, listas de materiais e modelos de fichas de anamnese para baixar e utilizar no seu dia a dia.",
+    },
+    {
+      question: "As aulas são ao vivo ou gravadas?",
+      answer:
+        "As aulas são 100% gravadas em altíssima qualidade. Isso permite que você assista no seu próprio horário, pause, volte e reveja quantas vezes precisar durante os 12 meses de acesso.",
+    },
+    {
+      question: "Posso assistir pelo celular?",
+      answer:
+        "Com certeza! A plataforma é totalmente responsiva e você também pode utilizar o aplicativo da Hotmart (Sparkle) para assistir às aulas offline, de onde estiver.",
+    },
+    {
+      question: "O pagamento é seguro?",
+      answer:
+        "Totalmente seguro. Utilizamos a plataforma da Hotmart, a maior rede de produtos digitais da América Latina, que garante a proteção total dos seus dados e a entrega imediata do seu acesso.",
+    },
   ];
 
   return (
