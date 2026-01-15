@@ -896,7 +896,7 @@ export default function Home() {
           >
             <motion.div
               variants={blurText}
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               className="nail-card text-left md:col-span-3"
               style={{
                 minHeight: "180px",
@@ -927,7 +927,7 @@ export default function Home() {
 
             <motion.div
               variants={blurText}
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               className="nail-card text-left md:col-span-4"
               style={{
                 minHeight: "200px",
@@ -958,7 +958,7 @@ export default function Home() {
 
             <motion.div
               variants={blurText}
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               className="nail-card text-left md:col-span-5"
               style={{
                 minHeight: "190px",
@@ -989,7 +989,7 @@ export default function Home() {
 
             <motion.div
               variants={blurText}
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               className="nail-card text-left md:col-span-5"
               style={{
                 minHeight: "195px",
@@ -1020,7 +1020,7 @@ export default function Home() {
 
             <motion.div
               variants={blurText}
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               className="nail-card text-left md:col-span-4"
               style={{
                 minHeight: "185px",
@@ -1051,7 +1051,7 @@ export default function Home() {
 
             <motion.div
               variants={blurText}
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               className="nail-card text-left md:col-span-3"
               style={{
                 minHeight: "205px",
@@ -2569,28 +2569,6 @@ export default function Home() {
                     onDragStart={(e) => e.preventDefault()}
                     style={{ maxWidth: "200px", height: "auto" }}
                   />
-                  <p
-                    style={{
-                      color: "#DBA86F",
-                      fontSize: "28px",
-                      fontWeight: 700,
-                      margin: 0,
-                      lineHeight: "1.1",
-                    }}
-                  >
-                    7 dias para testar
-                  </p>
-                  <p
-                    style={{
-                      color: "#DBA86F",
-                      fontSize: "28px",
-                      fontWeight: 700,
-                      margin: "-4px 0 0 0",
-                      lineHeight: "1.1",
-                    }}
-                  >
-                    com risco zero.
-                  </p>
                 </div>
 
                 {/* Description Text */}
@@ -2605,7 +2583,7 @@ export default function Home() {
                     maxWidth: "400px",
                   }}
                 >
-                  Caso você se arrependa de ter feito sua matrícula dentro de 7 dias, nós vamos devolver seu dinheiro. Para evitar abusos, os módulos finais são liberados após esse período.
+                  Caso você se arrependa de ter feito sua matrícula dentro de 7 dias, nós vamos devolver seu dinheiro.
                 </p>
               </div>
             </motion.div>
