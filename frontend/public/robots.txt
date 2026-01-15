@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rairanails.com.br/sitemap.xml

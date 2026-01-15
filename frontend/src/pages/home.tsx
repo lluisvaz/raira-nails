@@ -361,9 +361,19 @@ export default function Home() {
         "Assim que o pagamento for confirmado, você receberá por email seus dados de acesso à plataforma. Todas as aulas ficam disponíveis na área de membros, que você pode acessar de qualquer dispositivo.",
     },
     {
-      question: "O acesso é vitalício?",
+      question: "O acesso é por quanto tempo?",
       answer:
-        "Sim! Você terá acesso vitalício a todo o conteúdo do curso, podendo assistir quantas vezes quiser, no seu ritmo. Além disso, todas as atualizações futuras serão incluídas sem custo adicional.",
+        "Você terá acesso por 12 meses a todo o conteúdo do curso, podendo assistir quantas vezes quiser, no seu ritmo.",
+    },
+    {
+      question: "Quanto uma nail designer consegue faturar aplicando o conteúdo?",
+      answer:
+        "Se você aplicar o conteúdo do curso com dedicação, poderá alcançar um faturamento médio de R$ 6.000,00 por mês.",
+    },
+    {
+      question: "O curso terá atualizações?",
+      answer:
+        "Sim, o curso pode receber atualizações de conteúdo. Novos módulos ou conteúdos extras poderão ser oferecidos à parte, com condições especiais e descontos para quem já é aluna.",
     },
     {
       question: "Preciso ter os materiais para começar?",
@@ -371,14 +381,14 @@ export default function Home() {
         "Não precisa ter todos os materiais de imediato. No Módulo 0, você recebe uma lista completa e detalhada dos materiais essenciais, com sugestões de fornecedores confiáveis. Você pode começar com o básico e ir expandindo conforme avança.",
     },
     {
+      question: "Como funciona o suporte e comunidade?",
+      answer:
+        "Você terá acesso à nossa comunidade exclusiva de alunas no WhatsApp, onde poderá tirar dúvidas, compartilhar seus trabalhos e trocar experiências.",
+    },
+    {
       question: "Vou receber certificado?",
       answer:
         "Sim! Ao concluir a formação, você receberá um certificado digital de conclusão que comprova sua qualificação como Nail Designer profissional.",
-    },
-    {
-      question: "Como funciona o suporte?",
-      answer:
-        "Você terá acesso à comunidade VIP exclusiva de alunas, onde poderá tirar dúvidas, compartilhar seus trabalhos e trocar experiências. Além disso, há suporte direto para questões técnicas sobre o acesso à plataforma.",
     },
   ];
 
@@ -534,7 +544,7 @@ export default function Home() {
               >
                 Conquiste sua{" "}
                 <span className="gradient-text">Independência Financeira</span>{" "}
-                como Nail Designer de Sucesso.
+                como Nail Designer.
               </motion.h1>
               <motion.p
                 className="nail-subtitle mb-8 md:mb-8 mt-10 md:mt-8"
@@ -599,7 +609,7 @@ export default function Home() {
                   <span className="gradient-text">
                     Independência Financeira
                   </span>{" "}
-                  como Nail Designer de Sucesso.
+                  como Nail Designer.
                 </motion.h1>
                 <motion.p
                   className="nail-subtitle mb-12"
@@ -626,7 +636,7 @@ export default function Home() {
                     className="cta-button"
                     data-testid="button-cta-hero-desktop"
                   >
-                    Quero me Tornar uma Nail Designer de Sucesso
+                    Quero me Tornar uma Nail Designer
                     <HiOutlineArrowUpRight
                       size={24}
                       className="text-black flex-shrink-0"
@@ -659,7 +669,7 @@ export default function Home() {
                 className="cta-button"
                 data-testid="button-cta-hero"
               >
-                Quero me Tornar uma Nail Designer de Sucesso
+                Quero me Tornar uma Nail Designer
                 <HiOutlineArrowUpRight
                   size={24}
                   className="text-black flex-shrink-0"
@@ -1494,7 +1504,7 @@ export default function Home() {
               >
                 <img
                   src="/images/more-raira-nail-2.webp"
-                  alt="Comunidade de Alunas no Instagram"
+                  alt="Comunidade de Alunas no WhatsApp"
                   draggable="false"
                   onContextMenu={(e) => e.preventDefault()}
                   onDragStart={(e) => e.preventDefault()}
@@ -1527,7 +1537,7 @@ export default function Home() {
                 <h3 className="text-3xl lg:text-[34px] font-bold mb-0">
                   <span className="gradient-text">Comunidade de Alunas</span>
                   <br />
-                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>no Instagram</span>
+                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>no WhatsApp</span>
                 </h3>
               </div>
             </motion.div>
@@ -1794,9 +1804,9 @@ export default function Home() {
               {/* Conteúdo - Desktop: à esquerda, Mobile: centralizado */}
               <div className="relative z-10 flex flex-col justify-end lg:justify-center h-full lg:items-start items-center text-center pb-6 lg:pb-4">
                 <h3 className="text-3xl lg:text-[34px] font-bold mb-0 text-center">
-                  <span className="gradient-text">Atualizações Contínuas</span>
+                  <span className="gradient-text">Atualizações Constantes</span>
                   <br />
-                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>e Gratuitas do Curso</span>
+                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>de Conteúdo</span>
                 </h3>
               </div>
             </motion.div>
@@ -2231,7 +2241,7 @@ export default function Home() {
                             textAlign: "left",
                           }}
                         >
-                          Comunidade VIP de alunas no Instagram
+                          Comunidade VIP de alunas no WhatsApp
                         </p>
                       </div>
 
@@ -2321,7 +2331,7 @@ export default function Home() {
                             textAlign: "left",
                           }}
                         >
-                          Atualizações contínuas e gratuitas do curso
+                          Atualizações constantes de conteúdo
                         </p>
                       </div>
 
@@ -2504,7 +2514,7 @@ export default function Home() {
                     maxWidth: "400px",
                   }}
                 >
-                  Caso você se arrependa de ter feito sua matrícula, independente do motivo, nós vamos alegremente devolver seu dinheiro sem perguntas e sem aborrecimentos.
+                  Caso você se arrependa de ter feito sua matrícula dentro de 7 dias, nós vamos devolver seu dinheiro. Para evitar abusos, os módulos finais são liberados após esse período.
                 </p>
               </div>
             </motion.div>
