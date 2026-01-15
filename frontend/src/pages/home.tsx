@@ -667,7 +667,7 @@ export default function Home() {
                 animate="visible"
                 transition={{ delay: 0.4 }}
               >
-                Fature +R$5.000/Mês como Nail Designer, Dominando as Técnicas
+                Fature +R$6.000/Mês como Nail Designer, Dominando as Técnicas
                 que as Clientes Amam!
               </motion.p>
             </div>
@@ -732,7 +732,7 @@ export default function Home() {
                   animate="visible"
                   transition={{ delay: 0.4 }}
                 >
-                  Fature +R$5.000/Mês como Nail Designer, Dominando as Técnicas
+                  Fature +6.000/Mês como Nail Designer, Dominando as Técnicas
                   que as Clientes Amam!
                 </motion.p>
                 <motion.div
@@ -982,7 +982,7 @@ export default function Home() {
                 style={{ opacity: 0.85 }}
                 data-testid="text-target-description-2"
               >
-                E vê o potencial de ganhar R$ 3.000, R$ 5.000 ou mais por mês,
+                E vê o potencial de ganhar R$ 3.000, R$ 6.000 ou mais por mês,
                 trabalhando para si mesma, com suas próprias regras.
               </p>
             </motion.div>
