@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -12,6 +12,64 @@ import { AiFillSpotify } from "react-icons/ai";
 import { FaHeadphones, FaXTwitter } from "react-icons/fa6";
 import { FaPhoneAlt, FaPinterest, FaSnapchatGhost } from "react-icons/fa";
 import { RiNetflixFill } from "react-icons/ri";
+
+// Componente de vídeo otimizado com Intersection Observer
+const IntersectionVideoPlayer = ({
+  src,
+  poster,
+  className,
+  style,
+  autoPlay = true,
+  loop = true,
+  muted = true,
+  playsInline = true,
+  children,
+  ...props
+}: React.VideoHTMLAttributes<HTMLVideoElement> & { src?: string }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {
+              // Ignorar erros de autoplay se houver
+            });
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.1 } // Inicia quando 10% do vídeo está visível
+    );
+
+    observer.observe(video);
+
+    return () => {
+      if (video) observer.unobserve(video);
+    };
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      src={src}
+      poster={poster}
+      className={className}
+      style={style}
+      loop={loop}
+      muted={muted}
+      playsInline={playsInline}
+      {...props}
+    >
+      {children}
+    </video>
+  );
+};
 
 // Componente auxiliar para ícones do celular
 const IconWrapper = ({ children }: { children?: React.ReactNode }) => {
@@ -98,6 +156,11 @@ const lockLightVariant: Variants = {
 
 const hoverLift = {
   y: -8,
+  transition: { duration: 0.3, ease: "easeOut" as const }
+};
+
+const mobileHoverLift = {
+  y: 0,
   transition: { duration: 0.3, ease: "easeOut" as const }
 };
 
@@ -318,8 +381,15 @@ const PDFComponent = () => {
 
 export default function Home() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    
     // Check for prefers-reduced-motion
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mediaQuery.matches);
@@ -329,7 +399,10 @@ export default function Home() {
     };
 
     mediaQuery.addEventListener("change", handleMotionChange);
-    return () => mediaQuery.removeEventListener("change", handleMotionChange);
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+      mediaQuery.removeEventListener("change", handleMotionChange);
+    };
   }, []);
 
   // Smooth scroll handler for anchor links
@@ -1132,11 +1205,8 @@ export default function Home() {
                   }}
                   data-testid="container-platform-video-mobile"
                 >
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                  <IntersectionVideoPlayer
+                    src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
                     disablePictureInPicture
                     controlsList="nodownload nofullscreen noremoteplayback"
                     draggable="false"
@@ -1149,13 +1219,7 @@ export default function Home() {
                       objectFit: "cover",
                     }}
                     data-testid="video-platform-preview-mobile"
-                  >
-                    <source
-                      src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                      type="video/mp4"
-                    />
-                    Seu navegador não suporta vídeos.
-                  </video>
+                  />
                 </div>
                 <BorderBeam
                   size={100}
@@ -1351,11 +1415,8 @@ export default function Home() {
                 }}
                 data-testid="container-platform-video"
               >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <IntersectionVideoPlayer
+                  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
                   disablePictureInPicture
                   controlsList="nodownload nofullscreen noremoteplayback"
                   draggable="false"
@@ -1368,13 +1429,7 @@ export default function Home() {
                     objectFit: "cover",
                   }}
                   data-testid="video-platform-preview"
-                >
-                  <source
-                    src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                    type="video/mp4"
-                  />
-                  Seu navegador não suporta vídeos.
-                </video>
+                />
               </div>
               <BorderBeam
                 size={100}
@@ -1420,6 +1475,7 @@ export default function Home() {
                 alt="Logo"
                 className="w-4 h-4"
                 draggable="false"
+                loading="lazy"
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
                 data-testid="img-logo-icon-extras"
@@ -1454,7 +1510,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
             {/* Card 1 - Formação Completa */}
             <motion.div
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               variants={blurText}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
@@ -1473,11 +1529,8 @@ export default function Home() {
                   zIndex: 0
                 }}
               >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <IntersectionVideoPlayer
+                  src="/images/more-raira-nail-1.webm"
                   disablePictureInPicture
                   controlsList="nodownload nofullscreen noremoteplayback"
                   draggable="false"
@@ -1490,9 +1543,7 @@ export default function Home() {
                     display: "block",
                     pointerEvents: "none"
                   }}
-                >
-                  <source src="/images/more-raira-nail-1.webm" type="video/webm" />
-                </video>
+                />
               </div>
 
               {/* Gradiente de fade na parte inferior - mais forte e subindo mais */}
@@ -1522,7 +1573,7 @@ export default function Home() {
 
             {/* Card 2 - Comunidade VIP */}
             <motion.div
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               variants={blurText}
               transition={{ delay: 0.1 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
@@ -1584,7 +1635,7 @@ export default function Home() {
 
             {/* Card 3 - Certificado */}
             <motion.div
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               variants={blurText}
               transition={{ delay: 0.2 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
@@ -2599,7 +2650,7 @@ export default function Home() {
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <video
+                  <IntersectionVideoPlayer
                     autoPlay
                     loop
                     muted
@@ -2613,14 +2664,14 @@ export default function Home() {
                   >
                     <source src="/images/me-raira-1.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
-                  </video>
+                  </IntersectionVideoPlayer>
                 </motion.div>
                 <motion.div
                   variants={blurText}
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <video
+                  <IntersectionVideoPlayer
                     autoPlay
                     loop
                     muted
@@ -2630,18 +2681,18 @@ export default function Home() {
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
                     onDragStart={(e) => e.preventDefault()}
-                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                    style={{ width: "100%", height: "140%", objectFit: "cover", objectPosition: "center", pointerEvents: "none", transform: "translateY(-20%)" }}
                   >
                     <source src="/images/me-raira-2.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
-                  </video>
+                  </IntersectionVideoPlayer>
                 </motion.div>
                 <motion.div
                   variants={blurText}
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <video
+                  <IntersectionVideoPlayer
                     autoPlay
                     loop
                     muted
@@ -2651,18 +2702,18 @@ export default function Home() {
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
                     onDragStart={(e) => e.preventDefault()}
-                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                    style={{ width: "100%", height: "140%", objectFit: "cover", objectPosition: "center", pointerEvents: "none", transform: "translateY(-20%)" }}
                   >
                     <source src="/images/me-raira-3.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
-                  </video>
+                  </IntersectionVideoPlayer>
                 </motion.div>
                 <motion.div
                   variants={blurText}
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 row-span-2 col-span-1 h-[308px] md:h-[372px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <video
+                  <IntersectionVideoPlayer
                     autoPlay
                     loop
                     muted
@@ -2672,17 +2723,17 @@ export default function Home() {
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
                     onDragStart={(e) => e.preventDefault()}
-                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                    style={{ width: "100%", height: "140%", objectFit: "cover", objectPosition: "center", pointerEvents: "none", transform: "translateY(-20%)" }}
                   >
                     <source src="/images/me-raira-4.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
-                  </video>
+                  </IntersectionVideoPlayer>
                 </motion.div>
                 <div
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 col-span-2 h-[150px] md:h-[180px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <video
+                  <IntersectionVideoPlayer
                     autoPlay
                     loop
                     muted
@@ -2696,13 +2747,13 @@ export default function Home() {
                   >
                     <source src="/images/me-raira-5.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
-                  </video>
+                  </IntersectionVideoPlayer>
                 </div>
                 <div
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 col-span-2 h-[150px] md:h-[180px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <video
+                  <IntersectionVideoPlayer
                     autoPlay
                     loop
                     muted
@@ -2716,7 +2767,7 @@ export default function Home() {
                   >
                     <source src="/images/me-raira-6.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
-                  </video>
+                  </IntersectionVideoPlayer>
                 </div>
               </motion.div>
             </div>
