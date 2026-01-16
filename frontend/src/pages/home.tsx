@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -12,6 +12,64 @@ import { AiFillSpotify } from "react-icons/ai";
 import { FaHeadphones, FaXTwitter } from "react-icons/fa6";
 import { FaPhoneAlt, FaPinterest, FaSnapchatGhost } from "react-icons/fa";
 import { RiNetflixFill } from "react-icons/ri";
+
+// Componente de vídeo otimizado com Intersection Observer
+const IntersectionVideoPlayer = ({
+  src,
+  poster,
+  className,
+  style,
+  autoPlay = true,
+  loop = true,
+  muted = true,
+  playsInline = true,
+  children,
+  ...props
+}: React.VideoHTMLAttributes<HTMLVideoElement> & { src?: string }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {
+              // Ignorar erros de autoplay se houver
+            });
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.1 } // Inicia quando 10% do vídeo está visível
+    );
+
+    observer.observe(video);
+
+    return () => {
+      if (video) observer.unobserve(video);
+    };
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      src={src}
+      poster={poster}
+      className={className}
+      style={style}
+      loop={loop}
+      muted={muted}
+      playsInline={playsInline}
+      {...props}
+    >
+      {children}
+    </video>
+  );
+};
 
 // Componente auxiliar para ícones do celular
 const IconWrapper = ({ children }: { children?: React.ReactNode }) => {
@@ -98,6 +156,11 @@ const lockLightVariant: Variants = {
 
 const hoverLift = {
   y: -8,
+  transition: { duration: 0.3, ease: "easeOut" as const }
+};
+
+const mobileHoverLift = {
+  y: 0,
   transition: { duration: 0.3, ease: "easeOut" as const }
 };
 
@@ -318,8 +381,15 @@ const PDFComponent = () => {
 
 export default function Home() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    
     // Check for prefers-reduced-motion
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mediaQuery.matches);
@@ -329,7 +399,10 @@ export default function Home() {
     };
 
     mediaQuery.addEventListener("change", handleMotionChange);
-    return () => mediaQuery.removeEventListener("change", handleMotionChange);
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+      mediaQuery.removeEventListener("change", handleMotionChange);
+    };
   }, []);
 
   // Smooth scroll handler for anchor links
@@ -361,9 +434,19 @@ export default function Home() {
         "Assim que o pagamento for confirmado, você receberá por email seus dados de acesso à plataforma. Todas as aulas ficam disponíveis na área de membros, que você pode acessar de qualquer dispositivo.",
     },
     {
-      question: "O acesso é vitalício?",
+      question: "O acesso é por quanto tempo?",
       answer:
-        "Sim! Você terá acesso vitalício a todo o conteúdo do curso, podendo assistir quantas vezes quiser, no seu ritmo. Além disso, todas as atualizações futuras serão incluídas sem custo adicional.",
+        "Você terá acesso por 12 meses a todo o conteúdo do curso, podendo assistir quantas vezes quiser, no seu ritmo.",
+    },
+    {
+      question: "Quanto uma nail designer consegue faturar aplicando o conteúdo?",
+      answer:
+        "Se você aplicar o conteúdo do curso com dedicação, poderá alcançar um faturamento médio de R$ 6.000,00 por mês.",
+    },
+    {
+      question: "O curso terá atualizações?",
+      answer:
+        "Sim, o curso pode receber atualizações de conteúdo. Novos módulos ou conteúdos extras poderão ser oferecidos à parte, com condições especiais e descontos para quem já é aluna.",
     },
     {
       question: "Preciso ter os materiais para começar?",
@@ -371,14 +454,54 @@ export default function Home() {
         "Não precisa ter todos os materiais de imediato. No Módulo 0, você recebe uma lista completa e detalhada dos materiais essenciais, com sugestões de fornecedores confiáveis. Você pode começar com o básico e ir expandindo conforme avança.",
     },
     {
+      question: "Como funciona o suporte e comunidade?",
+      answer:
+        "Você terá acesso à nossa comunidade exclusiva de alunas no WhatsApp, onde poderá tirar dúvidas, compartilhar seus trabalhos e trocar experiências.",
+    },
+    {
       question: "Vou receber certificado?",
       answer:
         "Sim! Ao concluir a formação, você receberá um certificado digital de conclusão que comprova sua qualificação como Nail Designer profissional.",
     },
     {
-      question: "Como funciona o suporte?",
+      question: "Preciso ter experiência para começar?",
       answer:
-        "Você terá acesso à comunidade VIP exclusiva de alunas, onde poderá tirar dúvidas, compartilhar seus trabalhos e trocar experiências. Além disso, há suporte direto para questões técnicas sobre o acesso à plataforma.",
+        "Não! O curso foi desenhado tanto para iniciantes do absoluto zero quanto para profissionais que já atuam e desejam aperfeiçoar suas técnicas e elevar o nível do seu trabalho.",
+    },
+    {
+      question: "Quais as formas de pagamento?",
+      answer:
+        "Você pode realizar sua inscrição via Cartão de Crédito (com parcelamento em até 12x), Pix ou Boleto Bancário. No cartão e Pix, o acesso é liberado imediatamente.",
+    },
+    {
+      question: "O curso serve para quem já é manicure?",
+      answer:
+        "Com certeza! Se você já é manicure, este curso é o próximo passo ideal para você se especializar em alongamentos de alto padrão e aumentar consideravelmente o valor do seu serviço.",
+    },
+    {
+      question: "Como tiro minhas dúvidas durante o curso?",
+      answer:
+        "Além da nossa comunidade exclusiva no WhatsApp, você pode deixar suas dúvidas logo abaixo de cada aula na plataforma de membros. Nossa equipe e a própria Raira dão suporte às alunas.",
+    },
+    {
+      question: "O curso oferece algum material de apoio?",
+      answer:
+        "Sim! Além das videoaulas, você terá acesso a materiais complementares em PDF, como guias de estudo, listas de materiais e modelos de fichas de anamnese para baixar e utilizar no seu dia a dia.",
+    },
+    {
+      question: "As aulas são ao vivo ou gravadas?",
+      answer:
+        "As aulas são 100% gravadas em altíssima qualidade. Isso permite que você assista no seu próprio horário, pause, volte e reveja quantas vezes precisar durante os 12 meses de acesso.",
+    },
+    {
+      question: "Posso assistir pelo celular?",
+      answer:
+        "Com certeza! A plataforma é totalmente responsiva e você também pode utilizar o aplicativo da Hotmart (Sparkle) para assistir às aulas offline, de onde estiver.",
+    },
+    {
+      question: "O pagamento é seguro?",
+      answer:
+        "Totalmente seguro. Utilizamos a plataforma da Hotmart, a maior rede de produtos digitais da América Latina, que garante a proteção total dos seus dados e a entrega imediata do seu acesso.",
     },
   ];
 
@@ -534,7 +657,7 @@ export default function Home() {
               >
                 Conquiste sua{" "}
                 <span className="gradient-text">Independência Financeira</span>{" "}
-                como Nail Designer de Sucesso.
+                como Nail Designer.
               </motion.h1>
               <motion.p
                 className="nail-subtitle mb-8 md:mb-8 mt-10 md:mt-8"
@@ -544,7 +667,7 @@ export default function Home() {
                 animate="visible"
                 transition={{ delay: 0.4 }}
               >
-                Fature +R$5.000/Mês como Nail Designer, Dominando as Técnicas
+                Fature +R$6.000/Mês como Nail Designer, Dominando as Técnicas
                 que as Clientes Amam!
               </motion.p>
             </div>
@@ -599,7 +722,7 @@ export default function Home() {
                   <span className="gradient-text">
                     Independência Financeira
                   </span>{" "}
-                  como Nail Designer de Sucesso.
+                  como Nail Designer.
                 </motion.h1>
                 <motion.p
                   className="nail-subtitle mb-12"
@@ -609,7 +732,7 @@ export default function Home() {
                   animate="visible"
                   transition={{ delay: 0.4 }}
                 >
-                  Fature +R$5.000/Mês como Nail Designer, Dominando as Técnicas
+                  Fature +6.000/Mês como Nail Designer, Dominando as Técnicas
                   que as Clientes Amam!
                 </motion.p>
                 <motion.div
@@ -626,7 +749,7 @@ export default function Home() {
                     className="cta-button"
                     data-testid="button-cta-hero-desktop"
                   >
-                    Quero me Tornar uma Nail Designer de Sucesso
+                    Quero me Tornar uma Nail Designer
                     <HiOutlineArrowUpRight
                       size={24}
                       className="text-black flex-shrink-0"
@@ -659,7 +782,7 @@ export default function Home() {
                 className="cta-button"
                 data-testid="button-cta-hero"
               >
-                Quero me Tornar uma Nail Designer de Sucesso
+                Quero me Tornar uma Nail Designer
                 <HiOutlineArrowUpRight
                   size={24}
                   className="text-black flex-shrink-0"
@@ -773,7 +896,7 @@ export default function Home() {
           >
             <motion.div
               variants={blurText}
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               className="nail-card text-left md:col-span-3"
               style={{
                 minHeight: "180px",
@@ -804,7 +927,7 @@ export default function Home() {
 
             <motion.div
               variants={blurText}
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               className="nail-card text-left md:col-span-4"
               style={{
                 minHeight: "200px",
@@ -835,7 +958,7 @@ export default function Home() {
 
             <motion.div
               variants={blurText}
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               className="nail-card text-left md:col-span-5"
               style={{
                 minHeight: "190px",
@@ -859,14 +982,14 @@ export default function Home() {
                 style={{ opacity: 0.85 }}
                 data-testid="text-target-description-2"
               >
-                E vê o potencial de ganhar R$ 3.000, R$ 5.000 ou mais por mês,
+                E vê o potencial de ganhar R$ 3.000, R$ 6.000 ou mais por mês,
                 trabalhando para si mesma, com suas próprias regras.
               </p>
             </motion.div>
 
             <motion.div
               variants={blurText}
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               className="nail-card text-left md:col-span-5"
               style={{
                 minHeight: "195px",
@@ -897,7 +1020,7 @@ export default function Home() {
 
             <motion.div
               variants={blurText}
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               className="nail-card text-left md:col-span-4"
               style={{
                 minHeight: "185px",
@@ -928,7 +1051,7 @@ export default function Home() {
 
             <motion.div
               variants={blurText}
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               className="nail-card text-left md:col-span-3"
               style={{
                 minHeight: "205px",
@@ -1082,11 +1205,8 @@ export default function Home() {
                   }}
                   data-testid="container-platform-video-mobile"
                 >
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                  <IntersectionVideoPlayer
+                    src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
                     disablePictureInPicture
                     controlsList="nodownload nofullscreen noremoteplayback"
                     draggable="false"
@@ -1099,13 +1219,7 @@ export default function Home() {
                       objectFit: "cover",
                     }}
                     data-testid="video-platform-preview-mobile"
-                  >
-                    <source
-                      src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                      type="video/mp4"
-                    />
-                    Seu navegador não suporta vídeos.
-                  </video>
+                  />
                 </div>
                 <BorderBeam
                   size={100}
@@ -1301,11 +1415,8 @@ export default function Home() {
                 }}
                 data-testid="container-platform-video"
               >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <IntersectionVideoPlayer
+                  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
                   disablePictureInPicture
                   controlsList="nodownload nofullscreen noremoteplayback"
                   draggable="false"
@@ -1318,13 +1429,7 @@ export default function Home() {
                     objectFit: "cover",
                   }}
                   data-testid="video-platform-preview"
-                >
-                  <source
-                    src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                    type="video/mp4"
-                  />
-                  Seu navegador não suporta vídeos.
-                </video>
+                />
               </div>
               <BorderBeam
                 size={100}
@@ -1370,6 +1475,7 @@ export default function Home() {
                 alt="Logo"
                 className="w-4 h-4"
                 draggable="false"
+                loading="lazy"
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
                 data-testid="img-logo-icon-extras"
@@ -1404,7 +1510,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
             {/* Card 1 - Formação Completa */}
             <motion.div
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               variants={blurText}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
               style={{
@@ -1423,11 +1529,8 @@ export default function Home() {
                   zIndex: 0
                 }}
               >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <IntersectionVideoPlayer
+                  src="/images/more-raira-nail-1.webm"
                   disablePictureInPicture
                   controlsList="nodownload nofullscreen noremoteplayback"
                   draggable="false"
@@ -1440,9 +1543,7 @@ export default function Home() {
                     display: "block",
                     pointerEvents: "none"
                   }}
-                >
-                  <source src="/images/more-raira-nail-1.webm" type="video/webm" />
-                </video>
+                />
               </div>
 
               {/* Gradiente de fade na parte inferior - mais forte e subindo mais */}
@@ -1472,7 +1573,7 @@ export default function Home() {
 
             {/* Card 2 - Comunidade VIP */}
             <motion.div
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               variants={blurText}
               transition={{ delay: 0.1 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
@@ -1494,7 +1595,7 @@ export default function Home() {
               >
                 <img
                   src="/images/more-raira-nail-2.webp"
-                  alt="Comunidade de Alunas no Instagram"
+                  alt="Comunidade de Alunas no WhatsApp"
                   draggable="false"
                   onContextMenu={(e) => e.preventDefault()}
                   onDragStart={(e) => e.preventDefault()}
@@ -1527,14 +1628,14 @@ export default function Home() {
                 <h3 className="text-3xl lg:text-[34px] font-bold mb-0">
                   <span className="gradient-text">Comunidade de Alunas</span>
                   <br />
-                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>no Instagram</span>
+                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>no WhatsApp</span>
                 </h3>
               </div>
             </motion.div>
 
             {/* Card 3 - Certificado */}
             <motion.div
-              whileHover={hoverLift}
+              whileHover={isMobile ? mobileHoverLift : hoverLift}
               variants={blurText}
               transition={{ delay: 0.2 }}
               className="rounded-2xl p-6 border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 lg:col-span-2 text-center flex flex-col items-center justify-end lg:justify-center min-h-[360px] lg:min-h-[480px] relative overflow-hidden"
@@ -1794,9 +1895,9 @@ export default function Home() {
               {/* Conteúdo - Desktop: à esquerda, Mobile: centralizado */}
               <div className="relative z-10 flex flex-col justify-end lg:justify-center h-full lg:items-start items-center text-center pb-6 lg:pb-4">
                 <h3 className="text-3xl lg:text-[34px] font-bold mb-0 text-center">
-                  <span className="gradient-text">Atualizações Contínuas</span>
+                  <span className="gradient-text">Atualizações Constantes</span>
                   <br />
-                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>e Gratuitas do Curso</span>
+                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>de Conteúdo</span>
                 </h3>
               </div>
             </motion.div>
@@ -2231,7 +2332,7 @@ export default function Home() {
                             textAlign: "left",
                           }}
                         >
-                          Comunidade VIP de alunas no Instagram
+                          Comunidade VIP de alunas no WhatsApp
                         </p>
                       </div>
 
@@ -2321,7 +2422,7 @@ export default function Home() {
                             textAlign: "left",
                           }}
                         >
-                          Atualizações contínuas e gratuitas do curso
+                          Atualizações constantes de conteúdo
                         </p>
                       </div>
 
@@ -2468,43 +2569,21 @@ export default function Home() {
                     onDragStart={(e) => e.preventDefault()}
                     style={{ maxWidth: "200px", height: "auto" }}
                   />
-                  <p
-                    style={{
-                      color: "#DBA86F",
-                      fontSize: "28px",
-                      fontWeight: 700,
-                      margin: 0,
-                      lineHeight: "1.1",
-                    }}
-                  >
-                    7 dias para testar
-                  </p>
-                  <p
-                    style={{
-                      color: "#DBA86F",
-                      fontSize: "28px",
-                      fontWeight: 700,
-                      margin: "-4px 0 0 0",
-                      lineHeight: "1.1",
-                    }}
-                  >
-                    com risco zero.
-                  </p>
                 </div>
 
                 {/* Description Text */}
                 <p
                   style={{
                     color: "#FFFFFF",
-                    fontSize: "14px",
+                    fontSize: isMobile ? "16px" : "26px",
                     lineHeight: "1.1",
                     margin: 0,
                     opacity: 0.85,
                     textAlign: "center",
-                    maxWidth: "400px",
+                    maxWidth: isMobile ? "400px" : "600px",
                   }}
                 >
-                  Caso você se arrependa de ter feito sua matrícula, independente do motivo, nós vamos alegremente devolver seu dinheiro sem perguntas e sem aborrecimentos.
+                  Caso você se arrependa de ter feito sua matrícula dentro de 7 dias, nós vamos devolver seu dinheiro.
                 </p>
               </div>
             </motion.div>
@@ -2549,7 +2628,7 @@ export default function Home() {
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <video
+                  <IntersectionVideoPlayer
                     autoPlay
                     loop
                     muted
@@ -2563,14 +2642,14 @@ export default function Home() {
                   >
                     <source src="/images/me-raira-1.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
-                  </video>
+                  </IntersectionVideoPlayer>
                 </motion.div>
                 <motion.div
                   variants={blurText}
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <video
+                  <IntersectionVideoPlayer
                     autoPlay
                     loop
                     muted
@@ -2580,18 +2659,18 @@ export default function Home() {
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
                     onDragStart={(e) => e.preventDefault()}
-                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                    style={{ width: "100%", height: "140%", objectFit: "cover", objectPosition: "center", pointerEvents: "none", transform: "translateY(-20%)" }}
                   >
                     <source src="/images/me-raira-2.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
-                  </video>
+                  </IntersectionVideoPlayer>
                 </motion.div>
                 <motion.div
                   variants={blurText}
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 h-[120px] md:h-[150px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <video
+                  <IntersectionVideoPlayer
                     autoPlay
                     loop
                     muted
@@ -2601,18 +2680,18 @@ export default function Home() {
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
                     onDragStart={(e) => e.preventDefault()}
-                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                    style={{ width: "100%", height: "140%", objectFit: "cover", objectPosition: "center", pointerEvents: "none", transform: "translateY(-20%)" }}
                   >
                     <source src="/images/me-raira-3.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
-                  </video>
+                  </IntersectionVideoPlayer>
                 </motion.div>
                 <motion.div
                   variants={blurText}
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 row-span-2 col-span-1 h-[308px] md:h-[372px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <video
+                  <IntersectionVideoPlayer
                     autoPlay
                     loop
                     muted
@@ -2622,17 +2701,17 @@ export default function Home() {
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
                     onDragStart={(e) => e.preventDefault()}
-                    style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+                    style={{ width: "100%", height: "140%", objectFit: "cover", objectPosition: "center", pointerEvents: "none", transform: "translateY(-20%)" }}
                   >
                     <source src="/images/me-raira-4.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
-                  </video>
+                  </IntersectionVideoPlayer>
                 </motion.div>
                 <div
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 col-span-2 h-[150px] md:h-[180px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <video
+                  <IntersectionVideoPlayer
                     autoPlay
                     loop
                     muted
@@ -2646,13 +2725,13 @@ export default function Home() {
                   >
                     <source src="/images/me-raira-5.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
-                  </video>
+                  </IntersectionVideoPlayer>
                 </div>
                 <div
                   className="rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300 col-span-2 h-[150px] md:h-[180px]"
                   style={{ background: "linear-gradient(to bottom, #261816 0%, #170F0B 70%)" }}
                 >
-                  <video
+                  <IntersectionVideoPlayer
                     autoPlay
                     loop
                     muted
@@ -2666,7 +2745,7 @@ export default function Home() {
                   >
                     <source src="/images/me-raira-6.webm" type="video/webm" />
                     Seu navegador não suporta vídeos.
-                  </video>
+                  </IntersectionVideoPlayer>
                 </div>
               </motion.div>
             </div>
