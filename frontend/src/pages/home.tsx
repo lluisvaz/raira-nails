@@ -2145,7 +2145,7 @@ export default function Home() {
                 color: "#1A1212",
                 fontSize: "30px",
                 fontWeight: 600,
-                lineHeight: "1.1",
+                lineHeight: "1.0",
                 margin: "0 auto",
                 maxWidth: "800px",
               }}
@@ -2254,9 +2254,10 @@ export default function Home() {
                         fontWeight: 700,
                         margin: "0 0 8px 0",
                         lineHeight: "1.1",
+                        letterSpacing: "-0.04em",
                       }}
                     >
-                      R$ 47,26<span style={{ fontSize: "12px", fontWeight: 500 }}>/POR MÊS</span>
+                      R$47,90<span style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "normal" }}>/POR MÊS</span>
                     </p>
                     <p
                       style={{
@@ -2266,7 +2267,7 @@ export default function Home() {
                         margin: 0,
                       }}
                     >
-                      OU R$ 457 À VISTA NO PIX
+                      OU R$457 À VISTA NO PIX
                     </p>
                   </div>
 
