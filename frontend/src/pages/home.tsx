@@ -2148,6 +2148,7 @@ export default function Home() {
                 lineHeight: "1.0",
                 margin: "0 auto",
                 maxWidth: "800px",
+                fontFamily: "var(--font-texts)",
               }}
             >
               Tudo o que você precisa para começar,<br className="hidden md:block" /> incluso em uma única inscrição:
@@ -2255,9 +2256,10 @@ export default function Home() {
                         margin: "0 0 8px 0",
                         lineHeight: "1.1",
                         letterSpacing: "-0.04em",
+                        fontFamily: "var(--font-texts)",
                       }}
                     >
-                      R$47,90<span style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "normal" }}>/POR MÊS</span>
+                      R$47,90<span style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "normal", fontFamily: "var(--font-texts)" }}>/POR MÊS</span>
                     </p>
                     <p
                       style={{
