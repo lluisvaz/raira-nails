@@ -16,6 +16,17 @@ export default defineConfig({
   build: {
     outDir: "dist",
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom'],
+          'vendor-utils': ['motion', 'lucide-react', 'react-icons'],
+          'vendor-ui': ['@radix-ui/react-accordion', '@radix-ui/react-toast', '@radix-ui/react-tooltip'],
+        },
+      },
+    },
+    reportCompressedSize: false,
+    chunkSizeWarningLimit: 1000,
   },
   server: {
     port: 5173,

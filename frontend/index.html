@@ -179,12 +179,17 @@
   </script>
 
   <link rel="canonical" href="https://rairanails.com.br/" />
-  <link rel="preload" href="/images/raira-nails-background-desktop.webp" as="image" type="image/webp" />
+  <link rel="preload" href="/images/raira-nails-background.webp" as="image" type="image/webp" media="(max-width: 1023px)" />
+  <link rel="preload" href="/images/raira-nails-background-desktop.webp" as="image" type="image/webp" media="(min-width: 1024px)" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet">
+  </noscript>
 </head>
 
 <body>

@@ -64,6 +64,7 @@ const IntersectionVideoPlayer = ({
       loop={loop}
       muted={muted}
       playsInline={playsInline}
+      preload="none"
       {...props}
     >
       {children}
@@ -168,16 +169,16 @@ const mobileHoverLift = {
 const blurText: Variants = {
   hidden: { 
     opacity: 0, 
-    filter: "blur(10px)",
-    y: 20
+    filter: "blur(8px)", // Reduzido de 10px para 8px
+    y: 10 // Reduzido de 20 para 10
   },
   visible: {
     opacity: 1,
     filter: "blur(0px)",
     y: 0,
     transition: { 
-      duration: 0.8, 
-      ease: [0.16, 1, 0.3, 1] // easeOutExpo
+      duration: 0.6, // Reduzido de 0.8 para 0.6
+      ease: [0.16, 1, 0.3, 1] 
     }
   }
 };
@@ -187,8 +188,8 @@ const blurTextStagger: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1
+      staggerChildren: 0.08, // Reduzido de 0.1 para 0.08
+      delayChildren: 0.05 // Reduzido de 0.1 para 0.05
     }
   }
 };
@@ -239,6 +240,7 @@ const PhoneComponent = () => {
               <img
                 src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1762983841/hotmart_rgwrhr.png"
                 alt="Hotmart"
+                loading="lazy"
                 draggable="false"
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
@@ -289,6 +291,7 @@ const PhoneComponent = () => {
               <img
                 src="https://res.cloudinary.com/dopp0v9eq/image/upload/v1762983841/hotmart_rgwrhr.png"
                 alt="Hotmart"
+                loading="lazy"
                 draggable="false"
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
@@ -382,14 +385,25 @@ const PDFComponent = () => {
 export default function Home() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth < 1024);
+  };
+
+  // State to defer rendering of off-screen or heavy components on mobile
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
     checkMobile();
-    window.addEventListener("resize", checkMobile);
+    window.addEventListener("resize", checkMobile, { passive: true });
     
+    // Defer non-critical rendering using RequestIdleCallback if available
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(() => setIsReady(true), { timeout: 2000 });
+    } else {
+      const timer = setTimeout(() => setIsReady(true), 150);
+      return () => clearTimeout(timer);
+    }
+
     // Check for prefers-reduced-motion
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mediaQuery.matches);
@@ -519,74 +533,80 @@ export default function Home() {
       <header className="text-center lg:text-left relative overflow-hidden">
         {/* Full-width Background Images */}
         <div className="absolute inset-0" style={{ zIndex: 0 }}>
-          <div
-            className="absolute inset-0 lg:hidden"
-            style={{
-              backgroundImage: "url('/images/raira-nails-background.webp')",
-              backgroundSize: "130%",
-              backgroundPosition: "top center",
-              backgroundRepeat: "no-repeat",
-            }}
-          />
-          <div
-            className="absolute inset-0 hidden lg:block"
-            style={{
-              backgroundImage: "url('/images/raira-nails-background-desktop.webp')",
-              backgroundSize: "cover",
-              backgroundPosition: "center left",
-              backgroundRepeat: "no-repeat",
-            }}
-          />
+          {isMobile ? (
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: "url('/images/raira-nails-background.webp')",
+                backgroundSize: "130%",
+                backgroundPosition: "top center",
+                backgroundRepeat: "no-repeat",
+              }}
+            />
+          ) : (
+            <div
+              className="absolute inset-0 hidden lg:block"
+              style={{
+                backgroundImage: "url('/images/raira-nails-background-desktop.webp')",
+                backgroundSize: "cover",
+                backgroundPosition: "center left",
+                backgroundRepeat: "no-repeat",
+              }}
+            />
+          )}
         </div>
 
         {/* Background Decorative Elements - OPTIMIZED */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Main gradient orbs - reduced blur for performance */}
-          <motion.div
-            className="absolute top-[-10%] left-[-5%] w-[800px] h-[800px]"
-            style={{
-              background:
-                "radial-gradient(circle at center, rgba(219, 168, 111, 0.25) 0%, rgba(219, 168, 111, 0.15) 30%, transparent 70%)",
-              filter: "blur(40px)",
-              willChange: "transform, opacity",
-            }}
-            animate={
-              prefersReducedMotion
-                ? {}
-                : {
-                  scale: [1, 1.2, 1],
-                  opacity: [0.5, 0.7, 0.5],
-                }
-            }
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
+          {!isMobile && (
+            <motion.div
+              className="absolute top-[-10%] left-[-5%] w-[800px] h-[800px]"
+              style={{
+                background:
+                  "radial-gradient(circle at center, rgba(219, 168, 111, 0.25) 0%, rgba(219, 168, 111, 0.15) 30%, transparent 70%)",
+                filter: "blur(40px)",
+                willChange: "transform, opacity",
+              }}
+              animate={
+                prefersReducedMotion
+                  ? {}
+                  : {
+                    scale: [1, 1.2, 1],
+                    opacity: [0.5, 0.7, 0.5],
+                  }
+              }
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          )}
 
-          <motion.div
-            className="absolute bottom-[-10%] right-[-10%] w-[900px] h-[900px]"
-            style={{
-              background:
-                "radial-gradient(circle at center, rgba(219, 168, 111, 0.2) 0%, rgba(209, 151, 86, 0.12) 40%, transparent 70%)",
-              filter: "blur(40px)",
-              willChange: "transform, opacity",
-            }}
-            animate={
-              prefersReducedMotion
-                ? {}
-                : {
-                  scale: [1.2, 1, 1.2],
-                  opacity: [0.4, 0.6, 0.4],
-                }
-            }
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
+          {!isMobile && (
+            <motion.div
+              className="absolute bottom-[-10%] right-[-10%] w-[900px] h-[900px]"
+              style={{
+                background:
+                  "radial-gradient(circle at center, rgba(219, 168, 111, 0.2) 0%, rgba(209, 151, 86, 0.12) 40%, transparent 70%)",
+                filter: "blur(40px)",
+                willChange: "transform, opacity",
+              }}
+              animate={
+                prefersReducedMotion
+                  ? {}
+                  : {
+                    scale: [1.2, 1, 1.2],
+                    opacity: [0.4, 0.6, 0.4],
+                  }
+              }
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          )}
 
           {/* Dot pattern - static for performance */}
           <div
@@ -598,8 +618,7 @@ export default function Home() {
             }}
           />
 
-          {/* Minimal sparkles - reduced from 12 to 4 */}
-          {!prefersReducedMotion &&
+          {!isMobile && !prefersReducedMotion &&
             [...Array(4)].map((_, i) => (
               <motion.div
                 key={`sparkle-${i}`}
@@ -690,6 +709,7 @@ export default function Home() {
                     src="/images/logo-icon.webp"
                     alt="Logo"
                     className="w-10 h-10"
+                    fetchPriority="high"
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
                     onDragStart={(e) => e.preventDefault()}
@@ -842,6 +862,7 @@ export default function Home() {
             <img
               src="/images/logo-icon.webp"
               alt="Logo"
+              loading="lazy"
               className="w-4 h-4"
               draggable="false"
               onContextMenu={(e) => e.preventDefault()}
@@ -1154,6 +1175,7 @@ export default function Home() {
               <img
                 src="/images/logo-icon.webp"
                 alt="Logo"
+                loading="lazy"
                 className="w-4 h-4"
                 draggable="false"
                 onContextMenu={(e) => e.preventDefault()}
@@ -1192,43 +1214,45 @@ export default function Home() {
               </motion.h2>
 
               {/* Vídeo Mobile - aparece só no mobile abaixo do título */}
-              <motion.div
-                className="lg:hidden relative mb-8"
-                style={{ padding: "6px" }}
-                variants={blurText}
-              >
-                <div
-                  className="rounded-2xl overflow-hidden"
-                  style={{
-                    border: "1px solid #DBA86F",
-                    height: "300px",
-                  }}
-                  data-testid="container-platform-video-mobile"
+              {isMobile && (
+                <motion.div
+                  className="lg:hidden relative mb-8"
+                  style={{ padding: "6px" }}
+                  variants={blurText}
                 >
-                  <IntersectionVideoPlayer
-                    src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                    disablePictureInPicture
-                    controlsList="nodownload nofullscreen noremoteplayback"
-                    draggable="false"
-                    onContextMenu={(e) => e.preventDefault()}
-                    onDragStart={(e) => e.preventDefault()}
+                  <div
+                    className="rounded-2xl overflow-hidden"
                     style={{
-                      pointerEvents: "none",
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
+                      border: "1px solid #DBA86F",
+                      height: "300px",
                     }}
-                    data-testid="video-platform-preview-mobile"
+                    data-testid="container-platform-video-mobile"
+                  >
+                    <IntersectionVideoPlayer
+                      src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                      disablePictureInPicture
+                      controlsList="nodownload nofullscreen noremoteplayback"
+                      draggable="false"
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
+                      style={{
+                        pointerEvents: "none",
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                      data-testid="video-platform-preview-mobile"
+                    />
+                  </div>
+                  <BorderBeam
+                    size={100}
+                    duration={3}
+                    colorFrom="#D19756"
+                    colorTo="#F1EEE1"
+                    beamBorderRadius={12}
                   />
-                </div>
-                <BorderBeam
-                  size={100}
-                  duration={3}
-                  colorFrom="#D19756"
-                  colorTo="#F1EEE1"
-                  beamBorderRadius={12}
-                />
-              </motion.div>
+                </motion.div>
+              )}
 
               <motion.p
                 id="text-platform-description"
@@ -1402,43 +1426,45 @@ export default function Home() {
             </motion.div>
 
             {/* Lado Direito - Vídeo */}
-            <motion.div
-              className="hidden lg:block relative"
-              style={{ padding: "6px", marginTop: "80px" }}
-              variants={blurText}
-            >
-              <div
-                className="rounded-2xl overflow-hidden"
-                style={{
-                  border: "1px solid #DBA86F",
-                  minHeight: "540px",
-                }}
-                data-testid="container-platform-video"
+            {!isMobile && isReady && (
+              <motion.div
+                className="hidden lg:block relative"
+                style={{ padding: "6px", marginTop: "80px" }}
+                variants={blurText}
               >
-                <IntersectionVideoPlayer
-                  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                  disablePictureInPicture
-                  controlsList="nodownload nofullscreen noremoteplayback"
-                  draggable="false"
-                  onContextMenu={(e) => e.preventDefault()}
-                  onDragStart={(e) => e.preventDefault()}
+                <div
+                  className="rounded-2xl overflow-hidden"
                   style={{
-                    pointerEvents: "none",
-                    width: "100%",
-                    height: "540px",
-                    objectFit: "cover",
+                    border: "1px solid #DBA86F",
+                    minHeight: "540px",
                   }}
-                  data-testid="video-platform-preview"
+                  data-testid="container-platform-video"
+                >
+                  <IntersectionVideoPlayer
+                    src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                    disablePictureInPicture
+                    controlsList="nodownload nofullscreen noremoteplayback"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
+                    style={{
+                      pointerEvents: "none",
+                      width: "100%",
+                      height: "540px",
+                      objectFit: "cover",
+                    }}
+                    data-testid="video-platform-preview"
+                  />
+                </div>
+                <BorderBeam
+                  size={100}
+                  duration={3}
+                  colorFrom="#D19756"
+                  colorTo="#F1EEE1"
+                  beamBorderRadius={12}
                 />
-              </div>
-              <BorderBeam
-                size={100}
-                duration={3}
-                colorFrom="#D19756"
-                colorTo="#F1EEE1"
-                beamBorderRadius={12}
-              />
-            </motion.div>
+              </motion.div>
+            )}
           </div>
         </div>
         <div className="pb-20"></div>
@@ -1518,33 +1544,34 @@ export default function Home() {
               }}
               data-testid="card-extra-0"
             >
-              {/* Vídeo grudado no topo com largura máxima */}
-              <div
-                className="absolute top-0"
-                style={{
-                  left: "-24px",
-                  right: "-24px",
-                  width: "calc(100% + 48px)",
-                  height: "100%",
-                  zIndex: 0
-                }}
-              >
-                <IntersectionVideoPlayer
-                  src="/images/more-raira-nail-1.webm"
-                  disablePictureInPicture
-                  controlsList="nodownload nofullscreen noremoteplayback"
-                  draggable="false"
-                  onContextMenu={(e) => e.preventDefault()}
-                  onDragStart={(e) => e.preventDefault()}
+                {/* Vídeo grudado no topo com largura máxima */}
+                <div
+                  className="absolute top-0"
                   style={{
-                    width: "100%",
+                    left: "-24px",
+                    right: "-24px",
+                    width: "calc(100% + 48px)",
                     height: "100%",
-                    objectFit: "cover",
-                    display: "block",
-                    pointerEvents: "none"
+                    zIndex: 0
                   }}
-                />
-              </div>
+                >
+                  <IntersectionVideoPlayer
+                    src={isMobile ? undefined : "/images/more-raira-nail-1.webm"}
+                    poster="/images/more-raira-nail-1.webp"
+                    disablePictureInPicture
+                    controlsList="nodownload nofullscreen noremoteplayback"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      display: "block",
+                      pointerEvents: "none"
+                    }}
+                  />
+                </div>
 
               {/* Gradiente de fade na parte inferior - mais forte e subindo mais */}
               <div
