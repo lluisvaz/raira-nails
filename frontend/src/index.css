@@ -96,8 +96,8 @@
   --chart-4: 20 75% 55%;
   --chart-5: 15 68% 48%;
 
-  --font-sans: 'Texts Custom', 'Plus Jakarta Sans', 'Inter', 'Open Sans', sans-serif;
-  --font-texts: 'Texts Custom', 'Plus Jakarta Sans', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Poppins', 'Inter', 'Open Sans', sans-serif;
+  --font-texts: 'Plus Jakarta Sans', 'Poppins', sans-serif;
   --font-titulos: 'Titulos Custom', 'Plus Jakarta Sans', sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
