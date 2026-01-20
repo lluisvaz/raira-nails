@@ -262,7 +262,7 @@ const PhoneComponent = () => {
                   </span>
                 </div>
                 <p className="mt-1 text-start text-[10px] text-neutral-600 dark:text-neutral-400" style={{ whiteSpace: "normal", wordBreak: "break-word" }}>
-                  Novo conteúdo disponível.
+                  Acesso liberado! Vamos começar?
                 </p>
               </div>
             </div>
@@ -458,24 +458,9 @@ export default function Home() {
         "Se você aplicar o conteúdo do curso com dedicação, poderá alcançar um faturamento médio de R$ 6.000,00 por mês.",
     },
     {
-      question: "O curso terá atualizações?",
+      question: "O curso tem garantia?",
       answer:
-        "Sim, o curso pode receber atualizações de conteúdo. Novos módulos ou conteúdos extras poderão ser oferecidos à parte, com condições especiais e descontos para quem já é aluna.",
-    },
-    {
-      question: "Preciso ter os materiais para começar?",
-      answer:
-        "Não precisa ter todos os materiais de imediato. No Módulo 0, você recebe uma lista completa e detalhada dos materiais essenciais, com sugestões de fornecedores confiáveis. Você pode começar com o básico e ir expandindo conforme avança.",
-    },
-    {
-      question: "Como funciona o suporte e comunidade?",
-      answer:
-        "Você terá acesso à nossa comunidade exclusiva de alunas no WhatsApp, onde poderá tirar dúvidas, compartilhar seus trabalhos e trocar experiências.",
-    },
-    {
-      question: "Vou receber certificado?",
-      answer:
-        "Sim! Ao concluir a formação, você receberá um certificado digital de conclusão que comprova sua qualificação como Nail Designer profissional.",
+        "Sim! Você tem 7 dias de garantia incondicional. Se por qualquer motivo você não ficar satisfeita, devolvemos 100% do seu dinheiro, sem burocracia.",
     },
     {
       question: "Preciso ter experiência para começar?",
@@ -1306,36 +1291,6 @@ export default function Home() {
                 <motion.div
                   variants={blurText}
                   className="flex items-stretch"
-                  data-testid="benefit-access-1"
-                  style={{
-                    background:
-                      "linear-gradient(90deg, #261403 0%, #170F0B 100%)",
-                  }}
-                >
-                  <div
-                    className="w-1.5 flex-shrink-0"
-                    style={{ background: "#D49D5E" }}
-                  />
-                  <div className="py-4 px-6">
-                    <p
-                      className="nail-body font-semibold mb-1"
-                      style={{ color: "#DBA86F" }}
-                    >
-                      Certificado Profissional de Conclusão
-                    </p>
-                    <p
-                      className="nail-body leading-relaxed max-w-none"
-                      style={{ opacity: 0.85 }}
-                    >
-                      Para você pendurar no seu espaço e provar sua qualificação
-                      para as clientes.
-                    </p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  variants={blurText}
-                  className="flex items-stretch"
                   data-testid="benefit-access-2"
                   style={{
                     background:
@@ -1591,9 +1546,9 @@ export default function Home() {
               {/* Conteúdo */}
               <div className="relative z-10 mt-0 lg:mt-[200px] pb-4">
                 <h3 className="text-3xl lg:text-[34px] font-bold mb-0">
-                  <span className="gradient-text">+20 Aulas</span>
+                  <span className="gradient-text">Aulas</span>
                   <br />
-                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>práticas</span>
+                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>Práticas</span>
                 </h3>
               </div>
             </motion.div>
@@ -1660,7 +1615,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Card 3 - Certificado */}
+            {/* Card 3 - Garantia */}
             <motion.div
               whileHover={isMobile ? mobileHoverLift : hoverLift}
               variants={blurText}
@@ -1684,7 +1639,7 @@ export default function Home() {
               >
                 <img
                   src="/images/more-raira-nail-3.webp"
-                  alt="Certificado de Conclusão"
+                  alt="Garantia de 7 Dias"
                   draggable="false"
                   onContextMenu={(e) => e.preventDefault()}
                   onDragStart={(e) => e.preventDefault()}
@@ -1716,9 +1671,9 @@ export default function Home() {
               {/* Conteúdo */}
               <div className="relative z-10 mt-0 lg:mt-[200px] pb-4">
                 <h3 className="text-3xl lg:text-[34px] font-bold mb-0">
-                  <span className="gradient-text">Certificado</span>
+                  <span className="gradient-text">Garantia</span>
                   <br />
-                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>de Conclusão</span>
+                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>de 7 Dias</span>
                 </h3>
               </div>
             </motion.div>
@@ -1826,7 +1781,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Card 5 - Atualizações */}
+            {/* Card 5 - Liberação Imediata */}
             <motion.div
               whileHover={hoverLift}
               variants={blurText}
@@ -1922,9 +1877,9 @@ export default function Home() {
               {/* Conteúdo - Desktop: à esquerda, Mobile: centralizado */}
               <div className="relative z-10 flex flex-col justify-end lg:justify-center h-full lg:items-start items-center text-center pb-6 lg:pb-4">
                 <h3 className="text-3xl lg:text-[34px] font-bold mb-0 text-center">
-                  <span className="gradient-text">Atualizações Constantes</span>
+                  <span className="gradient-text">Liberação Imediata</span>
                   <br />
-                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>de Conteúdo</span>
+                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>Após a Compra</span>
                 </h3>
               </div>
             </motion.div>
@@ -1946,170 +1901,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Por Dentro Section */}
-      <section className="pt-16 px-4 md:px-8 overflow-hidden">
-        <div className="container mx-auto max-w-6xl">
-          <motion.div 
-            className="flex justify-center mb-6"
-            variants={blurText}
-          >
-            <div
-              className="inline-flex items-center gap-3 px-6 py-3 rounded-full"
-              style={{
-                background: "linear-gradient(90deg, #170F0B 0%, #382607 100%)",
-              }}
-            >
-              <img
-                src="/images/logo-icon.webp"
-                alt="Logo"
-                className="w-4 h-4"
-                draggable="false"
-                onContextMenu={(e) => e.preventDefault()}
-                onDragStart={(e) => e.preventDefault()}
-                data-testid="img-logo-icon-por-dentro"
-              />
-              <p
-                className="text-white uppercase m-0"
-                style={{
-                  fontSize: "11px",
-                  fontWeight: 600,
-                  letterSpacing: "0.1em",
-                  opacity: 0.7,
-                }}
-                data-testid="text-por-dentro-badge"
-              >
-                POR DENTRO
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.h2 
-            className="nail-h2 mb-12 text-center" 
-            data-testid="text-por-dentro-title"
-            variants={blurText}
-            transition={{ delay: 0.1 }}
-          >
-            <span className="gradient-text nail-h2-highlight">Confira os módulos</span> presentes no curso
-          </motion.h2>
-
-          {/* Esteira de módulos com gradientes laterais */}
-          <div className="relative w-full">
-            {/* Gradiente esquerdo */}
-            <div
-              className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
-              style={{
-                background: "linear-gradient(to right, #170F0B 0%, rgba(23, 15, 11, 0.8) 30%, rgba(23, 15, 11, 0.4) 60%, transparent 100%)",
-              }}
-            />
-
-            {/* Gradiente direito */}
-            <div
-              className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
-              style={{
-                background: "linear-gradient(to left, #170F0B 0%, rgba(23, 15, 11, 0.8) 30%, rgba(23, 15, 11, 0.4) 60%, transparent 100%)",
-              }}
-            />
-
-            {/* Container da esteira */}
-            <div className="overflow-hidden">
-              <div
-                className="flex gap-2 md:gap-3 scroll-modules-container"
-                style={{
-                  animation: "scrollModulesMobile 30s linear infinite",
-                  willChange: "transform",
-                  width: "fit-content",
-                }}
-              >
-                {/* Primeira cópia dos cards */}
-                {[...Array(10)].map((_, index) => (
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    key={`module-1-${index}`}
-                    className="flex-shrink-0 w-[180px] h-[250px] md:w-[250px] md:h-[350px] rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300"
-                    style={{
-                      background: "linear-gradient(to bottom, #261816 0%, #170F0B 100%)",
-                    }}
-                  >
-                    <img
-                      src={`https://picsum.photos/seed/module-${index}/250/350`}
-                      alt={`Módulo ${index + 1}`}
-                      className="w-full h-full object-cover"
-                      draggable="false"
-                      onContextMenu={(e) => e.preventDefault()}
-                      onDragStart={(e) => e.preventDefault()}
-                    />
-                  </motion.div>
-                ))}
-
-                {/* Segunda cópia dos cards para loop infinito */}
-                {[...Array(10)].map((_, index) => (
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    key={`module-2-${index}`}
-                    className="flex-shrink-0 w-[180px] h-[250px] md:w-[250px] md:h-[350px] rounded-2xl overflow-hidden border border-[#332A2A] hover:border-[#DBA86F] transition-all duration-300"
-                    style={{
-                      background: "linear-gradient(to bottom, #261816 0%, #170F0B 100%)",
-                    }}
-                  >
-                    <img
-                      src={`https://picsum.photos/seed/module-${index}/250/350`}
-                      alt={`Módulo ${index + 1}`}
-                      className="w-full h-full object-cover"
-                      draggable="false"
-                      onContextMenu={(e) => e.preventDefault()}
-                      onDragStart={(e) => e.preventDefault()}
-                    />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* CSS para animação */}
-          <style dangerouslySetInnerHTML={{
-            __html: `
-              .scroll-modules-container {
-                display: flex;
-              }
-              @keyframes scrollModulesMobile {
-                0% {
-                  transform: translateX(0);
-                }
-                100% {
-                  transform: translateX(calc(-180px * 10 - 8px * 9));
-                }
-              }
-              @keyframes scrollModulesDesktop {
-                0% {
-                  transform: translateX(0);
-                }
-                100% {
-                  transform: translateX(calc(-250px * 10 - 12px * 9));
-                }
-              }
-              @media (min-width: 768px) {
-                .scroll-modules-container {
-                  animation: scrollModulesDesktop 30s linear infinite !important;
-                }
-              }
-            `
-          }} />
-        </div>
-        <div className="pb-20"></div>
-        {/* Divisória com degradê */}
-        <div className="w-full px-4 md:px-8 lg:px-16">
-          <div
-            style={{
-              height: "1px",
-              background:
-              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
-              margin: "0 auto",
-              boxShadow: "0 0 4px rgba(219, 168, 111, 0.15), 0 0 2px rgba(239, 213, 167, 0.1)",
-              position: "relative",
-            }}
-          />
-        </div>
-      </section>
 
       {/* Banner Section - Tudo que você precisa */}
       <section
@@ -2302,7 +2093,7 @@ export default function Home() {
                             textAlign: "left",
                           }}
                         >
-                          +20 aulas práticas de técnicas profissionais
+                          Aulas práticas de técnicas profissionais
                         </p>
                       </div>
 
@@ -2392,7 +2183,7 @@ export default function Home() {
                             textAlign: "left",
                           }}
                         >
-                          Certificado Profissional de Conclusão
+                          Garantia incondicional de 7 dias
                         </p>
                       </div>
 
@@ -2452,7 +2243,7 @@ export default function Home() {
                             textAlign: "left",
                           }}
                         >
-                          Atualizações constantes de conteúdo
+                          Acesso imediato após a compra
                         </p>
                       </div>
 
