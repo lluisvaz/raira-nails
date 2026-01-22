@@ -478,6 +478,11 @@ export default function Home() {
         "Com certeza! Se você já é manicure, este curso é o próximo passo ideal para você se especializar em alongamentos de alto padrão e aumentar consideravelmente o valor do seu serviço.",
     },
     {
+      question: "O curso oferece certificado?",
+      answer:
+        "Sim! Ao concluir todas as aulas do curso, você receberá um certificado de conclusão oficial, atestando seu domínio nas técnicas ensinadas e valorizando ainda mais seu currículo profissional.",
+    },
+    {
       question: "Como tiro minhas dúvidas durante o curso?",
       answer:
         "Além da nossa comunidade exclusiva no WhatsApp, você pode deixar suas dúvidas logo abaixo de cada aula na plataforma de membros. Nossa equipe e a própria Raira dão suporte às alunas.",
@@ -694,7 +699,7 @@ export default function Home() {
                     src="/images/logo-icon.webp"
                     alt="Logo"
                     className="w-10 h-10"
-                    fetchPriority="high"
+                    fetchpriority="high"
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
                     onDragStart={(e) => e.preventDefault()}
@@ -1671,9 +1676,9 @@ export default function Home() {
               {/* Conteúdo */}
               <div className="relative z-10 mt-0 lg:mt-[200px] pb-4">
                 <h3 className="text-3xl lg:text-[34px] font-bold mb-0">
-                  <span className="gradient-text">Garantia</span>
+                  <span className="gradient-text">Certificado</span>
                   <br />
-                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>de 7 Dias</span>
+                  <span className="nail-h2-highlight" style={{ color: '#FFFFFF' }}>Incluso</span>
                 </h3>
               </div>
             </motion.div>
@@ -2154,6 +2159,36 @@ export default function Home() {
                           }}
                         >
                           Comunidade VIP de alunas no WhatsApp
+                        </p>
+                      </div>
+
+                      <div className="flex items-center gap-3">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          style={{ flexShrink: 0 }}
+                        >
+                          <path
+                            d="M20 6L9 17L4 12"
+                            stroke="#DBA86F"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <p
+                          style={{
+                            color: "#FFFFFF",
+                            fontSize: "16px",
+                            lineHeight: "1.1",
+                            margin: 0,
+                            opacity: 0.9,
+                            textAlign: "left",
+                          }}
+                        >
+                          Certificado de Conclusão oficial
                         </p>
                       </div>
 
