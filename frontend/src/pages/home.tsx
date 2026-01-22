@@ -699,7 +699,7 @@ export default function Home() {
                     src="/images/logo-icon.webp"
                     alt="Logo"
                     className="w-10 h-10"
-                    fetchpriority="high"
+                    {...({ fetchpriority: "high" } as any)}
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
                     onDragStart={(e) => e.preventDefault()}
