@@ -74,3 +74,5 @@ coverage/
 # Misc
 *.pem
 .cert/
+.vercel
+.env*.local
