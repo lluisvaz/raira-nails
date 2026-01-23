@@ -24,7 +24,7 @@ export const MetaPixel = () => {
             : n.queue.push(arguments);
         };
         if (!f._fbq) f._fbq = n;
-        n.push = arguments;
+        n.push = n;
         n.loaded = !0;
         n.version = "2.0";
         n.queue = [];
@@ -39,14 +39,19 @@ export const MetaPixel = () => {
         "script",
         "https://connect.facebook.net/en_US/fbevents.js"
       );
-
+    }
+    
+    // Garante que o init ocorra apenas uma vez, mas de forma independente do script tag
+    if (window.fbq && !window.fbq.instance) {
       window.fbq("init", PIXEL_ID);
+      window.fbq.instance = true;
     }
   }, []);
 
   useEffect(() => {
     // Dispara PageView em cada mudança de rota
-    if (window.fbq) {
+    // O pixel carrega assincronamente, então verificamos se fbq existe
+    if (typeof window !== 'undefined' && window.fbq && window.fbq.instance) {
       window.fbq("track", "PageView");
     }
   }, [location]);
