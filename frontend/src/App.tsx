@@ -5,7 +5,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import GradualBlur from "@/components/ui/gradual-blur";
 import { useFooterVisibility } from "@/hooks/use-footer-visibility";
 import Home from "@/pages/home";
-import { MetaPixel } from "@/components/MetaPixel";
 
 function RedirectToHome() {
   const [, setLocation] = useLocation();
@@ -31,7 +30,6 @@ function App() {
 
   return (
     <TooltipProvider>
-      <MetaPixel />
       <Toaster />
       <Router />
       <GradualBlur
