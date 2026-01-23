@@ -24,7 +24,7 @@ export const MetaPixel = () => {
             : n.queue.push(arguments);
         };
         if (!f._fbq) f._fbq = n;
-        n.push = n;
+        n.push = arguments;
         n.loaded = !0;
         n.version = "2.0";
         n.queue = [];
