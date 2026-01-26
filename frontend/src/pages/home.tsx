@@ -388,8 +388,14 @@ export default function Home() {
 
   useEffect(() => {
     // Dispara o evento PageView do Meta Pixel quando a página carrega
-    if (typeof window !== "undefined" && (window as any).fbq) {
-      (window as any).fbq("track", "PageView");
+    if (typeof window !== "undefined") {
+      const fbq = (window as any).fbq;
+      if (fbq) {
+        fbq("track", "PageView");
+        console.log("Meta Pixel: PageView tracked");
+      } else {
+        console.warn("Meta Pixel: fbq not found");
+      }
     }
   }, []);
 
