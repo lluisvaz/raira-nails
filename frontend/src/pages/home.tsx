@@ -1151,7 +1151,7 @@ export default function Home() {
 
       {/* Platform Access Section */}
       <section className="pt-16 px-4 md:px-8 overflow-hidden">
-        <div className="container mx-auto max-w-6xl">
+        <div className="container mx-auto max-w-7xl">
           <motion.div 
             className="flex justify-center lg:justify-start mb-6"
             variants={blurText}
@@ -1187,10 +1187,11 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center overflow-visible">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center overflow-visible">
             {/* Lado Esquerdo - Conteúdo */}
             <motion.div
               variants={blurTextStagger}
+              className="lg:col-span-2"
             >
               <motion.h2
                 className="nail-h2 mb-6 text-center lg:text-left"
@@ -1203,43 +1204,20 @@ export default function Home() {
                 </span>
               </motion.h2>
 
-              {/* Vídeo Mobile - aparece só no mobile abaixo do título */}
+              {/* Imagem Mobile - aparece só no mobile abaixo do título */}
               {isMobile && (
                 <motion.div
                   className="lg:hidden relative mb-8"
-                  style={{ padding: "6px" }}
                   variants={blurText}
                 >
-                  <div
-                    className="rounded-2xl overflow-hidden"
-                    style={{
-                      border: "1px solid #DBA86F",
-                      height: "300px",
-                    }}
-                    data-testid="container-platform-video-mobile"
-                  >
-                    <IntersectionVideoPlayer
-                      src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                      disablePictureInPicture
-                      controlsList="nodownload nofullscreen noremoteplayback"
-                      draggable="false"
-                      onContextMenu={(e) => e.preventDefault()}
-                      onDragStart={(e) => e.preventDefault()}
-                      style={{
-                        pointerEvents: "none",
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                      }}
-                      data-testid="video-platform-preview-mobile"
-                    />
-                  </div>
-                  <BorderBeam
-                    size={100}
-                    duration={3}
-                    colorFrom="#D19756"
-                    colorTo="#F1EEE1"
-                    beamBorderRadius={12}
+                  <img
+                    src="/images/platform-raira.webp"
+                    alt="Plataforma da Escola de Unhas"
+                    className="w-full h-auto rounded-2xl"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
+                    data-testid="img-platform-raira-mobile"
                   />
                 </motion.div>
               )}
@@ -1385,43 +1363,21 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* Lado Direito - Vídeo */}
+            {/* Lado Direito - Imagem */}
             {!isMobile && isReady && (
               <motion.div
-                className="hidden lg:block relative"
-                style={{ padding: "6px", marginTop: "80px" }}
+                className="hidden lg:block relative lg:col-span-3"
+                style={{ marginTop: "80px" }}
                 variants={blurText}
               >
-                <div
-                  className="rounded-2xl overflow-hidden"
-                  style={{
-                    border: "1px solid #DBA86F",
-                    minHeight: "540px",
-                  }}
-                  data-testid="container-platform-video"
-                >
-                  <IntersectionVideoPlayer
-                    src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                    disablePictureInPicture
-                    controlsList="nodownload nofullscreen noremoteplayback"
-                    draggable="false"
-                    onContextMenu={(e) => e.preventDefault()}
-                    onDragStart={(e) => e.preventDefault()}
-                    style={{
-                      pointerEvents: "none",
-                      width: "100%",
-                      height: "540px",
-                      objectFit: "cover",
-                    }}
-                    data-testid="video-platform-preview"
-                  />
-                </div>
-                <BorderBeam
-                  size={100}
-                  duration={3}
-                  colorFrom="#D19756"
-                  colorTo="#F1EEE1"
-                  beamBorderRadius={12}
+                <img
+                  src="/images/platform-raira.webp"
+                  alt="Plataforma da Escola de Unhas"
+                  className="w-full h-auto rounded-2xl"
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
+                  data-testid="img-platform-raira"
                 />
               </motion.div>
             )}
