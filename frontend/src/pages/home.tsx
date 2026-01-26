@@ -385,6 +385,14 @@ const PDFComponent = () => {
 export default function Home() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Dispara o evento PageView do Meta Pixel quando a página carrega
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq("track", "PageView");
+    }
+  }, []);
+
   const checkMobile = () => {
     setIsMobile(window.innerWidth < 1024);
   };
@@ -2342,6 +2350,11 @@ export default function Home() {
                         rel="noopener noreferrer"
                         className="cta-button"
                         style={{ width: "100%" }}
+                        onClick={() => {
+                          if (typeof window !== "undefined" && (window as any).fbq) {
+                            (window as any).fbq("track", "InitiateCheckout");
+                          }
+                        }}
                       >
                         GARANTIR OFERTA
                         <HiOutlineArrowUpRight
