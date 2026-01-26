@@ -2337,7 +2337,9 @@ export default function Home() {
                       style={{ padding: "6px", width: "100%", maxWidth: "100%" }}
                     >
                       <a
-                        href="#tudo-que-voce-precisa"
+                        href="https://pay.hotmart.com/L103255436T?checkoutMode=10"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="cta-button"
                         style={{ width: "100%" }}
                       >
