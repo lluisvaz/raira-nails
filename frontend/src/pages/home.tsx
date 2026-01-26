@@ -2356,11 +2356,6 @@ export default function Home() {
                         rel="noopener noreferrer"
                         className="cta-button"
                         style={{ width: "100%" }}
-                        onClick={() => {
-                          if (typeof window !== "undefined" && (window as any).fbq) {
-                            (window as any).fbq("track", "InitiateCheckout");
-                          }
-                        }}
                       >
                         GARANTIR OFERTA
                         <HiOutlineArrowUpRight
