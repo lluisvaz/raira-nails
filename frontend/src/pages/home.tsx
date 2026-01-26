@@ -2011,7 +2011,7 @@ export default function Home() {
                         fontFamily: "var(--font-texts)",
                       }}
                     >
-                      R$47,90<span style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "normal", fontFamily: "var(--font-texts)" }}>/POR MÊS</span>
+                      R$41,90<span style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "normal", fontFamily: "var(--font-texts)" }}>/POR MÊS</span>
                     </p>
                     <p
                       style={{
@@ -2021,7 +2021,7 @@ export default function Home() {
                         margin: 0,
                       }}
                     >
-                      OU R$457 À VISTA NO PIX
+                      OU R$497 À VISTA NO PIX
                     </p>
                   </div>
 
