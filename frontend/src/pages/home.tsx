@@ -2035,7 +2035,7 @@ export default function Home() {
                         fontFamily: "var(--font-texts)",
                       }}
                     >
-                      R$41,90<span style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "normal", fontFamily: "var(--font-texts)" }}>/POR MÊS</span>
+                      R$49,90<span style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "normal", fontFamily: "var(--font-texts)" }}>/POR MÊS</span>
                     </p>
                     <p
                       style={{
