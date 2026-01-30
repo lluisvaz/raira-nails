@@ -2318,36 +2318,6 @@ export default function Home() {
                             textAlign: "left",
                           }}
                         >
-                          Sem fidelidade
-                        </p>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          style={{ flexShrink: 0 }}
-                        >
-                          <path
-                            d="M20 6L9 17L4 12"
-                            stroke="#DBA86F"
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <p
-                          style={{
-                            color: "#FFFFFF",
-                            fontSize: "16px",
-                            lineHeight: "1.1",
-                            margin: 0,
-                            opacity: 0.9,
-                            textAlign: "left",
-                          }}
-                        >
                           Melhor custo x benefício
                         </p>
                       </div>
