@@ -1238,6 +1238,7 @@ export default function Home() {
                     src="/images/platform-raira.webp"
                     alt="Plataforma da Escola de Unhas"
                     className="w-full h-auto rounded-2xl"
+                    loading="lazy"
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
                     onDragStart={(e) => e.preventDefault()}
@@ -1398,6 +1399,7 @@ export default function Home() {
                   src="/images/platform-raira.webp"
                   alt="Plataforma da Escola de Unhas"
                   className="w-full h-auto rounded-2xl"
+                  loading="lazy"
                   draggable="false"
                   onContextMenu={(e) => e.preventDefault()}
                   onDragStart={(e) => e.preventDefault()}
@@ -1563,6 +1565,7 @@ export default function Home() {
                 <img
                   src="/images/more-raira-nail-2.webp"
                   alt="Comunidade de Alunas no WhatsApp"
+                  loading="lazy"
                   draggable="false"
                   onContextMenu={(e) => e.preventDefault()}
                   onDragStart={(e) => e.preventDefault()}
@@ -1625,6 +1628,7 @@ export default function Home() {
                 <img
                   src="/images/more-raira-nail-3.webp"
                   alt="Garantia de 7 Dias"
+                  loading="lazy"
                   draggable="false"
                   onContextMenu={(e) => e.preventDefault()}
                   onDragStart={(e) => e.preventDefault()}
@@ -2372,6 +2376,7 @@ export default function Home() {
                     src="/images/raira-garantia.webp"
                     alt="Garantia 7 dias"
                     className="mb-6"
+                    loading="lazy"
                     draggable="false"
                     onContextMenu={(e) => e.preventDefault()}
                     onDragStart={(e) => e.preventDefault()}
