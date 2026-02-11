@@ -1,5 +1,6 @@
 import type { Express } from "express";
 import { UserController } from "../controllers/user.controller";
+import { LeadsController } from "../controllers/leads.controller";
 
 /**
  * Registra todas as rotas da API
@@ -14,4 +15,8 @@ export function registerApiRoutes(app: Express): void {
   // User routes
   app.post("/api/users", UserController.createUser);
   app.get("/api/users/:username", UserController.getUserByUsername);
+
+  // Leads routes
+  app.post("/api/leads/start", LeadsController.start);
+  app.post("/api/leads/complete", LeadsController.complete);
 }

@@ -6,6 +6,19 @@ import { errorHandler } from "./middleware/error-handler.middleware";
 import { getServerPort, getServerHost } from "./config/server.config";
 import { log } from "./utils/logger";
 
+// Carrega variáveis de ambiente de .env (raiz do projeto e pasta backend)
+import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Primeiro tenta carregar da raiz do projeto
+dotenv.config({ path: path.resolve(__dirname, "..", "..", ".env") });
+// Depois, carrega um .env específico do backend (se existir), sobrescrevendo chaves
+dotenv.config({ path: path.resolve(__dirname, "..", ".env") });
+
 // Declaração de módulo para adicionar rawBody ao Request
 declare module "http" {
   interface IncomingMessage {

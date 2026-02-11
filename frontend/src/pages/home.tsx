@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useLocation } from "wouter";
 import {
   Accordion,
   AccordionContent,
@@ -447,16 +448,34 @@ export default function Home() {
   useEffect(() => {
     const handleSmoothScroll = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      const link = target.closest('a[href^="#"]') as HTMLAnchorElement;
+      const link = target.closest('a[href^="#"]') as HTMLAnchorElement | null;
 
-      if (link && link.getAttribute('href') === '#tudo-que-voce-precisa') {
+      if (!link) return;
+
+      const href = link.getAttribute('href');
+
+      // Novo destino: centralizar o formulário da Hero
+      if (href === '#lead-form') {
         e.preventDefault();
-        const targetElement = document.getElementById('tudo-que-voce-precisa');
+        const isDesktop = window.innerWidth >= 1024;
+        const selector = isDesktop ? '[data-hero-form="desktop"]' : '[data-hero-form="mobile"]';
+        const formEl = document.querySelector(selector) as HTMLElement | null;
+        if (formEl) {
+          formEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          const hero = document.getElementById('hero');
+          if (hero) hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        return;
+      }
+
+      // Suporte anterior mantido
+      if (href === '#hero' || href === '#tudo-que-voce-precisa') {
+        e.preventDefault();
+        const id = (href || '#').slice(1);
+        const targetElement = document.getElementById(id);
         if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-          });
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }
     };
@@ -464,6 +483,44 @@ export default function Home() {
     document.addEventListener('click', handleSmoothScroll);
     return () => document.removeEventListener('click', handleSmoothScroll);
   }, []);
+
+  // Estado do formulário do herói
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [, navigate] = useLocation();
+
+  const handleLeadSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const onlyDigits = (s: string) => s.replace(/\D/g, '');
+      const formattedPhone = `+55${onlyDigits(phone)}`;
+      const res = await fetch('/api/leads/start', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fullName, email, phone: formattedPhone }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.message || 'Não foi possível iniciar seu cadastro. Tente novamente.');
+      }
+
+      const data = await res.json();
+      const leadId = data.leadId as string;
+
+      // Persiste temporariamente para o quiz
+      localStorage.setItem('leadId', leadId);
+      localStorage.setItem('leadData', JSON.stringify({ fullName, email, phone: formattedPhone }));
+
+      // Redireciona para o quiz
+      navigate('/quiz');
+    } catch (error) {
+      console.error(error);
+      alert('Ocorreu um erro ao iniciar seu cadastro. Por favor, tente novamente.');
+    }
+  };
 
   const faqs = [
     {
@@ -544,7 +601,7 @@ export default function Home() {
       }}
     >
       {/* Hero Section */}
-      <header className="text-center lg:text-left relative overflow-hidden">
+      <header id="hero" className="text-center lg:text-left relative overflow-hidden">
         {/* Full-width Background Images */}
         <div className="absolute inset-0" style={{ zIndex: 0 }}>
           {isMobile ? (
@@ -769,67 +826,176 @@ export default function Home() {
                   Fature +6.000/Mês como Nail Designer, Dominando as Técnicas
                   que as Clientes Amam!
                 </motion.p>
-                <motion.div
-                  className="inline-block relative group z-20"
-                  style={{ padding: "6px" }}
+                <motion.form
+                  onSubmit={handleLeadSubmit}
+                  className="w-full max-w-xl space-y-4 z-20"
                   variants={blurText}
                   initial="hidden"
                   animate="visible"
                   transition={{ delay: 0.6 }}
-                  whileHover={{ scale: 1.02 }}
+                  data-hero-form="desktop"
                 >
-                  <a
-                    href="#tudo-que-voce-precisa"
-                    className="cta-button"
-                    data-testid="button-cta-hero-desktop"
-                  >
-                    Quero me Tornar uma Nail Designer
-                    <HiOutlineArrowUpRight
-                      size={24}
-                      className="text-black flex-shrink-0"
-                    />
-                  </a>
-                  <BorderBeam
-                    size={100}
-                    duration={3}
-                    colorFrom="#D19756"
-                    colorTo="#F1EEE1"
-                    beamBorderRadius={12}
-                  />
-                </motion.div>
+                  <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-1">
+                      <label htmlFor="fullName-desktop" className="text-white/80 text-sm md:text-base font-medium">Nome Completo</label>
+                      <input
+                        id="fullName-desktop"
+                        type="text"
+                        name="fullName"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        placeholder="Seu Nome completo"
+                        className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition"
+                        required
+                        autoComplete="name"
+                      />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <label htmlFor="email-desktop" className="text-white/80 text-sm md:text-base font-medium">Email</label>
+                      <input
+                        id="email-desktop"
+                        type="email"
+                        name="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Seu melhor e-mail"
+                        className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition"
+                        required
+                        autoComplete="email"
+                      />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <label htmlFor="phone-desktop" className="text-white/80 text-sm md:text-base font-medium">Celular</label>
+                      <input
+                        id="phone-desktop"
+                        type="tel"
+                        name="phone"
+                        value={`+55${phone.replace(/\D/g, "")}`}
+                        onChange={(e) => {
+                          const digits = e.target.value.replace(/\D/g, "");
+                          const noPrefix = digits.replace(/^55/, "");
+                          setPhone(noPrefix);
+                        }}
+                        onFocus={(e) => {
+                          const el = e.currentTarget;
+                          requestAnimationFrame(() => {
+                            const p = 3; // length of "+55"
+                            try { el.setSelectionRange(p, el.value.length); } catch {}
+                          });
+                        }}
+                        onClick={(e) => {
+                          const el = e.currentTarget as HTMLInputElement;
+                          const p = 3;
+                          if ((el.selectionStart ?? 0) < p) {
+                            requestAnimationFrame(() => {
+                              try { el.setSelectionRange(p, el.value.length); } catch {}
+                            });
+                          }
+                        }}
+                        placeholder="Digite seu número com DDD"
+                        className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition"
+                        required
+                        inputMode="numeric"
+                        autoComplete="tel"
+                      />
+                    </div>
+                  </div>
+                  <div className="block w-full relative group" style={{ padding: "6px" }}>
+                    <button type="submit" className="cta-button w-full justify-center" data-testid="button-cta-hero-desktop">
+                      Quero me Tornar uma Nail Designer
+                      <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                    </button>
+                    <BorderBeam size={100} duration={3} colorFrom="#D19756" colorTo="#F1EEE1" beamBorderRadius={12} />
+                  </div>
+                </motion.form>
               </div>
             </div>
           </div>
 
           {/* Botão Mobile/Tablet */}
           <div className="lg:hidden px-4 md:px-8 pt-48 md:pt-40 pb-20">
-            <motion.div
-              className="inline-block relative group"
-              style={{ padding: "6px" }}
+            <motion.form
+              onSubmit={handleLeadSubmit}
+              className="space-y-4"
               variants={blurText}
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.6 }}
+              data-hero-form="mobile"
             >
-              <a
-                href="#tudo-que-voce-precisa"
-                className="cta-button"
-                data-testid="button-cta-hero"
-              >
-                Quero me Tornar uma Nail Designer
-                <HiOutlineArrowUpRight
-                  size={24}
-                  className="text-black flex-shrink-0"
-                />
-              </a>
-              <BorderBeam
-                size={100}
-                duration={3}
-                colorFrom="#D19756"
-                colorTo="#F1EEE1"
-                beamBorderRadius={12}
-              />
-            </motion.div>
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-1 text-left">
+                  <label htmlFor="fullName-mobile" className="text-white/80 text-sm md:text-base font-medium">Nome Completo</label>
+                  <input
+                    id="fullName-mobile"
+                    type="text"
+                    name="fullName"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    placeholder="Seu Nome completo"
+                    className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition"
+                    required
+                    autoComplete="name"
+                  />
+                </div>
+                <div className="flex flex-col gap-1 text-left">
+                  <label htmlFor="email-mobile" className="text-white/80 text-sm md:text-base font-medium">Email</label>
+                  <input
+                    id="email-mobile"
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Seu melhor e-mail"
+                    className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition"
+                    required
+                    autoComplete="email"
+                  />
+                </div>
+                <div className="flex flex-col gap-1 text-left">
+                  <label htmlFor="phone-mobile" className="text-white/80 text-sm md:text-base font-medium">Celular</label>
+                  <input
+                    id="phone-mobile"
+                    type="tel"
+                    name="phone"
+                    value={`+55${phone.replace(/\D/g, "")}`}
+                    onChange={(e) => {
+                      const digits = e.target.value.replace(/\D/g, "");
+                      const noPrefix = digits.replace(/^55/, "");
+                      setPhone(noPrefix);
+                    }}
+                    onFocus={(e) => {
+                      const el = e.currentTarget;
+                      requestAnimationFrame(() => {
+                        const p = 3;
+                        try { el.setSelectionRange(p, el.value.length); } catch {}
+                      });
+                    }}
+                    onClick={(e) => {
+                      const el = e.currentTarget as HTMLInputElement;
+                      const p = 3;
+                      if ((el.selectionStart ?? 0) < p) {
+                        requestAnimationFrame(() => {
+                          try { el.setSelectionRange(p, el.value.length); } catch {}
+                        });
+                      }
+                    }}
+                    placeholder="Digite seu número com DDD"
+                    className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition"
+                    required
+                    inputMode="numeric"
+                    autoComplete="tel"
+                  />
+                </div>
+              </div>
+              <div className="block w-full relative group" style={{ padding: "6px" }}>
+                <button type="submit" className="cta-button w-full justify-center" data-testid="button-cta-hero">
+                  Quero me Tornar uma Nail Designer
+                  <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                </button>
+                <BorderBeam size={100} duration={3} colorFrom="#D19756" colorTo="#F1EEE1" beamBorderRadius={12} />
+              </div>
+            </motion.form>
             <motion.p
               className="text-white uppercase mt-6 text-center"
               style={{
@@ -1137,7 +1303,7 @@ export default function Home() {
               variants={blurText}
             >
               <a
-                href="#tudo-que-voce-precisa"
+                href="#lead-form"
                 className="cta-button"
                 data-testid="button-cta-target-audience"
               >
@@ -1367,7 +1533,7 @@ export default function Home() {
                   style={{ padding: "6px" }}
                 >
                   <a
-                    href="#tudo-que-voce-precisa"
+                    href="#lead-form"
                     className="cta-button"
                     data-testid="button-cta-access"
                   >
@@ -1891,532 +2057,7 @@ export default function Home() {
       </section>
 
 
-      {/* Banner Section - Tudo que você precisa */}
-      <section
-        id="tudo-que-voce-precisa"
-        className="w-full relative pt-4 md:pt-0"
-        style={{
-          width: "100%",
-          margin: "0",
-          padding: "0",
-        }
-        }
-      >
-        <div
-          className="w-full relative"
-          style={{
-            background: "linear-gradient(90deg, #D19756 0%, #EFD5A7 50%, #F1EEE1 100%)",
-            padding: "40px 20px 50px 20px",
-            borderTop: "1px solid #372507",
-            borderBottom: "1px solid #372507",
-            width: "100%",
-            position: "relative",
-            zIndex: 1,
-            boxShadow: "inset 0 1px 0 0 rgba(219, 168, 111, 0.15), inset 0 -1px 0 0 rgba(219, 168, 111, 0.15), 0 1px 0 0 rgba(239, 213, 167, 0.1), 0 -1px 0 0 rgba(239, 213, 167, 0.1)",
-            paddingBottom: "60px",
-          }}
-        >
-          <motion.div 
-            className="text-center"
-            variants={blurText}
-          >
-            <p
-              style={{
-                color: "#1A1212",
-                fontSize: "30px",
-                fontWeight: 600,
-                lineHeight: "1.0",
-                margin: "0 auto",
-                maxWidth: "800px",
-                fontFamily: "var(--font-texts)",
-              }}
-            >
-              Tudo o que você precisa para começar,<br className="hidden md:block" /> incluso em uma única inscrição:
-            </p>
-          </motion.div>
-        </div>
 
-        {/* Lombadinha arredondada com a seta */}
-        <div
-          className="absolute"
-          style={{
-            bottom: "-20px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "80px",
-            height: "40px",
-            background: "#170F0B",
-            borderTopLeftRadius: "40px",
-            borderTopRightRadius: "40px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 2,
-          }}
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            style={{ color: "#FFFFFF" }}
-          >
-            <path
-              d="M6 9L12 15L18 9"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </div>
-      </section>
-
-      {/* Pricing Card Section */}
-      <section className="pt-16 px-4 md:px-8 pb-16">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {/* Pricing Card */}
-            <motion.div
-              variants={blurText}
-              className="rounded-2xl overflow-hidden relative"
-              style={{
-                background: "#261816",
-                border: "1px solid #332A2A",
-              }}
-            >
-              {/* Glow effect */}
-              <motion.div
-                className="absolute inset-0 z-0"
-                style={{
-                  background: "radial-gradient(circle at center, rgba(219, 168, 111, 0.15) 0%, transparent 70%)",
-                  filter: "blur(40px)",
-                }}
-                animate={{
-                  opacity: [0.5, 0.8, 0.5],
-                  scale: [1, 1.1, 1],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-
-              <div className="relative z-10">
-                {/* Top Banner */}
-                <div
-                  className="w-full text-center py-4"
-                  style={{
-                    background: "#FFE6BF",
-                  }}
-                >
-                  <p
-                    style={{
-                      color: "#1A1212",
-                      fontSize: "14px",
-                      fontWeight: 600,
-                      letterSpacing: "0.01em",
-                      margin: 0,
-                    }}
-                  >
-                    ACESSO ANUAL
-                  </p>
-                </div>
-
-                {/* Content */}
-                <div className="p-8 md:p-10">
-                  {/* Price */}
-                  <div className="text-center mb-8">
-                    <p
-                      style={{
-                        color: "#FFFFFF",
-                        fontSize: "52px",
-                        fontWeight: 700,
-                        margin: "0 0 8px 0",
-                        lineHeight: "1.1",
-                        letterSpacing: "-0.04em",
-                        fontFamily: "var(--font-texts)",
-                      }}
-                    >
-                      R$49,90<span style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "normal", fontFamily: "var(--font-texts)" }}>/POR MÊS</span>
-                    </p>
-                    <p
-                      style={{
-                        color: "#DBA86F",
-                        fontSize: "18px",
-                        fontWeight: 600,
-                        margin: 0,
-                      }}
-                    >
-                      OU R$497 À VISTA NO PIX
-                    </p>
-                  </div>
-
-                  {/* Features List */}
-                  <div className="flex justify-center mb-8">
-                    <div className="space-y-4" style={{ maxWidth: "100%", width: "fit-content" }}>
-                      <div className="flex items-center gap-3">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          style={{ flexShrink: 0 }}
-                        >
-                          <path
-                            d="M20 6L9 17L4 12"
-                            stroke="#DBA86F"
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <p
-                          style={{
-                            color: "#FFFFFF",
-                            fontSize: "16px",
-                            lineHeight: "1.1",
-                            margin: 0,
-                            opacity: 0.9,
-                            textAlign: "left",
-                          }}
-                        >
-                          Aulas práticas de técnicas profissionais
-                        </p>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          style={{ flexShrink: 0 }}
-                        >
-                          <path
-                            d="M20 6L9 17L4 12"
-                            stroke="#DBA86F"
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <p
-                          style={{
-                            color: "#FFFFFF",
-                            fontSize: "16px",
-                            lineHeight: "1.1",
-                            margin: 0,
-                            opacity: 0.9,
-                            textAlign: "left",
-                          }}
-                        >
-                          Acesso por 12 meses à plataforma completa
-                        </p>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          style={{ flexShrink: 0 }}
-                        >
-                          <path
-                            d="M20 6L9 17L4 12"
-                            stroke="#DBA86F"
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <p
-                          style={{
-                            color: "#FFFFFF",
-                            fontSize: "16px",
-                            lineHeight: "1.1",
-                            margin: 0,
-                            opacity: 0.9,
-                            textAlign: "left",
-                          }}
-                        >
-                          Comunidade VIP de alunas no WhatsApp
-                        </p>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          style={{ flexShrink: 0 }}
-                        >
-                          <path
-                            d="M20 6L9 17L4 12"
-                            stroke="#DBA86F"
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <p
-                          style={{
-                            color: "#FFFFFF",
-                            fontSize: "16px",
-                            lineHeight: "1.1",
-                            margin: 0,
-                            opacity: 0.9,
-                            textAlign: "left",
-                          }}
-                        >
-                          Certificado de Conclusão oficial
-                        </p>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          style={{ flexShrink: 0 }}
-                        >
-                          <path
-                            d="M20 6L9 17L4 12"
-                            stroke="#DBA86F"
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <p
-                          style={{
-                            color: "#FFFFFF",
-                            fontSize: "16px",
-                            lineHeight: "1.1",
-                            margin: 0,
-                            opacity: 0.9,
-                            textAlign: "left",
-                          }}
-                        >
-                          Garantia incondicional de 7 dias
-                        </p>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          style={{ flexShrink: 0 }}
-                        >
-                          <path
-                            d="M20 6L9 17L4 12"
-                            stroke="#DBA86F"
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <p
-                          style={{
-                            color: "#FFFFFF",
-                            fontSize: "16px",
-                            lineHeight: "1.1",
-                            margin: 0,
-                            opacity: 0.9,
-                            textAlign: "left",
-                          }}
-                        >
-                          Material de apoio em PDF
-                        </p>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          style={{ flexShrink: 0 }}
-                        >
-                          <path
-                            d="M20 6L9 17L4 12"
-                            stroke="#DBA86F"
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <p
-                          style={{
-                            color: "#FFFFFF",
-                            fontSize: "16px",
-                            lineHeight: "1.1",
-                            margin: 0,
-                            opacity: 0.9,
-                            textAlign: "left",
-                          }}
-                        >
-                          Acesso imediato após a compra
-                        </p>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          style={{ flexShrink: 0 }}
-                        >
-                          <path
-                            d="M20 6L9 17L4 12"
-                            stroke="#DBA86F"
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <p
-                          style={{
-                            color: "#FFFFFF",
-                            fontSize: "16px",
-                            lineHeight: "1.1",
-                            margin: 0,
-                            opacity: 0.9,
-                            textAlign: "left",
-                          }}
-                        >
-                          Suporte direto com nossa equipe
-                        </p>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          style={{ flexShrink: 0 }}
-                        >
-                          <path
-                            d="M20 6L9 17L4 12"
-                            stroke="#DBA86F"
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <p
-                          style={{
-                            color: "#FFFFFF",
-                            fontSize: "16px",
-                            lineHeight: "1.1",
-                            margin: 0,
-                            opacity: 0.9,
-                            textAlign: "left",
-                          }}
-                        >
-                          Melhor custo x benefício
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* CTA Button */}
-                  <div className="text-center">
-                    <div
-                      className="inline-block relative group"
-                      style={{ padding: "6px", width: "100%", maxWidth: "100%" }}
-                    >
-                      <a
-                        href="https://pay.hotmart.com/L103255436T?checkoutMode=10"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="cta-button"
-                        style={{ width: "100%" }}
-                      >
-                        GARANTIR OFERTA
-                        <HiOutlineArrowUpRight
-                          size={24}
-                          className="text-black flex-shrink-0"
-                        />
-                      </a>
-                      <BorderBeam
-                        size={100}
-                        duration={3}
-                        colorFrom="#D19756"
-                        colorTo="#F1EEE1"
-                        beamBorderRadius={12}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Guarantee Card */}
-            <motion.div
-              className="rounded-2xl overflow-hidden flex items-center justify-center"
-              style={{
-                background: "#170F0B",
-              }}
-              variants={blurText}
-              transition={{ delay: 0.2 }}
-            >
-              <div className="p-8 md:p-10 flex flex-col items-center justify-center w-full">
-                {/* Logo and Main Text */}
-                <div className="flex flex-col items-center text-center mb-6">
-                  <img
-                    src="/images/raira-garantia.webp"
-                    alt="Garantia 7 dias"
-                    className="mb-6"
-                    loading="lazy"
-                    draggable="false"
-                    onContextMenu={(e) => e.preventDefault()}
-                    onDragStart={(e) => e.preventDefault()}
-                    style={{ maxWidth: "200px", height: "auto" }}
-                  />
-                </div>
-
-                {/* Description Text */}
-                <p
-                  style={{
-                    color: "#FFFFFF",
-                    fontSize: isMobile ? "16px" : "26px",
-                    lineHeight: "1.1",
-                    margin: 0,
-                    opacity: 0.85,
-                    textAlign: "center",
-                    maxWidth: isMobile ? "400px" : "600px",
-                  }}
-                >
-                  Caso você se arrependa de ter feito sua matrícula dentro de 7 dias, nós vamos devolver seu dinheiro.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-        <div className="pb-20"></div>
-        {/* Divisória com degradê */}
-        <div className="w-full px-4 md:px-8 lg:px-16">
-          <div
-            style={{
-              height: "1px",
-              background:
-              "linear-gradient(90deg, #1A0F05 0%, #372507 15%, #372507 85%, #1A0F05 100%)",
-              margin: "0 auto",
-              boxShadow: "0 0 4px rgba(219, 168, 111, 0.15), 0 0 2px rgba(239, 213, 167, 0.1)",
-              position: "relative",
-            }}
-          />
-        </div>
-      </section>
 
       {/* Prazer, sou a Raira Section */}
       <section className="pt-4 md:pt-8 px-4 md:px-8">
@@ -2616,7 +2257,7 @@ export default function Home() {
                 variants={blurText}
               >
                 <div className="inline-block relative group" style={{ padding: "6px" }}>
-                  <a href="#tudo-que-voce-precisa" className="cta-button">
+                  <a href="#lead-form" className="cta-button">
                     QUERO ME TORNAR ALUNA
                     <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
                   </a>
@@ -2697,7 +2338,7 @@ export default function Home() {
                 variants={blurText}
               >
                 <div className="inline-block relative group" style={{ padding: "6px" }}>
-                  <a href="#tudo-que-voce-precisa" className="cta-button">
+                  <a href="#lead-form" className="cta-button">
                     QUERO ME TORNAR ALUNA
                     <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
                   </a>

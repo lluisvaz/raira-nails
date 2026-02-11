@@ -784,3 +784,33 @@
     background: transparent;
   }
 }
+
+
+/* Autofill styling override to prevent blue/yellow background on inputs (Chrome/Edge/Firefox) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #FFFFFF !important;
+  -webkit-box-shadow: 0 0 0px 1000px #1B1310 inset !important;
+  box-shadow: 0 0 0 1000px #1B1310 inset !important;
+  caret-color: #FFFFFF !important;
+  transition: background-color 9999s ease-out 0s !important;
+}
+
+/* Firefox */
+input:-moz-autofill,
+textarea:-moz-autofill,
+select:-moz-autofill {
+  box-shadow: 0 0 0 1000px #1B1310 inset !important;
+  -moz-text-fill-color: #FFFFFF !important;
+  caret-color: #FFFFFF !important;
+}
+
+/* Focus ring consistency on our dark inputs */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
