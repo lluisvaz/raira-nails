@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { UserController } from "../controllers/user.controller";
 import { LeadsController } from "../controllers/leads.controller";
+import { ConfigController } from "../controllers/config.controller";
 
 /**
  * Registra todas as rotas da API
@@ -11,6 +12,9 @@ export function registerApiRoutes(app: Express): void {
   app.get("/api/health", (_req, res) => {
     res.json({ status: "ok" });
   });
+
+  // Public config
+  app.get("/api/config", ConfigController.getPublicConfig);
 
   // User routes
   app.post("/api/users", UserController.createUser);

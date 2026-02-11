@@ -490,8 +490,21 @@ export default function Home() {
   const [phone, setPhone] = useState("");
   const [, navigate] = useLocation();
 
+  const formatPhone = (value: string) => {
+    const digits = value.replace(/\D/g, "").slice(0, 11);
+    if (digits.length <= 2) return digits;
+    if (digits.length <= 7) return `${digits.slice(0, 2)} ${digits.slice(2)}`;
+    return `${digits.slice(0, 2)} ${digits.slice(2, 7)}-${digits.slice(7)}`;
+  };
+
   const handleLeadSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@(?!yopmail\.com|mailinator\.com|tempmail\.com|guerrillamail\.com|10minutemail\.com|temp-mail\.org|teleworm\.us|dayrep\.com|einrot\.com|fleckens\.hu|armyspy\.com|trashmail\.com|maildrop\.cc|dispostable\.com|getairmail\.com)[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email)) {
+      alert("Por favor, insira um e-mail válido e não temporário.");
+      return;
+    }
 
     try {
       const onlyDigits = (s: string) => s.replace(/\D/g, '');
@@ -837,21 +850,19 @@ export default function Home() {
                 >
                   <div className="flex flex-col gap-4">
                     <div className="flex flex-col gap-1">
-                      <label htmlFor="fullName-desktop" className="text-white/80 text-sm md:text-base font-medium">Nome Completo</label>
                       <input
                         id="fullName-desktop"
                         type="text"
                         name="fullName"
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
-                        placeholder="Seu Nome completo"
+                        placeholder="Seu nome completo"
                         className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition"
                         required
                         autoComplete="name"
                       />
                     </div>
                     <div className="flex flex-col gap-1">
-                      <label htmlFor="email-desktop" className="text-white/80 text-sm md:text-base font-medium">Email</label>
                       <input
                         id="email-desktop"
                         type="email"
@@ -865,39 +876,25 @@ export default function Home() {
                       />
                     </div>
                     <div className="flex flex-col gap-1">
-                      <label htmlFor="phone-desktop" className="text-white/80 text-sm md:text-base font-medium">Celular</label>
+                      <div className="relative">
+                      <span className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-white text-base md:text-[20px]">+55</span>
                       <input
                         id="phone-desktop"
                         type="tel"
                         name="phone"
-                        value={`+55${phone.replace(/\D/g, "")}`}
+                        value={phone}
                         onChange={(e) => {
-                          const digits = e.target.value.replace(/\D/g, "");
-                          const noPrefix = digits.replace(/^55/, "");
-                          setPhone(noPrefix);
+                          setPhone(formatPhone(e.target.value));
                         }}
-                        onFocus={(e) => {
-                          const el = e.currentTarget;
-                          requestAnimationFrame(() => {
-                            const p = 3; // length of "+55"
-                            try { el.setSelectionRange(p, el.value.length); } catch {}
-                          });
-                        }}
-                        onClick={(e) => {
-                          const el = e.currentTarget as HTMLInputElement;
-                          const p = 3;
-                          if ((el.selectionStart ?? 0) < p) {
-                            requestAnimationFrame(() => {
-                              try { el.setSelectionRange(p, el.value.length); } catch {}
-                            });
-                          }
-                        }}
-                        placeholder="Digite seu número com DDD"
-                        className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition"
+                        placeholder="Seu número de contato"
+                        className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition pl-[70px]"
                         required
                         inputMode="numeric"
                         autoComplete="tel"
+                        aria-label="Celular"
+                        maxLength={13}
                       />
+                    </div>
                     </div>
                   </div>
                   <div className="block w-full relative group" style={{ padding: "6px" }}>
@@ -925,21 +922,19 @@ export default function Home() {
             >
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1 text-left">
-                  <label htmlFor="fullName-mobile" className="text-white/80 text-sm md:text-base font-medium">Nome Completo</label>
                   <input
                     id="fullName-mobile"
                     type="text"
                     name="fullName"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    placeholder="Seu Nome completo"
+                    placeholder="Seu nome completo"
                     className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition"
                     required
                     autoComplete="name"
                   />
                 </div>
                 <div className="flex flex-col gap-1 text-left">
-                  <label htmlFor="email-mobile" className="text-white/80 text-sm md:text-base font-medium">Email</label>
                   <input
                     id="email-mobile"
                     type="email"
@@ -953,39 +948,25 @@ export default function Home() {
                   />
                 </div>
                 <div className="flex flex-col gap-1 text-left">
-                  <label htmlFor="phone-mobile" className="text-white/80 text-sm md:text-base font-medium">Celular</label>
+                  <div className="relative">
+                  <span className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-white text-base md:text-[20px]">+55</span>
                   <input
                     id="phone-mobile"
                     type="tel"
                     name="phone"
-                    value={`+55${phone.replace(/\D/g, "")}`}
+                    value={phone}
                     onChange={(e) => {
-                      const digits = e.target.value.replace(/\D/g, "");
-                      const noPrefix = digits.replace(/^55/, "");
-                      setPhone(noPrefix);
+                      setPhone(formatPhone(e.target.value));
                     }}
-                    onFocus={(e) => {
-                      const el = e.currentTarget;
-                      requestAnimationFrame(() => {
-                        const p = 3;
-                        try { el.setSelectionRange(p, el.value.length); } catch {}
-                      });
-                    }}
-                    onClick={(e) => {
-                      const el = e.currentTarget as HTMLInputElement;
-                      const p = 3;
-                      if ((el.selectionStart ?? 0) < p) {
-                        requestAnimationFrame(() => {
-                          try { el.setSelectionRange(p, el.value.length); } catch {}
-                        });
-                      }
-                    }}
-                    placeholder="Digite seu número com DDD"
-                    className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition"
+                    placeholder="Seu número de contato"
+                    className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition pl-[70px]"
                     required
                     inputMode="numeric"
                     autoComplete="tel"
+                    aria-label="Celular"
+                    maxLength={13}
                   />
+                </div>
                 </div>
               </div>
               <div className="block w-full relative group" style={{ padding: "6px" }}>

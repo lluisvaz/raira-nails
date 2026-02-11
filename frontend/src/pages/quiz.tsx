@@ -18,65 +18,40 @@ export default function Quiz() {
   // Estado do quiz em etapas (uma pergunta por tela, escolha única)
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({
-    mainGoal: "",
+    goal: "",
     experience: "",
-    firstTechnique: "",
-    weeklyAvailability: "",
-    hasMaterials: "",
-    hasClients: "",
-    incomeGoal: "",
-    goalTimeline: "",
-    investmentComfort: "",
-    serviceMode: "",
+    availability: "",
+    status: "",
+    start: "",
   });
 
   // Definição das etapas do quiz
   const steps = [
     {
-      key: "mainGoal",
-      title: "Qual seu principal objetivo com este curso?",
+      key: "goal",
+      title: "Qual é seu principal objetivo agora?",
       options: [
-        "Aprender do zero",
-        "Aperfeiçoar técnicas e cobrar mais",
+        "Começar do zero",
+        "Aperfeiçoar e aumentar meu ticket",
         "Lotar minha agenda",
-        "Abrir/estruturar meu estúdio",
-        "Trabalhar de casa com liberdade",
+        "Abrir/estruturar meu estúdio"
       ],
       map: (v: string) => ({
-        "Aprender do zero": "aprender-do-zero",
-        "Aperfeiçoar técnicas e cobrar mais": "aperfeicoar-e-cobrar-mais",
+        "Começar do zero": "aprender-do-zero",
+        "Aperfeiçoar e aumentar meu ticket": "aperfeicoar-e-cobrar-mais",
         "Lotar minha agenda": "lotar-agenda",
         "Abrir/estruturar meu estúdio": "abrir-estudio",
-        "Trabalhar de casa com liberdade": "trabalhar-de-casa",
       }[v] || v),
     },
     {
       key: "experience",
-      title: "Sua experiência com alongamento de unhas",
+      title: "Qual é o seu nível de experiência?",
       options: ["Nenhuma", "Iniciante", "Intermediária", "Avançada"],
       map: (v: string) => v.toLowerCase(),
     },
     {
-      key: "firstTechnique",
-      title: "Qual técnica você quer dominar primeiro?",
-      options: [
-        "Alongamento em Fibra de Vidro",
-        "Gel Moldado/Tip",
-        "Manutenção rápida e perfeita",
-        "Nail art básica que vende",
-        "Preparação e acabamento de alto padrão",
-      ],
-      map: (v: string) => ({
-        "Alongamento em Fibra de Vidro": "fibra-de-vidro",
-        "Gel Moldado/Tip": "gel-moldado-tip",
-        "Manutenção rápida e perfeita": "manutencao-rapida",
-        "Nail art básica que vende": "nail-art-basica",
-        "Preparação e acabamento de alto padrão": "preparacao-acabamento",
-      }[v] || v),
-    },
-    {
-      key: "weeklyAvailability",
-      title: "Disponibilidade semanal para estudar/praticar",
+      key: "availability",
+      title: "Quanto tempo por semana você pode dedicar?",
       options: ["Menos de 5h", "5-10h", "10-20h", "20h ou mais"],
       map: (v: string) => ({
         "Menos de 5h": "<5h",
@@ -86,52 +61,25 @@ export default function Quiz() {
       }[v] || v),
     },
     {
-      key: "hasMaterials",
-      title: "Você já possui materiais básicos?",
-      options: ["Sim", "Não"],
-      map: (v: string) => (v === "Sim" ? "sim" : "nao"),
-    },
-    {
-      key: "hasClients",
-      title: "Você já atende clientes?",
-      options: ["Ainda não", "Atendo poucas por mês", "Atendo com frequência"],
+      key: "status",
+      title: "Sua situação hoje",
+      options: [
+        "Começando do zero (sem materiais/sem clientes)",
+        "Tenho materiais, ainda sem clientes",
+        "Atendo poucas por mês",
+        "Atendo com frequência",
+      ],
       map: (v: string) => ({
-        "Ainda não": "nenhum",
+        "Começando do zero (sem materiais/sem clientes)": "zero",
+        "Tenho materiais, ainda sem clientes": "materiais-sem-clientes",
         "Atendo poucas por mês": "poucas",
         "Atendo com frequência": "frequente",
       }[v] || v),
     },
     {
-      key: "incomeGoal",
-      title: "Objetivo de renda mensal",
-      options: ["Até R$ 2.000", "R$ 2.000 a R$ 4.000", "R$ 4.000 a R$ 6.000", "R$ 6.000 ou mais"],
-      map: (v: string) => ({
-        "Até R$ 2.000": "<2k",
-        "R$ 2.000 a R$ 4.000": "2-4k",
-        "R$ 4.000 a R$ 6.000": "4-6k",
-        "R$ 6.000 ou mais": ">=6k",
-      }[v] || v),
-    },
-    {
-      key: "goalTimeline",
-      title: "Quando você pretende começar a atuar?",
+      key: "start",
+      title: "Quando pretende começar?",
       options: ["Quero começar já", "Em até 30 dias", "Em 1–3 meses", "Estou pesquisando ainda"],
-    },
-    {
-      key: "investmentComfort",
-      title: "Como você se sente em relação ao investimento?",
-      options: ["Posso investir agora", "Preciso parcelar", "Quero opções gratuitas primeiro"],
-    },
-    {
-      key: "serviceMode",
-      title: "Onde você pretende atender?",
-      options: ["Em casa (home care)", "A domicílio", "Em salão/parceria", "No meu estúdio"],
-      map: (v: string) => ({
-        "Em casa (home care)": "casa",
-        "A domicílio": "domicilio",
-        "Em salão/parceria": "salao",
-        "No meu estúdio": "estudio",
-      }[v] || v),
     },
   ] as const;
 
