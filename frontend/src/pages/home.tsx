@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
+import { isValidPhoneNumber } from "libphonenumber-js/max";
 import {
   Accordion,
   AccordionContent,
@@ -7,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
+import { CgSpinner } from "react-icons/cg";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { motion, type Variants } from "motion/react";
 import { AiFillSpotify } from "react-icons/ai";
@@ -488,6 +490,8 @@ export default function Home() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [phoneError, setPhoneError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [, navigate] = useLocation();
 
   const formatPhone = (value: string) => {
@@ -506,9 +510,22 @@ export default function Home() {
       return;
     }
 
+    const onlyDigits = (s: string) => s.replace(/\D/g, '');
+    const digits = onlyDigits(phone);
+    const formattedPhone = `+55${digits}`;
+
+    // Validação extra contra números obviamente fakes (todos os dígitos iguais)
+    const isRepeated = /^(\d)\1+$/.test(digits);
+
+    if (!isValidPhoneNumber(formattedPhone, 'BR') || isRepeated) {
+      setPhoneError(true);
+      return;
+    }
+
+    setPhoneError(false);
+    setIsSubmitting(true);
+
     try {
-      const onlyDigits = (s: string) => s.replace(/\D/g, '');
-      const formattedPhone = `+55${onlyDigits(phone)}`;
       const res = await fetch('/api/leads/start', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -532,6 +549,8 @@ export default function Home() {
     } catch (error) {
       console.error(error);
       alert('Ocorreu um erro ao iniciar seu cadastro. Por favor, tente novamente.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -885,6 +904,7 @@ export default function Home() {
                         value={phone}
                         onChange={(e) => {
                           setPhone(formatPhone(e.target.value));
+                          if (phoneError) setPhoneError(false);
                         }}
                         placeholder="Seu número de contato"
                         className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition pl-[70px]"
@@ -895,12 +915,28 @@ export default function Home() {
                         maxLength={13}
                       />
                     </div>
+                    {phoneError && (
+                      <span className="text-red-500 text-sm mt-1 ml-1 animate-in fade-in slide-in-from-top-1 duration-200">
+                        Por favor, insira um número de telefone real e válido.
+                      </span>
+                    )}
                     </div>
                   </div>
                   <div className="block w-full relative group" style={{ padding: "6px" }}>
-                    <button type="submit" className="cta-button w-full justify-center" data-testid="button-cta-hero-desktop">
-                      Quero me Tornar uma Nail Designer
-                      <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                    <button 
+                      type="submit" 
+                      className="cta-button w-full justify-center disabled:opacity-70 disabled:cursor-not-allowed" 
+                      data-testid="button-cta-hero-desktop"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <CgSpinner size={24} className="animate-spin" />
+                      ) : (
+                        <>
+                          Quero me Tornar uma Nail Designer
+                          <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                        </>
+                      )}
                     </button>
                     <BorderBeam size={100} duration={3} colorFrom="#D19756" colorTo="#F1EEE1" beamBorderRadius={12} />
                   </div>
@@ -957,6 +993,7 @@ export default function Home() {
                     value={phone}
                     onChange={(e) => {
                       setPhone(formatPhone(e.target.value));
+                      if (phoneError) setPhoneError(false);
                     }}
                     placeholder="Seu número de contato"
                     className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition pl-[70px]"
@@ -967,12 +1004,28 @@ export default function Home() {
                     maxLength={13}
                   />
                 </div>
+                {phoneError && (
+                  <span className="text-red-500 text-sm mt-1 ml-1 animate-in fade-in slide-in-from-top-1 duration-200">
+                    Por favor, insira um número de telefone real e válido.
+                  </span>
+                )}
                 </div>
               </div>
               <div className="block w-full relative group" style={{ padding: "6px" }}>
-                <button type="submit" className="cta-button w-full justify-center" data-testid="button-cta-hero">
-                  Quero me Tornar uma Nail Designer
-                  <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                <button 
+                  type="submit" 
+                  className="cta-button w-full justify-center disabled:opacity-70 disabled:cursor-not-allowed" 
+                  data-testid="button-cta-hero"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <CgSpinner size={24} className="animate-spin" />
+                  ) : (
+                    <>
+                      Quero me Tornar uma Nail Designer
+                      <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                    </>
+                  )}
                 </button>
                 <BorderBeam size={100} duration={3} colorFrom="#D19756" colorTo="#F1EEE1" beamBorderRadius={12} />
               </div>

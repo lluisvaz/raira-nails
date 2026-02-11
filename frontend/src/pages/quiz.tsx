@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "motion/react";
+import { CgSpinner } from "react-icons/cg";
 import { BorderBeam } from "@/components/ui/border-beam";
 
 interface LeadData {
@@ -266,10 +267,14 @@ export default function Quiz() {
               <div className="block relative group" style={{ padding: "6px" }}>
                 <button
                   type="submit"
-                  className="cta-button justify-center"
+                  className="cta-button justify-center disabled:opacity-70 disabled:cursor-not-allowed"
                   disabled={!canProceed || submitting}
                 >
-                  {submitting ? "Enviando..." : "Finalizar"}
+                  {submitting ? (
+                    <CgSpinner size={24} className="animate-spin" />
+                  ) : (
+                    "Finalizar"
+                  )}
                 </button>
                 <BorderBeam size={100} duration={3} colorFrom="#D19756" colorTo="#F1EEE1" beamBorderRadius={12} />
               </div>
