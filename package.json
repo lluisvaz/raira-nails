@@ -18,6 +18,10 @@
     "db:push": "npm run db:push --workspace=backend",
     "clean": "npm run clean --workspaces"
   },
+  "dependencies": {
+    "googleapis": "^140.0.0",
+    "zod": "^3.24.2"
+  },
   "devDependencies": {
     "concurrently": "^9.2.1",
     "typescript": "5.6.3"

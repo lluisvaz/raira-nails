@@ -1665,7 +1665,7 @@ export default function Home() {
                 >
                   <IntersectionVideoPlayer
                     src={isMobile ? undefined : "/images/more-raira-nail-1.webm"}
-                    poster="/images/more-raira-nail-1.webp"
+                    poster="/images/more-raira-nail-2.webp"
                     disablePictureInPicture
                     controlsList="nodownload nofullscreen noremoteplayback"
                     draggable="false"

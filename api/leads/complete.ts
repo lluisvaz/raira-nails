@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { z } from "zod";
-import { appendLeadRow } from "../../backend/src/services/google-sheets.service";
+import { appendLeadRow } from "../_lib/google-sheets";
 
 const startSchema = z.object({
   fullName: z.string().min(2),

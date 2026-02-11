@@ -321,7 +321,7 @@ export default function Quiz() {
                   className="cta-button justify-center"
                   disabled={!canProceed || submitting}
                 >
-                  {submitting ? "Enviando..." : "Finalizar meu cadastro"}
+                  {submitting ? "Enviando..." : "Finalizar"}
                 </button>
                 <BorderBeam size={100} duration={3} colorFrom="#D19756" colorTo="#F1EEE1" beamBorderRadius={12} />
               </div>
