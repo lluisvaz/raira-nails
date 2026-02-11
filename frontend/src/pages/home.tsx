@@ -13,7 +13,7 @@ import { FaHeadphones, FaXTwitter } from "react-icons/fa6";
 import { FaPhoneAlt, FaPinterest, FaSnapchatGhost } from "react-icons/fa";
 import { RiNetflixFill } from "react-icons/ri";
 
-// Componente de vídeo otimizado com Intersection Observer
+// Componente de vídeo otimizado com Intersection Observerr
 const IntersectionVideoPlayer = ({
   src,
   poster,
