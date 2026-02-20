@@ -1,48 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { motion } from "motion/react";
-import { BorderBeam } from "@/components/ui/border-beam";
 import { useLocation } from "wouter";
-import { FaWhatsapp } from "react-icons/fa";
 
 export default function Success() {
   const [, navigate] = useLocation();
-  const [countdown, setCountdown] = useState(10);
-  const [whatsappLink, setWhatsappLink] = useState<string>("");
 
   useEffect(() => {
-    // Busca configuração pública no backend (link do WhatsApp)
-    (async () => {
-      try {
-        const res = await fetch("/api/config");
-        if (res.ok) {
-          const data = await res.json();
-          if (data?.whatsappGroupUrl) {
-            setWhatsappLink(data.whatsappGroupUrl as string);
-          }
-        }
-      } catch (e) {
-        // Silencia erros de rede; o botão manual continuará disponível
-        console.error(e);
-      }
-    })();
+    // Rola para o topo ao montar a página
+    window.scrollTo(0, 0);
   }, []);
-
-  useEffect(() => {
-    if (!whatsappLink) return; // só inicia contagem quando link disponível
-
-    const timer = setInterval(() => {
-      setCountdown((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          window.location.href = whatsappLink;
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [whatsappLink]);
 
   return (
     <div
@@ -104,40 +70,10 @@ export default function Success() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35, delay: 0.4 }}
           >
-            Parabéns! Suas respostas foram enviadas. Agora, para não perder nenhum aviso importante e garantir seu bônus, entre no nosso grupo exclusivo.
+            Parabéns! Suas respostas foram enviadas com sucesso.
           </motion.p>
 
           <div className="space-y-4">
-            <div className="inline-block relative group w-full max-w-md" style={{ padding: "6px" }}>
-              <a
-                href={whatsappLink || "#"}
-                onClick={(e) => {
-                  if (!whatsappLink) e.preventDefault();
-                }}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={[
-                  "cta-button justify-center w-full",
-                  !whatsappLink ? "pointer-events-none opacity-60" : "",
-                ].join(" ")}
-                aria-disabled={!whatsappLink}
-              >
-                ENTRAR NO GRUPO EXCLUSIVO
-                <FaWhatsapp size={24} className="text-black flex-shrink-0" />
-              </a>
-              <BorderBeam size={100} duration={3} colorFrom="#D19756" colorTo="#F1EEE1" beamBorderRadius={12} />
-            </div>
-
-            {whatsappLink ? (
-              <p className="text-[#DBA86F]/60 text-sm font-medium animate-pulse">
-                Redirecionando para Grupo Exclusivo em {countdown} segundos...
-              </p>
-            ) : (
-              <p className="text-[#DBA86F]/60 text-sm font-medium">
-                Carregando link seguro do grupo...
-              </p>
-            )}
-
             <button
               onClick={() => navigate("/")}
               className="text-white/30 hover:text-[#DBA86F] text-xs transition-colors block mx-auto pt-6"
