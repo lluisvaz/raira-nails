@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
-import { isValidPhoneNumber } from "libphonenumber-js/max";
 import {
   Accordion,
   AccordionContent,
@@ -446,113 +445,8 @@ export default function Home() {
     };
   }, []);
 
-  // Smooth scroll handler for anchor links
-  useEffect(() => {
-    const handleSmoothScroll = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      const link = target.closest('a[href^="#"]') as HTMLAnchorElement | null;
-
-      if (!link) return;
-
-      const href = link.getAttribute('href');
-
-      // Novo destino: centralizar o formulário da Hero
-      if (href === '#lead-form') {
-        e.preventDefault();
-        const isDesktop = window.innerWidth >= 1024;
-        const selector = isDesktop ? '[data-hero-form="desktop"]' : '[data-hero-form="mobile"]';
-        const formEl = document.querySelector(selector) as HTMLElement | null;
-        if (formEl) {
-          formEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else {
-          const hero = document.getElementById('hero');
-          if (hero) hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        return;
-      }
-
-      // Suporte anterior mantido
-      if (href === '#hero' || href === '#tudo-que-voce-precisa') {
-        e.preventDefault();
-        const id = (href || '#').slice(1);
-        const targetElement = document.getElementById(id);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    };
-
-    document.addEventListener('click', handleSmoothScroll);
-    return () => document.removeEventListener('click', handleSmoothScroll);
-  }, []);
-
   // Estado do formulário do herói
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [phoneError, setPhoneError] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [, navigate] = useLocation();
-
-  const formatPhone = (value: string) => {
-    const digits = value.replace(/\D/g, "").slice(0, 11);
-    if (digits.length <= 2) return digits;
-    if (digits.length <= 7) return `${digits.slice(0, 2)} ${digits.slice(2)}`;
-    return `${digits.slice(0, 2)} ${digits.slice(2, 7)}-${digits.slice(7)}`;
-  };
-
-  const handleLeadSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@(?!yopmail\.com|mailinator\.com|tempmail\.com|guerrillamail\.com|10minutemail\.com|temp-mail\.org|teleworm\.us|dayrep\.com|einrot\.com|fleckens\.hu|armyspy\.com|trashmail\.com|maildrop\.cc|dispostable\.com|getairmail\.com)[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(email)) {
-      alert("Por favor, insira um e-mail válido e não temporário.");
-      return;
-    }
-
-    const onlyDigits = (s: string) => s.replace(/\D/g, '');
-    const digits = onlyDigits(phone);
-    const formattedPhone = `+55${digits}`;
-
-    // Validação extra contra números obviamente fakes (todos os dígitos iguais)
-    const isRepeated = /^(\d)\1+$/.test(digits);
-
-    if (!isValidPhoneNumber(formattedPhone, 'BR') || isRepeated) {
-      setPhoneError(true);
-      return;
-    }
-
-    setPhoneError(false);
-    setIsSubmitting(true);
-
-    try {
-      const res = await fetch('/api/leads/start', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fullName, email, phone: formattedPhone }),
-      });
-
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.message || 'Não foi possível iniciar seu cadastro. Tente novamente.');
-      }
-
-      const data = await res.json();
-      const leadId = data.leadId as string;
-
-      // Persiste temporariamente para o quiz
-      localStorage.setItem('leadId', leadId);
-      localStorage.setItem('leadData', JSON.stringify({ fullName, email, phone: formattedPhone }));
-
-      // Redireciona para o quiz
-      navigate('/quiz');
-    } catch (error) {
-      console.error(error);
-      alert('Ocorreu um erro ao iniciar seu cadastro. Por favor, tente novamente.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const faqs = [
     {
@@ -858,178 +752,54 @@ export default function Home() {
                   Fature +6.000/Mês como Nail Designer, Dominando as Técnicas
                   que as Clientes Amam!
                 </motion.p>
-                <motion.form
-                  onSubmit={handleLeadSubmit}
+                <motion.div
                   className="w-full max-w-xl space-y-4 z-20"
                   variants={blurText}
                   initial="hidden"
                   animate="visible"
                   transition={{ delay: 0.6 }}
-                  data-hero-form="desktop"
                 >
-                  <div className="flex flex-col gap-4">
-                    <div className="flex flex-col gap-1">
-                      <input
-                        id="fullName-desktop"
-                        type="text"
-                        name="fullName"
-                        value={fullName}
-                        onChange={(e) => setFullName(e.target.value)}
-                        placeholder="Seu nome completo"
-                        className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition"
-                        required
-                        autoComplete="name"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <input
-                        id="email-desktop"
-                        type="email"
-                        name="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Seu melhor e-mail"
-                        className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition"
-                        required
-                        autoComplete="email"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <div className="relative">
-                      <span className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-white text-base md:text-[20px]">+55</span>
-                      <input
-                        id="phone-desktop"
-                        type="tel"
-                        name="phone"
-                        value={phone}
-                        onChange={(e) => {
-                          setPhone(formatPhone(e.target.value));
-                          if (phoneError) setPhoneError(false);
-                        }}
-                        placeholder="Seu número de contato"
-                        className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition pl-[70px]"
-                        required
-                        inputMode="numeric"
-                        autoComplete="tel"
-                        aria-label="Celular"
-                        maxLength={13}
-                      />
-                    </div>
-                    {phoneError && (
-                      <span className="text-red-500 text-sm mt-1 ml-1 animate-in fade-in slide-in-from-top-1 duration-200">
-                        Por favor, insira um número de telefone real e válido.
-                      </span>
-                    )}
-                    </div>
-                  </div>
                   <div className="block w-full relative group" style={{ padding: "6px" }}>
-                    <button 
-                      type="submit" 
-                      className="cta-button w-full justify-center disabled:opacity-70 disabled:cursor-not-allowed" 
+                    <a 
+                      href="https://chat.whatsapp.com/CMolVQ4u7g4LdrmNviKLD9?mode=gi_t"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cta-button w-full justify-center" 
                       data-testid="button-cta-hero-desktop"
-                      disabled={isSubmitting}
                     >
-                      {isSubmitting ? (
-                        <CgSpinner size={24} className="animate-spin" />
-                      ) : (
-                        <>
-                          Quero me Tornar uma Nail Designer
-                          <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
-                        </>
-                      )}
-                    </button>
+                      Quero me Tornar uma Nail Designer
+                      <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                    </a>
                     <BorderBeam size={100} duration={3} colorFrom="#D19756" colorTo="#F1EEE1" beamBorderRadius={12} />
                   </div>
-                </motion.form>
+                </motion.div>
               </div>
             </div>
           </div>
 
           {/* Botão Mobile/Tablet */}
           <div className="lg:hidden px-4 md:px-8 pt-48 md:pt-40 pb-20">
-            <motion.form
-              onSubmit={handleLeadSubmit}
+            <motion.div
               className="space-y-4"
               variants={blurText}
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.6 }}
-              data-hero-form="mobile"
             >
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col gap-1 text-left">
-                  <input
-                    id="fullName-mobile"
-                    type="text"
-                    name="fullName"
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
-                    placeholder="Seu nome completo"
-                    className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition"
-                    required
-                    autoComplete="name"
-                  />
-                </div>
-                <div className="flex flex-col gap-1 text-left">
-                  <input
-                    id="email-mobile"
-                    type="email"
-                    name="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Seu melhor e-mail"
-                    className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition"
-                    required
-                    autoComplete="email"
-                  />
-                </div>
-                <div className="flex flex-col gap-1 text-left">
-                  <div className="relative">
-                  <span className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-white text-base md:text-[20px]">+55</span>
-                  <input
-                    id="phone-mobile"
-                    type="tel"
-                    name="phone"
-                    value={phone}
-                    onChange={(e) => {
-                      setPhone(formatPhone(e.target.value));
-                      if (phoneError) setPhoneError(false);
-                    }}
-                    placeholder="Seu número de contato"
-                    className="w-full rounded-xl bg-[#1B1310] border border-[#372507] focus:border-[#DBA86F] focus:ring-2 focus:ring-[#DBA86F]/20 text-white text-base md:text-[20px] placeholder-white/50 px-5 py-4 outline-none transition pl-[70px]"
-                    required
-                    inputMode="numeric"
-                    autoComplete="tel"
-                    aria-label="Celular"
-                    maxLength={13}
-                  />
-                </div>
-                {phoneError && (
-                  <span className="text-red-500 text-sm mt-1 ml-1 animate-in fade-in slide-in-from-top-1 duration-200">
-                    Por favor, insira um número de telefone real e válido.
-                  </span>
-                )}
-                </div>
-              </div>
               <div className="block w-full relative group" style={{ padding: "6px" }}>
-                <button 
-                  type="submit" 
-                  className="cta-button w-full justify-center disabled:opacity-70 disabled:cursor-not-allowed" 
+                <a 
+                  href="https://chat.whatsapp.com/CMolVQ4u7g4LdrmNviKLD9?mode=gi_t"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cta-button w-full justify-center" 
                   data-testid="button-cta-hero"
-                  disabled={isSubmitting}
                 >
-                  {isSubmitting ? (
-                    <CgSpinner size={24} className="animate-spin" />
-                  ) : (
-                    <>
-                      Quero me Tornar uma Nail Designer
-                      <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
-                    </>
-                  )}
-                </button>
+                  Quero me Tornar uma Nail Designer
+                  <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
+                </a>
                 <BorderBeam size={100} duration={3} colorFrom="#D19756" colorTo="#F1EEE1" beamBorderRadius={12} />
               </div>
-            </motion.form>
+            </motion.div>
             <motion.p
               className="text-white uppercase mt-6 text-center"
               style={{
@@ -1337,7 +1107,9 @@ export default function Home() {
               variants={blurText}
             >
               <a
-                href="#lead-form"
+                href="https://chat.whatsapp.com/CMolVQ4u7g4LdrmNviKLD9?mode=gi_t"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-button"
                 data-testid="button-cta-target-audience"
               >
@@ -1567,7 +1339,9 @@ export default function Home() {
                   style={{ padding: "6px" }}
                 >
                   <a
-                    href="#lead-form"
+                    href="https://chat.whatsapp.com/CMolVQ4u7g4LdrmNviKLD9?mode=gi_t"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="cta-button"
                     data-testid="button-cta-access"
                   >
@@ -2291,7 +2065,7 @@ export default function Home() {
                 variants={blurText}
               >
                 <div className="inline-block relative group" style={{ padding: "6px" }}>
-                  <a href="#lead-form" className="cta-button">
+                  <a href="https://chat.whatsapp.com/CMolVQ4u7g4LdrmNviKLD9?mode=gi_t" target="_blank" rel="noopener noreferrer" className="cta-button">
                     QUERO ME TORNAR ALUNA
                     <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
                   </a>
@@ -2372,7 +2146,7 @@ export default function Home() {
                 variants={blurText}
               >
                 <div className="inline-block relative group" style={{ padding: "6px" }}>
-                  <a href="#lead-form" className="cta-button">
+                  <a href="https://chat.whatsapp.com/CMolVQ4u7g4LdrmNviKLD9?mode=gi_t" target="_blank" rel="noopener noreferrer" className="cta-button">
                     QUERO ME TORNAR ALUNA
                     <HiOutlineArrowUpRight size={24} className="text-black flex-shrink-0" />
                   </a>
