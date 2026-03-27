@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useLocation } from "wouter";
 import {
   Accordion,
   AccordionContent,
@@ -7,7 +6,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
-import { CgSpinner } from "react-icons/cg";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { motion, type Variants } from "motion/react";
 import { AiFillSpotify } from "react-icons/ai";
@@ -444,9 +442,6 @@ export default function Home() {
       mediaQuery.removeEventListener("change", handleMotionChange);
     };
   }, []);
-
-  // Estado do formulário do herói
-  const [, navigate] = useLocation();
 
   const faqs = [
     {
